@@ -6,7 +6,7 @@ module Users
     attr_reader :service, :user
 
     def failure
-      redirect_to root_path, alert: "Something went wrong"
+      redirect_to root_path, alert: t(".wrong")
     end
 
     def facebook
@@ -40,7 +40,7 @@ module Users
     end
 
     def auth
-      request.env['omniauth.auth']
+      request.env["omniauth.auth"]
     end
 
     def set_service
@@ -62,23 +62,22 @@ module Users
     end
 
     def service_attrs
-      expires_at = auth.credentials.expires_at.present? ? Time.at(auth.credentials.expires_at) : nil
+      expires_at = auth.credentials.expires_at.present? ? Time.zone.at(auth.credentials.expires_at) : nil
       {
-          provider: auth.provider,
-          uid: auth.uid,
-          expires_at: expires_at,
-          access_token: auth.credentials.token,
-          access_token_secret: auth.credentials.secret,
+        provider: auth.provider,
+        uid: auth.uid,
+        expires_at: expires_at,
+        access_token: auth.credentials.token,
+        access_token_secret: auth.credentials.secret
       }
     end
 
     def create_user
       User.create(
         email: auth.info.email,
-        #name: auth.info.name,
-        password: Devise.friendly_token[0,20]
+        # name: auth.info.name,
+        password: Devise.friendly_token[0, 20]
       )
     end
-
   end
 end

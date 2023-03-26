@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_noticed_notifications
 
   has_many :notifications, as: :recipient, dependent: :destroy
-  has_many :services
+  has_many :services, dependent: :destroy
 end
