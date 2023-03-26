@@ -31,6 +31,8 @@ gem "sidekiq", "~> 6.2"
 gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
 gem "responders", github: "heartcombo/responders", branch: "main"
+gem "rolify"
+gem "madmin"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -49,6 +51,7 @@ group :development do
   gem "rubocop-rspec"
   gem "rubocop-capybara"
   gem "fuubar", "~> 2.5", ">= 2.5.1"
+  gem "strong_migrations"
 end
 
 group :test do
