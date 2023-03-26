@@ -16,6 +16,7 @@ inherit_from:
 
 AllCops:
   NewCops: enable
+  SuggestExtensions: false
   TargetRubyVersion: 3.0.0
   Exclude:
     - bin/**/*
