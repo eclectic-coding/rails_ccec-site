@@ -10,6 +10,7 @@
     "@rails/ujs": "^7.0.4-3",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
+    "chokidar": "^3.5.3",
     "esbuild": "^0.17.13",
     "esbuild-rails": "^1.0.4",
     "local-time": "^2.1.0",

@@ -10,7 +10,7 @@ require("@rails/activestorage").start()
 require("local-time").start()
 require("@rails/ujs").start()
 
-import './channels/**/*_channel.js'
+import '../channels/**/*_channel.js'
 import "./controllers"
 
 import * as bootstrap from "bootstrap"
