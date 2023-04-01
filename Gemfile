@@ -19,20 +19,14 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # === App Gems ======================
 gem "devise", "~> 4.9"
 gem "friendly_id", "~> 5.4"
-gem "madmin"
 gem "name_of_person", "~> 1.1"
 gem "noticed", "~> 1.4"
-gem "omniauth-facebook", "~> 8.0"
-gem "omniauth-github", "~> 2.0"
-gem "omniauth-twitter", "~> 1.4"
 gem "pretender", "~> 0.3.4"
 gem "pundit", "~> 2.1"
 gem "sidekiq", "~> 6.2"
 gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
-gem "responders", github: "heartcombo/responders", branch: "main"
 gem "rolify"
-gem "madmin"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
@@ -51,7 +45,7 @@ group :development do
   gem "rubocop-rspec"
   gem "rubocop-capybara"
   gem "fuubar", "~> 2.5", ">= 2.5.1"
-  gem "strong_migrations"
+  # gem "strong_migrations"
 end
 
 group :test do
