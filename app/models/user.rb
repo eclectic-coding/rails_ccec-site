@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :bigint           not null, primary key
+#  id                     :uuid             not null, primary key
 #  admin                  :boolean          default(FALSE)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
@@ -13,7 +13,7 @@
 #  reset_password_token   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  account_id             :bigint
+#  account_id             :uuid
 #
 # Indexes
 #
@@ -26,7 +26,6 @@
 #  fk_rails_...  (account_id => accounts.id)
 #
 class User < ApplicationRecord
-  attribute :account_id, :integer, default: -> { Account.first.id }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
@@ -35,4 +34,10 @@ class User < ApplicationRecord
   has_person_name
 
   belongs_to :account, optional: true
+
+  before_save :add_account_id_from_parent
+
+  def add_account_id_from_parent
+    self.account_id = Account.find_by(name: "CCEC").id if self.account_id.nil?
+  end
 end
