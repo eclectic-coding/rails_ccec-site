@@ -1,7 +1,8 @@
 <% if current_user != true_user %>
   <div class="alert alert-warning text-center">
     You're logged in as <b><%= current_user.name %> (<%= current_user.email %>)</b>
-    <%= link_to stop_impersonating_madmin_impersonates_path, method: :post do %><%= icon("fas", "times") %> Logout <% end %>
+    <%= link_to stop_impersonating_madmin_impersonates_path, method: :post do %><%= icon("fas", "times") %> Logout
+    <% end %>
   </div>
 <% end %>
 
@@ -25,8 +26,8 @@
               <%= image_tag avatar_path(current_user, size: 40), height: 20, width: 20, class: "rounded" %>
             <% end %>
             <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbar-dropdown">
-              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
               <% if current_user.has_role?(:admin) %>
+                <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
                 <div class="dropdown-divider"></div>
                 <%= link_to "Admin Area", "#", class: "dropdown-item" %>
               <% end %>

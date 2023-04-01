@@ -1,12 +1,12 @@
 class User < ApplicationRecord
-  rolify
+  attribute :account_id, :integer, default: -> { Account.first.id }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
+  rolify
   has_person_name
-  has_noticed_notifications
 
-  has_many :notifications, as: :recipient, dependent: :destroy
-  has_many :services, dependent: :destroy
+  belongs_to :account, optional: true
+
 end
