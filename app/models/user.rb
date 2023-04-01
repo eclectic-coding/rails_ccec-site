@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_person_name
 
   belongs_to :account, optional: true
-
 end

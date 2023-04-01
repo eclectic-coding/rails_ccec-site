@@ -14,7 +14,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "redis", "~> 4.0"
 gem "bootsnap", require: false
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # === App Gems ======================
 gem "devise", "~> 4.9"
@@ -29,8 +29,7 @@ gem "whenever", require: false
 gem "rolify"
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "standard", "~> 1.9", require: false
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"
   gem "webdrivers"
   gem "rspec-rails", "~> 6.0.0"
@@ -40,14 +39,14 @@ end
 
 group :development do
   gem "web-console"
-  gem "rubocop"
-  gem "rubocop-rails", require: false
-  gem "rubocop-rspec"
-  gem "rubocop-capybara"
   gem "fuubar", "~> 2.5", ">= 2.5.1"
   # gem "strong_migrations"
 end
 
 group :test do
   gem "simplecov", "~> 0.21.2", require: false
+end
+
+group :development do
+  eval_gemfile "gemfiles/rubocop.gemfile"
 end

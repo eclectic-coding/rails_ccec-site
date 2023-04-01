@@ -196,12 +196,3 @@ Rails/Validation:
   Enabled: true
   Include:
     - app/models/**/*.rb
-
-Layout/SpaceInsidePercentLiteralDelimiters:
-  Enabled: false
-
-Layout/SpaceInsideHashLiteralBraces:
-  Enabled: false
-
-Layout/EndOfLine:
-  Enabled: false

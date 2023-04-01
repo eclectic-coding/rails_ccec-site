@@ -1,29 +1,32 @@
-# Refer: https://evilmartians.com/chronicles/rubocoping-with-legacy-bring-your-ruby-code-up-to-standard
-
 inherit_mode:
   merge:
     - Exclude
 
-require: standard
+require:
+  - standard
 
 inherit_gem:
-  standard: config/ruby-2.7.yml
+  standard: config/base.yml
 
 inherit_from:
-  - .rubocop_rails.yml
-  - .rubocop_rspec.yml
-  - .rubocop_strict.yml
+  - .rubocop/rails.yml
+  - .rubocop/rspec.yml
+  - .rubocop_todo.yml
+  - .rubocop/strict.yml
+  - .rubocop-mine.yml
 
 AllCops:
-  NewCops: enable
+  NewCops: disable
   SuggestExtensions: false
-  TargetRubyVersion: 3.0.0
+  TargetRubyVersion: 3.2
   Exclude:
-    - bin/**/*
-    - config/**/*
-    - db/schema.rb
-    - db/migrate/*.rb
-    - node_modules/**/*
-    - tmp/**/*
-    - vendor/**/*
-    - spec/spec_helper.rb
+    - bin/*
+    - app/models/role.rb
+    - db/**/*.rb
+    - node_modules/*
+    - vendor/*
+    - tmp/*
+    - log/*
+    - coverage/*
+    - .bundle/*
+    - .git/*

@@ -1,6 +1,11 @@
 require:
   - rubocop-rspec
 
+# Disable all cops by default,
+# only enable those defined explcitly in this configuration file
+RSpec:
+  Enabled: false
+
 RSpec/Focus:
   Enabled: true
 
@@ -48,6 +53,3 @@ RSpec/FactoryBot/AttributeDefinedStatically:
 
 RSpec/FactoryBot/CreateList:
   Enabled: true
-
-RSpec/Rails/InferredSpecType:
-  Enabled: false
