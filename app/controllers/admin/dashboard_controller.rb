@@ -4,6 +4,6 @@ class Admin::DashboardController < ApplicationController
   layout "admin"
 
   def show
-    @admin = current_user.admin?
+    @admin = current_user.has_role?(:admin)
   end
 end
