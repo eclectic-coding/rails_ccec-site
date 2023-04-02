@@ -26,11 +26,11 @@
 #  fk_rails_...  (account_id => accounts.id)
 #
 class User < ApplicationRecord
+  rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
-  rolify
   has_person_name
 
   belongs_to :account, optional: true
@@ -38,6 +38,6 @@ class User < ApplicationRecord
   before_save :add_account_id_from_parent
 
   def add_account_id_from_parent
-    self.account_id = Account.find_by(name: "CCEC").id if self.account_id.nil?
+    self.account_id = Account.find_by(name: "CCEC").id if account_id.nil?
   end
 end

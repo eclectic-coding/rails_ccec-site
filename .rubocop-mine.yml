@@ -1,3 +1,8 @@
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: space
   Enabled: true
+
+Rails/Output:
+  Enabled: true
+  Exclude:
+    - app/jobs/post_setup_instructions_job.rb
