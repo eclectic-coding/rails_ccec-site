@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-100">
+<html class="h-100" lang="<%= locale %>">
   <head>
     <%= render 'shared/head' %>
   </head>
@@ -8,6 +8,11 @@
     <main class="flex-shrink-0"> 
       <%= render 'shared/navbar' %>
       <%= render 'shared/notices' %>
+
+      <div class="container position-relative">
+        <div id="toasts" class="position-absolute top-0 end-0">
+        </div>
+      </div>
 
       <div class="container mt-4 mx-auto">
         <%= yield %>
