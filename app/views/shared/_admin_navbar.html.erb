@@ -1,1 +1,37 @@
-<h1>Admin</h1>
+<nav class="col-auto col-md-3 col-xl-2 px-md-2 px-0 pb-2 bg-dark">
+  <div class="d-flex flex-column align-items-center align-items-sm-start px-0 px-md-3 pt-4 text-white min-vh-100">
+    <div class="d-flex justify-content-center align-items-center mb-3 mb-md-0 me-md-2 text-white text-decoration-none w-100">
+      <span class="fs-4 d-none d-md-inline">Dashboard</span>
+    </div>
+    <hr class="w-100" style="height:2px; color:grey;">
+    <ul class="ms-1 mt-1 pe-3 nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start w-100">
+      <li class="nav-item w-100">
+        <%= link_to admin_root_path, class: "nav-link sidebar__active" do %>
+          <i class="bi bi-house-fill"></i>
+          <span class="d-none d-md-inline">Home</span>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "#", class: "nav-link text-white" do %>
+          <i class="bi bi-person-fill"></i>
+          <span class="d-none d-md-inline">Users</span>
+        <% end %>
+      </li>
+    </ul>
+    <hr class="w-100" style="height:2px; color:grey;">
+    <div class="d-flex justify-content-center align-items-center w-100">
+      <div class="dropdown pb-3">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <strong class="d-none d-md-inline">Admin</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" style="">
+          <li><%= link_to "Edit Profile", "#", class: "dropdown-item" %></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><%= button_to 'Log out', "#", method: :delete, class: "dropdown-item" %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

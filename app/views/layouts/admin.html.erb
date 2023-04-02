@@ -4,16 +4,22 @@
     <%= render 'shared/head' %>
   </head>
 
-  <body class="d-flex flex-column h-100">
-    <main class="flex-shrink-0"> 
-      <%= render 'shared/admin_navbar' %>
-      <%= render 'shared/notices' %>
+  <body class="bg-light">
+    <div id="toasts" class="position-absolute top-0 end-0"></div>
 
-      <div class="container mt-4 mx-auto">
-        <%= yield %>
+    <div class="admin container-fluid bg-light">
+      <div class="row flex-nowrap">
+        <%= render 'shared/admin_navbar' %>
+
+        <main class="main col pt-4">
+          <%= render "shared/admin_header" %>
+          <%= yield %>
+
+          <div class="card m-4 p-2">
+            <%= debug(params) if Rails.env.development? %>
+          </div>
+        </main>
       </div>
-    </main>
-
-    <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>
