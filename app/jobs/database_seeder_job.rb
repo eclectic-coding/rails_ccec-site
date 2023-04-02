@@ -22,6 +22,7 @@ class DatabaseSeederJob < ApplicationJob
 
   def create_admin_user
     User.create!(
+      name: "Admin User",
       email: DEFAULT_ADMIN_EMAIL,
       password: DEFAULT_ADMIN_PASSWORD,
       password_confirmation: DEFAULT_ADMIN_PASSWORD,
