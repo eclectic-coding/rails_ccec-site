@@ -27,4 +27,8 @@ class Role < ApplicationRecord
             :allow_nil => true
 
   scopify
+
+  def human_name
+    name.titleize
+  end
 end

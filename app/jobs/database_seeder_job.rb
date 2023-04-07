@@ -8,6 +8,7 @@ class DatabaseSeederJob < ApplicationJob
 
   def perform
     ActiveRecord::Base.transaction do
+      create_roles
       create_account
       create_admin_user
       add_admin_role
@@ -15,6 +16,12 @@ class DatabaseSeederJob < ApplicationJob
   end
 
   private
+
+  def create_roles
+    %w[admin member prayer].each do |role_name|
+      Role.create! name: role_name
+    end
+  end
 
   def create_account
     Account.create!(name: "CCEC")

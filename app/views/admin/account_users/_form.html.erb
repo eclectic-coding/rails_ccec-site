@@ -1,0 +1,30 @@
+<div class="border rounded p-2 mb-3">
+  <h5 class="">New Users</h5>
+  <%= form_for([:admin, AccountUser.new]) do |f| %>
+    <div class="row">
+      <div class="col-4">
+        <div class="mb-3">
+          <%= f.label :name %>
+          <%= f.text_field :name, required: true, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="mb-3">
+          <%= f.label :email %>
+          <%= f.text_field :email, required: true, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-4">
+<!--        <div>-->
+          <%#= f.label :roles %>
+          <%#= f.collection_select :role_id, Role.all, :id, :human_name, {prompt: 'Select role'}, {class: "form-select"} %>
+<!--        </div>-->
+      </div>
+
+      <div class="mb-3">
+        <%= f.submit "Create User", class: "btn btn-primary" %>
+        <%= link_to "Cancel", admin_accounts_path, class: "btn btn-link" %>
+      </div>
+    </div>
+  <% end %>
+</div>

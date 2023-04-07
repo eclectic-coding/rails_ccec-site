@@ -45,6 +45,8 @@ class User < ApplicationRecord
   has_person_name
 
   belongs_to :account, optional: true
+  has_many :account_users, dependent: :destroy
+  has_many :accounts, through: :account_users
 
   before_save :add_account_id_from_parent
 
