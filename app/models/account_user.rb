@@ -26,11 +26,16 @@ class AccountUser < ApplicationRecord
 
   attribute :email, :string
   attribute :name, :string
-  # attribute :role, :string
+  attribute :role_id, :string
 
   before_validation :set_user_id, if: :email?
+  after_create :set_role
 
   def set_user_id
     self.user = User.invite!(email: email, name: name)
+  end
+
+  def set_role
+    user.add_role(Role.find(role_id).name)
   end
 end

@@ -53,4 +53,8 @@ class User < ApplicationRecord
   def add_account_id_from_parent
     self.account_id = Account.find_by(name: "CCEC").id if account_id.nil?
   end
+
+  def profile_roles
+    roles.map(&:human_name).join(", ")
+  end
 end
