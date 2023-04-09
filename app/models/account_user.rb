@@ -22,7 +22,7 @@
 
 class AccountUser < ApplicationRecord
   belongs_to :account
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   attribute :email, :string
   attribute :name, :string

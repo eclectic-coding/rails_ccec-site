@@ -1,0 +1,14 @@
+en:
+  shared:
+    admin_header:
+      back_to_app: Back to App
+    admin_navbar:
+      dashboard_ title: Dashboard
+      home_title: Home
+      accounts_title: Accounts
+      edit_profile: Edit Profile
+    admin_profile:
+      settings: Settings
+      admin_area: Admin Area
+    user_profile:
+      members_area: Members Area

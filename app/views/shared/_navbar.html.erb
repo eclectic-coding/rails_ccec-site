@@ -8,7 +8,7 @@
 
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <div class="container mx-auto">
-    <%= link_to "Coastal Carolina Emmaus", root_path, class: "navbar-brand" %>
+    <%= link_to t('community_title'), root_path, class: "navbar-brand" %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -19,12 +19,12 @@
       </ul>
 
       <ul class="navbar-nav">
-        <% if user_signed_in? && current_user.has_role?(:admin) %>
+        <% if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:superadmin)) %>
           <%= render partial: "shared/admin_profile", locals: { user: current_user } %>
         <% elsif current_user %>
           <%= render partial: "shared/user_profile", locals: { user: current_user } %>
         <% else %>
-          <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to t('login'), new_user_session_path, class: "nav-link" %></li>
         <% end %>
       </ul>
     </div>

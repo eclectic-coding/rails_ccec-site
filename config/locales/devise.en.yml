@@ -66,4 +66,49 @@ en:
   users:
     omniauth_callbacks:
       wrong: ""
+  admin:
+    accounts:
+      accounts_table:
+        account_title: ""
+        title: ""
+        users: ""
+        created: ""
+      accounts:
+        title: ""
+        new_account_btn: ""
+      index:
+        title: ""
+        users_title: ""
+        new_user_btn: ""
+      users_table:
+        user_name: ""
+        user_email: ""
+        user_role: ""
+        confirm: ""
+    account_users:
+      show:
+        name: ""
+        email: ""
+        login-as_btn: ""
+        profile_title: ""
+      form:
+        create_user_btn: ""
+  email_btn: ""
+  destroy_btn: ""
+  cancel_btn: ""
+  shared:
+    admin_header:
+      back_to_app: ""
+    admin_navbar:
+      dashboard_ title: ""
+      home_title: ""
+      edit_profile: ""
+    admin_profile:
+      settings: ""
+      admin_area: ""
+    user_profile:
+      members_area: ""
+  logout_btn: ""
+  community_title: ""
+  login: ""
 

@@ -1,0 +1,31 @@
+<div class="row my-3">
+  <div class="col-12 d-flex justify-content-between align-items-center">
+    <h1 class="h2"><%= @account_user.user.name %><%= t('.profile_title') %></h1>
+    <div>
+      <%= link_to t('.login-as_btn'), "#", class: "btn btn-primary" %>
+      <%= link_to t('edit_btn'), "#", class: "btn btn-primary" %>
+      <%= link_to t('destroy_btn'), "#", class: "btn btn-primary" %>
+    </div>
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <section class="px-3">
+      <div class="row mb-3 pb-3 border-bottom">
+        <div class="col-sm-2 fw-bold text-uppercase"><%= t('.name') %></div>
+        <div class="col-sm-9"><%= @account_user.user.name %></div>
+      </div>
+
+      <div class="row my-3 pb-3 border-bottom">
+        <div class="col-sm-2 fw-bold text-uppercase"><%= t('.email') %></div>
+        <div class="col-sm-9"><%= @account_user.user.email %></div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+
+

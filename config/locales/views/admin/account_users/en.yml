@@ -1,0 +1,10 @@
+en:
+  admin:
+    account_users:
+      show:
+        name: Name
+        email: Email
+        login-as_btn: Login As
+        profile_title: "'s Profile"
+      form:
+        create_user_btn: Create User

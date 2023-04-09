@@ -3,8 +3,8 @@
     <%= image_tag avatar_path(user, size: 40), height: 20, width: 20, class: "rounded" %>
   <% end %>
   <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbar-dropdown">
-    <%= link_to "Members Area", "#", class: "dropdown-item" %>
+    <%= link_to t('.members_area'), "#", class: "dropdown-item" %>
     <div class="dropdown-divider"></div>
-    <%= button_to "Logout", destroy_session_path(user), method: :delete, class: "dropdown-item" %>
+    <%= button_to t('logout_btn') %>, destroy_session_path(user), method: :delete, class: "dropdown-item" %>
   </div>
 </li>
