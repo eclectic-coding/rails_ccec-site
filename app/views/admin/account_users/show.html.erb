@@ -3,8 +3,6 @@
     <h1 class="h2"><%= @account_user.user.name %><%= t('.profile_title') %></h1>
     <div>
       <%= link_to t('.login-as_btn'), "#", class: "btn btn-primary" %>
-      <%= link_to t('edit_btn'), "#", class: "btn btn-primary" %>
-      <%= link_to t('destroy_btn'), "#", class: "btn btn-primary" %>
     </div>
 
   </div>
@@ -13,15 +11,55 @@
 <div class="card">
   <div class="card-body">
     <section class="px-3">
-      <div class="row mb-3 pb-3 border-bottom">
-        <div class="col-sm-2 fw-bold text-uppercase"><%= t('.name') %></div>
-        <div class="col-sm-9"><%= @account_user.user.name %></div>
-      </div>
+      <%= render partial: "admin/account_users/account_users_name/row-name", locals: { account_user: @account_user} %>
 
-      <div class="row my-3 pb-3 border-bottom">
-        <div class="col-sm-2 fw-bold text-uppercase"><%= t('.email') %></div>
-        <div class="col-sm-9"><%= @account_user.user.email %></div>
-      </div>
+      <%= tag.div class: "row mb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.email') %></div>
+        <div class="col-sm-4"><%= @account_user.user.email %></div>
+        <div class="col-sm-5"><%= link_to "Edit", "#", class: "btn btn-link" %></div>
+      <% end unless @account_user.user.email.nil? %>
+
+      <%= tag.div class: "row mb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.role') %></div>
+        <div class="col-sm-4"><%= @account_user.user.profile_roles %></div>
+        <div class="col-sm-5"><%= link_to "Edit", "#", class: "btn btn-link" %></div>
+      <% end unless @account_user.user.profile_roles.nil? %>
+
+      <%= tag.div class: "row mb-3 pb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.created_at') %></div>
+        <div class="col-sm-4"><%= date_timestamp(@account_user.user.created_at) %></div>
+      <% end unless @account_user.user.created_at.nil? %>
+
+      <%= tag.div class: "row mb-3 pb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.updated_at') %></div>
+        <div class="col-sm-4"><%= date_timestamp(@account_user.user.updated_at) %></div>
+      <% end unless @account_user.user.updated_at.nil? %>
+
+      <%= tag.div class: "row mb-3 pb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.password_token') %></div>
+        <div class="col-sm-4"><%= date_timestamp(@account_user.user.reset_password_token) %></div>
+      <% end unless !@account_user.user.reset_password_token.nil? %>
+
+      <%= tag.div class: "row mb-3 pb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.password_reset') %></div>
+        <div class="col-sm-4"><%= date_timestamp(@account_user.user.reset_password_sent_at) %></div>
+        <div class="col-sm-5"><%= link_to t(".reset_password"), "#", class: "btn btn-link" %></div>
+      <% end %>
+
+      <%= tag.div class: "row mb-3 pb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.invitation_token') %></div>
+        <div class="col-sm-4"><%= date_timestamp(@account_user.user.invitation_token) %></div>
+      <% end unless @account_user.user.invitation_token.nil? %>
+
+      <%= tag.div class: "row mb-3 pb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.invitation_sent') %></div>
+        <div class="col-sm-4"><%= date_timestamp(@account_user.user.invitation_sent_at) %></div>
+      <% end unless @account_user.user.invitation_sent_at.nil? %>
+
+      <%= tag.div class: "row mb-3 pb-3" do %>
+        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.invitation_accepted') %></div>
+        <div class="col-sm-4"><%= date_timestamp(@account_user.user.invitation_created_at) %></div>
+      <% end unless @account_user.user.invitation_created_at.nil? %>
     </section>
 
   </div>

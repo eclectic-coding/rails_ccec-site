@@ -7,7 +7,6 @@ export default class extends Controller {
     }
 
     connect() {
-        console.log("toast controller connected");
         new bootstrap.Toast(this.element).show();
     }
 }

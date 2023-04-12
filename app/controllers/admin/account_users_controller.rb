@@ -10,8 +10,7 @@ class Admin::AccountUsersController < ApplicationController
 
   def show
     @account_user = AccountUser.find_by(user_id: params[:id])
-
-    # redirect_to admin_account_user_path(@account_user)
+    authorize @account_user
   end
 
   def new

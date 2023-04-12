@@ -91,8 +91,16 @@ en:
         email: ""
         login-as_btn: ""
         profile_title: ""
+        role: ""
+        created_at: ""
+        password_token: ""
+        password_reset: ""
+        reset_password: ""
       form:
         create_user_btn: ""
+      account_users_name:
+        row-name:
+          name: ""
   email_btn: ""
   destroy_btn: ""
   cancel_btn: ""

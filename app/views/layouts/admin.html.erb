@@ -13,14 +13,19 @@
   </head>
 
   <body class="bg-light">
-    <div id="toasts" class="position-absolute top-0 end-0"></div>
-
     <div class="admin container-fluid bg-light">
       <div class="row flex-nowrap">
         <%= render 'shared/admin_navbar' %>
 
         <main class="main col mx-4 pt-4">
           <%= render "shared/admin_header" %>
+          <%= render 'shared/notices' %>
+
+          <div class="container position-relative">
+            <div id="toasts">
+            </div>
+          </div>
+
           <%= yield %>
 
           <div class="card mt-5 p-2">

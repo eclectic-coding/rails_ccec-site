@@ -18,7 +18,7 @@ class DatabaseSeederJob < ApplicationJob
   private
 
   def create_roles
-    %w[admin member prayer].each do |role_name|
+    %w[superadmin admin member prayer].each do |role_name|
       Role.create! name: role_name
     end
   end
@@ -38,6 +38,6 @@ class DatabaseSeederJob < ApplicationJob
   end
 
   def add_admin_role
-    User.find_by(email: DEFAULT_ADMIN_EMAIL).add_role(:admin)
+    User.find_by(email: DEFAULT_ADMIN_EMAIL).add_role(:superadmin)
   end
 end

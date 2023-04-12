@@ -6,5 +6,18 @@ en:
         email: Email
         login-as_btn: Login As
         profile_title: "'s Profile"
+        role: Role
+        created_at: Created At
+        updated_at: Updated At
+        invitation_token: Invitation Token
+        invitation_created: Invitation Created
+        invitation_sent: Invitation Sent
+        invitation_accepted: Invitation Accepted
+        password_token: Password Token
+        password_reset: Password Reset Sent
+        reset_password: Reset Password
       form:
         create_user_btn: Create User
+      account_users_name:
+        row-name:
+          name: Name

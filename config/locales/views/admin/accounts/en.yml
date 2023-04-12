@@ -16,6 +16,8 @@ en:
         user_name: Name
         user_email: Email
         user_role: Role
+        invitation_token: Invitation Token
+        invitation_created: Invitation Created
         invitation_sent: Invitation Sent
         invitation_accepted: Invitation Accepted
         confirm: Are you sure?

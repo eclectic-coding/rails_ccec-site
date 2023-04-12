@@ -1,0 +1,6 @@
+<%= tag.div class: "row align-content-center mb-3", id: dom_id(account_user) do %>
+  <div class="col-sm-3 d-flex align-items-center fw-bold text-uppercase"><%= t('.name') %></div>
+  <div class="col-sm-4 d-flex align-items-center"><%= account_user.user.name %></div>
+  <div class="col-sm-5"><%= link_to "Edit", admin_account_users_account_users_name_edit_path(
+          account_user_id: account_user), class: "btn btn-link" %></div>
+<% end unless account_user.user.name.nil? %>
