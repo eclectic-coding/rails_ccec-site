@@ -21,3 +21,6 @@ en:
       account_users_name:
         row-name:
           name: Name
+      account_users_email:
+        row-email:
+          name: Email

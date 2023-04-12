@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :accounts
       resources :account_users, only: [:index, :show, :new, :create, :destroy] do
         resources :account_users_name, only: [:edit, :update], module: :account_users
+        resources :account_users_email, only: [:edit, :update], module: :account_users
       end
 
       root to: "dashboard#show"

@@ -12,12 +12,7 @@
   <div class="card-body">
     <section class="px-3">
       <%= render partial: "admin/account_users/account_users_name/row-name", locals: { account_user: @account_user} %>
-
-      <%= tag.div class: "row mb-3" do %>
-        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.email') %></div>
-        <div class="col-sm-4"><%= @account_user.user.email %></div>
-        <div class="col-sm-5"><%= link_to "Edit", "#", class: "btn btn-link" %></div>
-      <% end unless @account_user.user.email.nil? %>
+      <%= render partial: "admin/account_users/account_users_email/row-email", locals: { account_user: @account_user} %>
 
       <%= tag.div class: "row mb-3" do %>
         <div class="col-sm-3 fw-bold text-uppercase"><%= t('.role') %></div>
@@ -35,18 +30,18 @@
         <div class="col-sm-4"><%= date_timestamp(@account_user.user.updated_at) %></div>
       <% end unless @account_user.user.updated_at.nil? %>
 
-      <%= tag.div class: "row mb-3 pb-3" do %>
+      <%= tag.div class: "row mb-3" do %>
         <div class="col-sm-3 fw-bold text-uppercase"><%= t('.password_token') %></div>
         <div class="col-sm-4"><%= date_timestamp(@account_user.user.reset_password_token) %></div>
-      <% end unless !@account_user.user.reset_password_token.nil? %>
+      <% end unless @account_user.user.reset_password_token.nil? %>
 
-      <%= tag.div class: "row mb-3 pb-3" do %>
+      <%= tag.div class: "row mb-3" do %>
         <div class="col-sm-3 fw-bold text-uppercase"><%= t('.password_reset') %></div>
         <div class="col-sm-4"><%= date_timestamp(@account_user.user.reset_password_sent_at) %></div>
         <div class="col-sm-5"><%= link_to t(".reset_password"), "#", class: "btn btn-link" %></div>
       <% end %>
 
-      <%= tag.div class: "row mb-3 pb-3" do %>
+      <%= tag.div class: "row mb-3" do %>
         <div class="col-sm-3 fw-bold text-uppercase"><%= t('.invitation_token') %></div>
         <div class="col-sm-4"><%= date_timestamp(@account_user.user.invitation_token) %></div>
       <% end unless @account_user.user.invitation_token.nil? %>

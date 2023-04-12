@@ -1,4 +1,4 @@
-<%= turbo_stream.replace "account_user_#{params[:account_user_id]}" do %>
+<%= turbo_stream.replace "edit_name_account_user_#{params[:account_user_id]}" do %>
   <%= render partial: "row-name", locals: { account_user: @account_user } %>
 <% end %>
 

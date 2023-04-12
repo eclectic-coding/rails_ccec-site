@@ -101,6 +101,9 @@ en:
       account_users_name:
         row-name:
           name: ""
+      account_users_email:
+        row-email:
+          name: ""
   email_btn: ""
   destroy_btn: ""
   cancel_btn: ""
