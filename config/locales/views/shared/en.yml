@@ -12,3 +12,8 @@ en:
       admin_area: Admin Area
     user_profile:
       members_area: Members Area
+  admin:
+    account_users:
+      account_users_role:
+        row-role:
+          name: ""

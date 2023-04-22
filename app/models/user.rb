@@ -37,7 +37,7 @@
 #  fk_rails_...  (account_id => accounts.id)
 #
 class User < ApplicationRecord
-  rolify
+  rolify before_add: :before_add_method
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, registerable
   devise :invitable, :database_authenticatable, :recoverable, :rememberable, :validatable
@@ -56,5 +56,11 @@ class User < ApplicationRecord
 
   def profile_roles
     roles.map(&:human_name).join(", ")
+  end
+
+  def before_add_method(role)
+    if roles.any?
+      roles.clear
+    end
   end
 end

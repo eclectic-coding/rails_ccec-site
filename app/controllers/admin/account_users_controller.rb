@@ -1,7 +1,7 @@
 class Admin::AccountUsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account, only: %i[show new create destroy]
-  # before_action :set_user, only: %i[show]
+  before_action :set_account_user, only: %i[show]
 
   layout "admin"
 
@@ -9,7 +9,6 @@ class Admin::AccountUsersController < ApplicationController
   end
 
   def show
-    @account_user = AccountUser.find_by(user_id: params[:id])
     authorize @account_user
   end
 
@@ -38,6 +37,10 @@ class Admin::AccountUsersController < ApplicationController
 
   def set_account
     @account = current_user.account
+  end
+
+  def set_account_user
+    @account_user = AccountUser.find(params[:id])
   end
 
   def account_user_params

@@ -1,0 +1,6 @@
+<%= turbo_stream.replace "edit_role_account_user_#{params[:account_user_id]}" do %>
+  <%= render partial: "row-role", locals: { account_user: @account_user } %>
+<% end %>
+
+<%= turbo_stream.prepend "toasts", partial: "shared/notices" %>
+

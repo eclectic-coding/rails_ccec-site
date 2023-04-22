@@ -13,7 +13,7 @@
     <tbody>
       <% users.each do |user| %>
         <tr class="align-middle" id="<%= user.id %>">
-          <td><%= link_to user.name, admin_account_user_path(user), data: { turbo_frame: "_top"} %></td>
+          <td><%= link_to user.name, admin_account_user_path(id: user.account_users.ids), data: { turbo_frame: "_top"} %></td>
           <td><%= user.email %></td>
           <td><%= user.profile_roles %></td>
           <td><%= date_timestamp(user.invitation_created_at) %></td>

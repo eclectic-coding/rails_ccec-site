@@ -24,3 +24,6 @@ en:
       account_users_email:
         row-email:
           name: Email
+      account_users_role:
+        row-email:
+          name: Role

@@ -13,12 +13,7 @@
     <section class="px-3">
       <%= render partial: "admin/account_users/account_users_name/row-name", locals: { account_user: @account_user} %>
       <%= render partial: "admin/account_users/account_users_email/row-email", locals: { account_user: @account_user} %>
-
-      <%= tag.div class: "row mb-3" do %>
-        <div class="col-sm-3 fw-bold text-uppercase"><%= t('.role') %></div>
-        <div class="col-sm-4"><%= @account_user.user.profile_roles %></div>
-        <div class="col-sm-5"><%= link_to "Edit", "#", class: "btn btn-link" %></div>
-      <% end unless @account_user.user.profile_roles.nil? %>
+      <%= render partial: "admin/account_users/account_users_role/row-role", locals: { account_user: @account_user} %>
 
       <%= tag.div class: "row mb-3 pb-3" do %>
         <div class="col-sm-3 fw-bold text-uppercase"><%= t('.created_at') %></div>
