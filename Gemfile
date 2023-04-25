@@ -28,6 +28,7 @@ gem "sidekiq", "~> 6.2"
 gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
 gem "rolify"
+gem "simple_calendar"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
