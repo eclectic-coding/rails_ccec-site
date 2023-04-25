@@ -1,0 +1,32 @@
+- name_attribute = attributes.find{ |a| a.name == "name" }
+- has_name = !!name_attribute
+.row
+  .col-sm-6
+    %h1= plural_table_name.capitalize
+  .col-sm-6.text-end
+    \&lt;%= link_to new_&lt;%= singular_table_name %&gt;_path, class: 'btn btn-primary' do %&gt;
+    Add New #{human_name}
+    \&lt;% end %&gt;
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        - if has_name
+          %th Name
+        - attributes.without(name_attribute).each do |attribute|
+          %th= attribute.human_name
+        - unless has_name
+          %th
+    %tbody
+      \&lt;% @&lt;%= plural_table_name%&gt;.each do |#{singular_table_name}| %&gt;
+      \&lt;%= content_tag :tr, id: dom_id(&lt;%= singular_table_name %&gt;), class: dom_class(#{singular_table_name}) do %&gt;
+      - if has_name
+        %td
+          \&lt;%= link_to &lt;%= singular_table_name %&gt;.name, #{singular_table_name} %&gt;
+      - attributes.without(name_attribute).each do |attribute|
+        %td
+          \&lt;%= &lt;%= singular_table_name %&gt;.#{attribute.name} %&gt;
+      - unless has_name
+        %td &lt;%= link_to 'Show', &lt;%= singular_table_name %&gt; %&gt;
+      \&lt;% end %&gt;
+      \&lt;% end %&gt;

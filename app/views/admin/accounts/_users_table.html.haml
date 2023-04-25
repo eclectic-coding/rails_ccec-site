@@ -1,0 +1,24 @@
+= turbo_frame_tag "users_table", target="_top" do
+  %table.table.table-sm.small
+    %thead
+      %tr
+        %th= t('.user_name')
+        %th= t('.user_email')
+        %th= t('.user_role')
+        %th= t('.invitation_sent')
+        %th= t('.invitation_accepted')
+        %th
+    %tbody
+      - users.each do |user|
+        %tr.align-middle{:id => "#{user.id}"}
+          %td= link_to user.name, admin_account_user_path(id: user.account_users.ids), data: { turbo_frame: "_top"}
+          %td= user.email
+          %td= user.profile_roles
+          %td= date_timestamp(user.invitation_created_at)
+          %td= date_timestamp(user.invitation_accepted_at)
+          %td
+            - if current_user.has_role?(:superadmin)
+              = button_to admin_account_user_path(@account, user), method: :delete, |
+                form: { data: { confirm: t('.confirm'), "turbo-frame": "_top" } },  |
+                class: "text-danger float-end border-0 bg-transparent" do           |
+                %i.bi.bi-trash.icon

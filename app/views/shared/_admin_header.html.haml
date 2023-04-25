@@ -1,0 +1,6 @@
+.row
+  .col.d-flex.justify-content-between.align-items-center
+    %h1.mb-0= yield :title
+    = link_to root_path, class: "btn btn-outline-success" do
+      %i.bi.bi-arrow-bar-left
+      %span= t('.back_to_app')

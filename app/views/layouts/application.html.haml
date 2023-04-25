@@ -1,0 +1,22 @@
+!!!
+%html.h-100{:lang => locale}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= Rails.configuration.application_name
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+  %body.d-flex.flex-column.h-100
+    %main.flex-shrink-0
+      = render 'shared/navbar'
+      = render 'shared/notices'
+      .container.position-relative
+        #toasts.position-absolute.top-0
+      .container.mt-4.mx-auto
+        = yield
+        .card.mt-5.p-2
+          = debug(params) if Rails.env.development?
+    = render 'shared/footer'

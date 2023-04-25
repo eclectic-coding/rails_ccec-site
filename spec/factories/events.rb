@@ -4,11 +4,11 @@
 #
 #  id         :uuid             not null, primary key
 #  end_time   :datetime
+#  event_type :integer
 #  name       :string
 #  recurring  :text
 #  role       :string
 #  start_time :datetime
-#  type       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

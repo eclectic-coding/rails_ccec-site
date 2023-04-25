@@ -1,14 +1,5 @@
 #!/usr/bin/env node
 
-// Esbuild is configured with 3 modes:
-//
-// `yarn build` - Build JavaScript and exit
-// `yarn build --watch` - Rebuild JavaScript on change
-// `yarn build --reload` - Reloads page when views, JavaScript, or stylesheets change
-//
-// Minify is enabled when "RAILS_ENV=production"
-// Sourcemaps are enabled in non-production environments
-
 import * as esbuild from "esbuild"
 import path from "path"
 import rails from "esbuild-rails"
@@ -23,6 +14,7 @@ const entryPoints = [
 const watchDirectories = [
   "./app/javascript/**/*.js",
   "./app/views/**/*.html.erb",
+  "./app/views/**/*.html.haml",
   "./app/assets/builds/**/*.css", // Wait for cssbundling changes
 ]
 const config = {
