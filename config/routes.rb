@@ -1,11 +1,7 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-  namespace :admin do
-    namespace :account_users do
-      get 'account_users_name/edit'
-    end
-  end
+
   if Rails.env.development? || Rails.env.test?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -22,10 +18,13 @@ Rails.application.routes.draw do
         resources :account_users_email, only: [:edit, :update], module: :account_users
         resources :account_users_role, only: [:edit, :update], module: :account_users
       end
+      resources :events
 
       root to: "dashboard#show"
     end
   end
+
+  resources :events, only: [:index, :show]
 
   root to: "home#index"
 end

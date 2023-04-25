@@ -1,0 +1,8 @@
+= tag.div class: "row align-content-center mb-3", id: "edit_name_#{dom_id(@account_user)}" do
+  .col-sm-3.d-flex.align-items-center.fw-bold.text-uppercase= t('admin.account_users.show.name')
+  .col-sm-9.d-flex.align-items-center
+    = form_with(url: admin_account_user_account_users_name_path(@account_user, @account_user.user), method: :patch) do |f|
+      .d-flex
+        = f.text_field :name, value: @account_user.user.name, class: "form-control"
+        = f.submit t("save"), class: "btn btn-sm btn-primary ms-2"
+        = f.submit t("cancel_btn"), class: "btn btn-sm btn-outline-primary ms-1"

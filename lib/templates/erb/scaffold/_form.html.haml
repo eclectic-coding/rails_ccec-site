@@ -1,0 +1,38 @@
+\&lt;%= form_with(model: &lt;%= model_resource_name %&gt;) do |form| %&gt;
+\&lt;% if &lt;%= singular_table_name %&gt;.errors.any? %&gt;
+#error_explanation
+  %h2
+    \&lt;%= pluralize(&lt;%= singular_table_name %&gt;.errors.count, "error") %&gt; prohibited this #{singular_table_name} from being saved:
+  %ul
+    \&lt;% &lt;%= singular_table_name %&gt;.errors.full_messages.each do |message| %&gt;
+    %li &lt;%= message %&gt;
+    \&lt;% end %&gt;
+\&lt;% end %&gt;
+- attributes.each do |attribute|
+  .mb-3
+    - if attribute.password_digest?
+      \&lt;%= form.label :password, class: 'form-label' %&gt;
+      \&lt;%= form.password_field :password, class: 'form-control' %&gt;
+  .mb-3
+    \&lt;%= form.label :password_confirmation, class: 'form-label' %&gt;
+    \&lt;%= form.password_field :password_confirmation, class: 'form-control' %&gt;
+    - else
+      \&lt;%= form.label :&lt;%= attribute.column_name %&gt;, class: 'form-label' %&gt;
+      - if attribute.field_type == "checkbox"
+        \&lt;%= form.&lt;%= attribute.field_type %&gt; :#{attribute.column_name} %&gt;
+      - else
+        \&lt;%= form.&lt;%= attribute.field_type %&gt; :#{attribute.column_name}, class: 'form-control' %&gt;
+.mb-3
+  \&lt;% if &lt;%= model_resource_name %&gt;.persisted? %&gt;
+  .float-end
+    \&lt;%= link_to 'Destroy', &lt;%= model_resource_name %&gt;, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %&gt;
+  \&lt;% end %&gt;
+  
+  \&lt;%= form.submit class: 'btn btn-primary' %&gt;
+  
+  \&lt;% if &lt;%= model_resource_name %&gt;.persisted? %&gt;
+  \&lt;%= link_to "Cancel", &lt;%= model_resource_name %&gt;, class: "btn btn-link" %&gt;
+  \&lt;% else %&gt;
+  \&lt;%= link_to "Cancel", &lt;%= index_helper %&gt;_path, class: "btn btn-link" %&gt;
+  \&lt;% end %&gt;
+\&lt;% end %&gt;

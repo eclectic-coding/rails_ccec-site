@@ -1,0 +1,28 @@
+.row.my-5
+  .col-sm-6
+    %h1
+      = t('admin.events.title')
+  .col-sm-6.text-end
+    = link_to new_admin_event_path, class: 'btn btn-primary' do
+      = t(".add_event")
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th=t(".name")
+        %th
+          =t(".start_time")
+        %th
+          =t(".role")
+        %th
+          =t(".end_time")
+        %th
+          =t(".event_type")
+    %tbody
+      - @events.each do |event|
+        = content_tag :tr, id: dom_id(event), class: event.event_type == "weekend" ? "table-success" : dom_class(event) do
+          %td= link_to event.name, admin_event_path(event)
+          %td= date_timestamp(event.start_time)
+          %td.text-capitalize= event.role
+          %td= date_timestamp event.end_time
+          %td.text-capitalize= event.event_type

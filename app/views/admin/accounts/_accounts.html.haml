@@ -1,0 +1,8 @@
+.row
+  .col.d-flex.justify-content-between.align-items-center.mb-3
+    %h2.ps-2.border-bottom.w-25= t(".title")
+    - if current_user.has_role?(:superadmin)
+      = link_to t('.new_account_btn'), "#", class: "btn btn-link", data: { turbo_stream: dom_id(Account.new) }
+  = turbo_frame_tag Account.new
+  .pb-3
+    = render partial: "accounts_table", locals: { accounts: @accounts }

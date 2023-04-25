@@ -13,8 +13,10 @@
     "chokidar": "^3.5.3",
     "esbuild": "^0.17.13",
     "esbuild-rails": "^1.0.4",
+    "flatpickr": "^4.6.13",
     "local-time": "^2.1.0",
     "sass": "^1.60.0",
+    "stimulus-flatpickr": "^3.0.0-0",
     "trix": "^2.0.4"
   },
   "scripts": {

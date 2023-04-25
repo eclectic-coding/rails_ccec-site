@@ -1,0 +1,23 @@
+- if current_user != true_user
+  .alert.alert-warning.text-center
+    You're logged in as
+    %b
+      = current_user.name
+      (#{current_user.email})
+    = link_to stop_impersonating_madmin_impersonates_path, method: :post do
+      = icon("fas", "times")
+      Logout
+%nav.navbar.navbar-expand-md.navbar-light.bg-light
+  .container.mx-auto
+    = link_to t('community_title'), root_path, class: "navbar-brand"
+    %button.navbar-toggler{"aria-controls" => "navbarsExample04", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarMain", "data-bs-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+    #navbarMain.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mt-2.mt-md-0
+      %ul.navbar-nav
+        - if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:superadmin))
+          = render partial: "shared/admin_profile", locals: { user: current_user }
+        - elsif current_user
+          = render partial: "shared/user_profile", locals: { user: current_user }
+        - else
+          %li.nav-item= link_to t('login'), new_user_session_path, class: "nav-link"
