@@ -20,7 +20,7 @@
 
   .mb-3
     = form.label :role, class: 'form-label'
-    = form.collection_select :role_id, Role.all, :id, :human_name, { prompt: 'Select role' }, data: { events_target: "roles"}, class: 'form-select'
+    = form.collection_select :role_id, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles"}, class: 'form-select'
 
   .mb-3
     = form.label :start_time, class: 'form-label'
@@ -38,7 +38,7 @@
   .mb-3
     - if event.persisted?
       .float-end
-        = link_to 'Destroy', event, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' }
+        = link_to t("destroy_btn"), event, method: :delete, class: "text-danger", data: { confirm: t(".confirm") }
 
     = form.submit class: 'btn btn-primary'
     - if event.persisted?

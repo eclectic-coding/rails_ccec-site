@@ -1,6 +1,0 @@
-<%= tag.div class: "row align-content-center mb-3", id: "edit_email_#{dom_id(account_user)}" do %>
-  <div class="col-sm-3 d-flex align-items-center fw-bold text-uppercase"><%= t('.name') %></div>
-  <div class="col-sm-4 d-flex align-items-center"><%= account_user.user.email %></div>
-  <div class="col-sm-5"><%= link_to "Edit", edit_admin_account_user_account_users_email_path(
-          account_user_id: account_user), class: "btn btn-link" %></div>
-<% end unless account_user.user.email.nil? %>

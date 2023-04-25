@@ -18,6 +18,8 @@ en:
         reset_password: Reset Password
       form:
         create_user_btn: Create User
+        create_user: New Users
+        select_role: 'Select role'
       account_users_name:
         row-name:
           name: Name

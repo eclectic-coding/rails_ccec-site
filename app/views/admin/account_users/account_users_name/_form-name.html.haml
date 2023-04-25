@@ -4,5 +4,5 @@
     = form_with(url: admin_account_user_account_users_name_path(@account_user, @account_user.user), method: :patch) do |f|
       .d-flex
         = f.text_field :name, value: @account_user.user.name, class: "form-control"
-        = f.submit "Save", class: "btn btn-sm btn-primary ms-2"
-        = f.submit "Cancel", class: "btn btn-sm btn-outline-primary ms-1"
+        = f.submit t("save"), class: "btn btn-sm btn-primary ms-2"
+        = f.submit t("cancel_btn"), class: "btn btn-sm btn-outline-primary ms-1"

@@ -1,5 +1,6 @@
 .border.rounded.p-2.mb-3
-  %h5 New Users
+  %h5
+    = t('.create_user')
   = form_for([:admin, AccountUser.new]) do |f|
     .row.pb-3
       .col-4
@@ -13,7 +14,7 @@
       .col-4
         %div
           = f.label :roles
-          = f.collection_select :role_id, Role.all, :id, :human_name, { prompt: 'Select role' }, { class: "form-select" }
+          = f.collection_select :role_id, Role.all, :id, :human_name, { prompt: t(".select_role") }, { class: "form-select" }
       .mt-3
         = f.submit t('.create_user_btn'), class: "btn btn-primary"
         = link_to t('cancel_btn'), admin_accounts_path, class: "btn btn-link"

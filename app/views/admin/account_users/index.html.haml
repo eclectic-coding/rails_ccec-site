@@ -1,9 +1,0 @@
-%h1 Admin::AccountUsers#index
-%p Find me in app/views/admin/account_users/index.html.erb
-.card
-  .card-body
-    %h4 Users
-    = form_with(url: new_admin_account_user_path) do |f|
-      = f.text_field :email
-      = f.text_field :name
-      = f.submit

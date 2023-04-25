@@ -16,8 +16,4 @@ export default class extends Controller {
             roles.selectedIndex = 0
         }
     }
-
-    startTime(event) {
-        console.log(event.target.value)
-    }
 }

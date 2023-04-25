@@ -2,3 +2,24 @@ en:
   shared:
     admin_navbar:
       events_title: Events
+  admin:
+    events:
+      destroy:
+        destroy_notice: "Event was successfully destroyed."
+      update:
+        update_notice: "Event was successfully updated."
+      create:
+        create_notice: "Event was successfully created."
+      form:
+        select_role: 'Select role'
+        confirm: "Are you sure?"
+      title: Events
+      index:
+        add_event: Add Event
+        name: Name
+        start_time: Start Time
+        role: Role
+        end_time: End Time
+        event_type: Type
+      new:
+        new_event: New Event
