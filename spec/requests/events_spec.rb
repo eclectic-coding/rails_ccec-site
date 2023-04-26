@@ -29,5 +29,36 @@ RSpec.describe "Events", type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe "PATCH /admin/events" do
+    context "with valid parameters" do
+      let(:event) { create(:event, :weekend) }
+
+      it "updates the requested event" do
+        patch admin_event_path(event), params: { event: { name: "name" } }
+        event.reload
+        expect(event.name).to eq("name")
+      end
+
+      it "redirects to the event" do
+        patch admin_event_path(event), params: { event: { name: "name" } }
+        event.reload
+        expect(response).to redirect_to(admin_event_path(event))
+      end
+    end
+
+    context "with invalid parameters" do
+      let(:event) { create(:event, :weekend) }
+
+      it "renders a successful response (i.e. to display the 'edit' template)" do
+        patch admin_event_path(event), params: { event: { name: "" } }
+        event.reload
+        expect(response).to be_unprocessable
+      end
+    end
+
+    # add create
+    # check other event creation
+  end
 end
 
