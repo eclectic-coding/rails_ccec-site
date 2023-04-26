@@ -15,9 +15,10 @@ FactoryBot.define do
   factory :event do
     name { "MyString" }
     start_time { "2023-04-25 07:55:09" }
-    recurring { "MyText" }
     role { "MyString" }
-    end_time { "2023-04-25 07:55:09" }
-    type { 1 }
+
+    trait :weekend do
+      event_type { :weekend }
+    end
   end
 end
