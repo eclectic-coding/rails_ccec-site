@@ -57,8 +57,61 @@ RSpec.describe "Events", type: :request do
       end
     end
 
-    # add create
-    # check other event creation
+    describe "CREATE /admin/events" do
+      context "with valid parameters" do
+        it "creates an event" do
+          expect do
+            post admin_events_path, params: {
+              event: { name: "name", event_type: :weekend, start_time: Time.zone.now }
+            }
+          end.to change(Event, :count).by(4)
+        end
+
+        it "new weekend created sendoff event" do
+          create(:event, :weekend)
+          sendoff = Event.find_by(event_type: :sendoff)
+          expect(sendoff.role).to eq("member")
+          expect(sendoff).to be_present
+        end
+
+        it "new weekend created candlelight event" do
+          create(:event, :weekend)
+          candlelight = Event.find_by(event_type: :candlelight)
+          expect(candlelight.role).to eq("member")
+          expect(candlelight).to be_present
+        end
+
+        it "new weekend created closing event" do
+          create(:event, :weekend)
+          closing = Event.find_by(event_type: :closing)
+          expect(closing).to be_present
+        end
+
+        it "redirects to the created event" do
+          post admin_events_path, params: {
+            event: { name: "name", event_type: :weekend, start_time: Time.zone.now }
+          }
+          expect(response).to redirect_to(admin_event_path(Event.find_by(event_type: :weekend)))
+        end
+      end
+
+      context "with invalid parameters" do
+        it "does not create an event" do
+          expect do
+            post admin_events_path, params: {
+              event: { name: "", event_type: :weekend, start_time: Time.zone.now }
+            }
+          end.to change(Event, :count).by(0)
+        end
+
+        it "renders a successful response (i.e. to display the 'new' template)" do
+          post admin_events_path, params: {
+            event: { name: "", event_type: :weekend, start_time: Time.zone.now }
+          }
+          expect(response).to be_unprocessable
+        end
+      end
+    end
   end
 end
 
