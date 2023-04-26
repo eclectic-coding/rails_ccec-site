@@ -6,7 +6,6 @@
 #  end_time   :datetime
 #  event_type :integer
 #  name       :string
-#  recurring  :text
 #  role       :string
 #  start_time :datetime
 #  created_at :datetime         not null

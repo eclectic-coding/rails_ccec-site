@@ -23,3 +23,8 @@ en:
         event_type: Type
       new:
         new_event: New Event
+      show:
+        event_name: Event Name
+        end_time: End Time
+        event_type: Event Type
+        start_time: Start Time
