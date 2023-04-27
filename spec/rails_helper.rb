@@ -11,7 +11,6 @@ require "fuubar"
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
-# If you are not using ActiveRecord, you can remove these lines.
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
@@ -20,6 +19,7 @@ end
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
+  config.include Warden::Test::Helpers  # helpers for system tests
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!

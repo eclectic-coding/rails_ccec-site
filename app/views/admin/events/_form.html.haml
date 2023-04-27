@@ -32,10 +32,6 @@
      }, class: 'form-control flatpickr'
 
   .mb-3
-    = form.label :recurring, class: 'form-label'
-    = form.text_area :recurring, class: 'form-control'
-
-  .mb-3
     - if event.persisted?
       .float-end
         = link_to t("destroy_btn"), event, method: :delete, class: "text-danger", data: { confirm: t(".confirm") }
