@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Events", type: :request do
+RSpec.describe "Admin::Events", type: :request do
   before do
     @admin_user = create(:user, :super_admin)
     sign_in @admin_user
