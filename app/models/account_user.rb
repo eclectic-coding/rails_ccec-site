@@ -36,6 +36,6 @@ class AccountUser < ApplicationRecord
   end
 
   def set_role
-    user.add_role(Role.find(role_id).name)
+    user.add_role(Role.find(role_id).name) if role_id.present?
   end
 end

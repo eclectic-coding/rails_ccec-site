@@ -5,9 +5,6 @@ class Admin::AccountUsersController < ApplicationController
 
   layout "admin"
 
-  def index
-  end
-
   def show
     authorize @account_user
   end

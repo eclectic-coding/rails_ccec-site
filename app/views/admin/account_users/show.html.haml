@@ -11,31 +11,31 @@
       = render partial: "admin/account_users/account_users_name/row-name", locals: { account_user: @account_user}
       = render partial: "admin/account_users/account_users_email/row-email", locals: { account_user: @account_user}
       = render partial: "admin/account_users/account_users_role/row-role", locals: { account_user: @account_user}
-      = tag.div class: "row mb-3 pb-3" do
-        .col-sm-3.fw-bold.text-uppercase= t('.created_at')
-        .col-sm-4= date_timestamp(@account_user.user.created_at)
-      - end unless @account_user.user.created_at.nil?
-      = tag.div class: "row mb-3 pb-3" do
-        .col-sm-3.fw-bold.text-uppercase= t('.updated_at')
-        .col-sm-4= date_timestamp(@account_user.user.updated_at)
-      - end unless @account_user.user.updated_at.nil?
-      = tag.div class: "row mb-3" do
-        .col-sm-3.fw-bold.text-uppercase= t('.password_token')
-        .col-sm-4= date_timestamp(@account_user.user.reset_password_token)
-      - end unless @account_user.user.reset_password_token.nil?
+      - unless @account_user.user.created_at.nil?
+        = tag.div class: "row mb-3 pb-3" do
+          .col-sm-3.fw-bold.text-uppercase= t('.created_at')
+          .col-sm-4= date_timestamp(@account_user.user.created_at)
+      - unless @account_user.user.updated_at.nil?
+        = tag.div class: "row mb-3 pb-3" do
+          .col-sm-3.fw-bold.text-uppercase= t('.updated_at')
+          .col-sm-4= date_timestamp(@account_user.user.updated_at)
+      - unless @account_user.user.reset_password_token.nil?
+        = tag.div class: "row mb-3" do
+          .col-sm-3.fw-bold.text-uppercase= t('.password_token')
+          .col-sm-4= date_timestamp(@account_user.user.reset_password_token)
       = tag.div class: "row mb-3" do
         .col-sm-3.fw-bold.text-uppercase= t('.password_reset')
         .col-sm-4= date_timestamp(@account_user.user.reset_password_sent_at)
         .col-sm-5= link_to t(".reset_password"), "#", class: "btn btn-link"
-      = tag.div class: "row mb-3" do
-        .col-sm-3.fw-bold.text-uppercase= t('.invitation_token')
-        .col-sm-4= date_timestamp(@account_user.user.invitation_token)
-      - end unless @account_user.user.invitation_token.nil?
-      = tag.div class: "row mb-3 pb-3" do
-        .col-sm-3.fw-bold.text-uppercase= t('.invitation_sent')
-        .col-sm-4= date_timestamp(@account_user.user.invitation_sent_at)
-      - end unless @account_user.user.invitation_sent_at.nil?
-      = tag.div class: "row mb-3 pb-3" do
-        .col-sm-3.fw-bold.text-uppercase= t('.invitation_accepted')
-        .col-sm-4= date_timestamp(@account_user.user.invitation_created_at)
-      - end unless @account_user.user.invitation_created_at.nil?
+      - unless @account_user.user.invitation_token.nil?
+        = tag.div class: "row mb-3" do
+          .col-sm-3.fw-bold.text-uppercase= t('.invitation_token')
+          .col-sm-4= @account_user.user.invitation_token
+      - unless @account_user.user.invitation_sent_at.nil?
+        = tag.div class: "row mb-3 pb-3" do
+          .col-sm-3.fw-bold.text-uppercase= t('.invitation_sent')
+          .col-sm-4= date_timestamp(@account_user.user.invitation_sent_at)
+      - unless @account_user.user.invitation_created_at.nil?
+        = tag.div class: "row mb-3 pb-3" do
+          .col-sm-3.fw-bold.text-uppercase= t('.invitation_accepted')
+          .col-sm-4= date_timestamp(@account_user.user.invitation_created_at)

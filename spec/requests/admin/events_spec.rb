@@ -22,6 +22,13 @@ RSpec.describe "Admin::Events", type: :request do
     end
   end
 
+  describe "GET /admin/events/new" do
+    it "renders successful response" do
+      get new_admin_event_path
+      expect(response).to have_http_status(200)
+    end
+  end
+
   describe "GET /admin/events/:id/edit" do
     it "renders successful response" do
       event = create(:event, :weekend)
@@ -110,6 +117,21 @@ RSpec.describe "Admin::Events", type: :request do
           }
           expect(response).to be_unprocessable
         end
+      end
+    end
+
+    describe "DELETE " do
+      it "destroys an event" do
+        event = create(:event, :weekend)
+        expect do
+          delete admin_event_path(event)
+        end.to change(Event, :count).by(-1)
+      end
+
+      it "redirects to the events list" do
+        event = create(:event, :weekend)
+        delete admin_event_path(event)
+        expect(response).to redirect_to(admin_events_path)
       end
     end
   end
