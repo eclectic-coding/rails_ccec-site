@@ -9,6 +9,6 @@
 #
 FactoryBot.define do
   factory :account do
-    name { "MyString" }
+    name { "CCEC" }
   end
 end
