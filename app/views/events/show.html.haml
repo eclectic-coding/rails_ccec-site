@@ -3,13 +3,13 @@
     All Events
   %h1 Show event
 %dl.dl-horizontal
-  %dt Name:
+  %dt= t('.event_name')
   %dd= @event.name
-  %dt Start time:
+  %dt= t('.event_start_time')
   %dd= @event.start_time
-  %dt Role:
+  %dt= t('.event_role')
   %dd= @event.role
-  %dt End time:
+  %dt= t('.event_end_time')
   %dd= @event.end_time
-  %dt Type:
+  %dt= t('.event_type')
   %dd= @event.event_type
