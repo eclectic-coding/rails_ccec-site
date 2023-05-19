@@ -51,6 +51,7 @@ class Admin::EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    Event.where(connected_event_id: @event.id).destroy_all
     @event.destroy
 
     respond_to do |format|

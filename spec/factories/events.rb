@@ -2,14 +2,15 @@
 #
 # Table name: events
 #
-#  id         :uuid             not null, primary key
-#  end_time   :datetime
-#  event_type :integer
-#  name       :string
-#  role       :string
-#  start_time :datetime
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                 :uuid             not null, primary key
+#  end_time           :datetime
+#  event_type         :integer
+#  name               :string
+#  role               :string
+#  start_time         :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  connected_event_id :string
 #
 FactoryBot.define do
   factory :event do

@@ -2,14 +2,15 @@
 #
 # Table name: events
 #
-#  id         :uuid             not null, primary key
-#  end_time   :datetime
-#  event_type :integer
-#  name       :string
-#  role       :string
-#  start_time :datetime
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                 :uuid             not null, primary key
+#  end_time           :datetime
+#  event_type         :integer
+#  name               :string
+#  role               :string
+#  start_time         :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  connected_event_id :string
 #
 class Event < ApplicationRecord
   after_create :set_endtime, if: :weekend?
@@ -32,7 +33,7 @@ class Event < ApplicationRecord
   end
 
   def set_endtime
-    update(end_time: self.start_time + 72.hours)
+    update(end_time: start_time + 72.hours)
   end
 
   def create_weekend_events
@@ -40,18 +41,21 @@ class Event < ApplicationRecord
       name: "Sendoff",
       start_time: start_time,
       role: "member",
-      event_type: :sendoff
+      event_type: :sendoff,
+      connected_event_id: id
     )
     Event.create(
       name: "Candlelight",
       start_time: start_time + 48.hours,
       role: "member",
-      event_type: :candlelight
+      event_type: :candlelight,
+      connected_event_id: id
     )
     Event.create(
       name: "Closing",
       start_time: start_time + 72.hours,
-      event_type: :closing
+      event_type: :closing,
+      connected_event_id: id
     )
   end
 end
