@@ -10,7 +10,7 @@ en:
         update_notice: "Event was successfully updated."
       create:
         create_notice: "Event was successfully created."
-      form:
+      edit:
         select_role: 'Select role'
         confirm: "Are you sure?"
       title: Events
