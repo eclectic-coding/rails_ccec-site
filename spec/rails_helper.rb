@@ -1,5 +1,10 @@
-# This file is copied to spec/ when you run 'rails generate rspec:install'
 require "spec_helper"
+require "simplecov"
+SimpleCov.start "rails" do
+  add_filter "/app/jobs/"
+  add_filter "/app/channels/"
+end
+
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 # Prevent database truncation if the environment is production
@@ -7,6 +12,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 require "capybara/rails"
 require "fuubar"
+require "simplecov"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
 
@@ -19,7 +25,7 @@ end
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
-  config.include Warden::Test::Helpers  # helpers for system tests
+  config.include Warden::Test::Helpers # helpers for system tests
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!

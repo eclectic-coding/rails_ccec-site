@@ -29,6 +29,7 @@ class AccountUser < ApplicationRecord
   attribute :role_id, :string
 
   before_validation :set_user_id, if: :email?
+
   after_create :set_role
 
   def set_user_id
@@ -36,6 +37,6 @@ class AccountUser < ApplicationRecord
   end
 
   def set_role
-    user.add_role(Role.find(role_id).name)
+    user.add_role(Role.find(role_id).name) if role_id.present?
   end
 end

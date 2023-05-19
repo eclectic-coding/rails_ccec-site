@@ -54,7 +54,7 @@ class Admin::EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url, notice: t(".destroy_notice") }
+      format.html { redirect_to admin_events_path, notice: t(".destroy_notice") }
       format.json { head :no_content }
     end
   end

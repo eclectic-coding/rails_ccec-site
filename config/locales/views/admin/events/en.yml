@@ -28,3 +28,10 @@ en:
         end_time: End Time
         event_type: Event Type
         start_time: Start Time
+  events:
+    show:
+      event_name: "Name:"
+      event_start_time: "Start time:"
+      event_end_time: "End time:"
+      event_role: "Role:"
+      event_type: "Type:"

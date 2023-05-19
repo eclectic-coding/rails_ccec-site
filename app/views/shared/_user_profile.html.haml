@@ -4,5 +4,4 @@
   #nav-account-dropdown.dropdown-menu.dropdown-menu-end{"aria-labelledby" => "navbar-dropdown"}
     = link_to t('.members_area'), "#", class: "dropdown-item"
     .dropdown-divider
-    = button_to t('logout_btn')
-    , destroy_session_path(user), method: :delete, class: "dropdown-item" %&gt;
+    = button_to t('logout_btn'), destroy_session_path(user), method: :delete, class: "dropdown-item"

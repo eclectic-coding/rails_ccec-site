@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
 
     namespace :admin do
-      resources :accounts
-      resources :account_users, only: [:index, :show, :new, :create, :destroy] do
+      resources :accounts, only: [:index, :show]
+      resources :account_users, only: [:show, :new, :create, :destroy] do
         resources :account_users_name, only: [:edit, :update], module: :account_users
         resources :account_users_email, only: [:edit, :update], module: :account_users
         resources :account_users_role, only: [:edit, :update], module: :account_users
