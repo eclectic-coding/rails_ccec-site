@@ -21,7 +21,7 @@
     %tbody
       - @events.each do |event|
         = content_tag :tr, id: dom_id(event), class: event.event_type == "weekend" ? "table-success" : dom_class(event) do
-          %td= link_to event.name, admin_event_path(event)
+          %td= link_to event.event_title, admin_event_path(event)
           %td= date_timestamp(event.start_time)
           %td.text-capitalize= event.role
           %td= date_timestamp event.end_time

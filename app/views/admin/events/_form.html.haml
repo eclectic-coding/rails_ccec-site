@@ -13,13 +13,18 @@
     = form.text_field :name, class: 'form-control'
 
   .mb-3
-    = form.label :event_type, class: 'form-label'
-    = form.select :event_type, options_for_select(Event.event_types.map { |k, v| [k.titleize, Event.event_types.key(v)] }),
-      { include_blank: true },
-      class: 'form-select', data: { events_target: "types", action: "change->events#update" }
+    .row
+      .col-8
+        = form.label :event_type, class: 'form-label'
+        = form.select :event_type, options_for_select(Event.event_types.map { |k, v| [k.titleize, Event.event_types.key(v)] }),
+          { include_blank: true },
+          class: 'form-select', data: { events_target: "types", action: "change->events#update" }
+      .col-4
+        = form.label :walk_number, class: 'form-label'
+        = form.text_field :walk_number, class: 'form-control'
 
   .mb-3
-    = form.label :role, "Role (if limiting access)", class: 'form-label'
+    = form.label :role, "Role (if limiting calendar view)", class: 'form-label'
     = form.collection_select :role_id, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles"}, class: 'form-select'
 
   .mb-3

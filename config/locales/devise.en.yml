@@ -109,6 +109,9 @@ en:
           name: ""
         row-role:
           name: ""
+    events:
+      form:
+        select_role: ""
   email_btn: ""
   destroy_btn: ""
   cancel_btn: ""

@@ -8,6 +8,7 @@
 #  name               :string
 #  role               :string
 #  start_time         :datetime
+#  walk_number        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  connected_event_id :string
@@ -34,6 +35,10 @@ class Event < ApplicationRecord
 
   def set_endtime
     update(end_time: start_time + 72.hours)
+  end
+
+  def event_title
+    (event_type == "weekend") ? "#{name} #{walk_number}" : name
   end
 
   def create_weekend_events

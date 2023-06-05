@@ -8,6 +8,7 @@
 #  name               :string
 #  role               :string
 #  start_time         :datetime
+#  walk_number        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  connected_event_id :string

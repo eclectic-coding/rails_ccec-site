@@ -50,7 +50,7 @@ RSpec.describe "Admin::Events", type: :request do
       it "redirects to the event" do
         patch admin_event_path(event), params: { event: { name: "name" } }
         event.reload
-        expect(response).to redirect_to(admin_event_path(event))
+        expect(response).to redirect_to(admin_events_path)
       end
     end
 
@@ -125,7 +125,7 @@ RSpec.describe "Admin::Events", type: :request do
         event = create(:event, :weekend)
         expect do
           delete admin_event_path(event)
-        end.to change(Event, :count).by(-1)
+        end.to change(Event, :count).by(-4)
       end
 
       it "redirects to the events list" do
