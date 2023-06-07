@@ -82,7 +82,7 @@ RSpec.describe "Admin::AccountUsers", type: :request do
     it "destroys the requested account user" do
       account_user = create(:account_user)
       expect {
-        delete admin_account_user_path(account_user)
+        delete admin_account_user_path(account_user, user_id: account_user.user_id)
       }.to change(AccountUser, :count).by(-1)
     end
   end

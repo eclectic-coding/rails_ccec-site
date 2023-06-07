@@ -25,7 +25,7 @@ class Admin::AccountUsersController < ApplicationController
   end
 
   def destroy
-    @account.account_users.find_by(user_id: params[:user_id]).destroy
+    AccountUser.find_by(user_id: params[:user_id]).destroy
 
     redirect_to admin_accounts_path, notice: "Account user was successfully destroyed."
   end
