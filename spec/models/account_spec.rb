@@ -1,5 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Account, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @admin_user = create(:user, :super_admin)
+    sign_in @admin_user
+  end
+
+
 end

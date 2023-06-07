@@ -21,6 +21,7 @@
 FactoryBot.define do
   factory :account_user do
     name { "Example User" }
+    role_id { create(:role).id }
     association :user
     association :account
   end

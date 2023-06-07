@@ -3,7 +3,12 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    p current_user
+    @events = if current_user
+      Event.all.order(start_time: :asc)
+    else
+      Event.where(role: nil).order(start_time: :asc)
+    end
   end
 
   # GET /events/1 or /events/1.json

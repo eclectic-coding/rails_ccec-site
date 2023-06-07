@@ -22,9 +22,24 @@ RSpec.describe "Admin::AccountUsers", type: :request do
   end
 
   describe "EDIT /admin/account_users" do
-    it "edits account users name"
-    it "edits account users email"
-    it "edits account users role"
+    let(:account_user) { create(:account_user) }
+    let(:account) { create(:account) }
+
+    it "edits account users name" do
+      get edit_admin_account_user_account_users_name_path(account_user, account)
+      expect(response).to have_http_status(200)
+    end
+
+    it "edits account users email" do
+      get edit_admin_account_user_account_users_email_path(account_user, account)
+      expect(response).to have_http_status(200)
+    end
+
+    it "edits account users role" do
+      get edit_admin_account_user_account_users_role_path(account_user, account_user.role_id)
+      expect(response).to have_http_status(200)
+    end
+
     it "sends account user password reset email"
   end
 
@@ -40,7 +55,7 @@ RSpec.describe "Admin::AccountUsers", type: :request do
 
       it "redirects to the created account user" do
         post admin_account_users_path, params: { account_user: {
-          name: "Test User", email: "test@example.com", role_id: Role.find_by(name: create(:account).name)}}
+          name: "Test User", email: "test@example.com", role_id: Role.find_by(name: create(:account).name) } }
         expect(response).to redirect_to(admin_accounts_path)
       end
     end
@@ -64,7 +79,7 @@ RSpec.describe "Admin::AccountUsers", type: :request do
   end
 
   describe "DELETE /admin/account_users" do
-    xit "destroys the requested account user" do
+    it "destroys the requested account user" do
       account_user = create(:account_user)
       expect {
         delete admin_account_user_path(account_user)
