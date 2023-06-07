@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticate :user, lambda { |u| u.has_role?(:admin) || u.has_role?(:superadmin) } do
-    mount Sidekiq::Web => "/sidekiq"
-
     namespace :admin do
       resources :accounts, only: [:index, :show]
       resources :account_users, only: [:show, :new, :create, :destroy] do

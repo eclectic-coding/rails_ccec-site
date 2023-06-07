@@ -14,9 +14,9 @@
         %dt=t(".start_time")
         %dd= date_timestamp(@event.start_time)
         - unless @event.role.nil?
-          =content_tag :dt do
-            =(".role")
-          =content_tag :dd do
+          =content_tag :dt, class: "text-capitalize" do
+            = t(".role")
+          =content_tag :dd, class: "text-capitalize" do
             = @event.role
 
         %dt= t(".end_time")

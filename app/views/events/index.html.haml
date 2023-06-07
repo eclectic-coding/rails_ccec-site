@@ -1,22 +1,7 @@
 .row
   .col-sm-6
     %h1 Events
-.table-responsive
-  %table.table.table-striped.table-bordered.table-hover
-    %thead
-      %tr
-        %th Name
-        %th Start time
-        %th Recurring
-        %th Role
-        %th End time
-        %th Type
-    %tbody
-      - @events.each do |event|
-        = content_tag :tr, id: dom_id(event), class: dom_class(event) do
-          %td= link_to event.name, event
-          %td= event.start_time
-          %td= event.recurring
-          %td= event.role
-          %td= event.end_time
-          %td= event.type
+
+%div
+  = month_calendar do |date|
+    = date

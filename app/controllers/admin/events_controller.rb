@@ -5,7 +5,7 @@ class Admin::EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    @events = Event.all.order(created_at: :asc)
   end
 
   # GET /events/1 or /events/1.json
@@ -40,7 +40,7 @@ class Admin::EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to admin_event_url(@event), notice: t(".update_notice") }
+        format.html { redirect_to admin_events_path, notice: t(".update_notice") }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,6 +51,7 @@ class Admin::EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    Event.where(connected_event_id: @event.id).destroy_all
     @event.destroy
 
     respond_to do |format|
@@ -68,6 +69,6 @@ class Admin::EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:name, :start_time, :recurring, :role, :end_time, :event_type)
+    params.require(:event).permit(:name, :start_time, :walk_number, :recurring, :role, :end_time, :event_type)
   end
 end

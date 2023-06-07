@@ -3,7 +3,7 @@
     #error_explanation
       %h2
         = pluralize(event.errors.count, "error")
-        prohibited this event from being saved:
+        - t(".prohibited")
       %ul
         - event.errors.full_messages.each do |message|
           %li= message
@@ -13,13 +13,18 @@
     = form.text_field :name, class: 'form-control'
 
   .mb-3
-    = form.label :event_type, class: 'form-label'
-    = form.select :event_type, options_for_select(Event.event_types.map { |k, v| [k.titleize, Event.event_types.key(v)] }),
-      { include_blank: true },
-      class: 'form-select', data: { events_target: "types", action: "change->events#update" }
+    .row
+      .col-8
+        = form.label :event_type, class: 'form-label'
+        = form.select :event_type, options_for_select(Event.event_types.map { |k, v| [k.titleize, Event.event_types.key(v)] }),
+          { include_blank: true },
+          class: 'form-select', data: { events_target: "types", action: "change->events#update" }
+      .col-4
+        = form.label :walk_number, class: 'form-label'
+        = form.text_field :walk_number, class: 'form-control'
 
   .mb-3
-    = form.label :role, class: 'form-label'
+    = form.label :role, t('.roles'), class: 'form-label'
     = form.collection_select :role_id, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles"}, class: 'form-select'
 
   .mb-3
@@ -34,10 +39,10 @@
   .mb-3
     - if event.persisted?
       .float-end
-        = link_to t("destroy_btn"), event, method: :delete, class: "text-danger", data: { confirm: t(".confirm") }
+        = link_to t("destroy_btn"), admin_event_path, method: :delete, class: "text-danger", data: { confirm: t(".confirm") }
 
     = form.submit class: 'btn btn-primary'
     - if event.persisted?
-      = link_to "Cancel", event, class: "btn btn-link"
+      = link_to "Cancel", admin_events_path, class: "btn btn-link"
     - else
-      = link_to "Cancel", events_path, class: "btn btn-link"
+      = link_to "Cancel", admin_events_path, class: "btn btn-link"
