@@ -3,7 +3,7 @@
     #error_explanation
       %h2
         = pluralize(event.errors.count, "error")
-        prohibited this event from being saved:
+        - t(".prohibited")
       %ul
         - event.errors.full_messages.each do |message|
           %li= message
@@ -24,7 +24,7 @@
         = form.text_field :walk_number, class: 'form-control'
 
   .mb-3
-    = form.label :role, "Role (if limiting calendar view)", class: 'form-label'
+    = form.label :role, t('.roles'), class: 'form-label'
     = form.collection_select :role_id, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles"}, class: 'form-select'
 
   .mb-3

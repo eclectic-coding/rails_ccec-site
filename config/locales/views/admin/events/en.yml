@@ -29,6 +29,9 @@ en:
         event_type: Event Type
         start_time: Start Time
         role: Role
+      form:
+        prohibited: "prohibited this event from being saved:"
+        roles: "Role (if limiting calendar view)"
   events:
     show:
       event_name: "Name:"
