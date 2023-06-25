@@ -18,8 +18,8 @@
 PreCommit:
   BundleCheck:
     enabled: true
-#  BundleAudit:
-#    enabled: true
+  BundleAudit:
+    enabled: true
   Rubocop:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']
