@@ -50,6 +50,7 @@ end
 
 group :test do
   gem "simplecov", "~> 0.21.2", require: false
+  gem "webmock"
 end
 
 group :development do
