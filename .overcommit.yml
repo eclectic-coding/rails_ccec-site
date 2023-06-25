@@ -16,8 +16,14 @@
 # Uncomment the following lines to make the configuration take effect.
 
 PreCommit:
+  BundleCheck:
+    enabled: true
+#  BundleAudit:
+#    enabled: true
   Rubocop:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']
-
-
+PrePush:
+  RSpec:
+    enabled: true
+    command: ['bundle', 'exec', 'rspec']
