@@ -18,5 +18,5 @@
 PreCommit:
   RuboCop:
     enabled: true
-    on_warn: fail # Treat all warnings as failures
+    on_error: fail # Treat all errors as failures
 
