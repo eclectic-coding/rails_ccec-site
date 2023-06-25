@@ -45,6 +45,7 @@ group :development do
   gem "web-console"
   gem "fuubar", "~> 2.5", ">= 2.5.1"
   gem "letter_opener_web", "~> 2.0"
+  gem "overcommit"
   # gem "strong_migrations"
 end
 
