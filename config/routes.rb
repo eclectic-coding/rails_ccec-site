@@ -1,7 +1,6 @@
 require "sidekiq/web"
 
 Rails.application.routes.draw do
-
   # if Rails.env.development? || Rails.env.test?
   #   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   # end_time

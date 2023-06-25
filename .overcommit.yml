@@ -19,8 +19,5 @@ PreCommit:
   Rubocop:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']
-    include:
-      - '**/*.rb'
-    quiet: true
 
 

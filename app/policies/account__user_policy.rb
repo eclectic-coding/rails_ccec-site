@@ -1,5 +1,4 @@
 class AccountUserPolicy < ApplicationPolicy
-
   def index?
     false
   end

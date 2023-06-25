@@ -55,7 +55,8 @@ RSpec.describe "Admin::AccountUsers", type: :request do
 
       it "redirects to the created account user" do
         post admin_account_users_path, params: { account_user: {
-          name: "Test User", email: "test@example.com", role_id: Role.find_by(name: create(:account).name) } }
+          name: "Test User", email: "test@example.com", role_id: Role.find_by(name: create(:account).name)
+        } }
         expect(response).to redirect_to(admin_accounts_path)
       end
     end

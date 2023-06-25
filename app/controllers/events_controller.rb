@@ -4,10 +4,10 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = if current_user
-                Event.all.order(start_time: :asc)
-              else
-                Event.where(role: nil).order(start_time: :asc)
-              end
+      Event.all.order(start_time: :asc)
+    else
+      Event.where(role: nil).order(start_time: :asc)
+    end
     authorize @events
   end
 

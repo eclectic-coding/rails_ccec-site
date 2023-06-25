@@ -136,4 +136,3 @@ RSpec.describe "Admin::Events", type: :request do
     end
   end
 end
-
