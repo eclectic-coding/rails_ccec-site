@@ -30,6 +30,7 @@ gem "whenever", require: false
 gem "rolify"
 gem "simple_calendar"
 gem "haml-rails", "~> 2.0"
+gem "view_component"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]

@@ -1,10 +1,9 @@
-.row.my-5
-  .col-sm-6
-    %h1
-      = t('admin.events.title')
-  .col-sm-6.text-end
+
+.mt-3
+  = render(Admin::PageTitleComponent.new(title: t('admin.events.title'))) do
     = link_to new_admin_event_path, class: 'btn btn-primary' do
       = t(".add_event")
+
 .table-responsive
   %table.table.table-striped.table-bordered.table-hover
     %thead

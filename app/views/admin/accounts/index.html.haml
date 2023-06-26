@@ -1,4 +1,4 @@
-%h1= t('.title')
+= render(Admin::PageTitleComponent.new(title: t('.title')))
 .card
   .card-body
     = render partial: "accounts", locals: { accounts: @accounts }
