@@ -1,4 +1,6 @@
 class AccountUserPolicy < ApplicationPolicy
+  attr_reader :user, :account_user
+
   def index?
     false
   end
