@@ -21,8 +21,6 @@
 #  fk_rails_...  (user_id => users.id)
 
 class AccountUser < ApplicationRecord
-  has_person_name
-
   belongs_to :account
   belongs_to :user, dependent: :destroy
 
@@ -31,8 +29,6 @@ class AccountUser < ApplicationRecord
   attribute :role_id, :string
 
   before_validation :set_user_id, if: :email?
-
-  validates :name, presence: true
 
   after_create :set_role
 
