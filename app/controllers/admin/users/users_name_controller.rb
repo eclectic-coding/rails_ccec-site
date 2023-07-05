@@ -1,0 +1,42 @@
+class Admin::Users::UsersNameController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_user
+
+  def edit
+    # authorize @user
+
+    render turbo_stream: turbo_stream.replace(
+      "edit_name_user_#{params[:user_id]}",
+      partial: "admin/users/users_name/form-name",
+      locals: { user: @user }
+    )
+  end
+
+  def update
+    # authorize @user
+    if @user.update(users_name_params)
+      @account_user = AccountUser.find_by(user_id: params[:user_id])
+
+      respond_to do |format|
+        format.turbo_stream { flash.now[:notice] = "User's name was successfully updated." }
+        format.html
+      end
+    else
+      render turbo_stream: turbo_stream.replace(
+        "edit_name_user_#{params[:user_id]}",
+        partial: "admin/users/users_name/form-name",
+        locals: { user: @user }
+      )
+    end
+  end
+
+  private
+
+  def set_user
+    @user = User.find_by(id: params[:user_id])
+  end
+
+  def users_name_params
+    params.permit(:name, :account_users_id)
+  end
+end

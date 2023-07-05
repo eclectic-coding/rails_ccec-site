@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Admin::PageTitleComponent < ViewComponent::Base
+class Shared::PageTitleComponent < ViewComponent::Base
   attr_reader :title
 
   def initialize(title:)

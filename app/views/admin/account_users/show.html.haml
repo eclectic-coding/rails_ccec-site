@@ -8,7 +8,7 @@
 .card
   .card-body
     %section.px-3
-      = render partial: "admin/account_users/account_users_name/row-name", locals: { account_user: @account_user}
+      = render partial: "admin/users/users_name/row-name", locals: { account_user: @account_user}
       = render partial: "admin/account_users/account_users_email/row-email", locals: { account_user: @account_user}
       = render partial: "admin/account_users/account_users_role/row-role", locals: { account_user: @account_user}
       - unless @account_user.user.created_at.nil?

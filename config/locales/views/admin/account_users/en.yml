@@ -29,3 +29,7 @@ en:
       account_users_role:
         row-email:
           name: Role
+    users:
+      users_name:
+        row-name:
+          name: Name

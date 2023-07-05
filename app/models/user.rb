@@ -50,6 +50,8 @@ class User < ApplicationRecord
 
   before_save :add_account_id_from_parent
 
+  validates :name, presence: true
+
   def add_account_id_from_parent
     self.account_id = Account.find_by(name: "CCEC").id if account_id.nil?
   end

@@ -1,5 +1,4 @@
-- unless account_user.user.name.nil?
-  = tag.div class: "row align-content-center mb-3", id: "edit_name_#{dom_id(account_user)}" do
+= tag.div class: "row align-content-center mb-3", id: "edit_name_#{dom_id(account_user)}" do
     .col-sm-3.d-flex.align-items-center.fw-bold.text-uppercase= t('.name')
     .col-sm-4.d-flex.align-items-center= account_user.user.name
     .col-sm-5= link_to t("edit_btn"), edit_admin_account_user_account_users_name_path(account_user_id: account_user), class: "btn btn-link"

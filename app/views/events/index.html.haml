@@ -1,7 +1,14 @@
-.row
-  .col-sm-6
-    %h1 Events
+= render(Shared::PageTitleComponent.new(title: t('.title')))
 
 %div
-  = month_calendar do |date|
+  - @events.each do |event|
+    %div
+      = link_to event.name, event_path(event)
+      = event.start_time
+
+  = month_calendar(events: @events) do |date, events|
     = date
+
+    - events.each do |event|
+      %div
+        = link_to event.name, event_path(event)

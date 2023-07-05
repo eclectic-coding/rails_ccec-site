@@ -15,6 +15,11 @@ Rails.application.routes.draw do
         resources :account_users_email, only: [:edit, :update], module: :account_users
         resources :account_users_role, only: [:edit, :update], module: :account_users
       end
+      resources :users do
+        resources :users_name, only: [:edit, :update], module: :users
+        # resources :users_email, only: [:edit, :update], module: :account_users
+        # resources :users_role, only: [:edit, :update], module: :account_users
+      end
       resources :events
 
       root to: "dashboard#show"

@@ -1,6 +1,6 @@
 
 .mt-3
-  = render(Admin::PageTitleComponent.new(title: t('admin.events.title'))) do
+  = render(Shared::PageTitleComponent.new(title: t('admin.events.title'))) do
     = link_to new_admin_event_path, class: 'btn btn-primary' do
       = t(".add_event")
 

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Admin::PageTitleComponent, type: :component do
+RSpec.describe Shared::PageTitleComponent, type: :component do
   it "renders a title" do
     render_inline(described_class.new(title: "My Title"))
 

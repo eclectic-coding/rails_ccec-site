@@ -1,4 +1,4 @@
-= render(Admin::PageTitleComponent.new(title: t('.title')))
+= render(Shared::PageTitleComponent.new(title: t('.title')))
 .card
   .card-body
     = render partial: "accounts", locals: { accounts: @accounts }

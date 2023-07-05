@@ -15,19 +15,22 @@ class Admin::AccountUsers::AccountUsersNameController < ApplicationController
 
   def update
     authorize @account_user
-
-    if @account_user.user.update(users_name_params)
+    if @account_user.update(users_name_params)
 
       respond_to do |format|
         format.turbo_stream { flash.now[:notice] = "User's name was successfully updated." }
         format.html
       end
     else
-      render turbo_stream: turbo_stream.replace(
-        "edit_name_account_user_#{params[:account_user_id]}",
-        partial: "admin/account_users/account_users_name/form-name",
-        locals: { account_user: @account_user, user: @user }
-      )
+      # render turbo_stream: turbo_stream.replace(
+      #   "edit_name_account_user_#{params[:account_user_id]}",
+      #   partial: "admin/account_users/account_users_name/form-name",
+      #   locals: { account_user: @account_user, user: @user }
+      # )
+      respond_to do |format|
+        format.turbo_stream { flash.now[:alert] = "User's name was not updated." }
+        format.html { render :edit, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -42,6 +45,6 @@ class Admin::AccountUsers::AccountUsersNameController < ApplicationController
   end
 
   def users_name_params
-    params.permit(:name)
+    params.permit(:name, :account_users_id)
   end
 end
