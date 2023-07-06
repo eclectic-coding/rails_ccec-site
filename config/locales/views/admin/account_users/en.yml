@@ -33,3 +33,4 @@ en:
       users_name:
         row-name:
           name: Name
+          edit_name: Edit Name

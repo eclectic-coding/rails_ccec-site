@@ -3,7 +3,7 @@ class Admin::Users::UsersNameController < ApplicationController
   before_action :set_user
 
   def edit
-    # authorize @user
+    authorize @user
 
     render turbo_stream: turbo_stream.replace(
       "edit_name_user_#{params[:user_id]}",
@@ -13,7 +13,8 @@ class Admin::Users::UsersNameController < ApplicationController
   end
 
   def update
-    # authorize @user
+    authorize @user
+
     if @user.update(users_name_params)
       @account_user = AccountUser.find_by(user_id: params[:user_id])
 
