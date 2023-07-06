@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe EventPolicy do
   subject { described_class }
 
-  permissions :index? do
+  permissions :index?, :show? do
     it "grants access to all users" do
       expect(subject).to permit(User.new, Event.new)
     end
