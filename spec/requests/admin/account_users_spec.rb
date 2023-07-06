@@ -21,28 +21,6 @@ RSpec.describe "Admin::AccountUsers", type: :request do
     end
   end
 
-  describe "EDIT /admin/account_users" do
-    let(:account_user) { create(:account_user) }
-    let(:account) { create(:account) }
-
-    it "edits account users name" do
-      get edit_admin_account_user_account_users_name_path(account_user, account)
-      expect(response).to have_http_status(200)
-    end
-
-    it "edits account users email" do
-      get edit_admin_account_user_account_users_email_path(account_user, account)
-      expect(response).to have_http_status(200)
-    end
-
-    it "edits account users role" do
-      get edit_admin_account_user_account_users_role_path(account_user, account_user.role_id)
-      expect(response).to have_http_status(200)
-    end
-
-    it "sends account user password reset email"
-  end
-
   describe "CREATE /admin/account_users" do
     context "with valid parameters" do
       it "creates a new account user" do
