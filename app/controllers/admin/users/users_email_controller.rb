@@ -1,4 +1,4 @@
-class Admin::AccountUsers::AccountUsersEmailController < ApplicationController
+class Admin::Users::UsersEmailController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account_user
   before_action :set_user
