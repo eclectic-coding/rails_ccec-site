@@ -1,22 +1,22 @@
 class Admin::Users::UsersEmailController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_account_user
   before_action :set_user
 
   def edit
-    authorize @account_user
+    authorize @user
 
     render turbo_stream: turbo_stream.replace(
-      "edit_email_account_user_#{params[:account_user_id]}",
-      partial: "admin/account_users/account_users_email/form-email",
-      locals: { account_user: @account_user, user: @user }
+      "edit_email_user_#{params[:user_id]}",
+      partial: "admin/users/users_email/form-email",
+      locals: { user: @user }
     )
   end
 
   def update
-    authorize @account_user
+    authorize @user
 
-    if @account_user.user.update(users_email_params)
+    if @user.update(users_email_params)
+      @account_user = AccountUser.find_by(user_id: params[:user_id])
 
       respond_to do |format|
         format.turbo_stream { flash.now[:notice] = "User's email was successfully updated." }
@@ -25,7 +25,7 @@ class Admin::Users::UsersEmailController < ApplicationController
     else
       render turbo_stream: turbo_stream.replace(
         "edit_email_account_user_#{params[:account_user_id]}",
-        partial: "admin/account_users/account_users_email/form-email",
+        partial: "admin/users/users_email/form-email",
         locals: { account_user: @account_user, user: @user }
       )
     end
@@ -33,12 +33,8 @@ class Admin::Users::UsersEmailController < ApplicationController
 
   private
 
-  def set_account_user
-    @account_user = AccountUser.find(params[:account_user_id])
-  end
-
   def set_user
-    @user = @account_user.user
+    @user = User.find_by(id: params[:user_id])
   end
 
   def users_email_params

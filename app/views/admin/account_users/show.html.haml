@@ -9,8 +9,8 @@
   .card-body
     %section.px-3
       = render partial: "admin/users/users_name/row-name", locals: { account_user: @account_user}
-      = render partial: "admin/account_users/account_users_email/row-email", locals: { account_user: @account_user}
-      = render partial: "admin/account_users/account_users_role/row-role", locals: { account_user: @account_user}
+      = render partial: "admin/users/users_email/row-email", locals: { account_user: @account_user}
+      = render partial: "admin/users/users_role/row-role", locals: { account_user: @account_user}
       - unless @account_user.user.created_at.nil?
         = tag.div class: "row mb-3 pb-3" do
           .col-sm-3.fw-bold.text-uppercase= t('.created_at')

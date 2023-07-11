@@ -10,15 +10,11 @@ Rails.application.routes.draw do
   authenticate :user, lambda { |u| u.has_role?(:admin) || u.has_role?(:superadmin) } do
     namespace :admin do
       resources :accounts, only: [:index, :show]
-      resources :account_users, only: [:show, :new, :create, :destroy] do
-        resources :account_users_name, only: [:edit, :update], module: :account_users
-        resources :account_users_email, only: [:edit, :update], module: :account_users
-        resources :account_users_role, only: [:edit, :update], module: :account_users
-      end
+      resources :account_users, only: [:show, :new, :create, :destroy]
       resources :users do
         resources :users_name, only: [:edit, :update], module: :users
-        # resources :users_email, only: [:edit, :update], module: :account_users
-        # resources :users_role, only: [:edit, :update], module: :account_users
+        resources :users_email, only: [:edit, :update], module: :users
+        resources :users_role, only: [:edit, :update], module: :users
       end
       resources :events
 

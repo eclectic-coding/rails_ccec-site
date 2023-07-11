@@ -34,3 +34,11 @@ en:
         row-name:
           name: Name
           edit_name: Edit Name
+      users_email:
+        row-email:
+          name: Email
+          edit_email: Edit Email
+      users_role:
+        row-role:
+          name: Email
+          edit_role: Edit Role

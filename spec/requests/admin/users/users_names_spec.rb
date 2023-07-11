@@ -33,7 +33,6 @@ RSpec.describe "Admin::Users::UsersNames", type: :request do
           patch admin_user_users_name_path(user_id: account_user.user_id, id: account_user.id, params: { user: {
             name: ""
           } }), as: :turbo_stream
-          p account_user.user
           expect(account_user.user.name).to eq("Example User")
         end
       end
