@@ -1,25 +1,23 @@
-class Admin::AccountUsers::AccountUsersRoleController < ApplicationController
+class Admin::Users::UsersRoleController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_account_user
-  before_action :set_user
+  before_action :set_user, only: [:edit, :update]
 
   def edit
-    authorize @account_user
+    authorize @user
 
     render turbo_stream: turbo_stream.replace(
       "edit_role_account_user_#{params[:account_user_id]}",
-      partial: "admin/account_users/account_users_role/form-role",
-      locals: { account_user: @account_user, user: @user }
+      partial: "admin/users/users_role/form-role",
+      locals: { account_user: @account_user, user_id: @user.id }
     )
   end
 
   def update
-    authorize @account_user
-    @account_user.user.roles.first.destroy
-    @account_user.user.add_role(users_role_params[:role])
+    authorize @user
 
-    if @account_user.user.roles.include?(params[:role])
+    @user.add_role(users_role_params[:role])
 
+    if @user.has_role?(params[:role])
       respond_to do |format|
         format.turbo_stream { flash.now[:notice] = "User's role was successfully updated." }
         format.html
@@ -27,7 +25,7 @@ class Admin::AccountUsers::AccountUsersRoleController < ApplicationController
     else
       render turbo_stream: turbo_stream.replace(
         "edit_role_account_user_#{params[:account_user_id]}",
-        partial: "admin/account_users/account_users_role/row-role",
+        partial: "admin/users/users_role/row-role",
         locals: { account_user: @account_user, user: @user }
       )
     end
@@ -35,11 +33,8 @@ class Admin::AccountUsers::AccountUsersRoleController < ApplicationController
 
   private
 
-  def set_account_user
-    @account_user = AccountUser.find(params[:account_user_id])
-  end
-
   def set_user
+    @account_user = AccountUser.find_by(user_id: params[:user_id])
     @user = @account_user.user
   end
 
