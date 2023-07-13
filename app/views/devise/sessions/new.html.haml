@@ -3,7 +3,7 @@
     %h1.text-center Log in
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .mb-3
-        = f.email_field :email, autofocus: true, placeholder: 'Email Address', class: 'form-control'
+        = f.text_field :login, autofocus: true, placeholder: 'Username or Email Address', class: 'form-control'
       .mb-3
         = f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control'
       - if devise_mapping.rememberable?

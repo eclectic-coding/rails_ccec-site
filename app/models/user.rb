@@ -18,6 +18,7 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  account_id             :uuid
@@ -31,12 +32,15 @@
 #  index_users_on_invited_by            (invited_by_type,invited_by_id)
 #  index_users_on_invited_by_id         (invited_by_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_username              (username) UNIQUE
 #
 # Foreign Keys
 #
 #  fk_rails_...  (account_id => accounts.id)
 #
 class User < ApplicationRecord
+  attr_writer :login
+
   rolify before_add: :before_add_method
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, registerable
@@ -52,6 +56,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+  validates :username, format: { with: /^[a-zA-Z0-9_.]*$/, multiline: true }
+
+  def login
+    @login || username || email
+  end
 
   def add_account_id_from_parent
     self.account_id = Account.find_by(name: "CCEC").id if account_id.nil?
@@ -64,6 +73,17 @@ class User < ApplicationRecord
   def before_add_method(role)
     if roles.any?
       roles.clear
+    end
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if (login = conditions.delete(:login))
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { value: login.downcase }]).first
+    elsif conditions[:username].nil?
+      where(conditions).first
+    else
+      where(username: conditions[:username]).first
     end
   end
 end
