@@ -16,13 +16,3 @@
         = link_to admin_events_path, class: [("nav-link text-white"), ("sidebar__active" if controller_name == 'events')] do
           %i.bi.bi-calendar3-event-fill
           %span.d-none.d-md-inline= t('.events_title')
-    %hr.w-100{:style => "height:2px; color:grey;"}/
-    .d-flex.justify-content-center.align-items-center.w-100
-      .dropdown.pb-3
-        %a#dropdownUser1.d-flex.align-items-center.text-white.text-decoration-none.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"}
-          %strong.d-none.d-md-inline= current_user.first_name
-        %ul.dropdown-menu.dropdown-menu-dark.text-small.shadow{"aria-labelledby" => "dropdownUser1"}
-          %li= link_to t('.edit_profile'), "#", class: "dropdown-item"
-          %li
-            %hr.dropdown-divider
-          %li= button_to t('logout_btn'), "#", method: :delete, class: "dropdown-item"
