@@ -17,7 +17,7 @@
           %td= date_timestamp(user.invitation_created_at)
           %td= date_timestamp(user.invitation_accepted_at)
           %td
-            - if current_user.has_role?(:superadmin)
+            - if current_user.has_role?(:superadmin) && user != current_user
               = button_to admin_account_user_path(@account, user, user_id: user.id), type: 'submit', method: :delete, |
                 form: { data: { confirm: t('.confirm'), "turbo-frame": "_top" } },  |
                 class: "text-danger float-end border-0 bg-transparent", id: 'delete-user' do           |
