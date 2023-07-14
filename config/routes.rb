@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :accounts, only: [:index, :show]
       resources :account_users, only: [:show, :new, :create, :destroy]
-      resources :users do
+      resources :users, only: :index do
         resources :users_name, only: [:edit, :update], module: :users
         resources :users_email, only: [:edit, :update], module: :users
         resources :users_role, only: [:edit, :update], module: :users

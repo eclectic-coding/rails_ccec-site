@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/scambra/devise_invitable.git
+  revision: d414a5eb7c8b14a358420c421389d5e86a090e5f
+  specs:
+    devise_invitable (2.0.8)
+      actionmailer (>= 5.0)
+      devise (>= 4.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -110,9 +118,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise_invitable (2.0.7)
-      actionmailer (>= 5.0)
-      devise (>= 4.6)
     diff-lcs (1.5.0)
     docile (1.4.0)
     domain_name (0.5.20190701)
@@ -398,7 +403,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.9)
-  devise_invitable
+  devise_invitable!
   factory_bot_rails
   faker
   friendly_id (~> 5.4)

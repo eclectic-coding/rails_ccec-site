@@ -14,6 +14,7 @@ class Admin::Users::UsersNameController < ApplicationController
 
   def update
     authorize @user
+    # Admin::Users::UsersNameMailer.with(@user).name_updated.deliver_now
 
     if @user.update(users_name_params)
       @account_user = AccountUser.find_by(user_id: params[:user_id])
@@ -34,7 +35,8 @@ class Admin::Users::UsersNameController < ApplicationController
   private
 
   def set_user
-    @user = User.find_by(id: params[:user_id])
+    @account_user = AccountUser.find_by(user_id: params[:user_id])
+    @user = @account_user.user
   end
 
   def users_name_params
