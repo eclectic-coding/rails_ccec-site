@@ -18,7 +18,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # === App Gems ======================
 gem "devise", "~> 4.9"
-gem "devise_invitable"
+gem "devise_invitable", git: "https://github.com/scambra/devise_invitable.git"
 gem "friendly_id", "~> 5.4"
 gem "name_of_person", "~> 1.1"
 gem "noticed", "~> 1.4"

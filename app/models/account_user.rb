@@ -24,6 +24,7 @@ class AccountUser < ApplicationRecord
   belongs_to :account
   belongs_to :user, dependent: :destroy
 
+  attribute :username, :string
   attribute :email, :string
   attribute :name, :string
   attribute :role_id, :string
@@ -33,7 +34,7 @@ class AccountUser < ApplicationRecord
   after_create :set_role
 
   def set_user_id
-    self.user = User.invite!(email: email, name: name)
+    self.user = User.invite!(email: email, name: name, username: username)
   end
 
   def set_role

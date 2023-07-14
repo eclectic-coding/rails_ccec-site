@@ -56,6 +56,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
+  validates :username, presence: true, uniqueness: true
   validates :username, format: { with: /^[a-zA-Z0-9_.]*$/, multiline: true }
 
   def login
