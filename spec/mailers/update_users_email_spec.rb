@@ -17,7 +17,7 @@ RSpec.describe UpdateUsersEmailMailer, type: :mailer do
       user.email = "new@example.com"
 
       expect {
-        UpdateUsersEmailMailer.with(user: user).update_user_email.deliver_now
+        described_class.with(user: user).update_user_email.deliver_now
       }.to change { ActionMailer::Base.deliveries.size }.by(1)
     end
   end
