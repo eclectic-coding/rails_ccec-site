@@ -8,10 +8,10 @@ RSpec.describe "Admin::Users::UsersEmail", type: :request do
     end
 
     describe "GET /admin/users/:user_id/users_email/:id/edit" do
-      let(:user) { create(:user) }
+      let(:account_user) { create(:account_user) }
 
       it "renders edit view" do
-        get edit_admin_user_users_email_path(user_id: user.id, id: user.id)
+        get edit_admin_user_users_email_path(user_id: account_user.user.id, id: account_user.user.id)
         expect(response).to have_http_status(200)
       end
     end

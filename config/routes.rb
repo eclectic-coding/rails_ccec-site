@@ -1,7 +1,5 @@
-require "sidekiq/web"
-
 Rails.application.routes.draw do
-  if Rails.env.development? || Rails.env.test?
+  if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
@@ -9,6 +7,10 @@ Rails.application.routes.draw do
 
   authenticate :user, lambda { |u| u.has_role?(:admin) || u.has_role?(:superadmin) } do
     namespace :admin do
+      if defined?(Sidekiq)
+        require "sidekiq/web"
+        mount Sidekiq::Web => "/sidekiq"
+      end
       resources :accounts, only: [:index, :show]
       resources :account_users, only: [:show, :new, :create, :destroy]
       resources :users, only: :index do
