@@ -8,8 +8,10 @@ RSpec.describe UpdateUserNameMailer, type: :mailer do
       user = create(:user)
       mail = UpdateUserNameMailer.with(user: user).update_user_name
 
-      expect(mail.subject).to eq("Name Update")
-      expect(mail.to).to eq([user.email])
+      expect {
+        mail.subject.to eq("Name Update")
+        mail.to.to eq([user.email])
+      }
     end
 
     it "sends invitation email immediately" do

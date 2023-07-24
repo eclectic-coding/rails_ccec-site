@@ -25,7 +25,7 @@ RSpec.describe "Admin::Users::UsersUsername", type: :request do
             username: "testuser"
           } }), as: :turbo_stream
           # account_user.reload
-          # p account_user.user
+          p account_user.user
           # expect(account_user.user.username).to eq("testuser")
         end
       end
