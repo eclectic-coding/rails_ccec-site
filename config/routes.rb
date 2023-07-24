@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       resources :account_users, only: [:show, :new, :create, :destroy]
       resources :users, only: :index do
         resources :users_name, only: [:edit, :update], module: :users
+        resources :users_username, only: [:edit, :update], module: :users
         resources :users_email, only: [:edit, :update], module: :users
         resources :users_role, only: [:edit, :update], module: :users
       end

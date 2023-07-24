@@ -1,0 +1,4 @@
+= turbo_stream.replace "edit_username_user_#{params[:user_id]}" do
+  = render partial: "row-username", locals: { account_user: @account_user }
+- unless params[:commit] == "Cancel"
+  = turbo_stream.prepend "toasts", partial: "shared/notices"
