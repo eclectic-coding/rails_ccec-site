@@ -18,6 +18,8 @@ class Admin::Users::UsersRoleController < ApplicationController
     @user.add_role(users_role_params[:role])
 
     if @user.has_role?(params[:role])
+      UpdateUserRoleMailer.with(user: @user).update_user_role.deliver_now
+
       respond_to do |format|
         format.turbo_stream { flash.now[:notice] = "User's role was successfully updated." }
         format.html

@@ -16,6 +16,7 @@ en:
         password_token: Password Token
         password_reset: Password Reset Sent
         reset_password: Reset Password
+        username: ""
       form:
         create_user_btn: Create User
         create_user: New Users
@@ -42,3 +43,9 @@ en:
         row-role:
           name: Email
           edit_role: Edit Role
+      users_username:
+        row-username:
+          btn_edit_username: Edit Username
+          edit_username: Username
+        form-username:
+          edit_username: Username
