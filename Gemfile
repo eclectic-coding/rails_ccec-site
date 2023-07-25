@@ -59,3 +59,5 @@ end
 group :development do
   eval_gemfile "gemfiles/rubocop.gemfile"
 end
+
+gem "honeybadger", "~> 5.2"
