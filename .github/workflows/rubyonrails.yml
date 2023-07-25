@@ -75,5 +75,5 @@ jobs:
         run: bin/rspec
 
       # Add or replace any other lints here
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@v2
+#      - name: Coveralls GitHub Action
+#        uses: coverallsapp/github-action@v2
