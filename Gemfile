@@ -31,6 +31,7 @@ gem "rolify"
 gem "simple_calendar"
 gem "haml-rails", "~> 2.0"
 gem "view_component"
+gem "honeybadger", "~> 5.2"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -48,7 +49,10 @@ group :development do
   gem "letter_opener_web", "~> 2.0"
   gem "overcommit"
   gem "bundle-audit"
-  gem "haml_lint"
+  gem "rubocop-rails"
+  gem "rubocop"
+  gem "rubocop-rspec"
+  gem "standard"
   # gem "strong_migrations"
 end
 
@@ -56,9 +60,3 @@ group :test do
   gem "simplecov", "~> 0.21.2", require: false
   gem "webmock"
 end
-
-group :development do
-  eval_gemfile "gemfiles/rubocop.gemfile"
-end
-
-gem "honeybadger", "~> 5.2"
