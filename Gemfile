@@ -48,6 +48,7 @@ group :development do
   gem "letter_opener_web", "~> 2.0"
   gem "overcommit"
   gem "bundle-audit"
+  gem "haml_lint"
   # gem "strong_migrations"
 end
 
