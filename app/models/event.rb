@@ -42,6 +42,12 @@ class Event < ApplicationRecord
   end
 
   def create_weekend_events
+    create_sendoff
+    create_candlelight
+    create_closing
+  end
+
+  def create_sendoff
     Event.create(
       name: "Sendoff",
       start_time: start_time,
@@ -49,6 +55,9 @@ class Event < ApplicationRecord
       event_type: :sendoff,
       connected_event_id: id
     )
+  end
+
+  def create_candlelight
     Event.create(
       name: "Candlelight",
       start_time: start_time + 48.hours,
@@ -56,9 +65,13 @@ class Event < ApplicationRecord
       event_type: :candlelight,
       connected_event_id: id
     )
+  end
+
+  def create_closing
     Event.create(
       name: "Closing",
       start_time: start_time + 72.hours,
+      role: "member",
       event_type: :closing,
       connected_event_id: id
     )
