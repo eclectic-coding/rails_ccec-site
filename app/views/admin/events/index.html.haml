@@ -3,27 +3,4 @@
   = render(Shared::PageTitleComponent.new(title: t('admin.events.title'))) do
     = link_to new_admin_event_path, class: 'btn btn-primary' do
       = t(".add_event")
-
-.table-responsive
-  %table.table.table-striped.table-bordered.table-hover
-    %thead
-      %tr
-        %th=t(".name")
-        %th=t(".walk_number")
-        %th
-          =t(".start_time")
-        %th
-          =t(".role")
-        %th
-          =t(".end_time")
-        %th
-          =t(".event_type")
-    %tbody
-      - @events.each do |event|
-        = content_tag :tr, id: dom_id(event) do
-          %td= link_to event.event_title, admin_event_path(event)
-          %td= event.walk_number
-          %td= date_timestamp(event.start_time)
-          %td.text-capitalize= event.role
-          %td= date_timestamp event.end_time
-          %td.text-capitalize= event.event_type
+  = render partial: "events", event: @events

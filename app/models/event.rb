@@ -29,6 +29,12 @@ class Event < ApplicationRecord
     closing: 6
   }
 
+  FILTER_PARAMS = %w[name walk_number start_time end_time event_type column direction].freeze
+
+  def self.filter(filters)
+    Event.order("#{filters["column"]} #{filters["direction"]}")
+  end
+
   def weekend?
     event_type == "weekend"
   end
