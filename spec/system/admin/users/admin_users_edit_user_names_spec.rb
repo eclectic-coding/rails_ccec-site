@@ -7,7 +7,6 @@ RSpec.describe "Admin::Users::EditUserNames", type: :system do
 
   before do
     login_as create(:user, :admin)
-    WebMock.allow_net_connect!
   end
 
   describe "update user name" do
