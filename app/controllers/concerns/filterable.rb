@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Filterable
+  extend ActiveSupport::Concern
+
   def filter!(resource)
     store_filters(resource)
     apply_filters(resource)

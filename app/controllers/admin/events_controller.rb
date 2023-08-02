@@ -8,13 +8,13 @@ class Admin::EventsController < ApplicationController
   def index
     session[:event_filters] = {}
 
-    @events = Event.order(params[:sort])
+    @pagy, @events = pagy(Event.all, items: 10)
   end
 
   def list
-    @events = filter!(Event)
+    @pagy, @events = pagy(filter!(Event), items: 10)
 
-    render(partial: "events", locals: { events: @events })
+    render(partial: "admin/events/events", locals: { events: @events, pagy: @pagy })
   end
 
   # GET /events/1 or /events/1.json

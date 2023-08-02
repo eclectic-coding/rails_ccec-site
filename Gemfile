@@ -32,11 +32,12 @@ gem "simple_calendar"
 gem "haml-rails", "~> 2.0"
 gem "view_component"
 gem "honeybadger", "~> 5.2"
+gem "pagy"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "capybara"
-  gem "webdrivers"
+  gem "selenium-webdriver"
   gem "rspec-rails", "~> 6.0.0"
   gem "factory_bot_rails"
   gem "faker"

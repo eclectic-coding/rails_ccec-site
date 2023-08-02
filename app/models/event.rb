@@ -59,7 +59,8 @@ class Event < ApplicationRecord
       start_time: start_time,
       role: "member",
       event_type: :sendoff,
-      connected_event_id: id
+      connected_event_id: id,
+      walk_number: walk_number
     )
   end
 
@@ -69,7 +70,8 @@ class Event < ApplicationRecord
       start_time: start_time + 48.hours,
       role: "member",
       event_type: :candlelight,
-      connected_event_id: id
+      connected_event_id: id,
+      walk_number: walk_number
     )
   end
 
@@ -79,7 +81,8 @@ class Event < ApplicationRecord
       start_time: start_time + 72.hours,
       role: "member",
       event_type: :closing,
-      connected_event_id: id
+      connected_event_id: id,
+      walk_number: walk_number
     )
   end
 end

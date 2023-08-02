@@ -5,6 +5,11 @@
   }
 
   & .nav-link {
+    @media (max-width: 981px) {
+      padding: 0.5rem 0.5rem;
+    }
+    padding-right: 0;
+
     &:hover {
       color: white;
       background: rgba(white, 0.05);
@@ -14,6 +19,7 @@
     &.sidebar__active {
       color: inherit;
       background: rgba(white, 0.1);
+      padding-right: 0;
     }
   }
 }
@@ -38,5 +44,9 @@
 
 .sort-asc {
   border-bottom: 8px solid #000000;
+}
+
+.pagy-bootstrap-nav .pagination {
+  margin-bottom: 0;
 }
 

@@ -1,6 +1,6 @@
-
-.mt-3
-  = render(Shared::PageTitleComponent.new(title: t('admin.events.title'))) do
-    = link_to new_admin_event_path, class: 'btn btn-primary' do
-      = t(".add_event")
-  = render partial: "events", event: @events
+.row.mx-0
+  .col-11.col-md-12.mt-3
+    = render(Shared::PageTitleComponent.new(title: t('admin.events.title'))) do
+      = link_to new_admin_event_path, class: 'btn btn-primary ms-3 ms-md-0' do
+        = t(".add_event")
+  = render partial: "events", locals: { event: @events, pagy: @pagy }
