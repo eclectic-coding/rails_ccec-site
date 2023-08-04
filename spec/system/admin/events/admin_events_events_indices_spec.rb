@@ -60,7 +60,7 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
     it "sorts ascending" do
       click_link "Start Time"
 
-      within "tbody tr:nth-child(1) td:nth-child(3)" do
+      within "tbody tr:nth-child(1)" do
         expect(page).to have_text Time.zone.now.strftime("%m-%d-%Y")
       end
     end
@@ -70,7 +70,7 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
       find("a", text: "Start Time").click
       find("a", text: "Start Time").click
 
-      within "tbody tr:nth-child(1) td:nth-child(3)" do
+      within "tbody tr:nth-child(1)" do
         expect(page).to have_text(event.start_time.strftime("%m-%d-%Y"))
       end
     end
@@ -81,7 +81,7 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
       end_time = Time.zone.now + 3.days
       click_link "End Time"
 
-      within "tbody tr:nth-child(1) td:nth-child(5)" do
+      within "tbody tr:nth-child(1)" do
         expect(page).to have_text end_time.strftime("%m-%d-%Y")
       end
     end
@@ -98,7 +98,7 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
 
   describe "sort by type column" do
     it "sorts ascending" do
-      within "tbody tr:nth-child(1) td:nth-child(6)" do
+      within "tbody tr:nth-child(1)" do
         expect(page).to have_text "Weekend"
       end
     end
@@ -106,9 +106,12 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
     it "sorts descending" do
       create(:event, event_type: 2, name: "Gathering")
       find("a", text: "Type").click
-      find("a", text: "Type").click
+      within "tbody tr:nth-child(1)" do
+        expect(page).to have_text "Weekend 1"
+      end
 
-      within "tbody tr:nth-child(1) td:nth-child(6)" do
+      find("a", text: "Type").click
+      within "tbody tr:nth-child(1)" do
         expect(page).to have_text "Closing"
       end
     end

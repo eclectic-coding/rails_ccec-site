@@ -29,10 +29,14 @@ class Event < ApplicationRecord
     closing: 6
   }
 
-  FILTER_PARAMS = %w[name walk_number start_time end_time event_type column direction].freeze
+  FILTER_PARAMS = %w[search name event_type column direction].freeze
+
+  scope :by_name, ->(query) { where("name ILIKE ?", "%#{query}%") }
+  scope :by_event_type, ->(event_type) { where(event_type: event_type) }
 
   def self.filter(filters)
-    Event.order("#{filters["column"]} #{filters["direction"]}")
+    Event.by_name(filters["search"])
+      .order("#{filters["column"]} #{filters["direction"]}")
   end
 
   def weekend?

@@ -3,4 +3,14 @@
     = render(Shared::PageTitleComponent.new(title: t('admin.events.title'))) do
       = link_to new_admin_event_path, class: 'btn btn-primary ms-3 ms-md-0' do
         = t(".add_event")
+  .row.justify-content-md-end.mx-1
+    .col-6.mb-1.px-0
+      = form_with url: list_admin_events_path, method: :get,
+      data: { controller: "search-form", search_form_target: "form", turbo_frame: "events" } do |f|
+        .d-flex.justify-content-md-end
+          .col.me-1
+            -# = f.text_field :event_type, placeholder: "Filter", class: 'form-control me-0'
+          .col.me-1
+            = f.text_field :search, class: 'form-control me-0', placeholder: "Search by Event name", value: params[:search],
+            data: { action: "input->search-form#search" }
   = render partial: "events", locals: { event: @events, pagy: @pagy }
