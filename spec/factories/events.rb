@@ -22,5 +22,9 @@ FactoryBot.define do
     trait :weekend do
       event_type { :weekend }
     end
+
+    trait :follow_up do
+      event_type { :followup }
+    end
   end
 end
