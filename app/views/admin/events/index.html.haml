@@ -9,7 +9,11 @@
       data: { controller: "search-form", search_form_target: "form", turbo_frame: "events" } do |f|
         .d-flex.justify-content-md-end
           .col.me-1
-            -# = f.text_field :event_type, placeholder: "Filter", class: 'form-control me-0'
+            = f.select :event_type,
+            options_for_select(Event.event_types.map{ |k, v| [k.humanize, v] }, params[:event_type]),
+            {include_blank: "Filter by Event type"},
+            class: "form-select",
+            data: { action: "change->search-form#search" }
           .col.me-1
             = f.text_field :search, class: 'form-control me-0', placeholder: "Search by Event name", value: params[:search],
             data: { action: "input->search-form#search" }

@@ -32,10 +32,11 @@ class Event < ApplicationRecord
   FILTER_PARAMS = %w[search name event_type column direction].freeze
 
   scope :by_name, ->(query) { where("name ILIKE ?", "%#{query}%") }
-  scope :by_event_type, ->(event_type) { where(event_type: event_type) }
+  scope :by_event_type, ->(event_type) { where(event_type: event_type) if event_type.present? }
 
   def self.filter(filters)
     Event.by_name(filters["search"])
+      .by_event_type(filters["event_type"])
       .order("#{filters["column"]} #{filters["direction"]}")
   end
 
