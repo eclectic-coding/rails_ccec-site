@@ -13,7 +13,7 @@ require "rspec/rails"
 require "capybara/rails"
 require "fuubar"
 require "pundit/rspec"
-require "webmock/rspec"
+# require "webmock/rspec"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
 
@@ -25,15 +25,6 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
-  config.before(:all, type: :request) do
-    WebMock.allow_net_connect!
-  end
-
-  config.after(:all, type: :request) do
-    selenium_requests = %r{/((__.+__)|(hub/session.*))$}
-    WebMock.allow_net_connect! allow: selenium_requests
-  end
-
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers # helpers for system tests
   config.include Devise::Test::IntegrationHelpers, type: :request

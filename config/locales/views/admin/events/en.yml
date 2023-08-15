@@ -13,6 +13,7 @@ en:
       edit:
         select_role: 'Select role'
         confirm: "Are you sure?"
+        prohibited: "prohibited this event from being saved:"
       title: Events
       index:
         add_event: Add Event
@@ -21,6 +22,7 @@ en:
         role: Role
         end_time: End Time
         event_type: Type
+        walk_number: Walk
       new:
         new_event: New Event
       show:
@@ -29,9 +31,12 @@ en:
         event_type: Event Type
         start_time: Start Time
         role: Role
+        description: Description
+        no_description: No Description
       form:
         prohibited: "prohibited this event from being saved:"
-        roles: "Role (if limiting calendar view)"
+        roles: "Role"
+        select_role: Select role
   events:
     show:
       event_name: "Name:"

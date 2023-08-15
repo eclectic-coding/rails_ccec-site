@@ -1,11 +1,20 @@
 class Admin::EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
+  include Filterable
 
   layout "admin"
 
   # GET /events or /events.json
   def index
-    @events = Event.all.order(created_at: :asc)
+    session[:event_filters] = {}
+
+    @pagy, @events = pagy(Event.all, items: 10)
+  end
+
+  def list
+    @pagy, @events = pagy(filter!(Event), items: 10)
+
+    render(partial: "admin/events/events", locals: { events: @events, pagy: @pagy })
   end
 
   # GET /events/1 or /events/1.json
@@ -69,6 +78,12 @@ class Admin::EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:name, :start_time, :walk_number, :recurring, :role, :end_time, :event_type)
+    params.require(:event).permit(
+      :name,
+      :walk_number,
+      :start_time,
+      :role,
+      :end_time, :event_type
+    )
   end
 end
