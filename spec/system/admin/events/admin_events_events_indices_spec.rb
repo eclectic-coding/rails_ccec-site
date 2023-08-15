@@ -13,7 +13,7 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
 
   describe "GET /admin/events" do
     it "displays the events index" do
-      within "tbody tr:nth-child(1) td:nth-child(3)" do
+      within "tbody tr:nth-child(1) td:nth-child(4)" do
         expect(page).to have_text Time.zone.now.strftime("%m-%d-%Y")
       end
     end
