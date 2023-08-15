@@ -5,10 +5,10 @@
         %h1 Edit Event
       = form_with(model: @event, url: admin_event_path(@event), data: { controller: "events" }) do |form|
         - if @event.errors.any?
-          #error_explanation
-            %h2
+          #error_explanation.alert.alert-danger{role: "alert"}
+            %h2.h5
               = pluralize(@event.errors.count, "error")
-              prohibited this event from being saved:
+              = t(".prohibited")
             %ul
               - @event.errors.full_messages.each do |message|
                 %li= message
@@ -18,32 +18,44 @@
           = form.text_field :name, class: 'form-control'
 
         .mb-3
-          = form.label :event_type, class: 'form-label fw-bold'
-          = form.select :event_type, options_for_select(Event.event_types.map { |k, v| [k.titleize, Event.event_types.key(v)] }, selected: form.object.event_type),
-            { },
-            class: 'form-select', data: { events_target: "types", action: "change->events#update" }
+          .row
+            .col-6.col-md-8
+              = form.label :event_type, class: 'form-label fw-bold'
+              = form.select :event_type, options_for_select(Event.event_types.map { |k, v| [k.titleize, Event.event_types.key(v)] }, selected: form.object.event_type),
+                { },
+                class: 'form-select', data: { events_target: "types", action: "change->events#update" }
+            .col-6.col-md-4
+              = form.label :walk_number, class: 'form-label text-nowrap'
+              = form.text_field :walk_number, class: 'form-control'
 
         .mb-3
-          = form.label :role, "Role (if limiting access)", class: 'form-label fw-bold'
-          = form.collection_select :role_id, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles"}, class: 'form-select'
+          .row
+            .col-6
+              = form.label :role, "Role", class: 'form-label fw-bold'
+              = form.collection_select :role_id, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles"}, class: 'form-select'
+            .col-6
+              = form.label :start_time, class: 'form-label fw-bold'
+              = form.text_field :start_time,
+              data: { controller: "flatpickr",
+              flatpickr_min_date: DateTime.new(Time.now.year, Time.now.month, Time.now.day, 19, 0, 0),
+              flatpickr_enable_time: true,
+              flatpickr_default_date: "17:00",
+               }, class: 'form-control flatpickr'
 
         .mb-3
-          = form.label :start_time, class: 'form-label fw-bold'
-          = form.text_field :start_time,
-          data: { controller: "flatpickr",
-          flatpickr_min_date: DateTime.new(Time.now.year, Time.now.month, Time.now.day, 19, 0, 0),
-          flatpickr_enable_time: true,
-          flatpickr_default_date: "17:00",
-           }, class: 'form-control flatpickr'
+          = form.label :description, class: 'form-label fw-bold mb-2'
+          = form.rich_text_area :description, class: 'form-control'
 
-        .mb-3
-          - if @event.persisted? && @event.connected_event_id.nil?
-            .float-end
+        .mb-3.d-flex.align-items-center.justify-content-between
+          %div
+            = form.submit class: 'btn btn-primary'
+            - if @event.persisted?
+              = link_to "Cancel", admin_events_path, class: "btn btn-link"
+            - else
+              = link_to "Cancel", admin_events_path, class: "btn btn-link"
+
+          .justify-content-end
+            - if @event.persisted? && @event.connected_event_id.nil?
               = link_to t("destroy_btn"), admin_event_path, method: :delete, class: "text-danger", data: { confirm: t(".confirm") }
 
-          = form.submit class: 'btn btn-primary'
-          - if @event.persisted?
-            = link_to "Cancel", admin_events_path, class: "btn btn-link"
-          - else
-            = link_to "Cancel", admin_events_path, class: "btn btn-link"
 

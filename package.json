@@ -5,6 +5,7 @@
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.3.0",
     "@popperjs/core": "^2.11.7",
+    "@rails/actiontext": "^7.0.7",
     "@rails/activestorage": "^7.0.4-3",
     "@rails/request.js": "^0.0.8",
     "@rails/ujs": "^7.0.4-3",
@@ -17,7 +18,7 @@
     "local-time": "^2.1.0",
     "sass": "^1.60.0",
     "stimulus-flatpickr": "^3.0.0-0",
-    "trix": "^2.0.4"
+    "trix": "^2.0.5"
   },
   "scripts": {
     "build": "node esbuild.config.mjs",

@@ -50,3 +50,23 @@
   margin-bottom: 0;
 }
 
+.trix-button-group--file-tools {
+  display: none !important;
+  margin-left: 0 !important;
+}
+
+.trix-button-group--history-tools,
+.trix-button-group--block-tools {
+  margin-left: 0 !important;
+}
+
+.trix-button-group-spacer {
+  display: none !important;
+}
+
+.trix-button--icon-link,
+.trix-button--icon-code,
+.trix-button--icon-attach{
+  display: none;
+}
+

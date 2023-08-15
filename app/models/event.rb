@@ -14,8 +14,14 @@
 #  connected_event_id :string
 #
 class Event < ApplicationRecord
+  has_rich_text :description
+
   after_create :set_endtime, if: :weekend?
   after_create :create_weekend_events, if: :weekend?
+
+  after_destroy do
+    Event.where(walk_number: walk_number).where.not(walk_number: [nil, ""]).destroy_all
+  end
 
   validates :name, :start_time, :event_type, presence: true
 
