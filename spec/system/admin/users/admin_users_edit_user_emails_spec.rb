@@ -7,7 +7,6 @@ RSpec.describe "Admin::Users::EditUserEmails", type: :system do
 
   before do
     login_as create(:user, :admin)
-    WebMock.allow_net_connect!
   end
 
   describe "update user email" do

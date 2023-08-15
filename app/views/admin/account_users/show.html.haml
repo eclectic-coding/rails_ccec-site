@@ -23,7 +23,7 @@
       - unless @account_user.user.reset_password_token.nil?
         = tag.div class: "row mb-3" do
           .col-sm-3.fw-bold.text-uppercase= t('.password_token')
-          .col-sm-4= date_timestamp(@account_user.user.reset_password_token)
+          .col-sm-4= @account_user.user.reset_password_token
       = tag.div class: "row mb-3" do
         .col-sm-3.fw-bold.text-uppercase= t('.password_reset')
         .col-sm-4= date_timestamp(@account_user.user.reset_password_sent_at)

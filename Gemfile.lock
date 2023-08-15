@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/scambra/devise_invitable.git
-  revision: d414a5eb7c8b14a358420c421389d5e86a090e5f
+  revision: a9dd4a4401205cf5ea27123bbe312fc0731faef5
   specs:
     devise_invitable (2.0.8)
       actionmailer (>= 5.0)
@@ -85,6 +85,9 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bullet (7.0.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     bundle-audit (0.1.0)
       bundler-audit
     bundler-audit (0.9.1)
@@ -198,7 +201,7 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    minitest (5.18.1)
+    minitest (5.19.0)
     msgpack (1.7.2)
     name_of_person (1.1.1)
       activesupport (>= 5.2.0)
@@ -224,6 +227,7 @@ GEM
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
       rexml (~> 3.2)
+    pagy (6.0.4)
     parallel (1.23.0)
     parser (3.2.2.3)
       ast (~> 2.4.1)
@@ -237,7 +241,7 @@ GEM
     pundit (2.3.1)
       activesupport (>= 3.0.0)
     racc (1.7.1)
-    rack (2.2.7)
+    rack (2.2.8)
     rack-test (2.1.0)
       rack (>= 1.3)
     rails (7.0.6)
@@ -272,12 +276,12 @@ GEM
     rake (13.0.6)
     redis (4.8.1)
     regexp_parser (2.8.1)
-    reline (0.3.6)
+    reline (0.3.7)
       io-console (~> 0.5)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.5)
+    rexml (3.2.6)
     rolify (6.0.1)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
@@ -319,13 +323,13 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
-    rubocop-rspec (2.22.0)
+    rubocop-rspec (2.23.0)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
-    selenium-webdriver (4.10.0)
+    selenium-webdriver (4.11.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -378,6 +382,7 @@ GEM
       unf_ext
     unf_ext (0.0.8.2)
     unicode-display_width (2.4.2)
+    uniform_notifier (1.16.0)
     view_component (3.5.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
@@ -389,10 +394,6 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webdrivers (5.2.0)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (~> 4.0)
     webmock (3.18.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
@@ -405,7 +406,7 @@ GEM
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.9)
+    zeitwerk (2.6.10)
 
 PLATFORMS
   arm64-darwin-22
@@ -414,6 +415,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootsnap
+  bullet
   bundle-audit
   capybara
   cssbundling-rails
@@ -432,6 +434,7 @@ DEPENDENCIES
   name_of_person (~> 1.1)
   noticed (~> 1.4)
   overcommit
+  pagy
   pg (~> 1.1)
   pretender (~> 0.3.4)
   puma (~> 5.0)
@@ -443,6 +446,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   rubocop-rspec
+  selenium-webdriver
   sidekiq (~> 6.2)
   simple_calendar
   simplecov (~> 0.21.2)
@@ -454,7 +458,6 @@ DEPENDENCIES
   tzinfo-data
   view_component
   web-console
-  webdrivers
   webmock
   whenever
 

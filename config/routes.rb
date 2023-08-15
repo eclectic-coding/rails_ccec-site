@@ -19,7 +19,11 @@ Rails.application.routes.draw do
         resources :users_email, only: [:edit, :update], module: :users
         resources :users_role, only: [:edit, :update], module: :users
       end
-      resources :events
+      resources :events do
+        collection do
+          get :list
+        end
+      end
 
       root to: "dashboard#show"
     end

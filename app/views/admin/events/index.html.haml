@@ -1,27 +1,20 @@
-
-.mt-3
-  = render(Shared::PageTitleComponent.new(title: t('admin.events.title'))) do
-    = link_to new_admin_event_path, class: 'btn btn-primary' do
-      = t(".add_event")
-
-.table-responsive
-  %table.table.table-striped.table-bordered.table-hover
-    %thead
-      %tr
-        %th=t(".name")
-        %th
-          =t(".start_time")
-        %th
-          =t(".role")
-        %th
-          =t(".end_time")
-        %th
-          =t(".event_type")
-    %tbody
-      - @events.each do |event|
-        = content_tag :tr, id: dom_id(event), class: event.event_type == "weekend" ? "table-success" : dom_class(event) do
-          %td= link_to event.event_title, admin_event_path(event)
-          %td= date_timestamp(event.start_time)
-          %td.text-capitalize= event.role
-          %td= date_timestamp event.end_time
-          %td.text-capitalize= event.event_type
+.row.mx-0
+  .col-11.col-md-12.mt-3
+    = render(Shared::PageTitleComponent.new(title: t('admin.events.title'))) do
+      = link_to new_admin_event_path, class: 'btn btn-primary ms-3 ms-md-0' do
+        = t(".add_event")
+  .row.justify-content-md-end.mx-1
+    .col-6.mb-1.px-0
+      = form_with url: list_admin_events_path, method: :get,
+      data: { controller: "search-form", search_form_target: "form", turbo_frame: "events" } do |f|
+        .d-flex.justify-content-md-end
+          .col.me-1
+            = f.select :event_type,
+            options_for_select(Event.event_types.map{ |k, v| [k.humanize, v] }, params[:event_type]),
+            {include_blank: "Filter by Event type"},
+            class: "form-select",
+            data: { action: "change->search-form#search" }
+          .col.me-1
+            = f.text_field :search, class: 'form-control me-0', placeholder: "Search by Event name", value: params[:search],
+            data: { action: "input->search-form#search" }
+  = render partial: "events", locals: { event: @events, pagy: @pagy }
