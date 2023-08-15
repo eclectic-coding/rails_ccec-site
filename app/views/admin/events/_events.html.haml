@@ -10,10 +10,10 @@
             =sort_indicator if session.dig("event_filters", "column") == "walk_number"
             =sort_link(column: "walk_number", label: t("admin.events.index.walk_number"), resource: "Event", link: "admin_events")
           %th.position-relative{scope: "col"}
+            =t("admin.events.index.role")
+          %th.position-relative{scope: "col"}
             =sort_indicator if session.dig("event_filters", "column") == "start_time"
             =sort_link(column: "start_time", label: t("admin.events.index.start_time"), resource: "Event", link: "admin_events")
-          %th.position-relative{scope: "col"}
-            =t("admin.events.index.role")
           %th.position-relative{scope: "col"}
             =sort_indicator if session.dig("event_filters", "column") == "end_time"
             =sort_link(column: "end_time", label: t("admin.events.index.end_time"), resource: "Event", link: "admin_events")
@@ -25,8 +25,8 @@
           = content_tag :tr, id: dom_id(event) do
             %td= link_to event.event_title, admin_event_path(event), target: "_top"
             %td= event.walk_number
-            %td= date_timestamp(event.start_time)
             %td.text-capitalize= event.role
+            %td= date_timestamp(event.start_time)
             %td= date_timestamp event.end_time
             %td.text-capitalize= event.event_type
 

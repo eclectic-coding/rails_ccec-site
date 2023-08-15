@@ -2,15 +2,12 @@
   .col-md-6.mx-auto
     .card.card-body
       .d-flex.justify-content-between.align-items-center
-        %h1
+        %h1.text-capitalize
           =@event.name
         = link_to edit_admin_event_path(@event), class: 'btn btn-primary' do
           =t("edit_btn")
 
       %dl.dl-horizontal
-        %dt= t(".event_name")
-        %dd= @event.name
-
         %dt=t(".start_time")
         %dd= date_timestamp(@event.start_time)
         - unless @event.role.nil?
@@ -18,9 +15,13 @@
             = t(".role")
           =content_tag :dd, class: "text-capitalize" do
             = @event.role
-
-        %dt= t(".end_time")
-        %dd= date_timestamp(@event.end_time)
+        - unless @event.end_time.nil?
+          %dt= t(".end_time")
+          %dd= date_timestamp(@event.end_time)
 
         %dt= t(".event_type")
         %dd.text-capitalize= @event.event_type
+
+        %dt= t(".description")
+        %dd
+          = @event.description.present? ? @event.description : t(".no_description")

@@ -31,6 +31,8 @@ en:
         event_type: Event Type
         start_time: Start Time
         role: Role
+        description: Description
+        no_description: No Description
       form:
         prohibited: "prohibited this event from being saved:"
         roles: "Role"
