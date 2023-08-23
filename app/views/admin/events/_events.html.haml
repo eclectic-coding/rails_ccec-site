@@ -21,16 +21,21 @@
             =sort_indicator if session.dig("event_filters", "column") == "name"
             =sort_link(column: "event_type", label: t("admin.events.index.event_type"), resource: "Event", link: "admin_events")
       %tbody
-        - @events.each do |event|
-          = content_tag :tr, id: dom_id(event) do
-            %td= link_to event.event_title, admin_event_path(event), target: "_top"
-            %td= event.walk_number
-            %td.text-capitalize= event.role
-            %td= date_timestamp(event.start_time)
-            %td= date_timestamp event.end_time
-            %td.text-capitalize= event.event_type
+        - if @events.empty?
+          %tr
+            %td.text-center{colspan: 6}= "No events found"
+        - else
+          - @events.each do |event|
+            = content_tag :tr, id: dom_id(event) do
+              %td= link_to event.event_title, admin_event_path(event), target: "_top"
+              %td= event.walk_number
+              %td.text-capitalize= event.role
+              %td= date_timestamp(event.start_time)
+              %td= date_timestamp event.end_time
+              %td.text-capitalize= event.event_type
 
-    = tag.div class: "row" do
-      .col-12.d-flex.justify-content-between.align-items-center.px-3
-        !=pagy_info(pagy)
-        !=pagy_bootstrap_nav(pagy)
+    - unless @events.empty?
+      = tag.div class: "row" do
+        .col-12.d-flex.justify-content-between.align-items-center.px-3
+          !=pagy_info(pagy)
+          !=pagy_bootstrap_nav(pagy)

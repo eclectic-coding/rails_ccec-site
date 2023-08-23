@@ -3,6 +3,7 @@
 # Table name: events
 #
 #  id                 :uuid             not null, primary key
+#  description        :text
 #  end_time           :datetime
 #  event_type         :integer
 #  name               :string

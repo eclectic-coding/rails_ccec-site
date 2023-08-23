@@ -3,6 +3,7 @@
 # Table name: events
 #
 #  id                 :uuid             not null, primary key
+#  description        :text
 #  end_time           :datetime
 #  event_type         :integer
 #  name               :string
@@ -14,8 +15,6 @@
 #  connected_event_id :string
 #
 class Event < ApplicationRecord
-  has_rich_text :description
-
   after_create :set_endtime, if: :weekend?
   after_create :create_weekend_events, if: :weekend?
 
@@ -67,33 +66,36 @@ class Event < ApplicationRecord
   def create_sendoff
     Event.create(
       name: "Sendoff",
-      start_time: start_time,
+      start_time: start_time + 0.5.hours,
       role: "member",
       event_type: :sendoff,
       connected_event_id: id,
-      walk_number: walk_number
+      walk_number: walk_number,
+      description: "Sendoff will be held at location date time."
     )
   end
 
   def create_candlelight
     Event.create(
       name: "Candlelight",
-      start_time: start_time + 48.hours,
+      start_time: start_time + 48.5.hours,
       role: "member",
       event_type: :candlelight,
       connected_event_id: id,
-      walk_number: walk_number
+      walk_number: walk_number,
+      description: "Candlelight will be held at the location at date time"
     )
   end
 
   def create_closing
     Event.create(
       name: "Closing",
-      start_time: start_time + 72.hours,
+      start_time: start_time + 70.hours,
       role: "member",
       event_type: :closing,
       connected_event_id: id,
-      walk_number: walk_number
+      walk_number: walk_number,
+      description: "Closing will be held at location date time"
     )
   end
 end

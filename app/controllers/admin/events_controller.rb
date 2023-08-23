@@ -83,6 +83,7 @@ class Admin::EventsController < ApplicationController
       :walk_number,
       :start_time,
       :role,
+      :description,
       :end_time, :event_type
     )
   end
