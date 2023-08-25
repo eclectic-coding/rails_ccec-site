@@ -77,8 +77,51 @@ RSpec.describe "Admin::Addresses", type: :request do
 
       it "renders the new form" do
         post admin_addresses_path, params: { address: { name: "" } }
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
+    end
+  end
+
+  describe "PUT /update" do
+    context "with valid parameters" do
+      let(:new_attributes) { { name: "New Name" } }
+
+      it "updates the requested address" do
+        address = Address.create! valid_attributes
+        put admin_address_path(address), params: { address: new_attributes }
+        address.reload
+        expect(address.name).to eq("New Name")
+      end
+
+      it "redirects to the address" do
+        address = Address.create! valid_attributes
+        put admin_address_path(address), params: { address: new_attributes }
+        address.reload
+        expect(response).to redirect_to(admin_address_path(address))
+      end
+    end
+
+    context "with invalid parameters" do
+      it "renders the edit form" do
+        address = Address.create! valid_attributes
+        put admin_address_path(address), params: { address: { name: "" } }
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+  end
+
+  describe "DESTROY /destroy" do
+    it "destroys the requested address" do
+      address = Address.create! valid_attributes
+      expect {
+        delete admin_address_path(address)
+      }.to change(Address, :count).by(-1)
+    end
+
+    it "redirects to the addresses list" do
+      address = Address.create! valid_attributes
+      delete admin_address_path(address)
+      expect(response).to redirect_to(admin_addresses_path)
     end
   end
 end

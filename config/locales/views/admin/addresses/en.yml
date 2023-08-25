@@ -1,0 +1,11 @@
+en:
+  admin:
+    addresses:
+      title: Venues
+      index:
+        add_address: Add Venue
+        name: Location
+        street: Street
+        city: City
+        state: State
+        zip: ZipCode

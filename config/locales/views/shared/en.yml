@@ -7,6 +7,7 @@ en:
       home_title: Home
       accounts_title: Accounts
       edit_profile: Edit Profile
+      addresses_title: Venues
     admin_profile:
       settings: Settings
       admin_area: Admin Area

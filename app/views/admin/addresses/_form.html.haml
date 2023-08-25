@@ -1,0 +1,23 @@
+.border.rounded.p-2.mb-3
+  %h2.h4= "New Venue"
+  = form_for([:admin, @address]) do |f|
+    .row.pb-3
+      .col-11.col-md-6.col-lg-3
+        %div.mb-3
+          = f.label :name
+          = f.text_field :name, required: true, class: "form-control"
+      .col-11.col-md-6.col-lg-3
+        %div.mb-3
+          = f.label :street
+          = f.text_field :street, required: true, class: "form-control"
+      .col-11.col-md-6.col-lg-3
+        %div.mb-3
+          = f.label :city
+          = f.text_field :city, required: true, class: "form-control"
+      .col-11.col-md-6.col-lg-3
+        %div.mb-3
+          = f.label :state
+          = f.text_field :state, required: true, class: "form-control"
+      .mt-3
+        = f.submit "Create Venue", class: "btn btn-primary"
+        = link_to "Cancel", admin_addresses_path, class: "btn btn-link"
