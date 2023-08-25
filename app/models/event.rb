@@ -12,9 +12,20 @@
 #  walk_number        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  address_id         :uuid
 #  connected_event_id :string
 #
+# Indexes
+#
+#  index_events_on_address_id  (address_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (address_id => addresses.id)
+#
 class Event < ApplicationRecord
+  belongs_to :address, optional: true
+
   after_create :set_endtime, if: :weekend?
   after_create :create_weekend_events, if: :weekend?
 

@@ -12,7 +12,16 @@
 #  walk_number        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  address_id         :uuid
 #  connected_event_id :string
+#
+# Indexes
+#
+#  index_events_on_address_id  (address_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (address_id => addresses.id)
 #
 FactoryBot.define do
   factory :event do

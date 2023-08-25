@@ -24,6 +24,7 @@ Rails.application.routes.draw do
           get :list
         end
       end
+      resources :addresses
 
       root to: "dashboard#show"
     end
