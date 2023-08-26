@@ -14,5 +14,5 @@
 class Address < ApplicationRecord
   has_many :events, dependent: :destroy
 
-  validates :name, :street, :city, :state, presence: true
+  validates :name, :street, :city, presence: true
 end

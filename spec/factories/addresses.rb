@@ -17,6 +17,5 @@ FactoryBot.define do
     street { "123 Example St" }
     city { "City" }
     state { "NC" }
-    zip_code { 12345 }
   end
 end

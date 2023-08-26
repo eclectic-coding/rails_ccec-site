@@ -46,7 +46,7 @@ RSpec.describe "Admin::Addresses", type: :request do
 
       it "redirects to the created address" do
         post admin_addresses_path, params: { address: valid_attributes }
-        expect(response).to redirect_to(admin_address_path(Address.last))
+        expect(response).to redirect_to(admin_addresses_path)
       end
     end
 
@@ -54,7 +54,7 @@ RSpec.describe "Admin::Addresses", type: :request do
       it "does not create a new Address with no name" do
         expect {
           post admin_addresses_path, params: { address: {
-            name: "", street: "Street", city: "City", state: "NC"
+            name: "", street: "Street", city: "City"
           } }
         }.to change(Address, :count).by(0)
       end
@@ -62,7 +62,7 @@ RSpec.describe "Admin::Addresses", type: :request do
       it "does not create a new Address with no street" do
         expect {
           post admin_addresses_path, params: { address: {
-            name: "Name", street: "", city: "City", state: "NC"
+            name: "Name", street: "", city: "City"
           } }
         }.to change(Address, :count).by(0)
       end
@@ -70,7 +70,7 @@ RSpec.describe "Admin::Addresses", type: :request do
       it "does not create a new Address with no city" do
         expect {
           post admin_addresses_path, params: { address: {
-            name: "Name", street: "Street", city: "", state: "NC"
+            name: "Name", street: "Street", city: ""
           } }
         }.to change(Address, :count).by(0)
       end

@@ -62,3 +62,5 @@ group :test do
   gem "simplecov", "~> 0.21.2", require: false
   gem "webmock"
 end
+
+gem "city-state", git: "https://github.com/thecodecrate/city-state.git"

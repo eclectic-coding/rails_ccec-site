@@ -21,7 +21,7 @@ class Admin::AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to admin_address_path(@address), notice: "Address was successfully created." }
+        format.html { redirect_to admin_addresses_path, notice: "Address was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -47,7 +47,7 @@ class Admin::AddressesController < ApplicationController
     @address.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_addresses_path, status: :see_other, notice: "Post was successfully destroyed." }
+      format.html { redirect_to admin_addresses_path, status: :see_other, notice: "Venue was successfully removed." }
     end
   end
 
