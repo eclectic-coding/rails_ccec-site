@@ -50,18 +50,18 @@ class Event < ApplicationRecord
   scope :by_name, ->(query) { where("name ILIKE ?", "%#{query}%") }
   scope :by_event_type, ->(event_type) { where(event_type: event_type) if event_type.present? }
 
-  def self.filter(filters)
-    Event.by_name(filters["search"])
-      .by_event_type(filters["event_type"])
-      .order("#{filters["column"]} #{filters["direction"]}")
-  end
-
   def weekend?
     event_type == "weekend"
   end
 
   def set_endtime
     update(end_time: start_time + 72.hours)
+  end
+
+  def self.filter(filters)
+    Event.by_name(filters["search"])
+      .by_event_type(filters["event_type"])
+      .order("#{filters["column"]} #{filters["direction"]}")
   end
 
   def event_title
@@ -82,7 +82,7 @@ class Event < ApplicationRecord
       event_type: :sendoff,
       connected_event_id: id,
       walk_number: walk_number,
-      description: "Sendoff will be held at location date time."
+      description: "Sendoff will be held at the center following registration"
     )
   end
 

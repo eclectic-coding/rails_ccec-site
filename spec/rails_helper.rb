@@ -1,9 +1,9 @@
 require "spec_helper"
 require "simplecov"
-SimpleCov.start "rails" do
-  add_filter "/app/jobs/"
-  add_filter "/app/channels/"
-end
+# SimpleCov.start "rails" do
+#   add_filter "/app/jobs/"
+#   add_filter "/app/channels/"
+# end
 
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"

@@ -8,6 +8,8 @@
           =t("edit_btn")
 
       %dl.dl-horizontal
+        %dt= "Location"
+        %dd= @event.address.name unless @event.address.nil?
         %dt=t(".start_time")
         %dd= date_timestamp(@event.start_time)
         - unless @event.role.nil?
