@@ -1,9 +1,10 @@
 require "spec_helper"
 require "simplecov"
-# SimpleCov.start "rails" do
-#   add_filter "/app/jobs/"
-#   add_filter "/app/channels/"
-# end
+
+SimpleCov.start "rails" do
+  add_filter "/app/jobs/"
+  add_filter "/app/channels/"
+end
 
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
@@ -25,12 +26,14 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
+  config.use_transactional_fixtures = true
+
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers # helpers for system tests
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include ViewComponent::TestHelpers, type: :component
   config.include Capybara::RSpecMatchers, type: :component
-  config.use_transactional_fixtures = true
+  config.include RSpec::Benchmark::Matchers
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.fuubar_progress_bar_options = { format: "Completed Tests <%B> %p%% %a" }

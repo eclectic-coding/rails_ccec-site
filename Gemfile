@@ -61,6 +61,10 @@ end
 group :test do
   gem "simplecov", "~> 0.21.2", require: false
   gem "webmock"
+  gem "database_cleaner"
+  gem "rspec-benchmark"
 end
 
 gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
+
+gem "groupdate", "~> 6.4"

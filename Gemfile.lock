@@ -88,6 +88,9 @@ GEM
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
     bcrypt (3.1.19)
+    benchmark-malloc (0.2.0)
+    benchmark-perf (0.6.0)
+    benchmark-trend (0.4.0)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -118,6 +121,12 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.2.0)
       railties (>= 6.0.0)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -151,6 +160,8 @@ GEM
       ruby-progressbar (~> 1.4)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    groupdate (6.4.0)
+      activesupport (>= 6.1)
     haml (6.1.1)
       temple (>= 0.8.2)
       thor
@@ -290,6 +301,15 @@ GEM
       railties (>= 5.2)
     rexml (3.2.6)
     rolify (6.0.1)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
+    rspec-benchmark (0.6.0)
+      benchmark-malloc (~> 0.2)
+      benchmark-perf (~> 0.6)
+      benchmark-trend (~> 0.4)
+      rspec (>= 3.0)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.3)
@@ -427,6 +447,7 @@ DEPENDENCIES
   capybara
   city-state!
   cssbundling-rails
+  database_cleaner
   debug
   devise (~> 4.9)
   devise_invitable!
@@ -434,6 +455,7 @@ DEPENDENCIES
   faker
   friendly_id (~> 5.4)
   fuubar (~> 2.5, >= 2.5.1)
+  groupdate (~> 6.4)
   haml-rails (~> 2.0)
   honeybadger (~> 5.2)
   jbuilder
@@ -450,6 +472,7 @@ DEPENDENCIES
   rails (~> 7.0.6)
   redis (~> 4.0)
   rolify
+  rspec-benchmark
   rspec-rails (~> 6.0.0)
   rubocop
   rubocop-rails

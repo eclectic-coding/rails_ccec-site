@@ -70,3 +70,21 @@
   display: none;
 }
 
+.event-title {
+  a{
+    color: inherit;
+    text-decoration: none;
+
+    a:hover {
+      text-decoration: underline !important;
+    }
+  }
+}
+
+address {
+  font-size: 14px;
+  .event-venue {
+    font-weight: 700;
+  }
+}
+
