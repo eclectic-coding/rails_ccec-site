@@ -1,10 +1,5 @@
 class HomeController < ApplicationController
   def index
-  end
-
-  def terms
-  end
-
-  def privacy
+    @events = Event.after_today.where(role: nil).limit(3)
   end
 end

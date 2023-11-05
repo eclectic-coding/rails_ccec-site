@@ -1,4 +1,6 @@
 .text-muted.font-medium
-  = event.start_time.strftime('%B %d')
   - if event.end_time.present?
-    = "- " + event.start_time.strftime('%B %d')
+    = multi_day_event
+  - else
+    = single_day_event
+
