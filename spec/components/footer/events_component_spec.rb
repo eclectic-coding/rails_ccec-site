@@ -3,13 +3,16 @@
 require "rails_helper"
 
 RSpec.describe Footer::EventsComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "renders the events component" do
+    events = create_list(:event, 3, event_type: :gathering)
+    render_inline(described_class.new(events: events))
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+    expect(rendered_content).to have_css("h2", text: "Upcoming Events")
+  end
+
+  it "renders the events component with no events" do
+    render_inline(described_class.new(events: nil))
+
+    expect(rendered_content).to have_css("p", text: "No upcoming events")
+  end
 end
