@@ -9,3 +9,7 @@ en:
         city: City
         state: State
         zip: ZipCode
+      addresses:
+        no_addresses: No addresses found
+      form:
+        create_venue: Create Venue

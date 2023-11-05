@@ -23,7 +23,7 @@
       %tbody
         - if @events.empty?
           %tr
-            %td.text-center{colspan: 6}= "No events found"
+            %td.text-center{colspan: 6}= t('.no_events')
         - else
           - @events.each do |event|
             = content_tag :tr, id: dom_id(event) do

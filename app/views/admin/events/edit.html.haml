@@ -30,7 +30,7 @@
 
         .mb-3
           = form.label :address_id, "Venue", class: 'form-label'
-          = form.collection_select :address_id, Address.all, :id, :name, { prompt: "Select venue" }, data: { events_target: "venue", action: "change->events#update" }, class: 'form-select'
+          = form.collection_select :address_id, Address.all, :id, :name, { prompt: t('admin.events.form.select_venue') }, data: { events_target: "venue", action: "change->events#update" }, class: 'form-select'
 
         .mb-3
           .row

@@ -12,7 +12,7 @@
       %tbody
         - if @addresses.empty?
           %tr
-            %td.text-center{colspan: 5}= "No addresses found"
+            %td.text-center{colspan: 5}= t('.no_addresses')
         - else
           - @addresses.each do |address|
             = content_tag :tr, id: dom_id(address) do
@@ -21,5 +21,5 @@
               %td= address.city
               %td= address.state
               %td
-                = button_to admin_address_path(address), method: :delete, class: "btn btn-link", data: { confirm: "Are you sure? "} do
+                = button_to admin_address_path(address), method: :delete, class: "btn btn-link", data: { confirm: t('are_you_sure')} do
                   %i.bi.bi.bi-trash-fill.float-center.text-danger

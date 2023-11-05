@@ -15,5 +15,5 @@
           = f.label :city
           = f.select :city, CS.get(:US, :NC), {}, { required: true, class: "form-select" }
       .mt-3
-        = f.submit "Create Venue", class: "btn btn-primary"
-        = link_to "Cancel", admin_addresses_path, class: "btn btn-link"
+        = f.submit t(".create_venue"), class: "btn btn-primary"
+        = link_to t('cancel_btn'), admin_addresses_path, class: "btn btn-link"

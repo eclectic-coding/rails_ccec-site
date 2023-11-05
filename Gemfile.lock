@@ -89,9 +89,6 @@ GEM
     ast (2.4.2)
     base64 (0.1.1)
     bcrypt (3.1.19)
-    benchmark-malloc (0.2.0)
-    benchmark-perf (0.6.0)
-    benchmark-trend (0.4.0)
     bindex (0.8.1)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
@@ -160,8 +157,6 @@ GEM
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
     globalid (1.2.1)
-      activesupport (>= 6.1)
-    groupdate (6.4.0)
       activesupport (>= 6.1)
     haml (6.2.3)
       temple (>= 0.8.2)
@@ -307,15 +302,6 @@ GEM
       railties (>= 5.2)
     rexml (3.2.6)
     rolify (6.0.1)
-    rspec (3.12.0)
-      rspec-core (~> 3.12.0)
-      rspec-expectations (~> 3.12.0)
-      rspec-mocks (~> 3.12.0)
-    rspec-benchmark (0.6.0)
-      benchmark-malloc (~> 0.2)
-      benchmark-perf (~> 0.6)
-      benchmark-trend (~> 0.4)
-      rspec (>= 3.0)
     rspec-core (3.12.2)
       rspec-support (~> 3.12.0)
     rspec-expectations (3.12.3)
@@ -464,7 +450,6 @@ DEPENDENCIES
   faker
   friendly_id (~> 5.4)
   fuubar (~> 2.5, >= 2.5.1)
-  groupdate (~> 6.4)
   haml-rails (~> 2.0)
   honeybadger (~> 5.2)
   jbuilder
@@ -481,7 +466,6 @@ DEPENDENCIES
   rails (~> 7.0.7)
   redis (~> 4.0)
   rolify
-  rspec-benchmark
   rspec-rails (~> 6.0.0)
   rubocop
   rubocop-rails

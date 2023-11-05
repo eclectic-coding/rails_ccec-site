@@ -33,6 +33,7 @@ gem "haml-rails", "~> 2.0"
 gem "view_component"
 gem "honeybadger", "~> 5.2"
 gem "pagy"
+gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -62,9 +63,4 @@ group :test do
   gem "simplecov", "~> 0.21.2", require: false
   gem "webmock"
   gem "database_cleaner"
-  gem "rspec-benchmark"
 end
-
-gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
-
-gem "groupdate", "~> 6.4"

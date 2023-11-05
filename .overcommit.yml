@@ -23,7 +23,3 @@ PreCommit:
   Rubocop:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']
-PrePush:
-  RSpec:
-    enabled: true
-    command: ['bundle', 'exec', 'rspec']

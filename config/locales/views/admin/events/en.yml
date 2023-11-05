@@ -33,10 +33,14 @@ en:
         role: Role
         description: Description
         no_description: No Description
+        location: Location
       form:
         prohibited: "prohibited this event from being saved:"
         roles: "Role"
         select_role: Select role
+        select_venue: Select venue
+      events:
+        no_events: No events found
   events:
     show:
       event_name: "Name:"
