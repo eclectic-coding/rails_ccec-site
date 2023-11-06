@@ -13,6 +13,12 @@ en:
       admin_area: Admin Area
     user_profile:
       members_area: Members Area
+    navbar:
+      info: Info
+      questions: Questions
+      attending: Attending
+      sponsorship: Sponsorship
+      information: Information
   admin:
     account_users:
       account_users_role:
