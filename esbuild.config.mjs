@@ -13,7 +13,6 @@ const entryPoints = [
 ]
 const watchDirectories = [
   "./app/javascript/**/*.js",
-  "./app/views/**/*.html.erb",
   "./app/views/**/*.html.haml",
   "./app/components/**/*.html.haml",
   "./app/components/**/*.scss",
@@ -23,10 +22,10 @@ const config = {
   absWorkingDir: path.join(process.cwd(), "app/javascript"),
   bundle: true,
   entryPoints: entryPoints,
-  minify: process.env.RAILS_ENV == "production",
+  minify: process.env.RAILS_ENV === "production",
   outdir: path.join(process.cwd(), "app/assets/builds"),
   plugins: [rails()],
-  sourcemap: process.env.RAILS_ENV != "production"
+  sourcemap: process.env.RAILS_ENV !== "production"
 }
 
 async function buildAndReload() {

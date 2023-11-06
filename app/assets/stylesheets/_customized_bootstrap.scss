@@ -6,9 +6,32 @@
 $link-decoration: none;
 $form-label-margin-bottom: 0;
 
-  /**
-  * 2 - Import bare minimum of bootstrap
-  */
+//New theme
+//https://huemint.com/bootstrap-basic/#palette=ede2ca-ffffff-2e133b-e22c2f-30539c-4b968c
+$white: #ffffff;
+$primary: #25408f;
+$secondary: #30539c;
+$success: #5ea020;
+$info: #4b968c;
+$warning: #febe69;
+$danger: #ee1266;
+$light: #f8f9fa;
+$dark: #2e133b;
+
+$theme-colors: (
+        "primary": $primary,
+        "secondary": $secondary,
+        "success": $success,
+        "info": $info,
+        "warning": $warning,
+        "danger": $danger,
+        "light": $light,
+        "dark": $dark
+) !default;
+
+/**
+* 2 - Import bare minimum of bootstrap
+*/
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 
@@ -30,8 +53,21 @@ $form-label-margin-bottom: 0;
   }
 }
 
-a:active{
+a:active {
   text-decoration: none;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+.navbar-brand {
+  a {
+
+  padding-bottom: 1rem;
+  }
 }
 
 .text-uppercase {
