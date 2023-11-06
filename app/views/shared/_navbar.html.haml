@@ -9,16 +9,11 @@
       Logout
 %nav.navbar.navbar-expand-md.navbar-light.bg-light
   .container.mx-auto
-    = link_to t('community_title'), root_path, class: "navbar-brand"
-    %button.navbar-toggler{"aria-controls" => "navbarsExample04", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarMain", "data-bs-toggle" => "collapse", :type => "button"}
+    .title-area
+      = link_to t('community_title'), root_path, class: "navbar-brand"
+    %button.navbar-toggler{"aria-controls" => "navbarMain", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarMain", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarMain.collapse.navbar-collapse
-      %ul.navbar-nav.me-auto.mt-2.mt-md-0
+      %ul.navbar-nav.ms-auto.mt-2.mt-md-0
         %li.nav-item= link_to "Calendar", events_path, class: "nav-link"
-      %ul.navbar-nav
-        - if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:superadmin))
-          = render partial: "shared/admin_profile", locals: { user: current_user }
-        - elsif current_user
-          = render partial: "shared/user_profile", locals: { user: current_user }
-        - else
-          %li.nav-item= link_to t('login'), new_user_session_path, class: "nav-link"
+      = render(Shared::UserNavbarComponent.new(user: current_user))

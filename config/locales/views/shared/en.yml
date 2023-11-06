@@ -18,3 +18,5 @@ en:
       account_users_role:
         row-role:
           name: ""
+  events:
+    no_events: No events found
