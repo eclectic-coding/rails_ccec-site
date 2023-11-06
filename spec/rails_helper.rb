@@ -9,7 +9,7 @@ SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::LcovFormatter
 ])
 
-SimpleCover.start do
+SimpleCov.start do
   add_filter "/app/channels/"
   add_filter "/app/jobs/"
 end
