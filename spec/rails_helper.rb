@@ -1,5 +1,6 @@
 require "spec_helper"
 require "simplecov"
+require "coveralls"
 
 SimpleCov.start "rails" do
   formatter SimpleCov::Formatter::MultiFormatter.new([
