@@ -13,6 +13,6 @@ RSpec.describe Footer::EventsComponent, type: :component do
   it "renders the events component with no events" do
     render_inline(described_class.new(events: nil))
 
-    expect(rendered_content).to have_css("p", text: "No upcoming events")
+    expect(rendered_content).to have_css("p", text: "No events found")
   end
 end
