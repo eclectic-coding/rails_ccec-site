@@ -1,7 +1,0 @@
-%ul.navbar-nav
-  - if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:superadmin))
-    = render partial: "shared/admin_profile", locals: { user: current_user }
-  - elsif current_user
-    = render partial: "shared/user_profile", locals: { user: current_user }
-  - else
-    %li.nav-item= link_to t('login'), new_user_session_path, class: "nav-link"
