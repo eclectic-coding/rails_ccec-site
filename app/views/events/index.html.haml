@@ -1,14 +1,19 @@
-= render(Shared::PageTitleComponent.new(title: t('.title')))
+.container.w-75
+  = render(Shared::PageTitleComponent.new(title: t('.title')))
 
-%div
-  - @events.each do |event|
-    %div
-      = link_to event.name, event_path(event)
-      = event.start_time
-
-  = month_calendar(events: @events) do |date, events|
-    = date
-
-    - events.each do |event|
-      %div
-        = link_to event.name, event_path(event)
+  - @events.each_with_index do |event, idx|
+    .row.mb-3.pt-2
+      - if idx >= 0 && event.start_time.month != @events[idx-1].start_time.month
+        %h2.border-bottom.mb-3.pb-1= event.start_time.strftime('%B %Y')
+      .col-1
+        .text-muted.text-uppercase.font-small
+          = event.start_time.strftime('%a')
+        .fw-bold.font-large
+          = event.start_time.strftime('%d')
+      .col-6
+        = render(Event::TimeBannerComponent.new(event: event))
+        %h3.mt-2.event-title
+          = link_to event.name, event_path(event)
+        = render(Event::AddressComponent.new(event: event))
+        .mt-2
+          = event.description

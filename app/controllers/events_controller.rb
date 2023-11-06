@@ -4,15 +4,16 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = if current_user
-      Event.all.order(start_time: :asc)
+      Event.after_today.includes(:address)
     else
-      Event.where(role: nil).order(start_time: :asc)
+      Event.after_today.includes(:address).where(role: nil)
     end
     authorize @events
   end
 
   # GET /events/1 or /events/1.json
   def show
+    index # to load @events for footer
   end
 
   private

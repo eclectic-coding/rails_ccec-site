@@ -9,7 +9,7 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
-  %body.d-flex.flex-column.h-100
+  %body.d-flex.flex-column.h-100.bg-light
     %main.flex-shrink-0
       = render 'shared/navbar'
       = render 'shared/notices'
@@ -18,6 +18,6 @@
       .container.mt-4.mx-auto
         = yield
         - if Rails.env.development?
-          .card.mt-5.p-2
+          .card.my-5.p-2
             = debug(params)
     = render 'shared/footer'

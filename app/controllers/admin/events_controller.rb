@@ -36,7 +36,7 @@ class Admin::EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to admin_event_url(@event), notice: t(".create_notice") }
+        format.html { redirect_to admin_events_path, notice: t(".create_notice") }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -83,7 +83,9 @@ class Admin::EventsController < ApplicationController
       :walk_number,
       :start_time,
       :role,
-      :end_time, :event_type
+      :description,
+      :end_time, :event_type,
+      :address_id
     )
   end
 end

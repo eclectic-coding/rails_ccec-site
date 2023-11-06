@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
-gem "rails", "~> 7.0.6"
+gem "rails", "~> 7.0.7"
 gem "sprockets-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
@@ -33,6 +33,7 @@ gem "haml-rails", "~> 2.0"
 gem "view_component"
 gem "honeybadger", "~> 5.2"
 gem "pagy"
+gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -61,4 +62,5 @@ end
 group :test do
   gem "simplecov", "~> 0.21.2", require: false
   gem "webmock"
+  gem "database_cleaner"
 end

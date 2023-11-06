@@ -1,15 +1,16 @@
-.page-header
-  = link_to events_path, class: 'btn btn-default' do
-    All Events
-  %h1 Show event
-%dl.dl-horizontal
-  %dt= t('.event_name')
-  %dd= @event.name
-  %dt= t('.event_start_time')
-  %dd= @event.start_time
-  %dt= t('.event_role')
-  %dd= @event.role
-  %dt= t('.event_end_time')
-  %dd= @event.end_time
-  %dt= t('.event_type')
-  %dd= @event.event_type
+.container.w-75
+  = render(Shared::PageTitleComponent.new(title: @event.event_title))
+
+  .row
+    .col-12.col-md-6
+      = render(Event::TimeBannerComponent.new(event: @event))
+      %h3.mt-2.event-title
+        = @event.name
+      = render(Event::AddressComponent.new(event: @event))
+      .mt-2
+        = @event.description
+      .my-5
+        %button.btn.btn-outline-primary
+          = t('.add_to_calendar')
+    .col-12.col-md-6.mt-3
+      = t('.future_map')

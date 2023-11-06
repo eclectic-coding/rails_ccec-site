@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_11_171132) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_214505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -28,16 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_171132) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "action_text_rich_texts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name", null: false
-    t.text "body"
-    t.string "record_type", null: false
-    t.uuid "record_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
   create_table "active_storage_attachments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -68,6 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_171132) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "addresses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "street"
+    t.string "city"
+    t.string "state", default: "NC"
+    t.integer "zip_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.datetime "start_time"
@@ -78,6 +78,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_171132) do
     t.datetime "updated_at", null: false
     t.string "connected_event_id"
     t.integer "walk_number"
+    t.text "description"
+    t.uuid "address_id"
+    t.index ["address_id"], name: "index_events_on_address_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -143,5 +146,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_11_171132) do
   add_foreign_key "account_users", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "events", "addresses"
   add_foreign_key "users", "accounts"
 end

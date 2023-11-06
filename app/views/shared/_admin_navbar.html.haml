@@ -16,3 +16,7 @@
         = link_to admin_events_path, class: [("nav-link text-white"), ("sidebar__active" if controller_name == 'events')] do
           %i.bi.bi-calendar3-event-fill
           %span.d-none.d-lg-inline= t('.events_title')
+      %li.nav-item
+        = link_to admin_addresses_path, class: [("nav-link text-white"), ("sidebar__active" if controller_name == 'events')] do
+          %i.bi.bi-shop
+          %span.d-none.d-lg-inline= t('.addresses_title')

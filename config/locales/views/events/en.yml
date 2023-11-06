@@ -1,4 +1,8 @@
 en:
   events:
     index:
-      title: Events
+      title: Community Events
+    show:
+      title: Community Event
+      add_to_calendar: Add to your Calendar
+      future_map: Future map widget

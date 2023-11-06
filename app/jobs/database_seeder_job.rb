@@ -13,7 +13,9 @@ class DatabaseSeederJob < ApplicationJob
       create_roles
       create_account
       create_admin_user
+      create_member_user
       add_roles
+      create_addresses
     end
   end
 
@@ -31,7 +33,8 @@ class DatabaseSeederJob < ApplicationJob
 
   def create_member_user
     User.create!(
-      name: "Admin User",
+      name: "Member User",
+      username: "member_user",
       email: DEFAULT_MEMBER_EMAIL,
       password: DEFAULT_MEMBER_PASSWORD,
       password_confirmation: DEFAULT_MEMBER_PASSWORD,
@@ -42,6 +45,7 @@ class DatabaseSeederJob < ApplicationJob
   def create_admin_user
     User.create!(
       name: "Admin User",
+      username: "admin_user",
       email: DEFAULT_ADMIN_EMAIL,
       password: DEFAULT_ADMIN_PASSWORD,
       password_confirmation: DEFAULT_ADMIN_PASSWORD,
@@ -52,5 +56,11 @@ class DatabaseSeederJob < ApplicationJob
   def add_roles
     User.find_by(email: DEFAULT_ADMIN_EMAIL).add_role(:superadmin)
     User.find_by(email: DEFAULT_MEMBER_EMAIL).add_role(:member)
+  end
+
+  def create_addresses
+    Address.create!(name: "Pine Valley Methodist Church", street: "3788 Shipyard Blvd", city: "Wilmington")
+    Address.create!(name: "First Christian Church", street: "124 Trott Rd", city: "Richlands")
+    Address.create!(name: "Salt and Light Center", street: "2006 Wicker St", city: "North Topsail Beach")
   end
 end

@@ -1,0 +1,15 @@
+en:
+  admin:
+    addresses:
+      title: Venues
+      index:
+        add_address: Add Venue
+        name: Location
+        street: Street
+        city: City
+        state: State
+        zip: ZipCode
+      addresses:
+        no_addresses: No addresses found
+      form:
+        create_venue: Create Venue
