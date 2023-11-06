@@ -1,6 +1,15 @@
 require "spec_helper"
 require "simplecov"
 
+SimpleCov.start "rails" do
+  formatter SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ])
+  add_filter "/app/channels/"
+  add_filter "/app/jobs/"
+end
+
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 # Prevent database truncation if the environment is production

@@ -81,8 +81,22 @@ jobs:
         run: bin/rails db:schema:load
 
       - name: Run tests
+        env:
+          RAILS_ENV: test
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: bin/rspec --exclude-pattern "spec/system/**/*.spec.rb"
 
       # Add or replace any other lints here
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@v2
+      - name: Coveralls Parallel
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel: true
+          flag-name: run-${{ matrix.test }}
+
+      - name: Coveralls Finished
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          parallel-finished: true
+

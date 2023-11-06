@@ -32,6 +32,7 @@ gem "simple_calendar"
 gem "haml-rails", "~> 2.0"
 gem "view_component"
 gem "bundle-audit"
+gem "coveralls", require: false
 gem "honeybadger", "~> 5.2"
 gem "pagy"
 gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
