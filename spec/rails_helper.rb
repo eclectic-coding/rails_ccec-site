@@ -1,4 +1,3 @@
-require "spec_helper"
 require "simplecov"
 require "simplecov-lcov"
 
@@ -12,6 +11,7 @@ SimpleCov.start "rails" do
   add_filter "/app/jobs/"
 end
 
+require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 # Prevent database truncation if the environment is production

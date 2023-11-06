@@ -303,7 +303,7 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.1.0)
-    rdoc (6.5.0)
+    rdoc (6.6.0)
       psych (>= 4.0.0)
     redis (4.8.1)
     regexp_parser (2.8.2)
@@ -498,7 +498,7 @@ DEPENDENCIES
   sidekiq (~> 6.2)
   simple_calendar
   simplecov (~> 0.21.2)
-  simplecov-lcov
+  simplecov-lcov (~> 0.8.0)
   sitemap_generator (~> 6.1)
   sprockets-rails
   standard
