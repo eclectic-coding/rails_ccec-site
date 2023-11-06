@@ -74,6 +74,9 @@ jobs:
       - name: Yarn build
         run: yarn build
 
+      - name: Build assets
+        run: bin/rails assets:precompile
+
       - name: Setup test database
         run: bin/rails db:schema:load
 
