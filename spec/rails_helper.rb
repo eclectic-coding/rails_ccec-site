@@ -1,6 +1,10 @@
 require "spec_helper"
 require "simplecov"
+require "simplecov-lcov"
 require "coveralls"
+
+SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+SimpleCov.formatters = SimpleCov::Formatter::LcovFormatter
 
 SimpleCov.start "rails" do
   formatter SimpleCov::Formatter::MultiFormatter.new([

@@ -62,6 +62,7 @@ end
 
 group :test do
   gem "simplecov", "~> 0.21.2", require: false
+  gem "simplecov-lcov", require: false
   gem "webmock"
   gem "database_cleaner"
 end

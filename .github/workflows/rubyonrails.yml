@@ -87,16 +87,15 @@ jobs:
         run: bin/rspec --exclude-pattern "spec/system/**/*.spec.rb"
 
       # Add or replace any other lints here
-      - name: Coveralls Parallel
+      - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel: true
-          flag-name: run-${{ matrix.test }}
+          path-to-lcov: ./coverage/lcov/lcov.info # specify the path to lcov file
 
-      - name: Coveralls Finished
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          parallel-finished: true
+#      - name: Coveralls Finished
+#        uses: coverallsapp/github-action@master
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          parallel-finished: true
 
