@@ -1,24 +1,8 @@
-# README
+# Coastal Carolina Emmaus
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Coverage Status](https://coveralls.io/repos/github/eclectic-coding/rails_ccec-site/badge.svg?branch=main)](https://coveralls.io/github/eclectic-coding/rails_ccec-site?branch=main)
+![GitHub](https://img.shields.io/github/license/eclectic-coding/rails_ccec-site)
+![GitHub last commit](https://img.shields.io/github/last-commit/eclectic-coding/rails_ccec-site)
 
-Things you may want to cover:
+This is the website for the Coastal Carolina Emmaus Community.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
