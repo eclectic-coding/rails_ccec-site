@@ -1,7 +1,6 @@
 require "spec_helper"
 require "simplecov"
 require "simplecov-lcov"
-require "coveralls"
 
 SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
 SimpleCov::Formatter::MultiFormatter.new([
@@ -9,7 +8,7 @@ SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::LcovFormatter
 ])
 
-SimpleCov.start do
+SimpleCov.start "rails" do
   add_filter "/app/channels/"
   add_filter "/app/jobs/"
 end

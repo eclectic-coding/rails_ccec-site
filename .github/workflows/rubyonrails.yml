@@ -86,8 +86,9 @@ jobs:
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
         run: bin/rspec --exclude-pattern "spec/system/**/*.spec.rb"
 
-      # Add or replace any other lints here
+      # Coverall
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
