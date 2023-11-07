@@ -1,2 +1,27 @@
 en:
   no_events: "No events found"
+  static:
+    prayer-vigil_card:
+      prayer_vigil: Prayer Vigil
+    interested_card:
+      interested: Interested?
+    registration_card:
+      registration: Registration
+    questions:
+      questions:  Frequently Asked Questions
+      registered_area: How do I login to the Registered Area of the CCEC web site?
+      contact_database: What is Ministry Manager and how can I view my contact information?
+      emmaus: Where can I get more information about Emmaus?
+      prayer: Where can I request prayer?
+      sponsorship: How do I sponsor someone for the Emmaus walk?
+      rosters: Where can I see a list of the Pilgrims and Team for a walk?
+    sponsorship:
+      sponsorship: Sponsorship
+    info_card:
+      info: Interested for More?
+    attending:
+      attending: Attending
+    home:
+      welcome: Welcome
+    information:
+      information: Information

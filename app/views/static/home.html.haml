@@ -1,0 +1,18 @@
+.container.m-0.m-lg-4
+  %h1.mt-5= t('.welcome')
+
+  .row.mb-5
+    .col-12.col-md-6
+      %p.lead
+        Use this document as a way to quickly start any new project. All you get is this text and a mostly barebones HTML document.
+    .col-12.col-md-6
+      .iframe-container
+        %iframe.responsive-iframe{src: "https://www.youtube.com/embed/PvS8AJOZs4s?si=wd3AaKkdriI37V5?loop=1&modestbranding=1", title: "YouTube video player", frameborder: "0",  allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"}
+
+  .row.g-2.pt-5
+    .col-12.col-md-4
+      = render 'static/prayer-vigil_card'
+    .col-12.col-md-4
+      = render 'static/interested_card'
+    .col-12.col-md-4
+      = render 'static/registration_card'

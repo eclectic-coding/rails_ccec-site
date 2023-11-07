@@ -1,0 +1,17 @@
+.card.border-0.bg-light.shadow-none
+  .card-body.p-4
+    .card-title
+      %h2.h3
+        = t('.prayer_vigil')
+
+    = link_to "#" do
+      %img.img-fluid.rounded.my-2{src: image_url('prayervigil.webp'), alt: "Card image cap"}
+
+    .card-text
+      Prayer is an integral part of any Christians life and is indeed so on the Walk to Emmaus experience.
+      Consider being part of a prayer ministry that prays for each person attending a weekend event by …
+
+      %div
+        = link_to "#", class: "btn mt-3 px-0 read-more" do
+          = t('continue_reading')
+          %i.bi.bi-arrow-right

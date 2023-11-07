@@ -32,5 +32,11 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show]
 
-  root to: "home#index"
+  # public static pages
+  get "information", to: "static#info"
+  get "attending", to: "static#attending"
+  get "questions", to: "static#questions"
+  get "sponsorship", to: "static#sponsorship"
+
+  root to: "static#home"
 end

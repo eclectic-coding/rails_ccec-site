@@ -1,10 +1,11 @@
 %footer.bg-white.footer.mt-auto.py-4
   .container
     .row.mb-3
-      .col-12.col-md-4
+      .col-12.col-sm-6.col-md-4
         = render(Footer::ContactUsComponent.new)
-      .col-12.col-md-4
-        = render(Footer::EventsComponent.new(events: @events))
+      .col-12.col-sm-6.col-md-4
+        - events = Event.after_today.where(role: nil).limit(3)
+        = render(Footer::EventsComponent.new(events: events))
     .row
       .col-12.text-center
         © #{Date.today.year} #{t('community_title')}
