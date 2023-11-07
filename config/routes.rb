@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :members do
+    get "directions/index"
     get "sponsorship/index"
   end
   if Rails.env.development?
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   resource :members, only: :show
   namespace :members do
     get "sponsorship", to: "sponsorship#index"
+    get "directions", to: "directions#index"
   end
 
   # public static pages
