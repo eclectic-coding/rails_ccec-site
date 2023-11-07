@@ -1,2 +1,65 @@
-%h1 Questions
-%p.lead Use this for your Terms of Service
+.container.w-75
+
+  %h1.text-center= t('.questions')
+  %p.lead.font-large Do you have a question? We have assembled a list of common questions to help you with this web site. Feel free to ask any additional questions you might have.
+
+  .accordion#accordionExample.mt-5
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button{type: "button", 'data-bs-toggle': "collapse", 'data-bs-target': "#collapseOne", 'aria-expanded': "true", 'aria-controls': "collapseOne"}
+          %strong= t('.registered_area')
+      #collapseOne.accordion-collapse.collapse.show{'data-bs-parent': "#accordionExample"}
+        .accordion-body
+          We have a default login for the community.  If you have not received this instruction please email us and we will assist you.
+          In the Registered area of this web site, you will find directions to walk events, and the Pilgrim and Team rosters the week of the walks.
+          These items are posted here to maintain the surprises of the walks and individual information secure from public viewing.
+          After logging in, the Registered Area tab will appear on the menu bar.
+          You may select an area of interest under this tab to view information not made public.
+          If you have problems with login email us at this address and someone will assist you.
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{type: "button", 'data-bs-toggle': "collapse", 'data-bs-target': "#collapseTwo", 'aria-expanded': "false", 'aria-controls': "collapseTwo"}
+          %strong= t('.contact_database')
+      #collapseTwo.accordion-collapse.collapse{'data-bs-parent': "#accordionExample"}
+        .accordion-body
+          Coastal Carolina Emmaus Community uses a contact database system provided by the Upper Room called
+          %a{href: "https://ministrymanager.upperroom.org/", target: "_blank", 'aria-label': "The Upper Room Emmaus Ministry Manager web site (new window)"}
+            Ministry Manager.
+          As a member of the community you will have access to this database. Use your email address to register for an account.
+          If you cannot login, click the “Forgot Password” link on the web site. Make sure to keep your contact information up to date.
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{type: "button", 'data-bs-toggle': "collapse", 'data-bs-target': "#collapseThree", 'aria-expanded': "false", 'aria-controls': "collapseThree"}
+          %strong= t('.emmaus')
+      #collapseThree.accordion-collapse.collapse{'data-bs-parent': "#accordionExample"}
+        .accordion-body
+          View The Upper Room
+          %a{href: "https://www.upperroom.org/walktoemmaus", target: "_blank", 'aria-label': "The Upper Room Emmaus web site (new window)"}
+            web site.
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{type: "button", 'data-bs-toggle': "collapse", 'data-bs-target': "#collapseFour", 'aria-expanded': "false", 'aria-controls': "collapseFour"}
+          %strong= t('.prayer')
+      #collapseFour.accordion-collapse.collapse{'data-bs-parent': "#accordionExample"}
+        .accordion-body
+          You can go to the
+          %a{href: "https://www.upperroom.org/prayer", target: "_blank", 'aria-label': "The Upper Room Prayer Central (new window)"}
+            Upper Room Prayer Central.
+          You can also
+          %a{href: "mailto:info@ccemmaus.org", 'aria-label': "Email the community"}
+            email
+          the community.
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{type: "button", 'data-bs-toggle': "collapse", 'data-bs-target': "#collapseSix", 'aria-expanded': "false", 'aria-controls': "collapseSix"}
+          %strong= t('.sponsorship')
+      #collapseSix.accordion-collapse.collapse{'data-bs-parent': "#accordionExample"}
+        .accordion-body
+          You must complete a sponsorship training class.  Watch for these to be scheduled on the web site calendar or you will receive an email announcement in our newsletter Eblasts.
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{type: "button", 'data-bs-toggle': "collapse", 'data-bs-target': "#collapseFive", 'aria-expanded': "false", 'aria-controls': "collapseFive"}
+          %strong= t('.rosters')
+      #collapseFive.accordion-collapse.collapse{'data-bs-parent': "#accordionExample"}
+        .accordion-body
+          The walk rosters are posted in the Registered area of the web site on Monday the week of the walk.  The Registered Area tab is viewed after a login.
