@@ -1,0 +1,16 @@
+.card.border-0.bg-light.shadow-none
+  .card-body.p-4
+    .card-title
+      %h2.h3.text-center
+        = t('.directions')
+
+    = link_to members_directions_path do
+      %img.img-fluid.rounded.my-2{src: image_url('directions.webp'), alt: "Card image cap"}
+
+    .card-text
+      = t('.directions_intro')
+
+      %div.mt-3
+        = link_to members_directions_path, class: "btn mt-3 px-0 read-more" do
+          = t('continue_reading')
+          %i.bi.bi-arrow-right
