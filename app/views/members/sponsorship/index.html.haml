@@ -1,0 +1,74 @@
+.container.mt-5
+  %h1.text-center.mb-5= t('members.sponsorship-card.sponsorship')
+
+  #accordionSponsorship.accordion
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button{"aria-controls" => "sponsorshipOne", "aria-expanded" => "true", "data-bs-target" => "#sponsorshipOne", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.application_process')
+      #sponsorshipOne.accordion-collapse.collapse.show{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.application_process_text_html')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipTwo", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipTwo", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.conference_room')
+      #sponsorshipTwo.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.conference_room_text')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipThree", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipThree", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.tell_pilgrims')
+      #sponsorshipThree.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.tell_pilgrims_text')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipFour", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipFour", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.hardship')
+      #sponsorshipFour.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.hardship_text')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipFive", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipFive", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.events')
+      #sponsorshipFive.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.events_text')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipSix", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipSix", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.maximum')
+      #sponsorshipSix.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.maximum_text')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipSeven", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipSeven", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.important')
+      #sponsorshipSeven.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.important_text')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipEight", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipEight", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.when_applications')
+      #sponsorshipEight.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.when_applications_text')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipNine", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipNine", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.agape')
+      #sponsorshipNine.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.agape_text')
+    .accordion-item
+      %h2.accordion-header
+        %button.accordion-button.collapsed{"aria-controls" => "sponsorshipTen", "aria-expanded" => "false", "data-bs-target" => "#sponsorshipTen", "data-bs-toggle" => "collapse", type: "button"}
+          %strong= t('.prayer')
+      #sponsorshipTen.accordion-collapse.collapse{"data-bs-parent" => "#accordionSponsorship"}
+        .accordion-body
+          = t('.prayer_text_html')

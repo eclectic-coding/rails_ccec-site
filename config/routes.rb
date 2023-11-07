@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :members do
+    get "sponsorship/index"
+  end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -35,6 +38,9 @@ Rails.application.routes.draw do
 
   resources :events, only: [:index, :show]
   resource :members, only: :show
+  namespace :members do
+    get "sponsorship", to: "sponsorship#index"
+  end
 
   # public static pages
   get "information", to: "static#info"
