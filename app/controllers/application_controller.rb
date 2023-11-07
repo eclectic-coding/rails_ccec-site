@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     if current_user.has_role?(:superadmin) || current_user.has_role?(:admin)
       admin_root_path
     elsif current_user
-      root_path
+      members_path
     end
   end
 

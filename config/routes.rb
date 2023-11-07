@@ -28,9 +28,13 @@ Rails.application.routes.draw do
 
       root to: "dashboard#show"
     end
+
+    namespace :user do
+    end
   end
 
   resources :events, only: [:index, :show]
+  resource :members, only: :show
 
   # public static pages
   get "information", to: "static#info"
