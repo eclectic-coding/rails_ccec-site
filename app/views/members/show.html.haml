@@ -1,2 +1,8 @@
-%h1 User::Dashboard#show
-%p Find me in app/views/user/dashboard/show.html.haml
+.container
+  %h1.text-center= t('.members')
+
+  .row.g-2.mt-5
+    .col-12.col-sm-6.col-md-4
+      = render 'members/sponsorship-card'
+    .col-12.col-sm-6.col-md-4
+      = render 'members/directions-card'

@@ -1,0 +1,16 @@
+.card.border-0.bg-light.shadow-none
+  .card-body.p-4
+    .card-title
+      %h2.h3.text-center
+        = t('.sponsorship')
+
+    = link_to "#" do
+      %img.img-fluid.rounded.my-2{src: image_url('sponsorship.webp'), alt: "Card image cap"}
+
+    .card-text
+      How much do you know about sponsorship? We have compiled some most asked question. Come see how much you know.
+
+      %div
+        = link_to "#", class: "btn mt-3 px-0 read-more" do
+          = t('continue_reading')
+          %i.bi.bi-arrow-right

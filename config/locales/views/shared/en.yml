@@ -11,8 +11,10 @@ en:
     admin_profile:
       settings: Settings
       admin_area: Admin Area
+      admin: Admin
     user_profile:
       members_area: Members Area
+      members: Members
     navbar:
       info: Info
       questions: Questions

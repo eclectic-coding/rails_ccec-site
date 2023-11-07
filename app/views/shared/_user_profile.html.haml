@@ -1,7 +1,7 @@
 %li.nav-item.dropdown
   = link_to "#", id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false } do
-    = image_tag avatar_path(user, size: 40), height: 20, width: 20, class: "rounded"
+    = t('.members')
   #nav-account-dropdown.dropdown-menu.dropdown-menu-end{"aria-labelledby" => "navbar-dropdown"}
-    = link_to t('.members_area'), "#", class: "dropdown-item"
+    = link_to t('.members_area'), members_path, class: "dropdown-item"
     .dropdown-divider
     = button_to t('logout_btn'), destroy_session_path(user), method: :delete, class: "dropdown-item"
