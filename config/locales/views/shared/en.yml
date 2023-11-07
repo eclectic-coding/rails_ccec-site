@@ -19,6 +19,7 @@ en:
       attending: Attending
       sponsorship: Sponsorship
       information: Information
+      calendar: Calendar
   admin:
     account_users:
       account_users_role:
