@@ -9,6 +9,11 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    = favicon_link_tag "/favicon.ico"
+    %link{href: "/apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180"}
+    %link{href: "/favicon-32x32.png", rel: "icon", sizes: "32x32", type: "image/png"}
+    %link{href: "/favicon-16x16.png", rel: "icon", sizes: "16x16", type: "image/png"}
+    %link{href: "/site.webmanifest", rel: "manifest"}
   %body.d-flex.flex-column.h-100.bg-light
     %main.flex-shrink-0
       = render 'shared/navbar'
