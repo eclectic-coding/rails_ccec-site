@@ -12,6 +12,6 @@
           = render(Event::TimeBannerComponent.new(event: event))
           %h3.mt-2.event-title.font-medium.text-black
             = link_to event.name, event_path(event)
-- else
+- else if events.nil? || events.empty?
   %p
     = t('events.no_events')
