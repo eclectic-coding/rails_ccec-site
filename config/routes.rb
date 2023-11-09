@@ -24,7 +24,7 @@ Rails.application.routes.draw do
           get :list
         end
       end
-      resources :media_uploads, only: [:index, :show, :new, :create]
+      resources :media_uploads, only: [:index, :show, :new, :create, :destroy]
       resources :addresses
 
       root to: "dashboard#show"

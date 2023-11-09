@@ -1,23 +1,28 @@
 require "rails_helper"
 
 RSpec.describe "Admin::MediaUploads", type: :request do
-  describe "GET /index" do
+  before do
+    sign_in create(:user, :admin)
+  end
+
+  describe "GET /admin/media_uploads" do
     it "returns http success" do
-      get "/admin/media_uploads/index"
+      get admin_media_uploads_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show" do
+  describe "GET /admin/media_uploads/:id" do
     it "returns http success" do
-      get "/admin/media_uploads/show"
+      media = create(:media_upload)
+      get admin_media_upload_path(media)
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /new" do
+  describe "GET /admin/media_uploads/new" do
     it "returns http success" do
-      get "/admin/media_uploads/new"
+      get new_admin_media_upload_path
       expect(response).to have_http_status(:success)
     end
   end

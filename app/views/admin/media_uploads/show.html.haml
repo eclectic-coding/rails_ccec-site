@@ -1,2 +1,5 @@
 %h1 Admin::MediaUploads#show
 %p Find me in app/views/admin/media_uploads/show.html.haml
+
+
+= link_to 'Download', rails_blob_url(@media_upload.media_file, disposition: 'attachment')

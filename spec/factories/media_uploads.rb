@@ -14,5 +14,13 @@ FactoryBot.define do
     name { "MyString" }
     description { "MyString" }
     views_count { 1 }
+
+    after(:build) do |media_upload|
+      media_upload.media_file.attach(
+        io: File.open(Rails.root.join("spec", "support", "assets", "image.png")),
+        filename: "image.png",
+        content_type: "image/png"
+      )
+    end
   end
 end

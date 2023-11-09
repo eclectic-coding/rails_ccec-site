@@ -11,4 +11,7 @@
 #
 class MediaUpload < ApplicationRecord
   has_one_attached :media_file
+
+  validates :name, presence: true
+  validates :media_file, presence: true
 end

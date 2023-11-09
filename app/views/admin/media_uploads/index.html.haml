@@ -3,4 +3,24 @@
     = link_to new_admin_media_upload_path, class: "btn btn-primary" do
       New Media Upload
 
-  = @media_uploads.inspect
+  = turbo_frame_tag "media_table" do
+    .table-responsive
+      %table.table.table-sm.small
+        %thead
+          %tr
+            %th= t('.name')
+            %th= "file"
+            %th= "description"
+            %th
+        %tbody
+          - @media_uploads.each do |media_upload|
+            %tr.align-middle{:id => "#{media_upload.id}"}
+              %td= link_to media_upload.name, admin_media_upload_path(media_upload), data: { turbo_frame: "_top"}
+              %td= media_upload.description
+              %td= media_upload.media_file.filename
+              %td
+                = button_to admin_media_upload_path(media_upload), type: 'submit', method: :delete, |
+                  form: { data: { 'turbo-confirm': "confirm", "turbo-frame": "_top" } },  |
+                  class: "text-danger float-end border-0 bg-transparent", id: 'delete-media_upload' do           |
+                  %i.bi.bi-trash.icon
+
