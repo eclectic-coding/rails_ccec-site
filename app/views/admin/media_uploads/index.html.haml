@@ -1,26 +1,32 @@
 .m-3
-  = render(Shared::PageTitleComponent.new(title: 'Media Uploads')) do
-    = link_to new_admin_media_upload_path, class: "btn btn-primary" do
-      New Media Upload
+  = render(Shared::PageTitleComponent.new(title: t('.title'))) do
+    = link_to t('.new_media_uploads'), new_admin_media_upload_path, class: "btn btn-primary", data: { turbo_frame: "new_media_upload" }
+
+  = turbo_frame_tag "new_media_upload", target: "_top"
 
   = turbo_frame_tag "media_table" do
     .table-responsive
       %table.table.table-sm.small
         %thead
-          %tr
+          %tr.border-start.border-end.border-top
             %th= t('.name')
             %th= "file"
-            %th= "description"
+            %th= t('.description')
             %th
         %tbody
-          - @media_uploads.each do |media_upload|
-            %tr.align-middle{:id => "#{media_upload.id}"}
-              %td= link_to media_upload.name, admin_media_upload_path(media_upload), data: { turbo_frame: "_top"}
-              %td= media_upload.description
-              %td= media_upload.media_file.filename
-              %td
-                = button_to admin_media_upload_path(media_upload), type: 'submit', method: :delete, |
-                  form: { data: { 'turbo-confirm': "confirm", "turbo-frame": "_top" } },  |
-                  class: "text-danger float-end border-0 bg-transparent", id: 'delete-media_upload' do           |
-                  %i.bi.bi-trash.icon
+          -if @media_uploads.present?
+            - @media_uploads.each do |media_upload|
+              %tr.align-middle{id: dom_id(media_upload)}
+                %td= link_to media_upload.name, admin_media_upload_path(media_upload), data: { turbo_frame: "_top"}
+                %td= media_upload.description
+                %td= media_upload.media_file.filename
+                %td
+                  = button_to admin_media_upload_path(media_upload), type: 'submit', method: :delete, |
+                    form: { data: { 'turbo-confirm': t('.confirm'), "turbo-frame": "_top" } },  |
+                    class: "text-danger float-end border-0 bg-transparent", id: 'delete-media_upload' do           |
+                    %i.bi.bi-trash.icon
+          -else
+            %tr
+              %td.bg-light.text-center.border-start.border-end.p-2{colspan: 4}
+                = t('.no_media_uploads')
 

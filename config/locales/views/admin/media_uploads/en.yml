@@ -3,3 +3,8 @@ en:
     media_uploads:
       index:
         name: Name
+        new_media_uploads: New Media Upload
+        title: Media Uploads
+        description: Description
+        confirm: Are you sure you wish to delete?
+        no_media_uploads: No Media Uploads

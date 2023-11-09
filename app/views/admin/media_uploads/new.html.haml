@@ -1,18 +1,16 @@
-%h1 Admin::MediaUploads#new
-%p Find me in app/views/admin/media_uploads/new.html.haml
+= turbo_frame_tag @media_upload do
+  = form_with(model: [:admin, @media_upload], class: "") do |form|
+    .my-3
+      = form.label :name
+      = form.text_field :name, class: "form-control"
 
-= form_with(model: [:admin, @media_upload], class: "") do |form|
-  .my-3
-    = form.label :name
-    = form.text_field :name, class: "form-control"
+    .my-3
+      = form.label :description
+      = form.text_area :description, class: "form-control"
 
-  .my-3
-    = form.label :description
-    = form.text_area :description, class: "form-control"
+    .my-3
+      = form.label :file
+      = form.file_field :media_file, class: "form-control"
 
-  .my-3
-    = form.label :file
-    = form.file_field :media_file, class: "form-control"
-
-  .my-3
-    = form.submit "Create", class: "btn btn-primary"
+    .my-3
+      = form.submit "Create", class: "btn btn-primary"
