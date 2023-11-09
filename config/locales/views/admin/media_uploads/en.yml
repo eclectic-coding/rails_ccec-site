@@ -1,0 +1,5 @@
+en:
+  admin:
+    media_uploads:
+      index:
+        name: Name
