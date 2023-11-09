@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :members do
-    get "directions/index"
-    get "sponsorship/index"
-  end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -28,16 +24,15 @@ Rails.application.routes.draw do
           get :list
         end
       end
+      resources :media_uploads, only: [:index, :show, :new, :create]
       resources :addresses
 
       root to: "dashboard#show"
     end
-
-    namespace :user do
-    end
   end
 
   resources :events, only: [:index, :show]
+
   resource :members, only: :show
   namespace :members do
     get "sponsorship", to: "sponsorship#index"

@@ -1,0 +1,6 @@
+.m-3
+  = render(Shared::PageTitleComponent.new(title: 'Media Uploads')) do
+    = link_to new_admin_media_upload_path, class: "btn btn-primary" do
+      New Media Upload
+
+  = @media_uploads.inspect
