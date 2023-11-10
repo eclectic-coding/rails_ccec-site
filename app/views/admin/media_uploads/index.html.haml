@@ -10,16 +10,18 @@
         %thead
           %tr.border-start.border-end.border-top
             %th= t('.name')
-            %th= "file"
+            %th= t('.file_name')
             %th= t('.description')
+            %th= t('.category')
             %th
         %tbody
           -if @media_uploads.present?
             - @media_uploads.each do |media_upload|
               %tr.align-middle{id: dom_id(media_upload)}
                 %td= link_to media_upload.name, admin_media_upload_path(media_upload), data: { turbo_frame: "_top"}
-                %td= media_upload.description
                 %td= media_upload.media_file.filename
+                %td= media_upload.description
+                %td= media_upload.tag.name
                 %td
                   = button_to admin_media_upload_path(media_upload), type: 'submit', method: :delete, |
                     form: { data: { 'turbo-confirm': t('.confirm'), "turbo-frame": "_top" } },  |
@@ -27,6 +29,6 @@
                     %i.bi.bi-trash.icon
           -else
             %tr
-              %td.bg-light.text-center.border-start.border-end.p-2{colspan: 4}
+              %td.bg-light.text-center.border-start.border-end.p-2{colspan: 5}
                 = t('.no_media_uploads')
 
