@@ -10,3 +10,5 @@ en:
         no_media_uploads: No Media Uploads
         file_name: File Name
         category: Category
+      new:
+        category: Category

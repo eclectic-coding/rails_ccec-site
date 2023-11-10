@@ -21,7 +21,7 @@
                 %td= link_to media_upload.name, admin_media_upload_path(media_upload), data: { turbo_frame: "_top"}
                 %td= media_upload.media_file.filename
                 %td= media_upload.description
-                %td= media_upload.tag.name
+                %td= media_upload.tag_list
                 %td
                   = button_to admin_media_upload_path(media_upload), type: 'submit', method: :delete, |
                     form: { data: { 'turbo-confirm': t('.confirm'), "turbo-frame": "_top" } },  |
