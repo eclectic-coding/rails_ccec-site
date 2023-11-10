@@ -12,3 +12,5 @@ en:
         category: Category
       new:
         category: Category
+      create:
+        new_media_uploads: Media upload was successfully created.

@@ -1,6 +1,6 @@
 class Admin::MediaUploadsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_media_upload, only: [:show, :destroy]
+  before_action :set_media_upload, only: [:show, :edit, :destroy]
 
   layout "admin"
 
@@ -20,11 +20,17 @@ class Admin::MediaUploadsController < ApplicationController
 
     respond_to do |format|
       if @media_upload.save
-        format.html { redirect_to admin_media_uploads_path, notice: "Media upload was successfully created." }
+        format.html { redirect_to admin_media_uploads_path, notice: t(".new_media_uploads") }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   def destroy
