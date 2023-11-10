@@ -23,6 +23,7 @@ AllCops:
     - bin/*
     - app/models/role.rb
     - db/**/*.rb
+    - db/schema.rb
     - node_modules/*
     - vendor/*
     - tmp/*

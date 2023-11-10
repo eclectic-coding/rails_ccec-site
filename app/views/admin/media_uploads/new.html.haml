@@ -7,9 +7,8 @@
           = form.text_field :name, class: "form-control"
 
         .col-12.col-md-2.mb-3
-          = "Note"
-        -#   = form.label :tag_id
-        -#   = form.select :tag_id, options_from_collection_for_select(Tag.all, :id, :name), { include_blank: true }, class: "form-select"
+          = form.label :tag_list, "Category"
+          = form.select(:tag_list, ActsAsTaggableOn::Tag.all.collect{|t|[t.name, t.name]}, {include_blank: true}, class: "form-select")
 
         .col-12.col-md-6.mb-3
           = form.label :file

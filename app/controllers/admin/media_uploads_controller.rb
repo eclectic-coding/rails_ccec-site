@@ -37,7 +37,7 @@ class Admin::MediaUploadsController < ApplicationController
   private
 
   def media_upload_params
-    params.require(:media_upload).permit(:name, :description, :media_file)
+    params.require(:media_upload).permit(:name, :description, :media_file, :tag_list)
   end
 
   def set_media_upload

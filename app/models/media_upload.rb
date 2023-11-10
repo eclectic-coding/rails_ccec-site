@@ -11,6 +11,7 @@
 #
 class MediaUpload < ApplicationRecord
   has_one_attached :media_file
+  acts_as_taggable_on :tags
 
   validates :name, presence: true
   validates :media_file, presence: true
