@@ -22,6 +22,7 @@ class Admin::MediaUploadsController < ApplicationController
       if @media_upload.save
         format.html { redirect_to admin_media_uploads_path, notice: t(".new_media_uploads") }
       else
+        flash.now[:alert] = t(".new_media_uploads_error")
         format.html { render :new, status: :unprocessable_entity }
       end
     end

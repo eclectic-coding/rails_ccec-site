@@ -18,7 +18,7 @@
           -if @media_uploads.present?
             - @media_uploads.each do |media_upload|
               %tr.align-middle{id: dom_id(media_upload)}
-                %td= link_to media_upload.name, admin_media_upload_path(media_upload), data: { turbo_frame: "_top"}
+                %td= link_to media_upload.name, edit_admin_media_upload_path(media_upload), data: { turbo_frame: "_top"}
                 %td= media_upload.media_file.filename
                 %td= media_upload.description
                 %td= media_upload.tag_list

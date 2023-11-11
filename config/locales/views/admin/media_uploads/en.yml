@@ -14,3 +14,4 @@ en:
         category: Category
       create:
         new_media_uploads: Media upload was successfully created.
+        new_media_uploads_error: Media upload was not created.
