@@ -138,3 +138,8 @@ address {
   border-bottom: 3px solid $danger;
 }
 
+.form-label.required:after {
+  content: " *";
+ color: $danger;
+}
+

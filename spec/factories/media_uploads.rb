@@ -17,9 +17,9 @@ FactoryBot.define do
 
     after(:build) do |media_upload|
       media_upload.media_file.attach(
-        io: File.open(Rails.root.join("spec", "support", "assets", "image.png")),
-        filename: "image.png",
-        content_type: "image/png"
+        io: File.open(Rails.root.join("spec", "support", "assets", "test.pdf")),
+        filename: "test.pdf",
+        content_type: "application/pdf"
       )
     end
   end

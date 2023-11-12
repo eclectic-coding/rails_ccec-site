@@ -14,6 +14,7 @@ require "rspec/rails"
 require "capybara/rails"
 require "fuubar"
 require "pundit/rspec"
+require_relative "rspec_screenshot_patch"
 # require "webmock/rspec"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
@@ -35,6 +36,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include ViewComponent::TestHelpers, type: :component
   config.include Capybara::RSpecMatchers, type: :component
+  config.include RspecScreenshotHelperPatch, type: :system
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.fuubar_progress_bar_options = { format: "Completed Tests <%B> %p%% %a" }

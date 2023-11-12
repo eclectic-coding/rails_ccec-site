@@ -37,6 +37,7 @@ gem "honeybadger", "~> 5.2"
 gem "pagy"
 gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
 gem "acts-as-taggable-on"
+gem "active_storage_validations", "~> 1.1", ">= 1.1.1"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]

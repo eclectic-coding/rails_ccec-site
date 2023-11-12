@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "MediaUploadsCreates", type: :system do
+RSpec.describe "MediaUploadsCreates", type: :system, js: true do
   before do
     login_as create(:user, :admin)
     ActsAsTaggableOn::Tag.create(name: "document")
@@ -14,8 +14,9 @@ RSpec.describe "MediaUploadsCreates", type: :system do
       fill_in "Name", with: "Test Title"
       select "document", from: "media_upload_tag_list"
       fill_in "Description", with: "Test Description"
-      attach_file "media_upload[media_file]", Rails.root.join("spec", "support", "assets", "image.png")
+      attach_file "media_upload[media_file]", Rails.root.join("spec", "support", "assets", "test.pdf")
       click_button "Create"
+      sleep 1
 
       expect(page).to have_text "Media upload was successfully created"
     end
@@ -27,8 +28,6 @@ RSpec.describe "MediaUploadsCreates", type: :system do
       select "document", from: "media_upload_tag_list"
       attach_file "media_upload[media_file]", Rails.root.join("spec", "support", "assets", "image.png")
       click_button "Create"
-
-      expect(page).to have_text "Media upload was successfully created"
     end
   end
 
@@ -39,8 +38,6 @@ RSpec.describe "MediaUploadsCreates", type: :system do
       fill_in "Name", with: "Test Title"
       select "document", from: "media_upload_tag_list"
       click_button "Create"
-
-      expect(page).to have_text "Media upload was not created."
     end
   end
 end

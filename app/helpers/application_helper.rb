@@ -20,4 +20,10 @@ module ApplicationHelper
   def sort_indicator
     tag.div(class: "sort sort-#{params[:direction]}")
   end
+
+  def errors_for(model, key)
+    tag.div(class: "mt-1 ps-1 text-danger") do
+      model.errors.messages_for(key).join(", ")
+    end
+  end
 end
