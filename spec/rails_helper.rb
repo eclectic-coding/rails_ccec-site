@@ -29,7 +29,7 @@ end
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
-  config.filter_run_excluding type: "system"
+  # config.filter_run_excluding type: "system"
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers # helpers for system tests
   config.include Devise::Test::IntegrationHelpers, type: :request

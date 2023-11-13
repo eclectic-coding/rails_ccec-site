@@ -1,11 +1,12 @@
 class Admin::AccountUsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account, only: %i[show new create destroy]
-  before_action :set_account_user, only: :show
+  before_action :set_account_user, only: [:show, :destroy]
 
   layout "admin"
 
   def show
+    @account_user = AccountUser.find_by(user_id: params[:user_id])
     authorize @account_user
   end
 
@@ -25,7 +26,8 @@ class Admin::AccountUsersController < ApplicationController
   end
 
   def destroy
-    AccountUser.find_by(user_id: params[:user_id]).destroy
+    # TODO: Delete action not working
+    @account_user.user.destroy
 
     redirect_to admin_accounts_path, notice: "Account user was successfully destroyed."
   end
@@ -37,7 +39,7 @@ class Admin::AccountUsersController < ApplicationController
   end
 
   def set_account_user
-    @account_user = AccountUser.find(params[:id])
+    @account_user = AccountUser.find_by(user_id: params[:user_id])
   end
 
   def account_user_params

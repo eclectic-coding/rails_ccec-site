@@ -12,7 +12,7 @@
     %tbody
       - users.each do |user|
         %tr.align-middle{:id => "#{user.id}"}
-          %td= link_to user.name, "#", data: { turbo_frame: "_top"}
+          %td= link_to user.name, admin_account_user_path(@account, user_id: user), data: { turbo_frame: "_top"}
           %td= user.username
           %td= user.email
           %td= user.profile_roles
