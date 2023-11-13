@@ -4,17 +4,17 @@
       .col-12.col-md-4.mb-3
         = form.label :name, class: "form-label required"
         = form.text_field :name, class: "form-control"
-        = errors_for media_upload, :name
+        = render(Shared::FormErrorsComponent.new(resource: media_upload, key: :name))
 
       .col-12.col-md-2.mb-3
         = form.label :tag_list, "Category", class: "form-label required"
         = form.select(:tag_list, ActsAsTaggableOn::Tag.all.collect{|t|[t.name, t.name]}, {include_blank: true}, class: "form-select")
-        = errors_for media_upload, :name
+        = render(Shared::FormErrorsComponent.new(resource: media_upload, key: :tag_list))
 
       .col-12.col-md-6.mb-3
         = form.label :file, class: "form-label required"
         = form.file_field :media_file, class: "form-control"
-        = errors_for media_upload, :name
+        = render(Shared::FormErrorsComponent.new(resource: media_upload, key: :media_file))
     .row
       .col-12
         .my-3
@@ -23,3 +23,4 @@
 
     .my-3
       = form.submit media_upload.persisted? ? "Update" : "Create", class: "btn btn-primary"
+      = link_to "Cancel", admin_media_uploads_path, class: "btn btn-link"
