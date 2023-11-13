@@ -41,8 +41,6 @@ gem "active_storage_validations", "~> 1.1", ">= 1.1.1"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
-  gem "capybara"
-  gem "selenium-webdriver"
   gem "rspec-rails", "~> 6.0.0"
   gem "factory_bot_rails"
   gem "faker"
@@ -66,4 +64,7 @@ group :test do
   gem "simplecov", "~> 0.22.0", require: false
   gem "webmock"
   gem "database_cleaner"
+  gem "capybara"
+  gem "cuprite"
+  # gem "selenium-webdriver"
 end

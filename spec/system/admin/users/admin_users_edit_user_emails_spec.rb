@@ -1,10 +1,6 @@
-require "rails_helper"
+require "system_helper"
 
 RSpec.describe "Admin::Users::EditUserEmails", type: :system do
-  before do
-    driven_by(:selenium_chrome_headless)
-  end
-
   before do
     login_as create(:user, :admin)
   end
