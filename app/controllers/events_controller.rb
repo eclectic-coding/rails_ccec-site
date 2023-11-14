@@ -4,9 +4,9 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = if current_user
-      Event.after_today.includes(:address)
+      Event.after_today
     else
-      Event.after_today.includes(:address).where(role: nil)
+      Event.after_today.where(role: nil)
     end
     authorize @events
   end

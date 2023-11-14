@@ -66,5 +66,4 @@ group :test do
   gem "database_cleaner"
   gem "capybara"
   gem "cuprite"
-  # gem "selenium-webdriver"
 end

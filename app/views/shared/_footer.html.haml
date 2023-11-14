@@ -4,7 +4,7 @@
       .col-12.col-sm-6.col-md-4
         = render(Footer::ContactUsComponent.new)
       .col-12.col-sm-6.col-md-4
-        - events = Event.after_today.limit(3)
+        - events = Event.after_today.where(role: nil).limit(3)
         = render(Footer::EventsComponent.new(events: events))
     .row
       .col-12.text-center
