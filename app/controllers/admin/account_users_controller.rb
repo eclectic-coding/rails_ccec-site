@@ -27,7 +27,7 @@ class Admin::AccountUsersController < ApplicationController
 
   def destroy
     # TODO: Delete action not working
-    @account_user.user.destroy
+    @account_user.destroy
 
     redirect_to admin_accounts_path, notice: "Account user was successfully destroyed."
   end

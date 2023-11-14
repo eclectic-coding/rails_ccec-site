@@ -28,7 +28,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false # use Database Cleaner instead
   # config.filter_run_excluding type: "system"
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers # helpers for system tests

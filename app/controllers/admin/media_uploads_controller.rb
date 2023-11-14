@@ -31,6 +31,13 @@ class Admin::MediaUploadsController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @media_upload.update(media_upload_params)
+        format.html { redirect_to admin_media_uploads_path, notice: "Media upload was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
