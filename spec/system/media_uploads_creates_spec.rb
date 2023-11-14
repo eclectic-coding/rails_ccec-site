@@ -16,7 +16,6 @@ RSpec.describe "MediaUploadsCreates", type: :system, js: true do
       fill_in "Description", with: "Test Description"
       attach_file "media_upload[media_file]", Rails.root.join("spec", "support", "assets", "test.pdf")
       click_button "Create"
-      sleep 1
 
       expect(page).to have_text "Media upload was successfully created"
     end

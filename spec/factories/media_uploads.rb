@@ -13,6 +13,7 @@ FactoryBot.define do
   factory :media_upload do
     name { "MyString" }
     description { "MyString" }
+    tag_list { "my_docs" }
     views_count { 1 }
 
     after(:build) do |media_upload|

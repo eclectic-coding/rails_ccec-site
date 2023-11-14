@@ -40,5 +40,6 @@ RSpec.configure do |config|
   config.include RspecScreenshotHelperPatch, type: :system
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  config.filter_gems_from_backtrace("capybara", "cuprite", "ferrum")
   config.fuubar_progress_bar_options = { format: "Completed Tests <%B> %p%% %a" }
 end
