@@ -54,6 +54,6 @@ class Admin::MediaUploadsController < ApplicationController
   end
 
   def set_media_upload
-    @media_upload = MediaUpload.find(params[:id])
+    @media_upload = MediaUpload.friendly.find(params[:id])
   end
 end

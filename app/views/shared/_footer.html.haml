@@ -6,6 +6,13 @@
       .col-12.col-sm-6.col-md-4
         - events = Event.after_today.where(role: nil).limit(3)
         = render(Footer::EventsComponent.new(events: events))
+      .col-12.col-sm-6.col-md-4
+        %h2.h3 Downloads
+        - @media_uploads = []
+        - MediaUpload.all.each do |media_upload|
+          - if media_upload.tag_list.include?("Documents")
+            - @media_uploads << media_upload
+        = render(Footer::DownloadsComponent.with_collection(@media_uploads))
     .row
       .col-12.text-center
         © #{Date.today.year} #{t('community_title')}
