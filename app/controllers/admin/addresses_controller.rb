@@ -18,7 +18,7 @@ class Admin::AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to admin_addresses_path, notice: "Address was successfully created." }
+        format.html { redirect_to admin_addresses_path, notice: t(".create_address") }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -33,7 +33,7 @@ class Admin::AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to admin_addresses_path, notice: "Address was successfully updated." }
+        format.html { redirect_to admin_addresses_path, notice: t(".update_address") }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -44,7 +44,7 @@ class Admin::AddressesController < ApplicationController
     @address.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_addresses_path, status: :see_other, notice: "Venue was successfully removed." }
+      format.html { redirect_to admin_addresses_path, status: :see_other, notice: t(".destroy_address") }
     end
   end
 
