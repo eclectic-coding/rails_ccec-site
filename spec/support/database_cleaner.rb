@@ -1,23 +1,23 @@
-# frozen_string_literal: true
-
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner.clean_with :truncation, except: %w[ar_internal_metadata]
+    DatabaseCleaner.clean_with :truncation
   end
 
-  config.before type: :integration do
-    DatabaseCleaner.strategy = :truncation
-  end
-
-  config.before do
+  # rubocop:disable RSpec/HookArgument
+  config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
 
-  config.before do
+  config.before(:each, type: :system) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
     DatabaseCleaner.start
   end
 
-  config.after do
+  config.after(:each) do
     DatabaseCleaner.clean
   end
+  # rubocop:enable RSpec/HookArgument
 end

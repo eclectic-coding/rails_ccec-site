@@ -12,7 +12,7 @@
     %tbody
       - users.each do |user|
         %tr.align-middle{:id => "#{user.id}"}
-          %td= link_to user.name, admin_account_user_path(id: user.account_users.ids), data: { turbo_frame: "_top"}
+          %td= link_to user.name, admin_account_user_path(@account, user_id: user), data: { turbo_frame: "_top"}
           %td= user.username
           %td= user.email
           %td= user.profile_roles
@@ -20,7 +20,7 @@
           %td= date_timestamp(user.invitation_accepted_at)
           %td
             - if current_user.has_role?(:superadmin) && user != current_user
-              = button_to admin_account_user_path(@account, user, user_id: user.id), type: 'submit', method: :delete, |
+              = button_to admin_account_user_path(@account, user_id: user.id), type: 'submit', method: :delete, |
                 form: { data: { confirm: t('.confirm'), "turbo-frame": "_top" } },  |
                 class: "text-danger float-end border-0 bg-transparent", id: 'delete-user' do           |
                 %i.bi.bi-trash.icon

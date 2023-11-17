@@ -1,5 +1,9 @@
 body {
-  font-size: 20px;
+  font-size: 16px;
+
+  .application {
+    font-size: 20px;
+  }
 }
 
 .nav-pills {
@@ -70,12 +74,12 @@ body {
 
 .trix-button--icon-link,
 .trix-button--icon-code,
-.trix-button--icon-attach{
+.trix-button--icon-attach {
   display: none;
 }
 
 .event-title {
-  a{
+  a {
     color: inherit;
     text-decoration: none;
 
@@ -87,6 +91,7 @@ body {
 
 address {
   font-size: 14px;
+
   .event-venue {
     font-weight: 700;
   }
@@ -131,5 +136,10 @@ address {
   text-transform: uppercase;
   border-radius: 0;
   border-bottom: 3px solid $danger;
+}
+
+.form-label.required:after {
+  content: " *";
+ color: $danger;
 }
 

@@ -36,11 +36,12 @@ gem "coveralls", require: false
 gem "honeybadger", "~> 5.2"
 gem "pagy"
 gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
+gem "acts-as-taggable-on"
+gem "active_storage_validations", "~> 1.1", ">= 1.1.1"
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
-  gem "capybara"
-  gem "selenium-webdriver"
   gem "rspec-rails", "~> 6.0.0"
   gem "factory_bot_rails"
   gem "faker"
@@ -61,7 +62,9 @@ group :development do
 end
 
 group :test do
-  gem "simplecov", "~> 0.21.2", require: false
+  gem "simplecov", "~> 0.22.0", require: false
   gem "webmock"
   gem "database_cleaner"
+  gem "capybara"
+  gem "cuprite"
 end

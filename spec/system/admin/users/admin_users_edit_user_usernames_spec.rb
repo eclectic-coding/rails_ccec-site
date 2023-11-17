@@ -1,10 +1,6 @@
-require "rails_helper"
+require "system_helper"
 
 RSpec.describe "Admin::Users::EditUserUsernames", type: :system do
-  before do
-    driven_by(:selenium_chrome_headless)
-  end
-
   before do
     login_as create(:user, :admin)
   end
@@ -14,7 +10,7 @@ RSpec.describe "Admin::Users::EditUserUsernames", type: :system do
 
     context "update with valid parameters" do
       it "should update user username" do
-        visit admin_account_user_path(account_user)
+        visit admin_account_user_path(account_user, user_id: account_user.user.id)
         click_link "Edit Username"
         fill_in "username", with: "testuser"
         click_button "Save"
@@ -25,7 +21,7 @@ RSpec.describe "Admin::Users::EditUserUsernames", type: :system do
 
     context "update with invalid parameters" do
       it "should update user username" do
-        visit admin_account_user_path(account_user)
+        visit admin_account_user_path(account_user, user_id: account_user.user.id)
         click_link "Edit Username"
         fill_in "username", with: ""
         click_button "Save"

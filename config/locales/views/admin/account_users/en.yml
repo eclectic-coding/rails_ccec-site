@@ -5,7 +5,7 @@ en:
         name: Name
         email: Email
         login-as_btn: Login As
-        profile_title: "'s Profile"
+        profile_title: "%{user_name}'s Profile"
         role: Role
         created_at: Created At
         updated_at: Updated At
@@ -30,6 +30,10 @@ en:
       account_users_role:
         row-email:
           name: Role
+      create:
+        create_account_user: Account user was successfully created.
+      destroy:
+        destroy_account_user: Account user was successfully destroyed.
     users:
       users_name:
         row-name:

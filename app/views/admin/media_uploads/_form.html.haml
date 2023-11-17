@@ -1,0 +1,26 @@
+.border.rounded.bg-white.p-3.mb-3
+  = form_with(model: [:admin, media_upload]) do |form|
+    .row
+      .col-12.col-md-4.mb-3
+        = form.label :name, class: "form-label required"
+        = form.text_field :name, class: "form-control"
+        = render(Shared::FormErrorsComponent.new(resource: media_upload, key: :name))
+
+      .col-12.col-md-2.mb-3
+        = form.label :tag_list, "Category", class: "form-label required"
+        = form.select(:tag_list, ActsAsTaggableOn::Tag.all.collect{|t|[t.name, t.name]}, {include_blank: true}, class: "form-select")
+        = render(Shared::FormErrorsComponent.new(resource: media_upload, key: :tag_list))
+
+      .col-12.col-md-6.mb-3
+        = form.label :file, class: "form-label required"
+        = form.file_field :media_file, class: "form-control"
+        = render(Shared::FormErrorsComponent.new(resource: media_upload, key: :media_file))
+    .row
+      .col-12
+        .my-3
+          = form.label :description, class: "form-label"
+          = form.text_area :description, class: "form-control"
+
+    .my-3
+      = form.submit media_upload.persisted? ? t("update_btn") : t("create_btn"), class: "btn btn-primary"
+      = link_to t("cancel_btn"), admin_media_uploads_path, class: "btn btn-link"

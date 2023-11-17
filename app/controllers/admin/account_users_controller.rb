@@ -1,11 +1,12 @@
 class Admin::AccountUsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account, only: %i[show new create destroy]
-  before_action :set_account_user, only: :show
+  before_action :set_account_user, only: [:show, :destroy]
 
   layout "admin"
 
   def show
+    @account_user = AccountUser.find_by(user_id: params[:user_id])
     authorize @account_user
   end
 
@@ -18,16 +19,16 @@ class Admin::AccountUsersController < ApplicationController
     account_user.account = @account
 
     if account_user.save
-      redirect_to admin_accounts_path, notice: "Account user was successfully created."
+      redirect_to admin_accounts_path, notice: t(".create_account_user")
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
-    AccountUser.find_by(user_id: params[:user_id]).destroy
+    @account_user.destroy
 
-    redirect_to admin_accounts_path, notice: "Account user was successfully destroyed."
+    redirect_to admin_accounts_path, notice: t(".destroy_account_user")
   end
 
   private
@@ -37,7 +38,7 @@ class Admin::AccountUsersController < ApplicationController
   end
 
   def set_account_user
-    @account_user = AccountUser.find(params[:id])
+    @account_user = AccountUser.find_by(user_id: params[:user_id])
   end
 
   def account_user_params

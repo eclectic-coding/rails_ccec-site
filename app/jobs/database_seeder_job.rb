@@ -16,6 +16,7 @@ class DatabaseSeederJob < ApplicationJob
       create_member_user
       add_roles
       create_addresses
+      create_tags
     end
   end
 
@@ -62,5 +63,10 @@ class DatabaseSeederJob < ApplicationJob
     Address.create!(name: "Pine Valley Methodist Church", street: "3788 Shipyard Blvd", city: "Wilmington")
     Address.create!(name: "First Christian Church", street: "124 Trott Rd", city: "Richlands")
     Address.create!(name: "Salt and Light Center", street: "2006 Wicker St", city: "North Topsail Beach")
+  end
+
+  def create_tags
+    ActsAsTaggableOn::Tag.create!(name: "Documents")
+    ActsAsTaggableOn::Tag.create!(name: "Rosters")
   end
 end

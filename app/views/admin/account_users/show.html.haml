@@ -1,8 +1,7 @@
 .row.my-3
   .col-12.d-flex.justify-content-between.align-items-center
     %h1.h2
-      = @account_user.user.name
-      = t('.profile_title')
+      = t('.profile_title', user_name: @account_user.user.name)
     %div
       = link_to t('.login-as_btn'), "#", class: "btn btn-primary"
 .card

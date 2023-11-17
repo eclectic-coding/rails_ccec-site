@@ -4,8 +4,15 @@
       .col-12.col-sm-6.col-md-4
         = render(Footer::ContactUsComponent.new)
       .col-12.col-sm-6.col-md-4
-        - events = Event.after_today.limit(3)
+        - events = Event.after_today_footer.where(role: nil).limit(3)
         = render(Footer::EventsComponent.new(events: events))
+      .col-12.col-sm-6.col-md-4
+        %h2.h3= t('.downloads_title')
+        - @media_uploads = []
+        - MediaUpload.all.includes([:taggings]).includes([:media_file_attachment]).each do |media_upload|
+          - if media_upload.tag_list.include?("Documents")
+            - @media_uploads << media_upload
+        = render(Footer::DownloadsComponent.with_collection(@media_uploads))
     .row
       .col-12.text-center
         © #{Date.today.year} #{t('community_title')}

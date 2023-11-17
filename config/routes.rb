@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :members do
-    get "directions/index"
-    get "sponsorship/index"
-  end
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -11,10 +7,6 @@ Rails.application.routes.draw do
 
   authenticate :user, lambda { |u| u.has_role?(:admin) || u.has_role?(:superadmin) } do
     namespace :admin do
-      # if defined?(Sidekiq)
-      #   require "sidekiq/web"
-      #   mount Sidekiq::Web => "/sidekiq"
-      # end
       resources :accounts, only: [:index, :show]
       resources :account_users, only: [:show, :new, :create, :destroy]
       resources :users, only: :index do
@@ -28,16 +20,15 @@ Rails.application.routes.draw do
           get :list
         end
       end
+      resources :media_uploads, except: :show
       resources :addresses
 
       root to: "dashboard#show"
     end
-
-    namespace :user do
-    end
   end
 
   resources :events, only: [:index, :show]
+
   resource :members, only: :show
   namespace :members do
     get "sponsorship", to: "sponsorship#index"

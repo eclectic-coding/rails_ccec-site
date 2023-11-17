@@ -31,6 +31,7 @@ FactoryBot.define do
 
     trait :weekend do
       event_type { :weekend }
+      walk_number { 111 }
     end
 
     trait :follow_up do

@@ -1,8 +1,7 @@
-require "rails_helper"
+require "system_helper"
 
 RSpec.describe "Admin::Events::EventsIndices", type: :system do
   before do
-    driven_by(:selenium_chrome_headless)
     login_as create(:user, :admin)
   end
 

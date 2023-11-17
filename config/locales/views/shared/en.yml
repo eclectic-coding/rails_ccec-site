@@ -8,6 +8,7 @@ en:
       accounts_title: Accounts
       edit_profile: Edit Profile
       addresses_title: Venues
+      media_uploads_title: MediaUploads
     admin_profile:
       settings: Settings
       admin_area: Admin Area
@@ -22,6 +23,8 @@ en:
       sponsorship: Sponsorship
       information: Information
       calendar: Calendar
+    footer:
+      downloads_title: Downloads
   admin:
     account_users:
       account_users_role:
