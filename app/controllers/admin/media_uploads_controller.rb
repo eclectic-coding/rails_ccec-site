@@ -1,14 +1,11 @@
 class Admin::MediaUploadsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_media_upload, only: [:show, :edit, :destroy]
+  before_action :set_media_upload, only: [:edit, :destroy]
 
   layout "admin"
 
   def index
     @media_uploads = MediaUpload.all.includes(:media_file_attachment).includes(:taggings)
-  end
-
-  def show
   end
 
   def new
@@ -33,7 +30,7 @@ class Admin::MediaUploadsController < ApplicationController
   def update
     respond_to do |format|
       if @media_upload.update(media_upload_params)
-        format.html { redirect_to admin_media_uploads_path, notice: "Media upload was successfully updated." }
+        format.html { redirect_to admin_media_uploads_path, notice: t(".update_media_uploads") }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -44,7 +41,7 @@ class Admin::MediaUploadsController < ApplicationController
     @media_upload.media_file.purge
     @media_upload.destroy
     respond_to do |format|
-      format.html { redirect_to admin_media_uploads_path, notice: "Media upload was successfully destroyed." }
+      format.html { redirect_to admin_media_uploads_path, notice: t(".destroyed_media_uploads") }
     end
   end
 

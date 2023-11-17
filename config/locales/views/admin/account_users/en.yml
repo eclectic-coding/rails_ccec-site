@@ -30,6 +30,10 @@ en:
       account_users_role:
         row-email:
           name: Role
+      create:
+        create_account_user: Account user was successfully created.
+      destroy:
+        destroy_account_user: Account user was successfully destroyed.
     users:
       users_name:
         row-name:

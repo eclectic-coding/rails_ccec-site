@@ -19,17 +19,16 @@ class Admin::AccountUsersController < ApplicationController
     account_user.account = @account
 
     if account_user.save
-      redirect_to admin_accounts_path, notice: "Account user was successfully created."
+      redirect_to admin_accounts_path, notice: t(".create_account_user")
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
-    # TODO: Delete action not working
     @account_user.destroy
 
-    redirect_to admin_accounts_path, notice: "Account user was successfully destroyed."
+    redirect_to admin_accounts_path, notice: t(".destroy_account_user")
   end
 
   private

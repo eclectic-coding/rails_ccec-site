@@ -22,5 +22,5 @@
           = form.text_area :description, class: "form-control"
 
     .my-3
-      = form.submit media_upload.persisted? ? "Update" : "Create", class: "btn btn-primary"
-      = link_to "Cancel", admin_media_uploads_path, class: "btn btn-link"
+      = form.submit media_upload.persisted? ? t("update_btn") : t("create_btn"), class: "btn btn-primary"
+      = link_to t("cancel_btn"), admin_media_uploads_path, class: "btn btn-link"
