@@ -5,7 +5,7 @@ class Admin::MediaUploadsController < ApplicationController
   layout "admin"
 
   def index
-    @media_uploads = MediaUpload.all.includes(:media_file_attachment)
+    @media_uploads = MediaUpload.all.includes(:media_file_attachment).includes(:taggings)
   end
 
   def show
@@ -41,6 +41,7 @@ class Admin::MediaUploadsController < ApplicationController
   end
 
   def destroy
+    @media_upload.media_file.purge
     @media_upload.destroy
     respond_to do |format|
       format.html { redirect_to admin_media_uploads_path, notice: "Media upload was successfully destroyed." }
