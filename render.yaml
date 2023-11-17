@@ -5,7 +5,7 @@ services:
     plan: free # optional (defaults to starter)
     maxmemoryPolicy: allkeys-lfu # optional (defaults to allkeys-lru). Rails recommends allkeys-lfu as a default.
   - type: web
-    name: rails-ccec
+    name: railsccec
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
@@ -21,7 +21,7 @@ services:
           name: cache
           property: connectionString
 databases:
-  - name: myccecDB
-    databaseName: myccecDB
+  - name: railsccecDB
+    databaseName: railsccecDB
     user: ccecuser
 
