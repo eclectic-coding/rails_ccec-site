@@ -1,5 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Role, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "roles" do
+    it "outputs a humanized name" do
+      role = create(:role, name: "admin")
+      expect(role.human_name).to eq("Admin")
+    end
+  end
 end

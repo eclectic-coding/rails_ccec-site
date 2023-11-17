@@ -14,13 +14,6 @@ RSpec.describe "Admin::Addresses", type: :request do
     end
   end
 
-  describe "GET /show" do
-    it "returns http success" do
-      get admin_address_path(create(:address))
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "GET /new" do
     it "returns http success" do
       get new_admin_address_path
@@ -97,7 +90,7 @@ RSpec.describe "Admin::Addresses", type: :request do
         address = Address.create! valid_attributes
         put admin_address_path(address), params: { address: new_attributes }
         address.reload
-        expect(response).to redirect_to(admin_address_path(address))
+        expect(response).to redirect_to(admin_addresses_path)
       end
     end
 

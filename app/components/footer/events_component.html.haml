@@ -1,5 +1,8 @@
 %h2.h3 Upcoming Events
-- if !events.empty?
+- if events.nil? || events.empty?
+  %p
+    = t('events.no_events')
+- else
   - events.each_with_index do |event, idx|
     .row.mb-3.pt-2.mx-auto
       .col-1
@@ -12,6 +15,3 @@
           = render(Event::TimeBannerComponent.new(event: event))
           %h3.mt-2.event-title.font-medium.text-black
             = link_to event.name, event_path(event)
-- else
-  %p
-    = t('events.no_events')

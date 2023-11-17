@@ -13,3 +13,4 @@ en:
         no_addresses: No addresses found
       form:
         create_venue: Create Venue
+        update_venue: Update Venue

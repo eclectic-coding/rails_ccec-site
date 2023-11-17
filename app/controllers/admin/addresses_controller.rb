@@ -1,14 +1,11 @@
 class Admin::AddressesController < ApplicationController
-  before_action :set_address, only: %i[show edit update destroy]
+  before_action :set_address, only: %i[edit update destroy]
 
   layout "admin"
 
   def index
     @addresses = Address.all
     authorize @addresses
-  end
-
-  def show
   end
 
   def new
@@ -36,7 +33,7 @@ class Admin::AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to admin_address_path(@address), notice: "Address was successfully updated." }
+        format.html { redirect_to admin_addresses_path, notice: "Address was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end

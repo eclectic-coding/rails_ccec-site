@@ -1,2 +1,3 @@
-%h1 Admin::Addresses#edit
-%p Find me in app/views/admin/addresses/edit.html.haml
+= render(Shared::PageTitleComponent.new(title: @address.name))
+
+= render partial: "admin/addresses/form", locals: { address: @address }
