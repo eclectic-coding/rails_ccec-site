@@ -1,5 +1,5 @@
-.border.rounded.p-2.mb-3
-  %h2.h4= "New Venue"
+.border.rounded.bg-white.p-3.mb-3
+  %h2.h4= t(".new_venue_title")
   = form_for([:admin, @address]) do |f|
     .row.pb-3
       .col-12.col-md-6.col-lg-4
@@ -15,5 +15,5 @@
           = f.label :city
           = f.select :city, CS.get(:US, :NC), {}, { required: true, class: "form-select" }
       .mt-3
-        = f.submit t(".create_venue"), class: "btn btn-primary"
+        = f.submit address.persisted? ? t(".update_venue") : t(".create_venue"), class: "btn btn-primary"
         = link_to t('cancel_btn'), admin_addresses_path, class: "btn btn-link"

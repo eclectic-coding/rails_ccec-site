@@ -13,3 +13,11 @@ en:
         no_addresses: No addresses found
       form:
         create_venue: Create Venue
+        update_venue: Update Venue
+        new_venue_title: New Venue
+      create:
+        create_address: Address was successfully created.
+      update:
+        update_address: Address was successfully updated.
+      destroy:
+        destroy_address: Venue was successfully removed.

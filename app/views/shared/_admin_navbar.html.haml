@@ -16,10 +16,10 @@
         = link_to admin_events_path, class: [("nav-link text-white"), ("sidebar__active" if controller_name == 'events')] do
           %i.bi.bi-calendar3-event-fill
           %span.d-none.d-lg-inline= t('.events_title')
-      - if controller_name == 'events'
+      - if controller_name == 'events' || controller_name == 'addresses'
         %ul.ms-3.mt-1.pe-md-3.nav.nav-pills.flex-column.mb-sm-auto.mb-0.align-items-center.align-items-sm-start.w-100
           %li.nav-item
-            = link_to admin_addresses_path, class: [("nav-link text-white"), ("sidebar__active" if controller_name == 'events')] do
+            = link_to admin_addresses_path, class: [("nav-link text-white"), ("sidebar__active" if controller_name == 'addresses' )] do
               %i.bi.bi-shop
               %span.d-none.d-lg-inline= t('.addresses_title')
       %li.nav-item

@@ -1,6 +1,6 @@
 class Admin::MediaUploadsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_media_upload, only: [:edit, :destroy]
+  before_action :set_media_upload, only: [:edit, :update, :destroy]
 
   layout "admin"
 

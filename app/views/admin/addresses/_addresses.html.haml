@@ -16,7 +16,7 @@
         - else
           - @addresses.each do |address|
             = content_tag :tr, id: dom_id(address) do
-              %td= link_to address.name, admin_address_path(address)
+              %td= link_to address.name, edit_admin_address_path(address)
               %td= address.street
               %td= address.city
               %td= address.state

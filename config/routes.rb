@@ -21,7 +21,7 @@ Rails.application.routes.draw do
         end
       end
       resources :media_uploads, except: :show
-      resources :addresses
+      resources :addresses, except: :show
 
       root to: "dashboard#show"
     end
