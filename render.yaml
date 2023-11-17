@@ -21,7 +21,7 @@ services:
           name: cache
           property: connectionString
 databases:
-  - name: rails-ccec
+  - name: myccecDB
     databaseName: myccecDB
-    user: mysite
+    user: ccecuser
 
