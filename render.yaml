@@ -22,6 +22,6 @@ services:
           property: connectionString
 databases:
   - name: rails-ccec
-    databaseName: ccec-basic
+    databaseName: myccecDB
     user: mysite
 
