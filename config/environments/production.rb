@@ -77,11 +77,11 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: Rails.credentials.dig(:brevo, :smtp_host),
+    address: Rails.application.credentials.dig(:brevo, :smtp_host),
     port: ENV.fetch("SMTP_PORT", "587"),
     authentication: :plain,
-    user_name: Rails.credentials.dig(:brevo, :smtp_username), # See: https://app.brevo.com/settings/keys/smtp
-    password: Rails.credentials.dig(:brevo, :smtp_password),
+    user_name: Rails.application.credentials.dig(:brevo, :smtp_username), # See: https://app.brevo.com/settings/keys/smtp
+    password: Rails.application.credentials.dig(:brevo, :smtp_password),
     enable_starttls_auto: true
   }
   # Ignore bad email addresses and do not raise email delivery errors.
