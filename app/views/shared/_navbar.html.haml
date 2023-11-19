@@ -17,7 +17,7 @@
       %ul.navbar-nav.ms-auto.mt-2.mt-md-0
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{href: "#", role: "button", 'data-bs-toggle':"dropdown", 'aria-expanded':"false", 'data-dropdown-target': 'activated',
-          'data-action': "mouseenter->dropdown#toggleDropdown"}
+          'data-action': "mouseenter->dropdown#toggleDropdown mouseleave->dropdown#toggleDropdown"}
             = t('.info')
           %ul.dropdown-menu
             %li= link_to t('.attending'), attending_path, class: "dropdown-item"
