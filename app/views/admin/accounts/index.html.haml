@@ -1,7 +1,8 @@
 = render(Shared::PageTitleComponent.new(title: t('.title')))
 .card
   .card-body
-    = render partial: "accounts", locals: { accounts: @accounts }
+    - if current_user.has_role?(:superadmin)
+      = render partial: "accounts", locals: { accounts: @accounts }
     .row
       .col.d-flex.justify-content-between.align-items-center.mb-3
         %h2.ps-2.border-bottom.w-25= t(".users_title")

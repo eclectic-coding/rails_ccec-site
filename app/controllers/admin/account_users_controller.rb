@@ -12,6 +12,7 @@ class Admin::AccountUsersController < ApplicationController
 
   def new
     @account_user = AccountUser.new
+    @roles = current_user.has_role?(:superadmin) ? Role.all : Role.all_except
   end
 
   def create
