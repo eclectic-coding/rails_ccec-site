@@ -26,6 +26,8 @@ class Role < ApplicationRecord
             :inclusion => { :in => Rolify.resource_types },
             :allow_nil => true
 
+  scope :all_except, -> { where.not(name: :superadmin) }
+
   scopify
 
   def human_name

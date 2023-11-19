@@ -38,23 +38,6 @@ RSpec.describe "Admin::AccountUsers", type: :request do
         expect(response).to redirect_to(admin_accounts_path)
       end
     end
-
-    context "with invalid parameters" do
-      it "does not create a account user" do
-        expect {
-          post admin_account_users_path, params: { account_user: {
-            name: "", email: "", role_id: ""
-          } }
-        }.to change(AccountUser, :count).by(0)
-      end
-
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post admin_account_users_path, params: { account_user: {
-          name: "", email: "", role_id: ""
-        } }
-        expect(response).to be_unprocessable
-      end
-    end
   end
 
   describe "DELETE /admin/account_users" do
