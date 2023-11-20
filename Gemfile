@@ -24,7 +24,7 @@ gem "name_of_person", "~> 1.1"
 gem "noticed", "~> 1.4"
 gem "pretender", "~> 0.3.4"
 gem "pundit", "~> 2.1"
-gem "sidekiq", "~> 6.2"
+gem "sidekiq", "~> 7.2"
 gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
 gem "rolify"
