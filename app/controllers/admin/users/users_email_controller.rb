@@ -15,7 +15,7 @@ class Admin::Users::UsersEmailController < ApplicationController
   def update
     authorize @user
 
-    if @user.update(users_email_params)
+    if @user.update(email: params[:email])
       UpdateUsersEmailMailer.with(user: @user).update_user_email.deliver_now
 
       respond_to do |format|

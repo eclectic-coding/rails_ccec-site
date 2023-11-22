@@ -53,6 +53,7 @@ class User < ApplicationRecord
   has_many :accounts, through: :account_users
 
   before_save :add_account_id_from_parent
+  after_create :create_account_user
 
   validates :name, presence: true
   validates :email, presence: true
@@ -65,7 +66,10 @@ class User < ApplicationRecord
 
   def add_account_id_from_parent
     self.account_id = Account.find_by(name: "CCEC").id if account_id.nil?
-    AccountUser.create(account_id: account_id, user_id: id) if AccountUser.find_by(account_id: account_id, user_id: id).nil?
+  end
+
+  def create_account_user
+    AccountUser.create(account_id: account_id, user_id: id)
   end
 
   def profile_roles

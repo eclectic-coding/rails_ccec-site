@@ -7,7 +7,6 @@ class Admin::AccountUsersController < ApplicationController
 
   def show
     @account_user = AccountUser.find_by(user_id: params[:user_id])
-    authorize @account_user
   end
 
   def new

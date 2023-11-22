@@ -14,10 +14,10 @@ class Admin::Users::UsersNameController < ApplicationController
 
   def update
     authorize @user
-    UpdateUserNameMailer.with(user: @user).update_user_name.deliver_now
 
-    if @user.update(users_name_params)
+    if @user.update(name: params[:name])
       @account_user = AccountUser.find_by(user_id: params[:user_id])
+      UpdateUserNameMailer.with(user: @user).update_user_name.deliver_now
 
       respond_to do |format|
         format.turbo_stream { flash.now[:notice] = "User's name was successfully updated." }
@@ -40,6 +40,6 @@ class Admin::Users::UsersNameController < ApplicationController
   end
 
   def users_name_params
-    params.permit(:name, :account_users_id)
+    params.permit(:name, :id, :user_id)
   end
 end
