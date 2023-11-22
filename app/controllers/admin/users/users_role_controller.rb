@@ -15,7 +15,7 @@ class Admin::Users::UsersRoleController < ApplicationController
   def update
     authorize @user
 
-    @user.add_role(users_role_params[:role])
+    @user.add_role(params[:role])
 
     if @user.has_role?(params[:role])
       UpdateUserRoleMailer.with(user: @user).update_user_role.deliver_now

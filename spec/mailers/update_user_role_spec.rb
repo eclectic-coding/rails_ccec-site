@@ -5,7 +5,7 @@ RSpec.describe UpdateUserRoleMailer, type: :mailer do
 
   describe "Notify user of email address change" do
     specify do
-      user = create(:user)
+      user = create(:user, :member)
       mail = described_class.with(user: user).update_user_role
 
       expect(mail.subject).to eq("Role Update")

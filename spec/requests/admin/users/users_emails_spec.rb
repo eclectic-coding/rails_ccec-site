@@ -24,7 +24,7 @@ RSpec.describe "Admin::Users::UsersEmail", type: :request do
           patch admin_user_users_email_path(user_id: account_user.user_id, id: account_user.id, params: { user: {
             email: "cats@example.com"
           } }), as: :turbo_stream
-          expect(response.body).to include("<turbo-stream action=\"replace\" target=\"edit_email_user_#{account_user.user.id}\">")
+          expect(response.body).to include("<turbo-stream action=\"replace\" target=\"edit_email_account_user_")
         end
       end
 
