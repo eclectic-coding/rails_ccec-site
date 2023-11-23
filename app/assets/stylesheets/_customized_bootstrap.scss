@@ -68,10 +68,17 @@ a:active {
 }
 
 .navbar-brand {
-  a {
+  border-bottom: 3px solid $danger;
 
+  a {
     padding-bottom: 1rem;
   }
+
+  @media (max-width: 600px) {
+    font-size: 16px !important;
+  }
+
+
 }
 
 .text-uppercase {

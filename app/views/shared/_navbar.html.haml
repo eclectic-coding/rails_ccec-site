@@ -1,14 +1,5 @@
-- if current_user != true_user
-  .alert.alert-warning.text-center
-    You're logged in as
-    %b
-      = current_user.name
-      (#{current_user.email})
-    = link_to stop_impersonating_madmin_impersonates_path, method: :post do
-      = icon("fas", "times")
-      Logout
 %nav.navbar.navbar-expand-md.navbar-light.bg-light.mt-3
-  .container.mx-auto
+  .container-fluid.container-sm.mx-auto
     .title-area
       = link_to t('community_title'), root_path, class: "navbar-brand"
     %button.navbar-toggler{"aria-controls" => "navbarMain", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarMain", "data-bs-toggle" => "collapse", :type => "button"}
