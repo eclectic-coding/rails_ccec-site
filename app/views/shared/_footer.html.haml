@@ -6,12 +6,12 @@
       .col-11.col-sm-6.col-md-4.mb-3.mb-sm-0
         - events = current_user ? Event.after_today_footer.limit(3) : Event.after_today_footer.where(role: nil).limit(3)
         = render(Footer::EventsComponent.new(events: events))
-      - @media_uploads = []
-      - MediaUpload.all.includes([:taggings]).includes(media_file_attachment: :blob).each do |media_upload|
-        - if media_upload.tag_list.include?("Documents")
-          - @media_uploads << media_upload
-          .col-11.col-sm-6.col-md-4.mb-3.mb-sm-0
-            %h2.h3= t('.downloads_title')
+      .col-11.col-sm-6.col-md-4.mb-3.mb-sm-0
+        %h2.h3= t('.downloads_title')
+        - @media_uploads = []
+        - MediaUpload.all.includes([:taggings]).includes(media_file_attachment: :blob).each do |media_upload|
+          - if media_upload.tag_list.include?("Documents")
+            - @media_uploads << media_upload
             = render(Footer::DownloadsComponent.with_collection(@media_uploads))
     .row
       .col-12.text-center
