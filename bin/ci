@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "[ bin/ci ] Running rubocop"
+bin/rubocop
+
+echo "[ bin/ci ] Running tests"
+bin/rspec
+
+echo "[ bin/ci ] Analyzing Ruby gems for"
+echo "[ bin/ci ] security vulnerabilities"
+bundle exec bundle audit check --update
