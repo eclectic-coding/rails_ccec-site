@@ -1,0 +1,52 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 105,
+      "fingerprint": "bcf3c20d77e69faa940fcdb2504ae18e94adb9466a4584d3523b738b1e652c0e",
+      "check_name": "PermitAttributes",
+      "message": "Potentially dangerous key allowed for mass assignment",
+      "file": "app/controllers/admin/users/users_role_controller.rb",
+      "line": 44,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params.permit(:role)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Admin::Users::UsersRoleController",
+        "method": "users_role_params"
+      },
+      "user_input": ":role",
+      "confidence": "Medium",
+      "cwe_id": [
+        915
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 105,
+      "fingerprint": "ef25c15b3ef8959aee5e08cad07b084aa9c4ab6e7bd43c1bc7c195ea347a804e",
+      "check_name": "PermitAttributes",
+      "message": "Potentially dangerous key allowed for mass assignment",
+      "file": "app/controllers/admin/events_controller.rb",
+      "line": 85,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params.require(:event).permit(:name, :walk_number, :start_time, :role, :description, :end_time, :event_type, :address_id)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Admin::EventsController",
+        "method": "event_params"
+      },
+      "user_input": ":role",
+      "confidence": "Medium",
+      "cwe_id": [
+        915
+      ],
+      "note": ""
+    }
+  ],
+  "updated": "2023-11-24 12:46:33 -0500",
+  "brakeman_version": "6.0.1"
+}
