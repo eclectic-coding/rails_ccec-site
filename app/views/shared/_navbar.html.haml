@@ -1,23 +1,13 @@
-- if current_user != true_user
-  .alert.alert-warning.text-center
-    You're logged in as
-    %b
-      = current_user.name
-      (#{current_user.email})
-    = link_to stop_impersonating_madmin_impersonates_path, method: :post do
-      = icon("fas", "times")
-      Logout
 %nav.navbar.navbar-expand-md.navbar-light.bg-light.mt-3
-  .container.mx-auto
+  .container-fluid.container-sm.mx-auto
     .title-area
       = link_to t('community_title'), root_path, class: "navbar-brand"
     %button.navbar-toggler{"aria-controls" => "navbarMain", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarMain", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
-    #navbarMain.collapse.navbar-collapse{'data-controller': "dropdown"}
+    #navbarMain.collapse.navbar-collapse
       %ul.navbar-nav.ms-auto.mt-2.mt-md-0
         %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{href: "#", role: "button", 'data-bs-toggle':"dropdown", 'aria-expanded':"false", 'data-dropdown-target': 'activated',
-          'data-action': "mouseenter->dropdown#toggleDropdown mouseleave->dropdown#toggleDropdown"}
+          %a.nav-link.dropdown-toggle{href: "#", role: "button", 'data-bs-toggle':"dropdown", 'aria-expanded':"false"}
             = t('.info')
           %ul.dropdown-menu
             %li= link_to t('.attending'), attending_path, class: "dropdown-item"

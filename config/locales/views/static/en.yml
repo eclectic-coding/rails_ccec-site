@@ -1,0 +1,17 @@
+en:
+  static:
+    info_card:
+      are_you_interested_html: "Are you interested in the Walk to Emmaus? Be sure to check out our Information and our <a href='/sponsorship'>Sponsorship</a> pages to learn more."
+      sponsor_someone_html: "If you are ready to sponsor someone, you can either register them with at the Online Application page"
+    questions:
+      registered_area_text: "We have a default login for the community.  If you have not received this instruction please email us and we will assist you.
+          In the Registered area of this web site, you will find directions to walk events, and the Pilgrim and Team rosters the week of the walks.
+          These items are posted here to maintain the surprises of the walks and individual information secure from public viewing.
+          After logging in, the Registered Area tab will appear on the menu bar.
+          You may select an area of interest under this tab to view information not made public.
+          If you have problems with login email us at this address and someone will assist you."
+      contact_database_text_html: "Coastal Carolina Emmaus Community uses a contact database system provided by the Upper Room called <a href=\"https://ministrymanager.upperroom.org/\", target: \"_blank\", 'aria-label': \"The Upper Room Emmaus Ministry Manager web site (new window)\">Ministry Manager.</a> As a member of the community you will have access to this database. Use your email address to register for an account. If you cannot login, click the “Forgot Password” link on the web site. Make sure to keep your contact information up to date."
+      emmaus_text_html: "View The Upper Room <a href=\"https://www.upperroom.org/walktoemmaus\", target: \"_blank\", \"aria-label\": \"The Upper Room Emmaus web site (new window)\">Emmaus web site.</a>"
+      prayer_text_html: "You can go to the <a href=\"https://www.upperroom.org/prayer\", target: \"_blank\", \"aria-label\": \"The Upper Room Prayer Central (new window)\">Upper Room Prayer Central.</a> You can also <a href=\"mailto:info@ccemmaus.org\", \"aria-label\": \"Email the community\">email the community.</a>"
+      sponsorship_text: "You must complete a sponsorship training class.  Watch for these to be scheduled on the web site calendar or you will receive an email announcement in our newsletter Eblasts."
+      rosters_text: "The walk rosters are posted in the Registered area of the web site on Monday the week of the walk.  The Registered Area tab is viewed after a login."

@@ -1,16 +1,16 @@
-.container.w-75
+.container-fluid.container-sm
   = render(Shared::PageTitleComponent.new(title: t('.title')))
 
   - @events.each_with_index do |event, idx|
     .row.mb-3.pt-2
       - if idx >= 0 && event.start_time.month != @events[idx-1].start_time.month
         %h2.border-bottom.mb-3.pb-1= event.start_time.strftime('%B %Y')
-      .col-1
+      .col-2.col-sm-1
         .text-muted.text-uppercase.font-small
           = event.start_time.strftime('%a')
         .fw-bold.font-large
           = event.start_time.strftime('%d')
-      .col-6
+      .col-10.col-sm-6
         = render(Event::TimeBannerComponent.new(event: event))
         %h3.mt-2.event-title
           = link_to event.name, event_path(event)

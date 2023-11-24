@@ -31,7 +31,7 @@
     .row
       .col-6
         = form.label :role, t('.roles'), class: 'form-label'
-        = form.collection_select :role_id, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles"}, class: 'form-select'
+        = form.collection_select :role, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles"}, class: 'form-select'
 
       .col-6
         = form.label :start_time, class: 'form-label'

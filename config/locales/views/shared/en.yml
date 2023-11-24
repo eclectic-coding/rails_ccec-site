@@ -25,6 +25,7 @@ en:
       calendar: Calendar
     footer:
       downloads_title: Downloads
+      no_downloads: No files available for download
   admin:
     account_users:
       account_users_role:
