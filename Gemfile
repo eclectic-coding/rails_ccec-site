@@ -65,5 +65,4 @@ group :test do
   gem "webmock"
   gem "selenium-webdriver"
   gem "capybara"
-  # gem "cuprite", git: "https://github.com/rubycdp/cuprite.git", branch: "main"
 end
