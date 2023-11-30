@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     @events = if current_user
       Event.after_today
     else
-      Event.after_today.where(role: nil)
+      Event.after_today.where(role: "")
     end
     authorize @events
   end
