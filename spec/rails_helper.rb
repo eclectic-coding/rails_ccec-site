@@ -14,9 +14,9 @@ require_relative "../config/environment"
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
+require "capybara/rails"
 require "fuubar"
 require "pundit/rspec"
-require_relative "rspec_screenshot_patch"
 # require "webmock/rspec"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
@@ -29,7 +29,7 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = false # use Database Cleaner instead
+  config.use_transactional_fixtures = true # use Database Cleaner instead
   # config.filter_run_excluding type: "system"
   config.include FactoryBot::Syntax::Methods
   config.include Warden::Test::Helpers # helpers for system tests
@@ -38,9 +38,8 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :view
   config.include ViewComponent::TestHelpers, type: :component
   config.include Capybara::RSpecMatchers, type: :component
-  config.include RspecScreenshotHelperPatch, type: :system
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  config.filter_gems_from_backtrace("capybara", "cuprite", "ferrum")
+  # config.filter_gems_from_backtrace("capybara", "cuprite", "ferrum")
   config.fuubar_progress_bar_options = { format: "Completed Tests <%B> %p%% %a" }
 end

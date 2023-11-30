@@ -1,4 +1,4 @@
-require "system_helper"
+require "rails_helper"
 
 RSpec.describe "MediaUploadsCreates", type: :system, js: true do
   before do
