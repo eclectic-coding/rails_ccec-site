@@ -1,4 +1,4 @@
-require "system_helper"
+require "rails_helper"
 
 RSpec.describe "Admin::Users::EditUserUsernames", type: :system do
   before do
@@ -10,7 +10,7 @@ RSpec.describe "Admin::Users::EditUserUsernames", type: :system do
 
     context "update with valid parameters" do
       it "should update user username" do
-        visit admin_account_user_path(account_user, user_id: account_user.user.id)
+        visit admin_account_user_path(:account_user, user_id: account_user.user.id)
         click_link "Edit Username"
         fill_in "username", with: "testuser"
         click_button "Save"

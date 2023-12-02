@@ -94,11 +94,11 @@ RSpec.describe "Admin::Events", type: :request do
           expect(closing).to be_present
         end
 
-        xit "redirects to the created event" do
+        it "redirects to the admin events index" do
           post admin_events_path, params: {
             event: { name: "name", event_type: :weekend, start_time: Time.zone.now }
           }
-          expect(response).to redirect_to(admin_event_path(Event.find_by(event_type: :weekend)))
+          expect(response).to redirect_to(admin_events_path)
         end
       end
 

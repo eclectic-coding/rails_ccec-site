@@ -17,6 +17,7 @@ class Admin::AccountUsersController < ApplicationController
   def create
     account_user = @account.account_users.new(account_user_params)
     account_user.account = @account
+    @roles = current_user.has_role?(:superadmin) ? Role.all : Role.all_except
 
     if account_user.save
       redirect_to admin_accounts_path, notice: t(".create_account_user")

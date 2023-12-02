@@ -6,7 +6,7 @@ ruby "3.2.2"
 gem "rails", "~> 7.1.1"
 gem "sprockets-rails"
 gem "pg", "~> 1.1"
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.0"
 gem "cssbundling-rails", "~> 1.3", ">= 1.3.3"
 gem "jsbundling-rails"
 gem "turbo-rails"
@@ -41,7 +41,7 @@ gem "aws-sdk-s3", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
-  gem "rspec-rails", "~> 6.0.0"
+  gem "rspec-rails", "~> 6.1.0"
   gem "factory_bot_rails"
   gem "faker"
   gem "annotate"
@@ -51,7 +51,7 @@ group :development do
   gem "web-console"
   gem "fuubar", "~> 2.5", ">= 2.5.1"
   gem "letter_opener_web", "~> 2.0"
-  gem "overcommit"
+  gem "brakeman", "~> 6.0", ">= 6.0.1"
   gem "rubocop-rails"
   gem "rubocop"
   gem "rubocop-rspec"
@@ -63,7 +63,6 @@ end
 group :test do
   gem "simplecov", "~> 0.22.0", require: false
   gem "webmock"
-  gem "database_cleaner"
+  gem "selenium-webdriver"
   gem "capybara"
-  gem "cuprite"
 end

@@ -1,4 +1,4 @@
-require "system_helper"
+require "rails_helper"
 
 RSpec.describe "Admin::Events::EventsSearches", type: :system do
   before do

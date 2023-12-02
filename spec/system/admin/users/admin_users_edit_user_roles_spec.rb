@@ -1,23 +1,23 @@
-require "system_helper"
+require "rails_helper"
 
 RSpec.describe "Admin::Users::EditUserRoles", type: :system do
   before do
     login_as create(:user, :admin)
+    create(:role, name: "prayer")
   end
 
   describe "update user role" do
-    let(:account_user) { create(:account_user) }
+    let(:user) { create(:user, :member) }
+    let(:account_user) { user.account_users.first }
 
     context "update with valid parameters" do
-      xit "should update user role" do
-        create(:role, name: "member")
-        visit admin_account_user_path(account_user)
+      it "should update user role" do
+        visit admin_account_user_path(:account_user, user_id: user.id)
         click_link "Edit Role"
-        find("option[value='member']").click
+        find("option[value='prayer']").click
         click_button "Save"
 
         expect(page).to have_content("Member")
-        debug(binding)
       end
     end
   end

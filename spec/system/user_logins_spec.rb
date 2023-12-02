@@ -1,4 +1,4 @@
-require "system_helper"
+require "rails_helper"
 
 RSpec.describe "UserLogins", type: :system do
   describe "login" do
