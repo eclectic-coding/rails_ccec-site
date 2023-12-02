@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_120919) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_02_203620) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -104,6 +104,31 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_120919) do
     t.index ["slug"], name: "index_media_uploads_on_slug", unique: true
   end
 
+  create_table "message_recipients", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "message_senders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "content"
+    t.boolean "request_copy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "message_sender_id"
+    t.uuid "message_recipient_id"
+    t.index ["message_recipient_id"], name: "index_messages_on_message_recipient_id"
+    t.index ["message_sender_id"], name: "index_messages_on_message_sender_id"
+  end
+
   create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
@@ -188,6 +213,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_120919) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "addresses"
+  add_foreign_key "messages", "message_recipients"
+  add_foreign_key "messages", "message_senders"
   add_foreign_key "taggings", "tags"
   add_foreign_key "users", "accounts"
 end
