@@ -1,0 +1,6 @@
+en:
+  messages:
+    new:
+      title: Contact Us
+      recipient: "Recipient:"
+      request_copy: "Request a copy of this message?"

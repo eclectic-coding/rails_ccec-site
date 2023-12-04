@@ -10,6 +10,7 @@
 #
 class MessageRecipient < ApplicationRecord
   has_many :messages, dependent: :destroy
+  accepts_nested_attributes_for :messages
 
   validates :email, presence: true
   validates :name, presence: true

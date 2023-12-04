@@ -57,7 +57,7 @@ group :development do
   gem "rubocop-rspec"
   gem "standard"
   gem "bullet"
-  # gem "strong_migrations"
+  gem "strong_migrations"
 end
 
 group :test do

@@ -23,13 +23,9 @@ en:
       sponsorship: Sponsorship
       information: Information
       calendar: Calendar
+      contact_us: Contact
     footer:
       downloads_title: Downloads
       no_downloads: No files available for download
-  admin:
-    account_users:
-      account_users_role:
-        row-role:
-          name: ""
   events:
     no_events: No events found
