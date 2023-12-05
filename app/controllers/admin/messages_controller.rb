@@ -1,5 +1,5 @@
 class Admin::MessagesController < ApplicationController
-  layout 'admin'
+  layout "admin"
 
   def index
     @messages = Message.all
