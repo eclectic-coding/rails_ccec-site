@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
 
   def new
     @message = Message.new
+    authorize @message
   end
 
   def create
@@ -11,6 +12,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params.merge(
       message_recipient: MessageRecipient.find_by(id: params[:message][:message_recipient])
     ))
+    authorize @message
 
     if @message.save
       redirect_to message_path(@message)

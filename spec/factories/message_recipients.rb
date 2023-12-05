@@ -10,7 +10,7 @@
 #
 FactoryBot.define do
   factory :message_recipient do
-    name { "MyString" }
-    email { "MyString" }
+    name { "Info" }
+    email { "user1@example.com" }
   end
 end

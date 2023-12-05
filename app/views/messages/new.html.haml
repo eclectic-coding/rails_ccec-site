@@ -5,7 +5,7 @@
     = form_with model: @message, local: true do |form|
       .mb-3
         = form.label :message_recipient, t('.recipient'), class: "form-label"
-        = form.select :message_recipient, MessageRecipient.all.collect {|u| [u.name, u.id]}, {include_blank: true}, class: "form-control"
+        = form.select :message_recipient, MessageRecipient.all.collect {|u| [u.name, u.id]}, {include_blank: true}, class: "form-select"
 
       .mb-3
         = form.label :name, class: "form-label"
@@ -27,6 +27,6 @@
         = form.label :request_copy, t('.request_copy'), class: "form-check-label"
 
       .actions
-        = form.submit class: "btn btn-primary"
+        = form.submit "Send Message", class: "btn btn-primary"
 
 
