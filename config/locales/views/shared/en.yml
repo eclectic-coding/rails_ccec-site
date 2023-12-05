@@ -9,6 +9,7 @@ en:
       edit_profile: Edit Profile
       addresses_title: Venues
       media_uploads_title: MediaUploads
+      messages_title: Messages
     admin_profile:
       settings: Settings
       admin_area: Admin Area

@@ -1,0 +1,52 @@
+.m-3
+  = render Shared::PageTitleComponent.new(title: "Message Dashboard")
+
+  %h2.h3 Recipients
+  = turbo_frame_tag "recipients_table" do
+    .table-responsive.mb-3
+      %table.table.table-sm.small
+        %thead
+          %tr.border-start.border-end.border-top
+            %th= t('.name')
+            %th= t('.email')
+            %th
+        %tbody
+          -if @message_recipients.present?
+            - @message_recipients.each do |recipient|
+              %tr.align-middle{id: dom_id(recipient)}
+                %td= recipient.name
+                %td= recipient.email
+                %td
+                  = button_to admin_message_recipients_path(recipient), type: 'submit', method: :delete, |
+                      form: { data: { 'turbo-confirm': t('.confirm'), "turbo-frame": "_top" } },  |
+                      class: "text-danger float-end border-0 bg-transparent", id: 'delete-recipient' do           |
+                    %i.bi.bi-trash.icon
+          -else
+            %tr
+              %td.bg-light.text-center.border-start.border-end.p-2{colspan: 4}
+                = t('.no_recipients')
+
+  %h2.h3 Messages
+  = turbo_frame_tag "messages_table" do
+    .table-responsive
+      %table.table.table-sm.small
+        %thead
+          %tr.border-start.border-end.border-top
+            %th= t('.recipient')
+            %th= t('.name')
+            %th= t('.email')
+            %th= t('.message')
+            %th
+        %tbody
+          -if @messages.present?
+            - @messages.each do |message|
+              %tr.align-middle{id: dom_id(message)}
+                %td= message.message_recipient.name
+                %td= message.name
+                %td= message.email
+                %td= message.content
+                %td
+          -else
+            %tr
+              %td.bg-light.text-center.border-start.border-end.p-2{colspan: 5}
+                = t('.no_messages')
