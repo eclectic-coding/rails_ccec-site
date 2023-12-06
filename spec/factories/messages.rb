@@ -5,6 +5,7 @@
 #  id                   :uuid             not null, primary key
 #  content              :text
 #  email                :string
+#  messages_count       :integer          default(0)
 #  name                 :string
 #  request_copy         :boolean          default(FALSE)
 #  created_at           :datetime         not null

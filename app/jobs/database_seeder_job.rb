@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'faker'
 
 class DatabaseSeederJob < ApplicationJob
   queue_as :default
@@ -17,6 +18,8 @@ class DatabaseSeederJob < ApplicationJob
       add_roles
       create_addresses
       create_tags
+      create_message_recipients
+      # create_messages # This is commented out its for testing only.
     end
   end
 
@@ -68,5 +71,30 @@ class DatabaseSeederJob < ApplicationJob
   def create_tags
     ActsAsTaggableOn::Tag.create!(name: "Documents")
     ActsAsTaggableOn::Tag.create!(name: "Rosters")
+  end
+
+  def create_message_recipients
+    MessageRecipient.create!(name: "Registration", email: "registrar@example.com")
+    MessageRecipient.create!(name: "Information", email: "info@example.com")
+  end
+
+  def create_messages
+    10.times do
+      Message.create!(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        content: Faker::Lorem.paragraph(sentence_count: 2),
+        message_recipient_id: MessageRecipient.first.id
+      )
+    end
+
+    10.times do
+      Message.create!(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        content: Faker::Lorem.paragraph(sentence_count: 2),
+        message_recipient_id: MessageRecipient.second.id
+      )
+    end
   end
 end

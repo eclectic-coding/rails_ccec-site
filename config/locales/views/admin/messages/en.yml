@@ -2,10 +2,15 @@ en:
   admin:
     messages:
       index:
-        recipient: Recipient
+      recipients_table:
         name: Name
         email: Email
+        confirm: Are you sure you want to delete this recipient?
+        no_recipients: No recipients
+      messages_table:
+        name: Name
+        email: Email
+        recipient: Recipient
         message: Message
         no_messages: No messages
-        no_recipients: No recipients
-        confirm: Are you sure you want to delete this recipient?
+        received: Received Date

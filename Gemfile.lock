@@ -147,6 +147,9 @@ GEM
     chronic (0.10.2)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
+    counter_culture (3.5.0)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
     coveralls (0.7.1)
       multi_json (~> 1.3)
       rest-client
@@ -443,8 +446,6 @@ GEM
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.1.0)
-    strong_migrations (1.6.4)
-      activerecord (>= 5.2)
     sync (0.5.0)
     temple (0.10.3)
     term-ansicolor (1.7.1)
@@ -504,6 +505,7 @@ DEPENDENCIES
   bundle-audit
   capybara
   city-state!
+  counter_culture (~> 3.2)
   coveralls
   cssbundling-rails (~> 1.3, >= 1.3.3)
   debug
@@ -539,7 +541,6 @@ DEPENDENCIES
   sprockets-rails
   standard
   stimulus-rails
-  strong_migrations
   turbo-rails
   tzinfo-data
   view_component
