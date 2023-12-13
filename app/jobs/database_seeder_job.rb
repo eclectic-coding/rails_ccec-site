@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-require 'faker'
+
+require "faker"
 
 class DatabaseSeederJob < ApplicationJob
   queue_as :default
