@@ -4,6 +4,7 @@
       %tr.border-start.border-end.border-top
         %th= t('.name')
         %th= t('.email')
+        %th= t('.messages_count')
         %th
     %tbody
       -if message_recipients.present?
@@ -11,6 +12,7 @@
           %tr.align-middle{id: dom_id(recipient)}
             %td= recipient.name
             %td= recipient.email
+            %td= recipient.messages_count
             %td
               - if recipient.messages_count.zero?
                 = button_to admin_message_recipients_path(recipient), type: 'submit', method: :delete, |

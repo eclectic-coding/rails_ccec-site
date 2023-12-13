@@ -1,0 +1,6 @@
+en:
+  admin:
+    message_recipients:
+      form:
+        new_recipient: New Recipient
+        create_recipient: Create Recipient
