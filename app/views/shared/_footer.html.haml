@@ -4,7 +4,7 @@
       .col-11.col-sm-6.col-md-4.mb-3.mb-sm-0
         = render(Footer::ContactUsComponent.new)
       .col-11.col-sm-6.col-md-4.mb-3.mb-sm-0
-        - events = current_user ? Event.after_today_footer.limit(3) : Event.after_today_footer.where(role: nil).limit(3)
+        - events = current_user ? Event.after_today_footer.limit(3) : Event.after_today_footer.where(role: "").limit(3)
         = render(Footer::EventsComponent.new(events: events))
       .col-11.col-sm-6.col-md-4.mb-3.mb-sm-0
         %h2.h3= t('.downloads_title')
