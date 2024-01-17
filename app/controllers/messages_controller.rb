@@ -15,6 +15,8 @@ class MessagesController < ApplicationController
     authorize @message
 
     if @message.save
+      ContactUsMailer.copy_message(@message).deliver_now if @message.request_copy?
+      ContactUsMailer.new_message(@message).deliver_now
       redirect_to message_path(@message)
     else
       render :new, status: :unprocessable_entity
