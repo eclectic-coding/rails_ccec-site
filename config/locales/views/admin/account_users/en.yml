@@ -16,7 +16,6 @@ en:
         password_token: Password Token
         password_reset: Password Reset Sent
         reset_password: Reset Password
-        username: ""
       form:
         create_user_btn: Create User
         create_user: New Users

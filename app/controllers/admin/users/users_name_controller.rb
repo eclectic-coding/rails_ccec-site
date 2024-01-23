@@ -20,7 +20,7 @@ class Admin::Users::UsersNameController < ApplicationController
       UserProfileMailer.with(user: @user).update_user_name.deliver_now
 
       respond_to do |format|
-        format.turbo_stream { flash.now[:notice] = "User's name was successfully updated." }
+        format.turbo_stream { flash.now[:notice] = t(".update.update_success") }
         format.html
       end
     else

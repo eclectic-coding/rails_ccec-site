@@ -4,3 +4,6 @@ en:
       form:
         new_recipient: New Recipient
         create_recipient: Create Recipient
+      create:
+        create_success: Message recipient was successfully created.
+        create_error: Message recipient could not be created.

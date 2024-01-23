@@ -21,7 +21,7 @@ class Admin::Users::UsersRoleController < ApplicationController
       UserProfileMailer.with(user: @user).update_user_role.deliver_now
 
       respond_to do |format|
-        format.turbo_stream { flash.now[:notice] = "User's role was successfully updated." }
+        format.turbo_stream { flash.now[:notice] = t(".update_success") }
         format.html
       end
     else

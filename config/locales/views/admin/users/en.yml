@@ -1,0 +1,12 @@
+en:
+  admin:
+    users:
+      users_name:
+        update:
+          update_success: "User's name was successfully updated."
+      users_role:
+        update:
+          update_success: "User's role was successfully updated."
+      users_username:
+        update:
+          update_success: "User's username was successfully updated."

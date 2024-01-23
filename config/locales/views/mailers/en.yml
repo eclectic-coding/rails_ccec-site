@@ -1,0 +1,15 @@
+en:
+  user_profile_mailer:
+    update_user_name:
+      name_updated: "Name Update"
+    update_user_role:
+      role_updated: "Role Update"
+    update_user_username:
+      username_updated: "Username Update"
+    update_user_email:
+      email_updated: "Email Update"
+  contact_us_mailer:
+    new_message:
+      new_message: "New Message"
+    copy_message:
+      copy_message: "Copy of your Message"

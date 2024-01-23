@@ -4,6 +4,7 @@ en:
       index:
         recipients: Recipients
         new_recipient: New Recipient
+        message_dashboard: "Message Dashboard"
       recipients_table:
         name: Name
         email: Email

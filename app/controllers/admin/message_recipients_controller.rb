@@ -1,6 +1,10 @@
 class Admin::MessageRecipientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_message_recipient, only: [:edit, :update, :destroy]
+  before_action :set_message_recipient, only: :show
+
+  def show
+    # TODO: Add show action/view
+  end
 
   def new
     @message_recipient = MessageRecipient.new
@@ -10,19 +14,10 @@ class Admin::MessageRecipientsController < ApplicationController
     @message_recipient = MessageRecipient.new(message_recipient_params)
 
     if @message_recipient.save
-      redirect_to admin_messages_path, notice: "Message recipient was successfully created."
+      redirect_to admin_messages_path, notice: t(".create_success")
     else
-      render :new, status: :unprocessable_entity, error: "Message recipient could not be created."
+      render :new, status: :unprocessable_entity, error: t(".create_error")
     end
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

@@ -38,7 +38,7 @@ Rails.application.routes.draw do
       resources :media_uploads, except: :show
       resources :addresses, except: :show
       resources :messages, only: [:index, :show]
-      resources :message_recipients, only: [:index, :new, :create, :edit, :update, :destroy]
+      resources :message_recipients, only: [:index, :show, :new, :create]
 
       root to: "dashboard#show"
     end
