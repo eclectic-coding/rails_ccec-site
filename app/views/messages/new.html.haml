@@ -26,6 +26,8 @@
         = form.check_box :request_copy, class: "form-check-input"
         = form.label :request_copy, t('.request_copy'), class: "form-check-label"
 
+      = invisible_captcha
+
       .actions
         = form.submit "Send Message", class: "btn btn-primary"
 

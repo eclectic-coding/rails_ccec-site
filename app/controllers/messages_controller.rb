@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  invisible_captcha only: :create
   def index
   end
 
