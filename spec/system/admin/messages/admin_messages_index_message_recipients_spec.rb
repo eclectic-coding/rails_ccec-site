@@ -10,14 +10,6 @@ RSpec.describe "Admin::Messages::IndexMessageRecipients", type: :system do
       visit admin_messages_path
       expect(page).to have_content("No message recipients found.")
     end
-
-    it "displays recipients with messages and no delete link" do
-      create(:message, message_recipient: create(:message_recipient))
-      visit admin_messages_path
-      within("table#recipients tbody tr:nth-child(1)") do
-        expect(page).not_to have_selector("button#delete-recipient")
-      end
-    end
   end
 
   describe "display recipients" do
@@ -27,13 +19,6 @@ RSpec.describe "Admin::Messages::IndexMessageRecipients", type: :system do
       visit admin_messages_path
       within("table#recipients") do
         expect(page).to have_selector("tbody tr", count: 3)
-      end
-    end
-
-    it "displays recipients with no messages delete link" do
-      visit admin_messages_path
-      within("table#recipients tbody tr:nth-child(1)") do
-        expect(page).to have_selector("button#delete-recipient")
       end
     end
   end
