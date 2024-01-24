@@ -1,0 +1,26 @@
+.table-responsive.mb-3
+  %table.table.small#recipients
+    %thead
+      %tr.border-start.border-end.border-top
+        %th= t('.name')
+        %th= t('.email')
+        %th= t('.messages_count')
+        %th
+    %tbody
+      -if message_recipients.present?
+        - message_recipients.each do |recipient|
+          %tr.align-middle{id: dom_id(recipient)}
+            %td
+              = link_to recipient.name, admin_message_recipient_path(recipient), target: :_top
+            %td= recipient.email
+            %td= recipient.messages_count
+            %td
+              - if recipient.messages_count.zero?
+                = button_to admin_message_recipients_path(recipient), type: 'submit', method: :delete, |
+                        form: { data: { 'turbo-confirm': t('.confirm'), "turbo-frame": "_top" } },  |
+                        class: "text-danger float-end border-0 bg-transparent", id: 'delete-recipient' do           |
+                  %i.bi.bi-trash.icon
+      -else
+        %tr
+          %td.bg-light.text-center.border-start.border-end.p-2{colspan: 4}
+            = t('.no_recipients')

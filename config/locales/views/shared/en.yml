@@ -9,6 +9,7 @@ en:
       edit_profile: Edit Profile
       addresses_title: Venues
       media_uploads_title: MediaUploads
+      messages_title: Messages
     admin_profile:
       settings: Settings
       admin_area: Admin Area
@@ -23,13 +24,9 @@ en:
       sponsorship: Sponsorship
       information: Information
       calendar: Calendar
+      contact_us: Contact
     footer:
       downloads_title: Downloads
       no_downloads: No files available for download
-  admin:
-    account_users:
-      account_users_role:
-        row-role:
-          name: ""
   events:
     no_events: No events found

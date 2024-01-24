@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get "questions", to: "static#questions"
   get "sponsorship", to: "static#sponsorship"
 
+  get "contact_us", to: "messages#new", as: :messages_new
+  post "contact_us", to: "messages#create", as: :messages
+  get "thank_you", to: "messages#index", as: :message
+
   resources :events, only: [:index, :show]
 
   devise_for :users
@@ -33,6 +37,8 @@ Rails.application.routes.draw do
       end
       resources :media_uploads, except: :show
       resources :addresses, except: :show
+      resources :messages, only: [:index, :show]
+      resources :message_recipients, only: [:index, :show, :new, :create]
 
       root to: "dashboard#show"
     end

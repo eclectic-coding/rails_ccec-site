@@ -1,12 +1,12 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby "3.3.0"
 
 gem "rails", "~> 7.1.1"
 gem "sprockets-rails"
 gem "pg", "~> 1.1"
-gem "puma", "~> 6.0"
+gem "puma", "~> 6.4.0"
 gem "cssbundling-rails", "~> 1.3", ">= 1.3.3"
 gem "jsbundling-rails"
 gem "turbo-rails"
@@ -38,6 +38,8 @@ gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
 gem "acts-as-taggable-on"
 gem "active_storage_validations", "~> 1.1", ">= 1.1.1"
 gem "aws-sdk-s3", require: false
+gem "counter_culture", "~> 3.2"
+gem "invisible_captcha"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]

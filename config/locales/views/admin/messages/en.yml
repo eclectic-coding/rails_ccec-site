@@ -1,0 +1,20 @@
+en:
+  admin:
+    messages:
+      index:
+        recipients: Recipients
+        new_recipient: New Recipient
+        message_dashboard: "Message Dashboard"
+      recipients_table:
+        name: Name
+        email: Email
+        confirm: Are you sure you want to delete this recipient?
+        no_recipients: No message recipients found.
+        messages_count: Messages count
+      messages_table:
+        name: Name
+        email: Email
+        recipient: Recipient
+        message: Message
+        no_messages: No messages
+        received: Received Date

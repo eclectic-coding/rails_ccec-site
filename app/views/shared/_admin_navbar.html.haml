@@ -27,3 +27,8 @@
           %i.bi.bi-file-earmark-image
           %span.d-none.d-lg-inline
             = t(".media_uploads_title")
+      %li.nav-item
+        = link_to admin_messages_path, class: [("nav-link text-white"), ("sidebar__active" if controller_name == 'messages')] do
+          %i.bi.bi-chat-left
+          %span.d-none.d-lg-inline
+            = t(".messages_title")

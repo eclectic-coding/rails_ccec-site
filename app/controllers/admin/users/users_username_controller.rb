@@ -16,10 +16,10 @@ class Admin::Users::UsersUsernameController < ApplicationController
     authorize @user
 
     if @user.update(username: params[:username])
-      UpdateUserUsernameMailer.with(user: @user).update_user_username.deliver_now
+      UserProfileMailer.with(user: @user).update_user_username.deliver_now
 
       respond_to do |format|
-        format.turbo_stream { flash.now[:notice] = "User's username was successfully updated." }
+        format.turbo_stream { flash.now[:notice] = t(".update_success") }
         format.html
       end
     else

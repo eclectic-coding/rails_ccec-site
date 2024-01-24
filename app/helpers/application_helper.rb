@@ -22,8 +22,9 @@ module ApplicationHelper
   end
 
   def errors_for(model, key)
-    tag.div(class: "mt-2 form-error") do
-      model.errors.messages_for(key).join(", ")
+    tag.div(class: "ps-1 text-danger form-error") do
+      msg = model.errors.messages_for(key).join(", ")
+      "#{key.to_s.titleize} #{msg}" if msg.present?
     end
   end
 end

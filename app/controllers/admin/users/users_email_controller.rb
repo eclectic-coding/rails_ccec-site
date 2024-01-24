@@ -16,7 +16,7 @@ class Admin::Users::UsersEmailController < ApplicationController
     authorize @user
 
     if @user.update(email: params[:email])
-      UpdateUsersEmailMailer.with(user: @user).update_user_email.deliver_now
+      UserProfileMailer.with(user: @user).update_user_email.deliver_now
 
       respond_to do |format|
         format.turbo_stream { flash.now[:notice] = "User's email was successfully updated." }
