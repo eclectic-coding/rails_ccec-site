@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "faker"
+require "faker" if Rails.env.development?
 
 class DatabaseSeederJob < ApplicationJob
   queue_as :default
