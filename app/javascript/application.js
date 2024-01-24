@@ -7,7 +7,6 @@ import "@hotwired/turbo-rails"
 import LocalTime from "local-time"
 LocalTime.start()
 require("@rails/activestorage").start()
-require("@rails/ujs").start()
 
 import '../channels/**/*_channel.js'
 import "./controllers"
