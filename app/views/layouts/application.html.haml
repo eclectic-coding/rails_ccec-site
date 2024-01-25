@@ -1,5 +1,5 @@
 !!!
-%html.h-100{:lang => locale}
+%html{:lang => locale}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title= Rails.configuration.application_name
@@ -14,13 +14,13 @@
     %link{href: "/favicon-32x32.png", rel: "icon", sizes: "32x32", type: "image/png"}
     %link{href: "/favicon-16x16.png", rel: "icon", sizes: "16x16", type: "image/png"}
     %link{href: "/site.webmanifest", rel: "manifest"}
-  %body.d-flex.flex-column.h-100.bg-light.application
-    %main.flex-shrink-0
+  %body
+    %main
       = render 'shared/navbar'
       = render 'shared/notices'
-      .container.position-relative
-        #toasts.position-absolute.top-0
-      .container.mt-4.mx-auto
+      %div
+        #toasts
+      .container
         = yield
         - if Rails.env.development?
           .card.my-5.p-2
