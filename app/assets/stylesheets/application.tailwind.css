@@ -1,6 +1,9 @@
-@import "custom.scss";
-
 @import "tailwindcss/base";
 @import "tailwindcss/components";
+
+@import "components/alerts.css";
+
 @import "tailwindcss/utilities";
+
+@import "./custom.css";
 

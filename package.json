@@ -15,12 +15,7 @@
     "local-time": "3.0.2",
     "nodemon": "3.0.3",
     "postcss": "^8.4.33",
-    "postcss-cli": "11.0.0",
-    "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.0.0",
-    "postcss-nested": "^6.0.1",
-    "postcss-preset-env": "^9.3.0",
-    "sass": "1.70.0",
     "stimulus-flatpickr": "^3.0.0-0",
     "stimulus-notification": "^2.2.0",
     "tailwindcss": "^3.4.1",
@@ -28,8 +23,8 @@
   },
   "scripts": {
     "build": "node esbuild.config.mjs",
-    "build:css": "tailwindcss --postcss -i ./app/assets/stylesheets/application.tailwind.scss -o ./app/assets/builds/application.css",
-    "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
+    "build:css": "tailwindcss --postcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css",
+    "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext css --exec \"yarn build:css\""
   },
   "browserslist": [
     "defaults"
