@@ -14,26 +14,30 @@
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         <li>
-          <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-            Dropdown
+          <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="nav-dropdown-button">
+            <%= t(".information") %>
             <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
             </svg>
           </button>
           <!-- Dropdown menu -->
-          <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+          <div id="dropdownNavbar" class="nav-dropdown-menu">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-              <li><%=link_to t(".attending"), attending_path, class: "nav-link-dropdown" %></li>
-              <li><%=link_to t(".questions"), questions_path, class: "nav-link-dropdown" %></li>
-              <li><%=link_to t(".sponsorship"), sponsorship_path, class: "nav-link-dropdown" %></li>
+              <li><%= link_to t(".attending"), attending_path, class: "nav-link-dropdown" %></li>
+              <li><%= link_to t(".questions"), questions_path, class: "nav-link-dropdown" %></li>
+              <li><%= link_to t(".sponsorship"), sponsorship_path, class: "nav-link-dropdown" %></li>
             </ul>
           </div>
         </li>
         <li><%= link_to t(".calendar"), events_path, class: controller_name == "events" ? "nav-link active" : "nav-link" %></li>
         <li><%= link_to t(".contact_us"), messages_path, class: controller_name == "messages" ? "nav-link active" : "nav-link" %></li>
-        <li>
-          <a href="#" class="nav-link">Login</a>
-        </li>
+        <% if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:superadmin)) %>
+          <%= render partial: "shared/admin_profile", locals: { user: current_user } %>
+          <%# elsif current_user %>
+          <%#= render partial: "shared/user_profile", locals: { user: current_user } %>
+        <% else %>
+          <li><%= link_to t("login"), new_user_session_path, class: "nav-link" %></li>
+        <% end %>
       </ul>
     </div>
   </div>
