@@ -2,6 +2,7 @@
 @import "tailwindcss/components";
 
 @import "components/alerts.css";
+@import "components/links.css";
 
 @import "tailwindcss/utilities";
 
