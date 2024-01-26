@@ -23,6 +23,6 @@
       .container
         = yield
         - if Rails.env.development?
-          .card.my-5.p-2
+          %div{class: "w-1/2 p-4 mx-auto text-center border text-red-500"}
             = debug(params)
     = render 'shared/footer'

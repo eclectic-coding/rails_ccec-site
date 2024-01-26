@@ -1,5 +1,7 @@
 class StaticController < ApplicationController
   def home
+    flash[:notice] = "test"
+    flash[:alert] = "danger"
   end
 
   def attending

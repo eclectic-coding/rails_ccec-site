@@ -943,6 +943,11 @@ hasown@^2.0.0:
   dependencies:
     function-bind "^1.1.2"
 
+hotkeys-js@>=3:
+  version "3.13.5"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.13.5.tgz#64ab54a098dd489e868b04a1d4762f8472be1f5c"
+  integrity sha512-xqPBCCC9QtLUpNZhlncfPhY/KMMiiA5+YsLDCTbwDfVBvCM+IQJPZwqB8iURZI9GQYcsmqpSlARZ238puVEs3Q==
+
 ignore-by-default@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ignore-by-default/-/ignore-by-default-1.0.1.tgz#48ca6d72f6c6a3af00a9ad4ae6876be3889e2b09"
@@ -1703,6 +1708,20 @@ stimulus-flatpickr@^3.0.0-0:
   integrity sha512-TLfxen1OS+3Jy594+VmYkJz/IRaH5wqxxdbVB1aalS1+3EJgy/shqB/Fd4ttKWC8EIOVd8Pzx22oVnjNep3mTA==
   dependencies:
     "@hotwired/stimulus" "^3.0.0"
+
+stimulus-notification@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/stimulus-notification/-/stimulus-notification-2.2.0.tgz#4e950ad90558617e4598d152b6fcd2635287a5bb"
+  integrity sha512-i1Z5IHDuMzwrRxnjqaftQcIseybouMiKfiC0aeFvoznXOo14gx7LWE5a8lssbQJQhbTcxq1RSVOKztkcmrKxng==
+  dependencies:
+    stimulus-use "^0.51.1"
+
+stimulus-use@^0.51.1:
+  version "0.51.3"
+  resolved "https://registry.yarnpkg.com/stimulus-use/-/stimulus-use-0.51.3.tgz#d7ac671aff8d0db253296dec89d38aa6f4b27e2a"
+  integrity sha512-V4YETxMFL4/bpmcqlwFtaOaJg9sLF+XlWsvXrsoWVA5jffsqe7uAvV6gGPPQta7Hgx01vovA0yNsWUe2eU9Jmw==
+  dependencies:
+    hotkeys-js ">=3"
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.3:
   version "4.2.3"
