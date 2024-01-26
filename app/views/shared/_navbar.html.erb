@@ -29,8 +29,8 @@
             </ul>
           </div>
         </li>
-        <li><%= link_to t(".calendar"), events_path, class: "nav-link" %></li>
-        <li><%= link_to t(".contact_us"), messages_path, class: "nav-link" %></li>
+        <li><%= link_to t(".calendar"), events_path, class: controller_name == "events" ? "nav-link active" : "nav-link" %></li>
+        <li><%= link_to t(".contact_us"), messages_path, class: controller_name == "messages" ? "nav-link active" : "nav-link" %></li>
         <li>
           <a href="#" class="nav-link">Login</a>
         </li>
