@@ -6,5 +6,7 @@
 
 @import "tailwindcss/utilities";
 
+/* Additional styles */
 @import "./custom.css";
-
+@import "flatpickr_themes/light.css";
+@import "simple_calendar.css";

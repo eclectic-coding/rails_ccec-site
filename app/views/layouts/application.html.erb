@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= Rails.configuration.application_name %></title>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag "/favicon.ico" %>
+
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes=180x180>
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/favicon-16X16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/site.manifest">
+  </head>
+  <body>
+    <main>
+      <%= render "shared/navbar" %>
+      <%= render "shared/notices" %>
+
+      <div class="container">
+        <%= yield %>
+
+        <% if Rails.env.development? %>
+          <div class="w-1/2 p-4 mx-auto text-center border text-red-500">
+            <%= debug(params) %>
+          </div>
+        <% end %>
+      </div>
+    </main>
+
+    <%= render "shared/footer" %>
+  </body>
+</html>
