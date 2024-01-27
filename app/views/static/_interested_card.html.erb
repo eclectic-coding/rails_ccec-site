@@ -1,0 +1,21 @@
+<div class="hover:border-0 hover:rounded-lg hover:shadow transition-shadow hover:-translate-y-1 p-4">
+  <h2 class="mb-2 text-2xl font-bold dark:text-white">Interested?</h2>
+  <%= image_tag('walking.webp', alt: "Prayer Vigil", class: "rounded-lg mb-4") %>
+  <p class="text-gray-500 dark:text-gray-400 mb-8">
+    Are you interested in attending an Emmaus weekend? Every person who attends the walk to Emmaus has a “sponsor” who
+    supports and encourages him/her before …
+  </p>
+
+  <div class="my-3 text-black dark:text-gray-600 uppercase">
+    <%= link_to root_path, class: "" do %>
+      <div class="flex border-b-2 border-b-red-500 w-2/3">
+        <strong class="font-semibold text-gray-900 dark:text-white">Continue Reading</strong>
+        <span class="ml-2">
+        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M1 5h12m0 0L9 1m4 4L9 9" />
+        </svg>
+      </span>
+      </div>
+    <% end %>
+  </div>
+</div>
