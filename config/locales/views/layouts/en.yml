@@ -2,11 +2,14 @@ en:
   no_events: "No events found"
   static:
     prayer-vigil_card:
-      prayer_vigil: Prayer Vigil
+      title: Prayer Vigil
+      description: "Prayer is an integral part of any Christians life and is indeed so on the Walk to Emmaus experience. Consider being part of a prayer ministry that prays for each person attending a weekend event by … "
     interested_card:
-      interested: Interested?
+      title: Interested?
+      description: "Are you interested in attending an Emmaus weekend? Every person who attends the walk to Emmaus has a “sponsor” who supports and encourages him/her before …"
     registration_card:
-      registration: Registration
+      title: Registration
+      description: "Did you know that you can register an applicant online? Try our new online form and we will be in touch soon. Thank you in advance for your willingness to serve. On this page, you will find …"
     questions:
       questions:  Frequently Asked Questions
       registered_area: How do I login to the Registered Area of the CCEC web site?

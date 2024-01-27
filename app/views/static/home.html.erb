@@ -26,10 +26,9 @@
 <section class="bg-white dark:bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
     <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-      <%= render "prayer-vigil_card" %>
-      <%= render "interested_card" %>
-      <%= render "registration_card" %>
+      <%= render(FeaturedCardComponent.new(title: t('static.prayer-vigil_card.title'), description: t("static.prayer-vigil_card.description"), image: 'prayervigil.webp', resource_url: '#')) %>
+      <%= render(FeaturedCardComponent.new(title: t('static.interested_card.title'), description: t("static.prayer-vigil_card.description"), image: 'walking.webp', resource_url: '#')) %>
+      <%= render(FeaturedCardComponent.new(title: t('static.registration_card.title'), description: t("static.prayer-vigil_card.description"), image: 'registration.webp', resource_url: '#')) %>
     </div>
   </div>
 </section>
-
