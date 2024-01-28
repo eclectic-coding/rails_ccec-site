@@ -5,7 +5,7 @@
         = t('.sponsorship')
 
     = link_to members_sponsorship_path do
-      %img.img-fluid.rounded.my-2{src: url('/sponsorship.webp'), alt: "Card image cap"}
+      = image_tag('/sponsorship.webp', alt: 'Card image cap')
 
     .card-text
       = t('.sponsorship_text')

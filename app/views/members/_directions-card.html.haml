@@ -5,7 +5,7 @@
         = t('.directions')
 
     = link_to members_directions_path do
-      %img.img-fluid.rounded.my-2{src: url('/directions.webp'), alt: "Card image cap"}
+      = image_tag('/directions.webp', alt: 'Card image cap')
 
     .card-text
       = t('.directions_intro')

@@ -13,9 +13,8 @@ const entryPoints = [
 ]
 const watchDirectories = [
     "./app/javascript/**/*.js",
-    "./app/views/**/*.haml",
-    "app/components/**/*.js",
-    "app/components/**/*.haml",
+    "./app/views/**/*.erb",
+    "./app/components/**/*.erb",
     "./app/assets/builds/**/*.css", // Wait for cssbundling changes
 ]
 const config = {
