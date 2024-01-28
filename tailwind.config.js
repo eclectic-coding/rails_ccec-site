@@ -26,6 +26,7 @@ module.exports = {
                 primary: colors.red,
                 secondary: colors.emerald,
                 tertiary: colors.blue,
+                success: colors.green,
                 danger: colors.rose,
                 gray: colors.neutral,
                 "code-400": "#fefcf9",

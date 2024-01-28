@@ -2,6 +2,7 @@
 @import "tailwindcss/components";
 
 @import "components/alerts.css";
+@import "components/buttons.css";
 @import "components/links.css";
 @import "components/typography.css";
 
