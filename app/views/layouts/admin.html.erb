@@ -22,19 +22,19 @@
   <body class="bg-gray-100">
     <%= render "shared/admin_navbar" %>
 
-    <main class="p-8 md:ml-64 h-auto">
-      <div class="container">
-        <%= render "shared/admin_header" %>
-        <%= render "shared/notices" %>
+    <div class="p-8 md:ml-64 h-auto">
+      <%= render "shared/admin_header" %>
+      <%= render "shared/notices" %>
 
+      <main class="container mt-16">
         <%= yield %>
+      </main>
 
-        <% if Rails.env.development? %>
-          <div class="w-1/2 p-4 mx-auto text-center border text-red-500 text-sm">
-            <%= debug(params) %>
-          </div>
-        <% end %>
-      </div>
-    </main>
+      <% if Rails.env.development? %>
+        <div class="w-1/2 p-4 mx-auto text-center border text-red-500 text-sm">
+          <%= debug(params) %>
+        </div>
+      <% end %>
+    </div>
   </body>
 </html>

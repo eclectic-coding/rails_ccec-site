@@ -5,6 +5,5 @@ class Admin::DashboardController < ApplicationController
 
   def show
     @admin = current_user.has_role?(:admin)
-    flash[:notice] = "You are not authorized to view this page"
   end
 end
