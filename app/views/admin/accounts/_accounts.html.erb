@@ -1,0 +1,7 @@
+<div class="mb-3">
+  <h2 class="mb-3"><%= t(".title") %></h2>
+  <%= turbo_frame_tag Account.new %>
+  <div class="pb-3">
+    <%= render partial: "accounts_table", locals: { accounts: @accounts } %>
+  </div>
+</div>
