@@ -28,7 +28,7 @@
         <%= yield %>
 
         <% if Rails.env.development? %>
-          <div class="w-1/2 p-4 mx-auto text-center border text-red-500 text-sm">
+          <div class="bg-white w-1/2 p-4 mx-auto text-center border text-red-500 text-sm">
             <%= debug(params) %>
           </div>
         <% end %>

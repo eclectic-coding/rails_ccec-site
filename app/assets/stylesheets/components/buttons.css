@@ -3,6 +3,11 @@
    @apply px-5 py-2.5;
 }
 
+.btn-sm {
+    @apply focus:ring-4 font-medium rounded-lg focus:outline-none;
+    @apply px-3 py-1.5;
+}
+
 .btn-primary {
     @apply text-sm font-medium text-white;
     @apply bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800;

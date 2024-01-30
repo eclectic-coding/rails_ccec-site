@@ -5,11 +5,11 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config */
 module.exports = {
+    mode: 'jit',
+    enabled: true,
     content: [
         './app/views/**/*.html.erb',
-        './app/views/**/*.html.haml',
         './app/components/**/*.html.erb',
-        './app/components/**/*.html.haml',
         './app/helpers/**/*.rb',
         './app/assets/stylesheets/**/*.css',
         './app/javascript/**/*.js',
@@ -38,7 +38,6 @@ module.exports = {
         },
 
         // Opt-in to TailwindCSS future changes
-        future: {
-        },
+        future: {},
     },
 }

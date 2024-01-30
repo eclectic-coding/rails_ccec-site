@@ -1,0 +1,7 @@
+<div class="container grid grid-cols-3 my-6 w-full lg:w-3/4" id="edit_name_<%= dom_id(account_user.user) %>">
+  <p class="text-gray-800 font-bold uppercase"><%= t('.name') %></p>
+  <p class="text-gray-800"><%= account_user.user.name %></p>
+  <p class="text-gray-800">
+    <%= link_to t(".edit_name"), edit_admin_user_users_name_path(user_id: account_user.user), class: "btn btn-link" %>
+  </p>
+</div>
