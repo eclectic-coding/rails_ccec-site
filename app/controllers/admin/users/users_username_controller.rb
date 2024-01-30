@@ -15,6 +15,7 @@ class Admin::Users::UsersUsernameController < ApplicationController
   def update
     authorize @user
 
+    username = @user.username # save for cancel
     if @user.update(username: params[:username])
       UserProfileMailer.with(user: @user).update_user_username.deliver_now
 
@@ -23,10 +24,11 @@ class Admin::Users::UsersUsernameController < ApplicationController
         format.html
       end
     else
+      @account_user.user.update(username: username)
       render turbo_stream: turbo_stream.replace(
         "edit_username_user_#{params[:user_id]}",
-        partial: "admin/users/users_username/form-username",
-        locals: { account_user: @account_user, user: @user }
+        partial: "admin/users/users_username/row-username",
+        locals: { account_user: @account_user }
       )
     end
   end

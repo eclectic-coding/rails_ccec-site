@@ -1,0 +1,24 @@
+<%= tag.div class: "grid grid-cols-3 my-6 w-full lg:w-3/4", id: "edit_username_#{dom_id(user)}" do %>
+  <div class="text-gray-800 font-bold uppercase">
+    <%= t('.edit_username') %>
+  </div>
+
+  <%= form_with(url: admin_user_users_username_path(@user), method: :put, id: "username-form") do |f| %>
+    <% if @user.errors.any? %>
+      <% @user.errors.full_messages.each do |msg| %>
+        <div class="text-danger-500">
+          <%= msg %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= f.text_field :username, value: @user.username, class: "form-control-sm" %>
+  <% end %>
+
+  <div>
+    <%= form_with(url: admin_user_users_username_path(@user), method: :put, id: "username-form") do |f| %>
+      <%= f.submit t("save"), class: "btn btn-sm btn-primary ms-2" %>
+      <%= f.submit t("cancel_btn"), class: "btn btn-sm btn-outline-primary ms-1" %>
+    <% end %>
+  </div>
+<% end %>
