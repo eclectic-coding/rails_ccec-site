@@ -40,4 +40,30 @@ RSpec.describe "Admin::Users", type: :request do
       expect(@admin_user.account_id).to_not be_nil
     end
   end
+
+  describe "GET /show" do
+    before do
+      @admin_user = create(:user, :super_admin)
+      sign_in @admin_user
+    end
+
+    it "renders successful response" do
+      user = create(:user)
+      get admin_user_path(user)
+      expect(response).to be_successful
+    end
+  end
+
+  describe "GET /edit" do
+    before do
+      @admin_user = create(:user, :super_admin)
+      sign_in @admin_user
+    end
+
+    it "renders successful response" do
+      user = create(:user)
+      get edit_admin_user_path(user)
+      expect(response).to be_successful
+    end
+  end
 end

@@ -12,7 +12,6 @@ class Admin::UsersController < ApplicationController
   def edit
     @roles = current_user.has_role?(:superadmin) ? Role.all : Role.all_except
     @account_user = @user.account_users.first
-    p "😵‍💫account_user_role: #{@account_user.id}"
   end
 
   def update

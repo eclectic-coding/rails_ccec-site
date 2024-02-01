@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
 
     namespace :admin do
-      resources :accounts, only: [:index, :show]
+      resources :accounts, only: [:index]
       resources :account_users, only: [:show, :new, :create, :destroy]
-      resources :users, only: [:show, :edit, :update, :destroy]
+      resources :users, only: [:show, :edit, :update]
 
       resources :events do
         collection do

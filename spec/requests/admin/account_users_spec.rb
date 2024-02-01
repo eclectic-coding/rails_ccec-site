@@ -6,14 +6,6 @@ RSpec.describe "Admin::AccountUsers", type: :request do
     sign_in @admin_user
   end
 
-  describe "GET /admin/account_users (show)" do
-    it "shows user profile" do
-      account_user = create(:account_user)
-      get admin_account_user_path(account_user, user_id: account_user.user_id)
-      expect(response).to have_http_status(200)
-    end
-  end
-
   describe "GET /admin/account_users/new" do
     it "renders successful response" do
       get new_admin_account_user_path

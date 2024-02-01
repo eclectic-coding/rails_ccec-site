@@ -1,15 +1,12 @@
 class Admin::AccountsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_account, only: %i[index show]
+  before_action :set_account, only: %i[index]
 
   layout "admin"
 
   def index
     @accounts = Account.all
     authorize @accounts
-  end
-
-  def show
   end
 
   private
