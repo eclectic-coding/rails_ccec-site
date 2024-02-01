@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def errors_for(model, key)
-    tag.div(class: "ps-1 text-danger form-error") do
+    tag.div(class: "ps-1 text-danger-500") do
       msg = model.errors.messages_for(key).join(", ")
       "#{key.to_s.titleize} #{msg}" if msg.present?
     end

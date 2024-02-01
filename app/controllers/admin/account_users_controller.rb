@@ -5,10 +5,6 @@ class Admin::AccountUsersController < ApplicationController
 
   layout "admin"
 
-  def show
-    @account_user = AccountUser.find_by(user_id: params[:user_id])
-  end
-
   def new
     @account_user = AccountUser.new
     @roles = current_user.has_role?(:superadmin) ? Role.all : Role.all_except
