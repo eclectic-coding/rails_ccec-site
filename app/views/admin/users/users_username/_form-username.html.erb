@@ -4,15 +4,8 @@
   </div>
 
   <%= form_with(url: admin_user_users_username_path(@user), method: :put, id: "username-form") do |f| %>
-    <% if @user.errors.any? %>
-      <% @user.errors.full_messages.each do |msg| %>
-        <div class="text-danger-500">
-          <%= msg %>
-        </div>
-      <% end %>
-    <% end %>
-
     <%= f.text_field :username, value: @user.username, class: "form-control-sm" %>
+    <%= errors_for @user, :username %>
   <% end %>
 
   <div>

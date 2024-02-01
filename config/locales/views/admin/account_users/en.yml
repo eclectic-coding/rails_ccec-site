@@ -1,21 +1,6 @@
 en:
   admin:
     account_users:
-      show:
-        name: Name
-        email: Email
-        login-as_btn: Login As
-        profile_title: "%{user_name}'s Profile"
-        role: Role
-        created_at: Created At
-        updated_at: Updated At
-        invitation_token: Invitation Token
-        invitation_created: Invitation Created
-        invitation_sent: Invitation Sent
-        invitation_accepted: Invitation Accepted
-        password_token: Password Token
-        password_reset: Password Reset Sent
-        reset_password: Reset Password
       form:
         create_user_btn: Create User
         create_user: New Users
@@ -33,22 +18,3 @@ en:
         create_account_user: Account user was successfully created.
       destroy:
         destroy_account_user: Account user was successfully destroyed.
-    users:
-      users_name:
-        row-name:
-          name: Name
-          edit_name: Edit Name
-      users_email:
-        row-email:
-          name: Email
-          edit_email: Edit Email
-      users_role:
-        row-role:
-          name: Email
-          edit_role: Edit Role
-      users_username:
-        row-username:
-          btn_edit_username: Edit Username
-          edit_username: Username
-        form-username:
-          edit_username: Username

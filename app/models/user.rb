@@ -52,6 +52,8 @@ class User < ApplicationRecord
   has_many :account_users, dependent: :destroy
   has_many :accounts, through: :account_users
 
+  accepts_nested_attributes_for :account_users
+
   before_save :add_account_id_from_parent
   after_create :create_account_user
 

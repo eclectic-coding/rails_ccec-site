@@ -1,0 +1,88 @@
+<%= render(Shared::PageTitleComponent.new(title: t(".profile_title", user_name: @user.name.full))) do %>
+  <%= link_to t(".login-as_btn"), "#", class: "btn btn-primary" %>
+<% end %>
+
+<div class="card mt-8">
+  <div class="flex justify-between items-center">
+    <%= link_to admin_accounts_path, class: "btn btn-primary text-center inline-flex items-center" do %>
+      <svg class="w-6 h-6 text-white mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4" />
+      </svg>
+      Back
+    <% end %>
+    <%= link_to edit_admin_user_path(@user), class: "btn btn-outline-primary inline-flex items-center" do %>
+      <svg class="w-6 h-6 dark:text-white mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.3 4.8 2.9 2.9M7 7H4a1 1 0 0 0-1 1v10c0 .6.4 1 1 1h11c.6 0 1-.4 1-1v-4.5m2.4-10a2 2 0 0 1 0 3l-6.8 6.8L8 14l.7-3.6 6.9-6.8a2 2 0 0 1 2.8 0Z" />
+      </svg>
+      Edit
+    <% end %>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".name") %></p>
+    <p class="text-gray-800"><%= @user.name.full %></p>
+    <p></p>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".username") %></p>
+    <p class="text-gray-800"><%= @user.username %></p>
+    <p></p>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".email") %></p>
+    <p class="text-gray-800"><%= @user.email %></p>
+    <p></p>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".role") %></p>
+    <p class="text-gray-800"><%= @user.profile_roles %></p>
+    <p></p>
+  </div>
+
+  <% unless @user.created_at.nil? %>
+    <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+      <p class="text-gray-800 font-bold uppercase"><%= t(".created_at") %></p>
+      <p class="text-gray-800"><%= date_timestamp(@user.created_at) %></p>
+      <p></p>
+    </div>
+  <% end %>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".updated_at") %></p>
+    <p class="text-gray-800"><%= date_timestamp(@user.updated_at) %></p>
+    <p></p>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".password_token") %></p>
+    <p class="text-gray-800"><%= @user.reset_password_token %></p>
+    <p></p>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".password_reset") %></p>
+    <p class="text-gray-800"><%= date_timestamp(@user.reset_password_token) %></p>
+    <p><%= link_to t(".reset_password"), "#" %></p>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".invitation_token") %></p>
+    <p class="text-gray-800 truncate"><%= @user.invitation_token %></p>
+    <p></p>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".invitation_sent") %></p>
+    <p class="text-gray-800"><%= date_timestamp(@user.invitation_sent_at) %></p>
+    <p></p>
+  </div>
+
+  <div class="grid grid-cols-3 my-6 w-full lg:w-3/4">
+    <p class="text-gray-800 font-bold uppercase"><%= t(".invitation_created") %></p>
+    <p class="text-gray-800"><%= date_timestamp(@user.invitation_created_at) %></p>
+    <p></p>
+  </div>
+</div>
