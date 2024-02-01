@@ -1,3 +1,0 @@
-= turbo_stream.replace "edit_email_user_#{params[:user_id]}" do
-  = render partial: "row-email", locals: { account_user: @account_user }
-= turbo_stream.prepend "toasts", partial: "shared/notices"

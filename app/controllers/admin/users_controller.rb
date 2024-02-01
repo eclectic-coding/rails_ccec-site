@@ -22,6 +22,7 @@ class Admin::UsersController < ApplicationController
     @user.add_role Role.find(role_id).name if user_params[:account_users_attributes]["0"][:role_id].present?
 
     if @user.update(user_params)
+      # TODO: need mailers added here
       redirect_to admin_user_path(@user), notice: "User was successfully updated."
     else
       render :edit, status: :unprocessable_entity
