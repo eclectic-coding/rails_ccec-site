@@ -1,0 +1,3 @@
+<%= turbo_stream.update @message_recipient do %>
+  <%= render "admin/message_recipients/form", message_recipient: @message_recipient %>
+<% end %>

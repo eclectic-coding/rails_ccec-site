@@ -2,6 +2,8 @@ class Admin::MessageRecipientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_message_recipient, only: :show
 
+  layout "admin"
+
   def show
     # TODO: Add show action/view
   end

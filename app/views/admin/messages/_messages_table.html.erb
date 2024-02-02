@@ -1,0 +1,31 @@
+<div class="my-8">
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th><%= t('.recipient') %></th>
+        <th><%= t('.name') %></th>
+        <th><%= t('.email') %></th>
+        <th><%= t('.message') %></th>
+        <th><%= t('.received') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @messages.present? %>
+        <% @messages.each do |message| %>
+          <tr id="message-<%= message.id %>">
+            <td><%= message.message_recipient.name %></td>
+            <td><%= message.name %></td>
+            <td><%= message.email %></td>
+            <td><%= message.content %></td>
+            <td><%= message.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <% end %>
+      <% else %>
+        <tr>
+          <td colspan=5">
+            <%= t('.no_messages') %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

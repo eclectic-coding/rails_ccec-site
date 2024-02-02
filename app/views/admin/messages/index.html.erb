@@ -1,5 +1,20 @@
 <%= render(Shared::PageTitleComponent.new(title: t(".message_dashboard"))) %>
 
-<div>
-  messages
-</div>
+<div class="card mt-8">
+  <div class="flex items-center justify-between">
+    <h2 class="h3"><%= t('.recipients') %></h2>
+    <%= link_to t('.new_recipient'), new_admin_message_recipient_path, data: { turbo_frame: "new_message_recipient" }, class: 'btn btn-primary' %>
+  </div>
+
+  <%= turbo_frame_tag "new_message_recipient", target: "_top" %>
+
+  <%= turbo_frame_tag "recipients_table" do %>
+    <%= render partial: 'admin/messages/recipients_table', locals: { message_recipients: @message_recipients } %>
+  <% end %>
+
+  <h2 class="h3">Messages</h2>
+
+  <%= turbo_frame_tag "messages_table" do %>
+    <%= render partial: 'admin/messages/messages_table', locals: { messages: @messages } %>
+    </div>
+  <% end %>
