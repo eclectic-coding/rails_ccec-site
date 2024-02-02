@@ -20,13 +20,20 @@ RSpec.describe "MediaUploadsCreates", type: :system, js: true do
       expect(page).to have_text "Media upload was successfully created"
     end
 
-    it "creates a media upload with no description" do
+    it "creates a media upload" do
       click_link "New Media Upload"
 
       fill_in "Name", with: "Test Title"
       select "document", from: "media_upload_tag_list"
-      attach_file "media_upload[media_file]", Rails.root.join("spec", "support", "assets", "image.png")
+      fill_in "Description", with: "Test Description"
+      attach_file "media_upload[media_file]", Rails.root.join("spec", "support", "assets", "test.pdf")
       click_button "Create"
+
+      expect(page).to have_text "Media upload was successfully created"
+
+      media_upload = MediaUpload.find_by(name: "Test Title")
+      expect(media_upload).not_to be_nil
+      expect(media_upload.media_file).to be_attached
     end
   end
 

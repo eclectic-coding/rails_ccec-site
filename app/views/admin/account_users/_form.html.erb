@@ -5,6 +5,7 @@
     <div class="mb-3">
       <%= f.label :username, class: "form-label" %>
       <%= f.text_field :username, class: "form-control" %>
+      <%= errors_for f.object, :username %>
     </div>
 
     <div class="mb-3">

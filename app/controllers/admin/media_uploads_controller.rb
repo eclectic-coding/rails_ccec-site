@@ -5,7 +5,8 @@ class Admin::MediaUploadsController < ApplicationController
   layout "admin"
 
   def index
-    @media_uploads = MediaUpload.all.includes(:media_file_attachment).includes(:taggings)
+    @media_uploads = MediaUpload.all
+      .includes([:media_file_attachment, :media_file_blob, :taggings])
   end
 
   def new

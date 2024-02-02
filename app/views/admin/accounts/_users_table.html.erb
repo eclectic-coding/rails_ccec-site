@@ -1,4 +1,5 @@
 <%= turbo_frame_tag "users_table", target = "_top" do %>
+  <div class="relative overflow-x-auto shadow-sm sm:rounded-lg">
   <table class="admin-table">
     <thead>
       <tr>
@@ -46,4 +47,5 @@
       <% end %>
     </tbody>
   </table>
+</div>
 <% end %>
