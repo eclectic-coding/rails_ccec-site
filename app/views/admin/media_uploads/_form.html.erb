@@ -1,5 +1,4 @@
 <div class="card my-4">
-  <%= media_upload.inspect %>
   <%= form_with(model: [:admin, media_upload]) do |form| %>
     <div class="mb-3">
       <%= form.label :name, class: "form-label required" %>
@@ -16,7 +15,7 @@
     <div class="mb-3">
       <%= form.label :file, class: "form-label required" %>
       <% if media_upload.media_file.attached? %>
-        <p>Current file: <%= link_to media_upload.media_file.filename, url_for(media_upload.media_file) %></p>
+        <p>Current file: media_upload.media_file.filename</p>
       <% else %>
         No file attached
       <% end %>

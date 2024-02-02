@@ -26,8 +26,10 @@
                 <td><%= media_upload.description %></td>
                 <td><%= media_upload.tag_list %></td>
                 <td>
-                  <%= button_to admin_media_upload_path(media_upload), type: 'submit', method: :delete, form: { data: { 'turbo-confirm': t('.confirm'), "turbo-frame": "_top" } }, class: "text-danger float-end border-0 bg-transparent", id: 'delete-media_upload' do %>
-                    <i class="bi bi-trash icon"></i>
+                  <%= button_to admin_media_upload_path(media_upload), type: 'submit', method: :delete,
+                                form: { data: { 'turbo-confirm': t('.confirm'), "turbo-frame": "_top" } },
+                                class: "text-danger float-end border-0 bg-transparent", id: 'delete-media_upload' do %>
+                    icon
                   <% end %>
                 </td>
               </tr>

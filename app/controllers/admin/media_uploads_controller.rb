@@ -20,6 +20,8 @@ class Admin::MediaUploadsController < ApplicationController
       if @media_upload.save
         format.html { redirect_to admin_media_uploads_path, notice: t(".new_media_uploads") }
       else
+        # Log the validation errors
+        Rails.logger.debug @media_upload.errors.full_messages.join(", ")
         format.turbo_stream
       end
     end

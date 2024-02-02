@@ -3,11 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Footer::DownloadsComponent, type: :component do
-  xit "renders " do
+  include Rails.application.routes.url_helpers
+
+  it "renders " do
+    media_upload = create(:media_upload)
     render_inline(described_class.new(media_upload: media_upload))
 
-    expect(rendered_component).to have_css("a[href='#{media_upload_path(media_upload)}']")
-    expect(rendered_component).to have_css("a[href='#{media_upload_path(media_upload)}']", text: media_upload.name)
-    expect(rendered_component).to have_css("a[href='#{media_upload_path(media_upload)}']", text: media_upload.tag_list.join(", "))
+    expect(rendered_content).to have_css("a", text: media_upload.name)
+    expect(rendered_content).to have_css("a[href='#{rails_blob_path(media_upload.media_file, disposition: "attachment")}']")
   end
 end
