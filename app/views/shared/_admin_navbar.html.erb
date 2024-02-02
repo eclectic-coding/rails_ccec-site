@@ -46,7 +46,7 @@
         </div>
         <ul id="dropdown-pages" class="hidden py-2 space-y-2">
           <li>
-            <%= link_to admin_accounts_path, class: ["flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg group text-white hover:bg-gray-700", ("bg-gray-700 admin-nav-link-active" if request.path == admin_accounts_path)] do %>
+            <%= link_to admin_addresses_path, class: ["flex items-center p-2 pl-11 w-full text-base font-medium rounded-lg group text-white hover:bg-gray-700", ("bg-gray-700 admin-nav-link-active" if request.path == admin_accounts_path)] do %>
               <%= t(".addresses_title") %>
             <% end %>
           </li>

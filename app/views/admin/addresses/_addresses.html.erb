@@ -1,0 +1,40 @@
+<%= turbo_frame_tag "addresses", target: "_top" do %>
+  <div class="relative overflow-x-auto shadow-sm sm:rounded-lg">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th><%= t("admin.addresses.index.name") %></th>
+          <th><%= t("admin.addresses.index.street") %></th>
+          <th><%= t("admin.addresses.index.city") %></th>
+          <th><%= t("admin.addresses.index.state") %></th>
+          <th style="width: 50px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @addresses.empty? %>
+          <tr>
+            <td class="text-center" colspan="5">
+              <%= t('.no_addresses') %>
+            </td>
+          </tr>
+        <% else %>
+          <% @addresses.each do |address| %>
+            <tr id=<%= address.id %>>
+              <td><%= link_to address.name, edit_admin_address_path(address) %></td>
+              <td><%= address.street %></td>
+              <td><%= address.city %></td>
+              <td><%= address.state %></td>
+              <td>
+                <%= button_to admin_address_path(address), method: :delete, class: "btn btn-link", data: { confirm: t('are_you_sure') } do %>
+                  <svg class="w-6 h-6 text-danger-500 dark:text-white stroke-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M8.6 2.6A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4c0-.5.2-1 .6-1.4ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z" clip-rule="evenodd" />
+                  </svg>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
