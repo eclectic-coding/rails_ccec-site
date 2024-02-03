@@ -1,0 +1,5 @@
+<div class="flex justify-center mb-8">
+  <%= render(Shared::PageTitleComponent.new(title: @address.name)) %>
+</div>
+
+<%= render partial: "admin/addresses/form", locals: { address: @address } %>
