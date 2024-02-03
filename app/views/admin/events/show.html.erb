@@ -1,0 +1,52 @@
+<div class="flex justify-center">
+  <div class="card w-1/2 mt-8">
+    <%= render(Shared::PageTitleComponent.new(title: @event.name)) do %>
+      <%= link_to "Back to Events", admin_events_path, class: "btn btn-primary" %>
+    <% end %>
+
+    <div class="mt-4">
+      <div class="mt-6 border-t border-b border-gray-100">
+        <dl class="divide-y divide-gray-100">
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-medium leading-6 text-gray-900"><%= t(".location") %></dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= @event.address.name unless @event.address.nil? %></dd>
+          </div>
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-medium leading-6 text-gray-900"><%= t(".start_time") %></dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= date_timestamp(@event.start_time) %></dd>
+          </div>
+          <% unless @event.role.nil? %>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <%= content_tag :dt, class: "text-sm font-medium leading-6 text-gray-900" do %>
+                <%= t(".role") %>
+              <% end %>
+              <%= content_tag :dd, class: "mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 capitalize" do %>
+                <%= @event.role %>
+              <% end %>
+            </div>
+          <% end %>
+          <% unless @event.end_time.nil? %>
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt class="text-sm font-medium leading-6 text-gray-900"><%= t(".end_time") %></dt>
+              <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= date_timestamp(@event.end_time) %></dd>
+            </div>
+          <% end %>
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-medium leading-6 text-gray-900"><%= t(".event_type") %></dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 capitalize"><%= @event.event_type %></dd>
+          </div>
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt class="text-sm font-medium leading-6 text-gray-900"><%= t(".description") %></dt>
+            <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 capitalize"><%= @event.description %></dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="mt-4">
+        <%= link_to t("edit_btn"), edit_admin_event_path(@event), class: "btn btn-primary" %>
+      </div>
+
+    </div>
+
+  </div>
+</div>
