@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   invisible_captcha only: :create
+
   def index
   end
 
@@ -18,7 +19,7 @@ class MessagesController < ApplicationController
     if @message.save
       ContactUsMailer.copy_message(@message).deliver_now if @message.request_copy?
       ContactUsMailer.new_message(@message).deliver_now
-      redirect_to message_path(@message)
+      redirect_to thank_you_path
     else
       render :new, status: :unprocessable_entity
     end
