@@ -2,7 +2,7 @@ en:
   static:
     info_card:
       are_you_interested_html: "Are you interested in the Walk to Emmaus? Be sure to check out our Information and our <a href='/sponsorship'>Sponsorship</a> pages to learn more."
-      sponsor_someone_html: "If you are ready to sponsor someone, you can either register them with at the Online Application page"
+      sponsor_someone_html: "If you are ready to sponsor someone, you can either register them with at the <a href='/register'>Online Application page</a> or download an application below."
     questions:
       registered_area_text: "We have a default login for the community.  If you have not received this instruction please email us and we will assist you.
           In the Registered area of this web site, you will find directions to walk events, and the Pilgrim and Team rosters the week of the walks.
