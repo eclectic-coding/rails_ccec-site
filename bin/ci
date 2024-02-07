@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 echo "[ bin/ci ] Running tests"
 bin/rspec
 
