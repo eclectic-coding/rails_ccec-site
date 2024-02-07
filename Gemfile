@@ -30,7 +30,6 @@ gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
 gem "rolify"
 gem "simple_calendar"
-gem "haml-rails", "~> 2.0"
 gem "view_component"
 gem "bundle-audit"
 gem "coveralls", require: false
