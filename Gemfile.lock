@@ -196,8 +196,6 @@ GEM
       ruby-progressbar (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    groupdate (6.4.0)
-      activesupport (>= 6.1)
     haml (6.3.0)
       temple (>= 0.8.2)
       thor
@@ -520,7 +518,6 @@ DEPENDENCIES
   faker
   friendly_id (~> 5.4)
   fuubar (~> 2.5, >= 2.5.1)
-  groupdate
   haml-rails (~> 2.0)
   invisible_captcha
   jbuilder
