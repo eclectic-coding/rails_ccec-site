@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :accounts, only: [:index]
       resources :account_users, only: [:show, :new, :create, :destroy]
-      resources :users, only: [:show, :edit, :update]
+      resources :users, only: [:show, :edit, :update, :destroy]
 
       resources :events do
         collection do

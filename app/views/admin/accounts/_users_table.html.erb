@@ -35,7 +35,7 @@
             </td>
             <td>
               <% if current_user.has_role?(:superadmin) && user != current_user %>
-                <%= button_to admin_account_user_path(@account, user_id: user.id), type: 'submit', method: :delete,
+                <%= button_to admin_user_path(user), type: 'submit', method: :delete,
                               form: { data: { confirm: t('.confirm'), "turbo-frame": "_top" } },
                               class: "text-danger float-end border-0 bg-transparent", id: 'delete-user', 'aria-label': 'Delete User' do %>
                   <svg class="w-6 h-6 text-danger-500 dark:text-white stroke-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">

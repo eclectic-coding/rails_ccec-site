@@ -31,6 +31,10 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+    @account_user.destroy
+    @user.destroy
+
+    redirect_to admin_accounts_path, notice: "User was successfully destroyed."
   end
 
   private
