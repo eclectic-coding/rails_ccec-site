@@ -1,0 +1,7 @@
+<div class="text-sm font-light">
+  <% if event.end_time.present? %>
+    <%= multi_day_event %>
+  <% else %>
+    <%= single_day_event %>
+  <% end %>
+</div>

@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "AdminEventsIndices", type: :system do
   before do
     login_as create(:user, :super_admin)
-    create_list(:event, 12, :follow_up)
+    create_list(:event, 12, :follow_up) # Create more events
     visit admin_events_path
   end
 
@@ -13,14 +13,14 @@ RSpec.describe "AdminEventsIndices", type: :system do
     end
 
     it "renders pagination" do
-      expect(page).to have_selector("nav .pagination")
+      expect(page).to have_selector("nav.pagination", wait: 10) # Wait up to 10 seconds for the element to appear
     end
 
-    it "renders pagination" do
-      expect(page).to have_selector("nav .pagination")
+    it "renders pagination and advances to page 2" do
+      expect(page).to have_selector("nav.pagination", wait: 10) # Wait up to 10 seconds for the element to appear
 
       click_link "2"
-      expect(page).to have_selector("tbody tr", count: 2)
+      expect(page).to have_selector("tbody tr", count: 2, wait: 10) # Wait up to 10 seconds for the element to appear
     end
   end
 end

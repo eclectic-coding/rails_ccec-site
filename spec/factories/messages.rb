@@ -22,7 +22,7 @@
 #
 FactoryBot.define do
   factory :message do
-    message_recipient { nil }
+    message_recipient
     name { "John Doe" }
     email { "message@example.com" }
     content { "MyText" }

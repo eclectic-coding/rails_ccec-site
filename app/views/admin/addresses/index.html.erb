@@ -1,0 +1,10 @@
+<%= render(Shared::PageTitleComponent.new(title: t('admin.addresses.title'))) do %>
+  <%= link_to new_admin_address_path, class: 'btn btn-primary ms-3 ms-md-0', data: { turbo_frame: "new_address" } do %>
+    <%= t(".add_address") %>
+  <% end %>
+<% end %>
+
+<div class="card mt-8">
+  <%= turbo_frame_tag "new_address", target: "_top" %>
+  <%= render partial: "addresses", locals: { address: @addresses } %>
+</div>

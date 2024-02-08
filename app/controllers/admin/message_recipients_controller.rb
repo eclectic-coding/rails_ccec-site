@@ -1,6 +1,7 @@
 class Admin::MessageRecipientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_message_recipient, only: :show
+
+  layout "admin"
 
   def show
     # TODO: Add show action/view
@@ -24,9 +25,5 @@ class Admin::MessageRecipientsController < ApplicationController
 
   def message_recipient_params
     params.require(:message_recipient).permit(:name, :email)
-  end
-
-  def set_message_recipient
-    @message_recipient = MessageRecipient.find(params[:id])
   end
 end

@@ -1,0 +1,43 @@
+<div class="flex justify-center w-full mt-8">
+  <div class="block p-6 w-full sm:w-1/2">
+    <%= render Shared::PageTitleComponent.new(title: t('.title')) %>
+
+    <%= form_with model: @message, local: true do |form| %>
+      <div class="mt-6 mb-3">
+        <%= form.label :message_recipient, t('.recipient'), class: "form-label" %>
+        <%= form.select :message_recipient, MessageRecipient.all.collect { |u| [u.name, u.id] }, { include_blank: true }, class: "form-select" %>
+        <%= render(Shared::FormErrorsComponent.new(resource: @message, key: :message_recipient)) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-control" %>
+        <%= render(Shared::FormErrorsComponent.new(resource: @message, key: :name)) %>
+      </div>
+
+      <div class="my-3">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.text_field :email, class: "form-control" %>
+        <%= render(Shared::FormErrorsComponent.new(resource: @message, key: :email)) %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :content, "Message:", class: "form-label" %>
+        <%= form.text_area :content, class: "form-control" %>
+        <%= render(Shared::FormErrorsComponent.new(resource: @message, key: :content)) %>
+      </div>
+
+      <div class="mb-6">
+        <%= form.check_box :request_copy, class: "form-check-input" %>
+        <%= form.label :request_copy, t('.request_copy'), class: "form-check-label" %>
+      </div>
+
+      <%= invisible_captcha %>
+
+      <div class="mb-3">
+        <%= form.submit "Send Message", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+

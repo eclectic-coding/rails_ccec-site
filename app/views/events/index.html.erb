@@ -1,0 +1,14 @@
+<div class="w-full sm:w-1/2 mx-auto my-8">
+  <div class="flex justify-center">
+    <%= render(Shared::PageTitleComponent.new(title: t('.title'))) %>
+  </div>
+
+  <div class="mt-8">
+    <% @events.each do |event, idx| %>
+      <div><%= event.start_time %></div>
+    <% end %>
+  </div>
+</div>
+
+
+

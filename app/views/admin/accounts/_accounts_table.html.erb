@@ -1,0 +1,34 @@
+<%= turbo_frame_tag "accounts" do %>
+  <div class="relative overflow-x-auto shadow-sm sm:rounded-lg">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <%= t('.title') %>
+          </th>
+          <th scope="col">
+            <%= t('.users') %>
+          </th>
+          <th scope="col">
+            <%= t(".created") %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @accounts.each do |account| %>
+          <tr>
+            <td>
+              <%= account.name %>
+            </td>
+            <td>
+              <%= account.users.count %>
+            </td>
+            <td>
+              <%= date_timestamp(account.created_at) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

@@ -1,0 +1,40 @@
+<div class="my-8">
+  <table class="admin-table" id="recipients">
+    <thead>
+      <tr>
+        <th><%= t('.name') %>
+        <th><%= t('.email') %>
+        <th><%= t('.messages_count') %>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if message_recipients.present? %>
+        <% message_recipients.each do |recipient| %>
+          <tr>
+            <td>
+              <%= link_to recipient.name, admin_message_recipient_path(recipient), target: :_top %>
+            </td>
+            <td><%= recipient.email %></td>
+            <td><%= recipient.messages_count %></td>
+            <td>
+              <% if recipient.messages_count.zero? %>
+                <%= button_to admin_message_recipients_path(recipient), type: 'submit', method: :delete,
+                              form: { data: { 'turbo-confirm': t('.confirm'), "turbo-frame": "_top" } },
+                              class: "text-danger float-end border-0 bg-transparent", id: 'delete-recipient' do %>
+                  icon
+                <% end %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td class="p-2 text-center" colspan="4">
+            <%= t('.no_recipients') %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

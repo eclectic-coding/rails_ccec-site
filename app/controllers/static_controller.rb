@@ -13,4 +13,7 @@ class StaticController < ApplicationController
 
   def info
   end
+
+  def thank_you
+  end
 end

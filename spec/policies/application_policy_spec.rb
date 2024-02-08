@@ -8,4 +8,17 @@ RSpec.describe ApplicationPolicy do
       expect(subject).not_to permit(User.new)
     end
   end
+
+  describe ApplicationPolicy::Scope do
+    let(:user) { User.new }
+    let(:scope) { double :scope }
+
+    subject { described_class.new(user, scope) }
+
+    describe "#resolve" do
+      it "raises an error" do
+        expect { subject.resolve }.to raise_error(NotImplementedError)
+      end
+    end
+  end
 end

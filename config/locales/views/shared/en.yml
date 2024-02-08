@@ -28,5 +28,9 @@ en:
     footer:
       downloads_title: Downloads
       no_downloads: No files available for download
+      contact_us: Contact Us
+      address_html: "Coastal Carolina Emmaus Community<br>P.O. Box 4826<br>Wilmington, NC 28406"
+      upcoming_events: Upcoming Events
+    continue_reading: Continue Reading
   events:
     no_events: No events found

@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def public_authenticate_inviter!
+    authenticate_inviter!
+  end
+
   protected
 
   def configure_permitted_parameters

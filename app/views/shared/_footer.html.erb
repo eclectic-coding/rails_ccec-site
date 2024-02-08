@@ -1,0 +1,25 @@
+<footer class="mt-6 p-4 bg-white sm:p-6 dark:bg-gray-800">
+  <div class="px-4 mx-auto max-w-screen-xl">
+    <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+      <div class="p-2"><%= render(Footer::ContactUsComponent.new) %></div>
+      <div class="p-2">
+        <% events = current_user ? Event.after_today_footer.limit(3) : Event.after_today_footer.where(role: "").limit(3) %>
+        <%= render(Footer::EventsComponent.new(events: events)) %>
+      </div>
+      <div class="p-2">
+        <h2 class="h3"><%= t(".downloads_title") %></h2>
+        <% @media_uploads = [] %>
+        <% MediaUpload.all.includes([:taggings]).includes(media_file_attachment: :blob).each do |media_upload| %>
+          <% if media_upload.tag_list.include?("Documents") %>
+            <% @media_uploads << media_upload %>
+            <%= render(Footer::DownloadsComponent.with_collection(@media_uploads)) %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-sm text-gray-500 text-center dark:text-gray-400 pt-6">
+    © 1997 - <%= Date.today.year %> <%= t("community_title") %>. All Rights Reserved.
+  </div>
+</footer>

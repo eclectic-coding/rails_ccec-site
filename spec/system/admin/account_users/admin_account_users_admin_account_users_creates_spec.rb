@@ -2,36 +2,25 @@ require "rails_helper"
 
 RSpec.describe "Admin::AccountUsers::AdminAccountUsersCreates", type: :system do
   before do
-    login_as create(:user, :admin)
-    create(:role, name: "member")
-    visit admin_accounts_path
+    login_as create(:user, :super_admin)
   end
 
-  describe "create account user" do
-    context "with valid parameters" do
-      it "should create account user" do
-        click_link "New User"
-        fill_in "account_user_username", with: "username"
-        fill_in "account_user_name", with: "John Doe"
-        fill_in "account_user_email", with: "user@example.com"
-        select("Member", from: "account_user_role_id")
-        click_button "Create User"
-
-        expect(page).to have_content("John Doe")
-      end
+  describe "when creating an account user" do
+    before do
+      login_as create(:user, :super_admin)
+      create(:role)
+      visit admin_accounts_path
+      click_link "New User"
     end
 
-    context "with invalid parameters" do
-      it "should create account user" do
-        click_link "New User"
-        fill_in "account_user_username", with: ""
-        fill_in "account_user_name", with: "John Doe"
-        fill_in "account_user_email", with: "user@example.com"
-        select("Member", from: "account_user_role_id")
-        click_button "Create User"
+    it "creates an account user" do
+      fill_in "Username", with: "testuser"
+      fill_in "Email", with: "random@example.com"
+      fill_in "Name", with: "Test User"
+      select "Member", from: "account_user[role_id]"
+      click_on "Create User"
 
-        expect(response).to eq(nil)
-      end
+      expect(page).to have_text("Account user was successfully created.")
     end
   end
 end

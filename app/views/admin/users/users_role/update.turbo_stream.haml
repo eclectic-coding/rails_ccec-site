@@ -1,3 +1,0 @@
-= turbo_stream.replace "edit_role_#{dom_id(@account_user)}" do
-  = render partial: "row-role", locals: { account_user: @account_user, user: @user }
-= turbo_stream.prepend "toasts", partial: "shared/notices"

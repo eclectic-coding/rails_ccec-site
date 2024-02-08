@@ -23,7 +23,7 @@ RSpec.describe "MediaUploadsUpdates", type: :system, js: true do
       click_button("Update")
     end
 
-    xit "updates the media upload document" do
+    it "updates the media upload document" do
       click_link "MyDocument"
 
       attach_file "media_upload[media_file]", Rails.root.join("spec", "support", "assets", "test.pdf")

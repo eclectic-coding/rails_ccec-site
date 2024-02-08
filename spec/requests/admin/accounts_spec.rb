@@ -12,12 +12,4 @@ RSpec.describe "Admin::Accounts", type: :request do
       expect(response).to have_http_status(200)
     end
   end
-
-  describe "GET /admin/accounts/:id" do
-    it "works! (now write some real specs)" do
-      account = create(:account)
-      get admin_account_path(account)
-      expect(response).to have_http_status(200)
-    end
-  end
 end

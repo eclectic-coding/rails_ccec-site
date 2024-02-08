@@ -1,0 +1,31 @@
+<div class="flex justify-center">
+  <div class="card mb-3">
+    <% unless @address.persisted? %>
+      <h2 class="h4"><%= t(".new_venue_title") %></h2>
+    <% end %>
+
+    <%= form_for([:admin, @address]) do |f| %>
+      <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-2">
+        <div class="mb-3">
+          <%= f.label :name %>
+          <%= f.text_field :name, required: true, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :street %>
+          <%= f.text_field :street, required: true, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :city %>
+          <%= f.select :city, CS.get(:US, :NC), {}, { required: true, class: "form-select" } %>
+        </div>
+      </div>
+
+      <div class="my-3">
+        <%= f.submit address.persisted? ? t(".update_venue") : t(".create_venue"), class: "btn btn-primary" %>
+        <%= link_to t('cancel_btn'), admin_addresses_path, class: "btn btn-link" %>
+      </div>
+    <% end %>
+  </div>
+</div>

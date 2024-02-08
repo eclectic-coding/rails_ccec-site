@@ -1,0 +1,21 @@
+<%= render(Shared::PageTitleComponent.new(title: t('.title'))) %>
+
+<div class="block p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+  <div>
+    <% if current_user.has_role?(:superadmin) %>
+      <%= render partial: "accounts", locals: { accounts: @accounts } %>
+    <% end %>
+    <div class="flex items-center justify-between mb-4">
+      <h2><%= t(".users_title") %></h2>
+      <%= link_to t(".new_user_btn"), new_admin_account_user_path, class: "btn text-primary-700", data: { turbo_frame: "new_account_user" } %>
+    </div>
+  </div>
+
+  <%= turbo_frame_tag "new_account_user", target: "_top" %>
+
+  <%= render partial: "users_table", locals: { users: @account.users.includes(:roles) } %>
+</div>
+
+
+
+

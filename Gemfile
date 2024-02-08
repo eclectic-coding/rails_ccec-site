@@ -2,11 +2,12 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.3.0"
+ruby file: ".ruby-version"
 
 gem "rails", "~> 7.1.1"
-gem "sprockets-rails"
 gem "pg", "~> 1.1"
 gem "puma", "~> 6.4.0"
+gem "propshaft"
 gem "cssbundling-rails", "~> 1.3", ">= 1.3.3"
 gem "jsbundling-rails"
 gem "turbo-rails"
@@ -29,7 +30,6 @@ gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
 gem "rolify"
 gem "simple_calendar"
-gem "haml-rails", "~> 2.0"
 gem "view_component"
 gem "bundle-audit"
 gem "coveralls", require: false

@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   get "attending", to: "static#attending"
   get "questions", to: "static#questions"
   get "sponsorship", to: "static#sponsorship"
+  get "thank_you", to: "static#thank_you"
 
   get "contact_us", to: "messages#new", as: :messages_new
   post "contact_us", to: "messages#create", as: :messages
-  get "thank_you", to: "messages#index", as: :message
 
   resources :events, only: [:index, :show]
 
@@ -22,14 +22,10 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
 
     namespace :admin do
-      resources :accounts, only: [:index, :show]
-      resources :account_users, only: [:show, :new, :create, :destroy]
-      resources :users, only: :index do
-        resources :users_name, only: [:edit, :update], module: :users
-        resources :users_username, only: [:edit, :update], module: :users
-        resources :users_email, only: [:edit, :update], module: :users
-        resources :users_role, only: [:edit, :update], module: :users
-      end
+      resources :accounts, only: [:index]
+      resources :account_users, only: [:show, :new, :create]
+      resources :users, only: [:show, :edit, :update, :destroy]
+
       resources :events do
         collection do
           get :list
