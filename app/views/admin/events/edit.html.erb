@@ -1,6 +1,6 @@
 <div class="flex justify-center">
   <div class="card my-8 w-1/2">
-    <h1 class="text-center h2 mb-3">Edit Event</h1>
+    <h1 class="text-center h2 mb-3"><%= t(".edit_events") %></h1>
     <%= form_with(model: @event, url: admin_event_path(@event), data: { controller: "events" }) do |form| %>
       <div class="mb-3">
         <%= form.label :name, class: 'form-label fw-bold' %>

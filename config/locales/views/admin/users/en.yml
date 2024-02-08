@@ -26,3 +26,7 @@ en:
       users_username:
         update:
           update_success: "User's username was successfully updated."
+      update:
+        updated: "User was successfully updated."
+      destroy:
+        destroyed: "User was successfully destroyed."

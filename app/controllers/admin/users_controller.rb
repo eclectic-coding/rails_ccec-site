@@ -24,7 +24,7 @@ class Admin::UsersController < ApplicationController
 
     if @user.update(user_params)
       # TODO: need mailers added here
-      redirect_to admin_user_path(@user), notice: "User was successfully updated."
+      redirect_to admin_user_path(@user), notice: t(".updated")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class Admin::UsersController < ApplicationController
     @account_user.destroy
     @user.destroy
 
-    redirect_to admin_accounts_path, notice: "User was successfully destroyed."
+    redirect_to admin_accounts_path, notice: t(".destroyed")
   end
 
   private

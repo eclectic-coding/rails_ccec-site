@@ -14,6 +14,7 @@ en:
         select_role: 'Select role'
         confirm: "Are you sure?"
         prohibited: "prohibited this event from being saved:"
+        edit_events: "Edit Event"
       title: Events
       index:
         add_event: Add Event
