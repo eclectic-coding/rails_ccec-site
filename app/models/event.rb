@@ -53,6 +53,7 @@ class Event < ApplicationRecord
   scope :after_today_footer, -> { where("start_time >= ?", Time.zone.now).order(start_time: :asc) }
   scope :by_name, ->(query) { where("name ILIKE ?", "%#{query}%") }
   scope :by_event_type, ->(event_type) { where(event_type: event_type) if event_type.present? }
+  scope :admin_view, -> { where("start_time >= ?", Time.zone.now - 14.days).order(start_time: :asc) }
 
   def weekend?
     event_type == "weekend"

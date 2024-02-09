@@ -14,11 +14,15 @@ class WeekendEventCreator
 
   private
 
+  def set_member_role
+    "member"
+  end
+
   def create_sendoff
     Event.create(
       name: "Sendoff",
       start_time: @event.start_time + 0.5.hours,
-      role: "member",
+      role: set_member_role,
       event_type: :sendoff,
       connected_event_id: @event.id,
       walk_number: @event.walk_number,
@@ -30,7 +34,7 @@ class WeekendEventCreator
     Event.create(
       name: "Candlelight",
       start_time: @event.start_time + 48.5.hours,
-      role: "member",
+      role: set_member_role,
       event_type: :candlelight,
       connected_event_id: @event.id,
       walk_number: @event.walk_number,
@@ -42,7 +46,7 @@ class WeekendEventCreator
     Event.create(
       name: "Closing",
       start_time: @event.start_time + 70.hours,
-      role: "member",
+      role: set_member_role,
       event_type: :closing,
       connected_event_id: @event.id,
       walk_number: @event.walk_number,

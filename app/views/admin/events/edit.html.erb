@@ -47,7 +47,7 @@
 
         <div class="mb-3">
           <%= form.label :role, "Role", class: 'form-label fw-bold' %>
-          <%= form.collection_select :role_id, Role.all, :id, :human_name, { selected: @event.role.humanize }, data: { events_target: "roles" }, class: 'form-select' %>
+          <%= form.collection_select :role, [['', nil]] + Role.all.map { |r| [r.human_name, r.name] }, :last, :first, { selected: @event.role.present? ? @event.role : nil, prompt: t(".select_role") }, { data: { events_target: "roles" }, class: 'form-select' } %>
         </div>
 
         <div class="mb-3">
