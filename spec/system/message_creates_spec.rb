@@ -1,4 +1,4 @@
-require "rails_helper"
+require "system_helper"
 
 RSpec.describe "MessageCreates", type: :system do
   before do
@@ -14,7 +14,7 @@ RSpec.describe "MessageCreates", type: :system do
         fill_in "Email", with: "test@example.com"
         fill_in "Message", with: "This is a test message."
         click_on "Send Message"
-        sleep 5
+        # sleep 5
       }.to change {
         ActionMailer::Base.deliveries.size
       }.by(1)

@@ -64,6 +64,6 @@ end
 group :test do
   gem "simplecov", "~> 0.22.0", require: false
   gem "webmock"
-  gem "selenium-webdriver"
   gem "capybara"
+  gem "cuprite"
 end
