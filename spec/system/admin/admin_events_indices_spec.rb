@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe "AdminEventsIndices", type: :system do
   before do
     login_as create(:user, :super_admin)
-    create_list(:event, 12, :follow_up) # Create more events
+    create_list(:event, 12, :follow_up)
     visit admin_events_path
   end
 

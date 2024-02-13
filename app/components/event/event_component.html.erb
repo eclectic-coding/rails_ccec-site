@@ -1,0 +1,16 @@
+<div class="flex justify-between mb-8" data-test-event="true">
+  <div class="flex w-1/4">date</div>
+  <div class="w-3/4">
+    <%= render(Event::TimeBannerComponent.new(event: event)) %>
+
+    <%= link_to event_path(event) do %>
+      <%= render(Event::TitleComponent.new(event: event)) %>
+    <% end %>
+
+    <%= render(Event::AddressComponent.new(event: event)) unless event.address.nil? %>
+
+    <%= content_tag :p do %>
+      <%= event.description %>
+    <% end unless event.description.nil? %>
+  </div>
+</div>

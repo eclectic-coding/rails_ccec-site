@@ -5,7 +5,22 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= Rails.configuration.application_name %></title>
+    <meta name="turbo-refresh-method" content="morph">
+
+    <%# TODO: Replace this hack with meta-tags gem %>
+    <% if content_for?(:meta_description) %>
+      <meta name="description" content="<%= yield(:meta_description) %>">
+    <% else %>
+      <meta name="description" content="<%= t("community_description") %>">
+    <% end %>
+
+    <title>
+      <% if content_for?(:page_title) %>
+        <%= yield(:page_title) %> | <%= t("community_title") %>
+      <% else %>
+        <%= t("community_title") %>
+      <% end %>
+    </title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

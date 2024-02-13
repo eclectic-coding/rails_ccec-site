@@ -4,6 +4,7 @@ en:
   cancel_btn: Cancel
   logout_btn: Logout
   community_title: Coastal Carolina Emmaus
+  community_description: "My text"
   login: Login
   continue_reading: Continue Reading
   update_btn: Update

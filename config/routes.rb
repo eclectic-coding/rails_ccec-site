@@ -31,6 +31,11 @@ Rails.application.routes.draw do
           get :list
         end
       end
+
+      resource :event, module: :events do
+        resources :addresses, only: [:new, :create]
+      end
+
       resources :media_uploads, except: :show
       resources :addresses, except: :show
       resources :messages, only: [:index, :show]

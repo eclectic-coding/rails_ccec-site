@@ -26,8 +26,8 @@
 FactoryBot.define do
   factory :event do
     name { "MyString" }
-    start_time { "2023-04-25 07:55:09" }
-    role { "MyString" }
+    start_time { Time.zone.now }
+    role { nil }
 
     trait :weekend do
       event_type { :weekend }

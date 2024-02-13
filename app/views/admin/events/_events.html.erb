@@ -11,15 +11,12 @@
             <%= sort_indicator if session.dig("event_filters", "column") == "walk_number" %>
             <%= sort_link(column: "walk_number", label: t("admin.events.index.walk_number"), resource: "Event", link: "admin_events") %>
           </th>
-          <th class="position-relative" scope="col">
-            <%= t("admin.events.index.role") %>
+          <th scope="col"><%= t("admin.events.index.role") %></th>
+          <th scope="col">Venue</th>
           <th class="position-relative" scope="col">
             <%= sort_indicator if session.dig("event_filters", "column") == "start_time" %>
             <%= sort_link(column: "start_time", label: t("admin.events.index.start_time"), resource: "Event", link: "admin_events") %>
           </th>
-          <th class="position-relative" scope="col">
-            <%= sort_indicator if session.dig("event_filters", "column") == "end_time" %>
-            <%= sort_link(column: "end_time", label: t("admin.events.index.end_time"), resource: "Event", link: "admin_events") %>
           <th class="position-relative" scope="col">
             <%= sort_indicator if session.dig("event_filters", "column") == "name" %>
             <%= sort_link(column: "event_type", label: t("admin.events.index.event_type"), resource: "Event", link: "admin_events") %>
@@ -35,12 +32,12 @@
         <% else %>
           <% @events.each do |event| %>
             <%= content_tag :tr, id: dom_id(event) do %>
-              <td><%= link_to event.event_title, admin_event_path(event), target: "_top" %>
-              <td><%= event.walk_number %>
+              <td><%= link_to event.event_title, admin_event_path(event), target: "_top" %></td>
+              <td><%= event.walk_number %></td>
               <td class="capitalize"><%= event.role %>
-              <td><%= date_timestamp(event.start_time) %>
-              <td><%= date_timestamp event.end_time %>
-              <td class="capitalize"><%= event.event_type %>
+              <td class="capitalize"><%= event.address.name unless event.address.nil? %></td>
+              <td><%= date_timestamp(event.start_time) %></td>
+              <td class="capitalize"><%= event.event_type %></td>
               <td>
                 <%= button_to admin_event_path(event), method: :delete, data: { confirm: t('are_you_sure') } do %>
                   <svg class="w-6 h-6 text-danger-500 dark:text-white stroke-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">

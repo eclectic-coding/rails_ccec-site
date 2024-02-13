@@ -4,8 +4,10 @@
   </div>
 
   <div class="mt-8">
-    <% @events.each do |event, idx| %>
-      <div><%= event.start_time %></div>
+    <%= month_calendar(events: @events, attribute: :start_time, end_attribute: :end_at) do |date, events| %>
+      <% events.each do |event| %>
+      <%= render(Event::EventComponent.new(event: event)) %>
+      <% end %>
     <% end %>
   </div>
 </div>
