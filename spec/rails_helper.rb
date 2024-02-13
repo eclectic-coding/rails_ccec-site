@@ -17,7 +17,7 @@ require "rspec/rails"
 require "capybara/rails"
 require "fuubar"
 require "pundit/rspec"
-# require "webmock/rspec"
+require "webmock/rspec"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
 
