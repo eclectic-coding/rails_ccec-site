@@ -27,8 +27,8 @@ class Event < ApplicationRecord
   belongs_to :address, optional: true
 
   after_create do
-    update(end_time: start_time + 72.hours) if weekend?
-    WeekendEventCreator.new(self).call if weekend?
+    update(end_time: start_time + 72.hours) if event_type == "weekend"
+    WeekendEventCreator.new(self).call if event_type == "weekend"
   end
 
   after_destroy do
@@ -55,17 +55,9 @@ class Event < ApplicationRecord
   scope :by_event_type, ->(event_type) { where(event_type: event_type) if event_type.present? }
   scope :admin_view, -> { includes(:address).where("start_time >= ?", Time.zone.now - 14.days).order(start_time: :asc) }
 
-  def weekend?
-    event_type == "weekend"
-  end
-
   def self.filter(filters)
     Event.by_name(filters["search"])
       .by_event_type(filters["event_type"])
       .order("#{filters["column"]} #{filters["direction"]}")
-  end
-
-  def event_title
-    (event_type == "weekend") ? "#{name} #{walk_number}" : name
   end
 end

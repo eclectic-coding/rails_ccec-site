@@ -13,8 +13,7 @@ class EventsController < ApplicationController
 
   # GET /events/1 or /events/1.json
   def show
-    fresh_when @event
-    index # to load @events for footer
+    @decorated_event = EventDecorator.new(@event)
   end
 
   private

@@ -32,7 +32,7 @@
         <% else %>
           <% @events.each do |event| %>
             <%= content_tag :tr, id: dom_id(event) do %>
-              <td><%= link_to event.event_title, admin_event_path(event), target: "_top" %></td>
+              <td><%= link_to EventDecorator.new(event).event_title, admin_event_path(event), target: "_top" %></td>
               <td><%= event.walk_number %></td>
               <td class="capitalize"><%= event.role %>
               <td class="capitalize"><%= event.address.name unless event.address.nil? %></td>
