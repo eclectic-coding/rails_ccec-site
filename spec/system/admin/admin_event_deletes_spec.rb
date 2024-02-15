@@ -8,7 +8,7 @@ RSpec.describe "Admin::EventDeletes", type: :system do
   end
 
   describe "deletes all weekend events when deleting the weekend" do
-    xit "deletes an event" do
+    it "deletes an event" do
       expect(page).to have_selector("tbody tr", count: 4, wait: 10) # Wait up to 10 seconds for the element to appear
       first('button[data-confirm="Are you sure?"]').click
 
@@ -17,7 +17,7 @@ RSpec.describe "Admin::EventDeletes", type: :system do
   end
 
   describe "deletes one events" do
-    xit "deletes an event" do
+    it "deletes an event" do
       expect(page).to have_selector("tbody tr", count: 4, wait: 10) # Wait up to 10 seconds for the element to appear
       all('button[data-confirm="Are you sure?"]').last.click
 

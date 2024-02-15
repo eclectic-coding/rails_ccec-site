@@ -10,9 +10,13 @@
   <% date_range.each_slice(7) do |week| %>
     <div>
       <% week.each do |day| %>
-        <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-          <% instance_exec(day, calendar.sorted_events_for(day), &passed_block) %>
-        <% end unless day.nil?%>
+        <% if calendar.sorted_events_for(day).nil? %>
+        none
+        <% else %>
+          <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+            <% instance_exec(day, calendar.sorted_events_for(day), &passed_block) %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
   <% end %>

@@ -60,7 +60,7 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
       end
     end
 
-    xit "sorts descending" do
+    it "sorts descending" do
       event = create(:event, event_type: 2, name: "Gathering", start_time: Time.zone.now + 30.days)
       find("a", text: "Start Time", visible: false).click
       find("a", text: "Start Time", visible: false).click
