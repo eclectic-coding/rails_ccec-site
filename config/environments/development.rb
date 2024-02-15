@@ -13,6 +13,8 @@ Rails.application.configure do
   end
 
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
+
+  config.action_mailer.default_options = { from: "no-reply@example.com" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time

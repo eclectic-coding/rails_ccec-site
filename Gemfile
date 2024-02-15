@@ -67,3 +67,5 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
+
+gem "geocoder", "~> 1.8"

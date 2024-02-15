@@ -76,6 +76,8 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.default_options = { from: "no-reply@example.com" }
+
   config.action_mailer.smtp_settings = {
     address: Rails.application.credentials.dig(:brevo, :smtp_host),
     port: ENV.fetch("SMTP_PORT", "587"),
