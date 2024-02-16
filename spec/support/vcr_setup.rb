@@ -6,15 +6,15 @@ module VCRSetup
     # testing code against API's that not everyone
     # has access to -- the responses can be cached
     # and re-used.
-    require 'vcr'
-    require 'webmock/rspec'
+    require "vcr"
+    require "webmock/rspec"
 
     # To allow us to do real HTTP requests in a VCR.turned_off, we
     # have to tell webmock to let us.
     # WebMock.allow_net_connect!(:net_http_connect_on_start => true)
 
     VCR.configure do |c|
-      c.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+      c.cassette_library_dir = "spec/fixtures/vcr_cassettes"
       c.hook_into :webmock
       c.allow_http_connections_when_no_cassette = true
       c.ignore_localhost = true

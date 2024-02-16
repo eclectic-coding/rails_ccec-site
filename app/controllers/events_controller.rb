@@ -8,8 +8,8 @@ class EventsController < ApplicationController
     else
       Event.after_today.where(role: "")
     end
-    @events = EventDecorator.decorate_collection(events)
-    authorize @events
+    @events = events.group_by_month { |u| u.start_time }
+    # authorize @events
   end
 
   # GET /events/1 or /events/1.json

@@ -69,3 +69,5 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
+
+gem "groupdate", "~> 6.4"
