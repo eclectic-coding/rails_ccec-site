@@ -39,6 +39,7 @@ gem "active_storage_validations", "~> 1.1", ">= 1.1.1"
 gem "aws-sdk-s3", require: false
 gem "counter_culture", "~> 3.2"
 gem "invisible_captcha"
+gem "geocoder", "~> 1.8"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -67,5 +68,3 @@ group :test do
   gem "capybara"
   gem "cuprite"
 end
-
-gem "geocoder", "~> 1.8"
