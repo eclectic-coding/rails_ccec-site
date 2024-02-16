@@ -28,6 +28,8 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 
+VCRSetup.configure_vcr
+
 RSpec.configure do |config|
   config.use_transactional_fixtures = true # use Database Cleaner instead
   # config.filter_run_excluding type: "system"
