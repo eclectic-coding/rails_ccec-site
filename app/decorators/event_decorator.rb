@@ -8,4 +8,16 @@ class EventDecorator < SimpleDelegator
   def event_title
     (event_type == "weekend") ? "#{name} #{walk_number}" : name
   end
+
+  def event_date_header
+    start_time.strftime("%A, %B %e, %Y")
+  end
+
+  def event_date
+    start_time.strftime("%A, %B %e, %Y")
+  end
+
+  def event_address
+    "#{address.city}, #{address.state}"
+  end
 end

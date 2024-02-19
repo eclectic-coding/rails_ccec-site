@@ -1,10 +1,42 @@
-<div class="w-full sm:w-1/2 mx-auto my-8">
+<div class="w-full sm:w-3/4 mx-auto my-8">
   <div class="flex justify-center">
     <%= render(Shared::PageTitleComponent.new(title: @event.event_title)) %>
   </div>
 
-  <div></div>
+    <div>
+      <h1 class="h2"><%= @event.event_title %></h1>
+      <div class="my-4"><%= @event.event_date_header %></div>
 
-  <%#= @event.address.latitude %>
-  <%#= @event.address.longitude %>
-</div>
+      <%= content_tag :p do %>
+        <%= @event.description %>
+      <% end unless @event.description.nil? %>
+
+      <div class="grid grid-cols-3 gap-2 my-8">
+        <div>
+          <h2 class="h3 mb-3">Details</h2>
+          <dl class="text-sm">
+            <dt>Date:</dt>
+            <dd class="mb-4 ml-2"><%= @event.event_date %></dd>
+            <dt>Time:</dt>
+            <dd class="mb-4 ml-2"><%= @event.start_time %></dd>
+            <dt>Category:</dt>
+            <dd class="mb-4 ml-2 capitalize"><%= @event.event_type %></dd>
+          </dl>
+        </div>
+        <div>
+          <h2 class="h3 mb-3">Venue</h2>
+          <dl class="text-sm">
+            <dt></dt>
+            <dd class="mb-4"><%= @event.address.name %></dd>
+            <dt></dt>
+            <dd class="mb-4"><%= @event.address.street %></dd>
+            <dt></dt>
+            <dd class="mb-4"><%= @event.event_address %></dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= @event.address.latitude %>
+  <%= @event.address.longitude %>
