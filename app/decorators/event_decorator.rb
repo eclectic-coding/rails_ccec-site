@@ -20,4 +20,8 @@ class EventDecorator < SimpleDelegator
   def event_address
     "#{address.city}, #{address.state}"
   end
+
+  def map_link
+    "https://www.google.com/maps/@#{address&.latitude},#{address&.longitude},15z?hl=en-US&entry=ttu"
+  end
 end

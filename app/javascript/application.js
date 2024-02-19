@@ -3,14 +3,19 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-console.log("Hello from application.js")
-
 import "@hotwired/turbo-rails"
 import LocalTime from "local-time"
 LocalTime.start()
 require("@rails/activestorage").start()
 import "flowbite/dist/flowbite.turbo.js";
 
-// import '../channels/**/*_channel.js'
+import '../channels/**/*_channel.js'
 import "./controllers"
+
+window.initMap = function(...args) {
+    const event = document.createEvent("Events")
+    event.initEvent("google-maps-callback", true, true)
+    event.args = args
+    window.dispatchEvent(event)
+}
 
