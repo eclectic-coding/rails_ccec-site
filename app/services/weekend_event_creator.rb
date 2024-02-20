@@ -26,7 +26,8 @@ class WeekendEventCreator
       event_type: :sendoff,
       connected_event_id: @event.id,
       walk_number: @event.walk_number,
-      description: "Sendoff will be held at the center following registration"
+      description: "Sendoff will be held at the Salt and Light Center following registration",
+      address_id: Address.find_by(name: "Salt and Light Center").id
     )
   end
 
@@ -38,7 +39,8 @@ class WeekendEventCreator
       event_type: :candlelight,
       connected_event_id: @event.id,
       walk_number: @event.walk_number,
-      description: "Candlelight will be held at the location at date time"
+      description: "Candlelight worship starts at 7:00pm and the pilgrims will arrive at 9:00pm",
+      address_id: Address.find_by(name: "Faith Harbor UMC").id
     )
   end
 
@@ -50,7 +52,8 @@ class WeekendEventCreator
       event_type: :closing,
       connected_event_id: @event.id,
       walk_number: @event.walk_number,
-      description: "Closing will be held at location date time"
+      description: "Closing will be held at location date time",
+      address_id: Address.find_by(name: "Faith Harbor UMC").id
     )
   end
 end
