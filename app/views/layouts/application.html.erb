@@ -69,6 +69,6 @@
             }));
         d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n))
     })
-    ({ key: "AIzaSyAGMDhnw8HzmoSaEuH1ISWQBWOBYug85sI", v: "weekly" });</script>
+    ({ key: "<%= Rails.application.credentials.google[:maps_api_key] %>", v: "weekly" });</script>
   </body>
 </html>
