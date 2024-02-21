@@ -11,6 +11,8 @@ Rails.application.configure do
 
   Rails.application.routes.default_url_options[:host] = "localhost:3000"
 
+  config.action_mailer.default_options = { from: "no-reply@example.com" }
+
   # While tests run files are not watched, reloading is not necessary.
   config.enable_reloading = false
 

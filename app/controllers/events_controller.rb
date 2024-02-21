@@ -3,18 +3,18 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @events = if current_user
+    events = if current_user
       Event.after_today
     else
       Event.after_today.where(role: "")
     end
-    authorize @events
+    @events = events.group_by_month { |u| u.start_time }
+    # authorize @events
   end
 
   # GET /events/1 or /events/1.json
   def show
-    fresh_when @event
-    index # to load @events for footer
+    @event = EventDecorator.new(@event)
   end
 
   private

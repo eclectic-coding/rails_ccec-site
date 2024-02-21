@@ -5,6 +5,7 @@
 <% end %>
 
 <div class="card my-8">
+  <p class="mb-8 text-center font-bold"><%= t(".help_text") %></p>
   <%= form_with url: list_admin_events_path, method: :get, data: { controller: "search-form", search_form_target: "form", turbo_frame: "events" } do |f| %>
     <div class="flex sm:justify-end mb-1">
       <div class="flex justify-end items-center w-full sm:w-2/3 sm:justify-end">

@@ -3,16 +3,18 @@ require "system_helper"
 RSpec.describe "Admin::EventDeletes", type: :system do
   before do
     login_as create(:user, :super_admin)
+    create(:address, name: "Salt and Light Center")
+    create(:address, name: "Faith Harbor UMC")
     create(:event, :weekend) # Create a weekend event
     visit admin_events_path
   end
 
   describe "deletes all weekend events when deleting the weekend" do
     it "deletes an event" do
-      expect(page).to have_selector("tbody tr", count: 4, wait: 10) # Wait up to 10 seconds for the element to appear
+      expect(page).to have_selector("tbody tr", count: 4)
       first('button[data-confirm="Are you sure?"]').click
 
-      expect(page).to have_css("tbody tr", count: 1, wait: 10) # Wait up to 10 seconds for the element to appear
+      expect(page).to have_css("tbody tr", count: 1)
     end
   end
 

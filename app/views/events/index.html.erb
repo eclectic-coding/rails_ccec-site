@@ -4,11 +4,30 @@
   </div>
 
   <div class="mt-8">
-    <% @events.each do |event, idx| %>
-      <div><%= event.start_time %></div>
+    <% @events.each do |month, event| %>
+      <div class="mt-8">
+        <h2 class="text-center mb-4 pb-2 border-b"><%= month.strftime("%B %Y") %></h2>
+        <% event.each do |evt| %>
+          <div class="flex justify-between mb-8" data-test-event="true">
+            <div class="flex justify-center w-1/4 pt-4 text-3xl text-gray-600 font-bold">
+              <%= evt.start_time.strftime("%-d") %>
+            </div>
+            <div class="w-3/4">
+              <%= render(Event::TimeBannerComponent.new(event: evt)) %>
+
+              <%= link_to event_path(evt) do %>
+                <%= render(Event::TitleComponent.new(event: evt)) %>
+              <% end %>
+
+              <%= render(Event::AddressComponent.new(event: evt)) unless evt.address.nil? %>
+
+              <%= content_tag :p do %>
+                <%= evt.description %>
+              <% end unless evt.description.nil? %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
-
-
-

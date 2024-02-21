@@ -3,6 +3,10 @@ require "rails_helper"
 RSpec.describe "Admin::Events", type: :request do
   before do
     @admin_user = create(:user, :super_admin)
+    create(:address, name: "Pine Valley Methodist Church")
+    create(:address, name: "First Christian Church")
+    create(:address, name: "Salt and Light Center")
+    create(:address, name: "Faith Harbor UMC")
     sign_in @admin_user
   end
 

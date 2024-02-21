@@ -1,1 +1,52 @@
-wip
+<div class="w-full sm:w-3/4 sm:mx-auto my-8 mx-4">
+  <div>
+    <h1 class="h2"><%= @event.event_title %></h1>
+    <div class="my-4"><%= @event.event_date_header %></div>
+
+    <%= content_tag :p do %>
+      <%= @event.description %>
+    <% end unless @event.description.nil? %>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-8 sm:mt-40">
+      <div>
+        <h2 class="h3 mb-3">Details</h2>
+        <% if @event.address.nil? %>
+          to be announced
+        <% else %>
+          <dl class="text-sm">
+            <dt>Date:</dt>
+            <dd class="mb-2 ml-2"><%= @event.event_date %></dd>
+            <dt>Time:</dt>
+            <dd class="mb-2 ml-2"><%= @event.start_time %></dd>
+            <dt>Category:</dt>
+            <dd class="mb-2 ml-2 capitalize"><%= @event.event_type %></dd>
+          </dl>
+        <% end %>
+      </div>
+      <div>
+        <h2 class="h3 mb-3">Venue</h2>
+        <% if @event.address.nil? %>
+          to be announced
+        <% else %>
+          <dl class="text-sm">
+            <dt></dt>
+            <dd class="mb-2"><%= @event.address&.name %></dd>
+            <dt></dt>
+            <dd class="mb-2"><%= @event.address&.street %></dd>
+            <dt></dt>
+            <dd class="mb-2">
+              <%= @event.event_address unless @event.address.nil? %><br />
+              <a href="<%= @event.map_link %>">Google map</a>
+            </dd>
+          </dl>
+        <% end %>
+      </div>
+      <% unless @event.address.nil? %>
+        <a href="<%= @event.map_link %>"
+           data-controller="maps"
+           data-maps-latitude-value="<%= @event.address.latitude %>"
+           data-maps-longitude-value="<%= @event.address.longitude %>" target="_blank"></a>
+      <% end %>
+    </div>
+  </div>
+</div>

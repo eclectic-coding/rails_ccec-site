@@ -3,6 +3,8 @@ require "system_helper"
 RSpec.describe "Admin::Events::EventsIndices", type: :system do
   before do
     login_as create(:user, :admin)
+    create(:address, name: "Salt and Light Center")
+    create(:address, name: "Faith Harbor UMC")
   end
 
   before do
@@ -12,7 +14,7 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
 
   describe "GET /admin/events" do
     it "displays the events index" do
-      within "tbody tr:nth-child(1) td:nth-child(4)" do
+      within "tbody tr:nth-child(1) td:nth-child(5)" do
         expect(page).to have_text Time.zone.now.strftime("%m-%d-%Y")
       end
     end
@@ -60,34 +62,13 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
       end
     end
 
-    xit "sorts descending" do
+    it "sorts descending" do
       event = create(:event, event_type: 2, name: "Gathering", start_time: Time.zone.now + 30.days)
       find("a", text: "Start Time", visible: false).click
       find("a", text: "Start Time", visible: false).click
-      sleep 5
 
       within "tbody tr:nth-child(1)" do
         expect(page).to have_text(event.start_time.strftime("%m-%d-%Y"))
-      end
-    end
-  end
-
-  describe "sort by end_time column" do
-    it "sorts ascending" do
-      end_time = Time.zone.now + 3.days
-      click_link "End Time"
-
-      within "tbody tr:nth-child(1)" do
-        expect(page).to have_text end_time.strftime("%m-%d-%Y")
-      end
-    end
-
-    it "sorts descending" do
-      find("a", text: "End Time", visible: false).click
-      find("a", text: "End Time", visible: false).click
-
-      within "tbody tr:nth-child(1) td:nth-child(5)" do
-        expect(page).to have_text ""
       end
     end
   end

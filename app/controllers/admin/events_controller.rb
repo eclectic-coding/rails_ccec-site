@@ -9,7 +9,7 @@ class Admin::EventsController < ApplicationController
   def index
     session[:event_filters] = {}
 
-    @pagy, @events = pagy(Event.all, items: 10)
+    @pagy, @events = pagy(Event.admin_view, items: 10)
   end
 
   def list
@@ -29,6 +29,7 @@ class Admin::EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    # @role = Role.find_by(name: @event.role).id
   end
 
   # POST /events or /events.json

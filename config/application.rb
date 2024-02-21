@@ -18,12 +18,12 @@ require "action_cable/engine"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module CcecBasic
+module CoastalCarolinaEmmaus
   class Application < Rails::Application
     config.active_job.queue_adapter = :sidekiq
-    config.application_name = Rails.application.class.module_parent_name
+
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 7.0
+    config.load_defaults 7.1
 
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
@@ -36,7 +36,7 @@ module CcecBasic
     # in config/environments, which are processed later.
     #
     config.time_zone = "Eastern Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.eager_load_paths << Rails.root.join("app", "decorators")
 
     # Don't generate system test files.
     config.generators.system_tests = nil

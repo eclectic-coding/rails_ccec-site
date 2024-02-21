@@ -28,6 +28,8 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 
+VCRSetup.configure_vcr
+
 RSpec.configure do |config|
   config.use_transactional_fixtures = true # use Database Cleaner instead
   # config.filter_run_excluding type: "system"
@@ -40,6 +42,7 @@ RSpec.configure do |config|
   config.include Capybara::RSpecMatchers, type: :component
   config.include Turbo::FramesHelper, type: :system
   config.include Turbo::StreamsHelper, type: :system
+  # config.include RSpec::BeforeAll
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   # config.filter_gems_from_backtrace("capybara", "cuprite", "ferrum")

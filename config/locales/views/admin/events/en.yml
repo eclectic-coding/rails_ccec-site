@@ -24,6 +24,7 @@ en:
         end_time: End Time
         event_type: Type
         walk_number: Walk
+        help_text: Displays events from 14 days in the past
       new:
         new_event: New Event
       show:

@@ -67,6 +67,7 @@ class DatabaseSeederJob < ApplicationJob
     Address.create!(name: "Pine Valley Methodist Church", street: "3788 Shipyard Blvd", city: "Wilmington")
     Address.create!(name: "First Christian Church", street: "124 Trott Rd", city: "Richlands")
     Address.create!(name: "Salt and Light Center", street: "2006 Wicker St", city: "North Topsail Beach")
+    Address.create!(name: "Faith Harbor UMC", street: "14201 NC-50", city: "Surf City")
   end
 
   def create_tags

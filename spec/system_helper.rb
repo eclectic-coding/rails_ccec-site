@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require "test-prof"
 require "rails_helper"
 
 # system/support/ files contain system tests configurations and helpers

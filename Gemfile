@@ -1,7 +1,6 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.3.0"
 ruby file: ".ruby-version"
 
 gem "rails", "~> 7.1.1"
@@ -40,6 +39,7 @@ gem "active_storage_validations", "~> 1.1", ">= 1.1.1"
 gem "aws-sdk-s3", require: false
 gem "counter_culture", "~> 3.2"
 gem "invisible_captcha"
+gem "geocoder", "~> 1.8"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -64,7 +64,11 @@ end
 
 group :test do
   gem "simplecov", "~> 0.22.0", require: false
+  gem "vcr"
   gem "webmock"
   gem "capybara"
   gem "cuprite"
+  gem "test-prof"
 end
+
+gem "groupdate", "~> 6.4"
