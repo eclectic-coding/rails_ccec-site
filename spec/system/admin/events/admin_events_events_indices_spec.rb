@@ -3,6 +3,8 @@ require "system_helper"
 RSpec.describe "Admin::Events::EventsIndices", type: :system do
   before do
     login_as create(:user, :admin)
+    create(:address, name: "Salt and Light Center")
+    create(:address, name: "Faith Harbor UMC")
   end
 
   before do
@@ -64,7 +66,6 @@ RSpec.describe "Admin::Events::EventsIndices", type: :system do
       event = create(:event, event_type: 2, name: "Gathering", start_time: Time.zone.now + 30.days)
       find("a", text: "Start Time", visible: false).click
       find("a", text: "Start Time", visible: false).click
-      sleep 10
 
       within "tbody tr:nth-child(1)" do
         expect(page).to have_text(event.start_time.strftime("%m-%d-%Y"))

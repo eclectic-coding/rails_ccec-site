@@ -68,6 +68,7 @@ group :test do
   gem "webmock"
   gem "capybara"
   gem "cuprite"
+  gem "test-prof"
 end
 
 gem "groupdate", "~> 6.4"
