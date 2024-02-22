@@ -33,7 +33,7 @@ gem "view_component"
 gem "bundle-audit"
 gem "coveralls", require: false
 gem "pagy"
-gem "city-state", git: "https://github.com/thecodecrate/city-state.git"
+gem "city-state", git: "https://github.com/eclectic-coding/city-state.git"
 gem "acts-as-taggable-on"
 gem "active_storage_validations", "~> 1.1", ">= 1.1.1"
 gem "aws-sdk-s3", require: false

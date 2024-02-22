@@ -1,17 +1,17 @@
 GIT
+  remote: https://github.com/eclectic-coding/city-state.git
+  revision: badaa0fc4827b46b67d5464109929deba1a296ee
+  specs:
+    city-state (1.1.0)
+      rubyzip (>= 2.3)
+
+GIT
   remote: https://github.com/scambra/devise_invitable.git
   revision: aa29ad38202d23ce147f9f83a249af924ddb5ea6
   specs:
     devise_invitable (2.0.9)
       actionmailer (>= 5.0)
       devise (>= 4.6)
-
-GIT
-  remote: https://github.com/thecodecrate/city-state.git
-  revision: b6912a47bf78d8961c80e9d7e75d7f94d96d957e
-  specs:
-    city-state (1.1.0)
-      rubyzip (>= 2.3)
 
 GEM
   remote: https://rubygems.org/

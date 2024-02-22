@@ -4,6 +4,8 @@
       <h2 class="h4"><%= t(".new_venue_title") %></h2>
     <% end %>
 
+    <div class="italic ms-4 my-3"><%= t(".help_message") %></div>
+
     <%= form_for([:admin, @address]) do |f| %>
       <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-2">
         <div class="mb-3">
