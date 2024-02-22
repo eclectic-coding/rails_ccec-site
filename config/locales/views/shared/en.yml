@@ -10,6 +10,7 @@ en:
       addresses_title: Venues
       media_uploads_title: MediaUploads
       messages_title: Messages
+      editables_title: Editables
     admin_profile:
       settings: Settings
       admin_area: Admin Area
