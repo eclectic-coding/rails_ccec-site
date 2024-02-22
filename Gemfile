@@ -34,12 +34,14 @@ gem "bundle-audit"
 gem "coveralls", require: false
 gem "pagy"
 gem "city-state", git: "https://github.com/eclectic-coding/city-state.git"
+# gem "city-state", path: "~/development/projects/city-state"
 gem "acts-as-taggable-on"
 gem "active_storage_validations", "~> 1.1", ">= 1.1.1"
 gem "aws-sdk-s3", require: false
 gem "counter_culture", "~> 3.2"
 gem "invisible_captcha"
 gem "geocoder", "~> 1.8"
+gem "groupdate", "~> 6.4"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -71,4 +73,3 @@ group :test do
   gem "test-prof"
 end
 
-gem "groupdate", "~> 6.4"

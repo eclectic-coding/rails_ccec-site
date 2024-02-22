@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/eclectic-coding/city-state.git
-  revision: badaa0fc4827b46b67d5464109929deba1a296ee
+  revision: 3513425f11181e7f8274427ccadd5ef85705be21
   specs:
     city-state (1.1.0)
       rubyzip (>= 2.3)
