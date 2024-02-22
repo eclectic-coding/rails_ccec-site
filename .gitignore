@@ -43,3 +43,4 @@ config/localhost.pem
 !.elasticbeanstalk/*.global.yml
 
 config/certs/*
+spec/fixtures/vcr_cassettes/update_cities.yml

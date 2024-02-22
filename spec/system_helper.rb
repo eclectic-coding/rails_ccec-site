@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "test-prof"
 require "rails_helper"
 

@@ -15,6 +15,7 @@ en:
         create_venue: Create Venue
         update_venue: Update Venue
         new_venue_title: New Venue
+        help_message: All new locations default to North Carolina, USA
       create:
         create_address: Address was successfully created.
       update:
