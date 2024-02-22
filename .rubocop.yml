@@ -7,7 +7,6 @@ require:
 
 inherit_gem:
   standard: config/base.yml
-  test-prof: config/rubocop-rspec.yml
 
 inherit_from:
   - .rubocop/rails.yml

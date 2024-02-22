@@ -14,7 +14,6 @@ RSpec.describe "MessageCreates", type: :system do
         fill_in "Email", with: "test@example.com"
         fill_in "Message", with: "This is a test message."
         click_on "Send Message"
-
       }.to change {
         ActionMailer::Base.deliveries.size
       }.by(1)
