@@ -1,30 +1,27 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Admin::Editables", type: :request do
-  describe "GET /index" do
-    it "returns http success" do
-      get "/admin/editables/index"
-      expect(response).to have_http_status(:success)
-    end
+  before do
+    login_as(create(:user, :admin))
   end
 
-  describe "GET /show" do
+  describe "GET /index" do
     it "returns http success" do
-      get "/admin/editables/show"
+      get admin_editables_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /new" do
     it "returns http success" do
-      get "/admin/editables/new"
+      get new_admin_editable_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /edit" do
     it "returns http success" do
-      get "/admin/editables/edit"
+      get edit_admin_editable_path(create(:editable))
       expect(response).to have_http_status(:success)
     end
   end

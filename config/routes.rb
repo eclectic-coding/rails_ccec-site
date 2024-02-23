@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resources :accounts, only: [:index]
       resources :account_users, only: [:show, :new, :create]
       resources :users, only: [:show, :edit, :update, :destroy]
-      resources :editables, only: [:index, :edit, :update]
+      resources :editables, only: [:index, :new, :create, :edit, :update]
 
       resources :events do
         collection do
