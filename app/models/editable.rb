@@ -9,4 +9,15 @@
 #  updated_at :datetime         not null
 #
 class Editable < ApplicationRecord
+  has_many :poly_actives, as: :activatable, dependent: :destroy
+
+  after_create :create_poly_active
+
+  def create_poly_active
+    PolyActive.create!(activatable: self)
+  end
+
+  def active?
+    poly_actives.first&.active
+  end
 end

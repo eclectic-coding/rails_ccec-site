@@ -3,8 +3,9 @@
     <table class="admin-table">
       <thead>
         <tr>
-          <th style="width: 150px">Short Code</th>
+          <th style="width: 150px">Short Name</th>
           <th>Content</th>
+          <th style="width: 150px">Status</th>
           <th style="width: 150px"></th>
         </tr>
       </thead>
@@ -18,6 +19,7 @@
             <%= content_tag :tr, id: dom_id(editable) do %>
               <td><%= editable.shortname %></td>
               <td><%= editable.content %></td>
+              <td><%= editable.active? %></td>
               <td>
                 <%= link_to edit_admin_editable_path(editable), target: "_top" do %>
                   Edit

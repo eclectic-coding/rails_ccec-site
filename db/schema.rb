@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_22_174312) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_23_174543) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -134,6 +134,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_22_174312) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["message_recipient_id"], name: "index_messages_on_message_recipient_id"
+  end
+
+  create_table "poly_actives", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.boolean "active", default: false
+    t.string "activatable_type", null: false
+    t.uuid "activatable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activatable_type", "activatable_id"], name: "index_poly_actives_on_activatable"
   end
 
   create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
