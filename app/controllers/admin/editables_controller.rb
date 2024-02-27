@@ -1,6 +1,6 @@
 class Admin::EditablesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_editable, only: %i[edit update]
+  before_action :set_editable, only: %i[edit update destroy]
 
   layout "admin"
 
@@ -15,6 +15,11 @@ class Admin::EditablesController < ApplicationController
   end
 
   def update
+  end
+
+  def destroy
+    @editable.destroy
+    redirect_to admin_editables_path, notice: "Editable was successfully destroyed."
   end
 
   private

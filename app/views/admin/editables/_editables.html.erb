@@ -12,18 +12,25 @@
       <tbody>
         <% if editables.empty? %>
           <tr>
-            <td class="text-center" colspan="3">No editables found</td>
+            <td class="text-center" colspan="4">No editables found</td>
           </tr>
         <% else %>
           <% editables.each do |editable| %>
             <%= content_tag :tr, id: dom_id(editable) do %>
               <td><%= editable.shortname %></td>
               <td><%= editable.content %></td>
-              <td><%= editable.active? %></td>
+              <td data-controller="activation" data-activation-url-value="<%= admin_poly_active_path(editable.poly_actives.first, editable_id: editable) %>">
+                <%= turbo_frame_tag "activate_#{dom_id(editable)}" do %>
+                  <%= render "admin/editables/activation", editable: editable %>
+                <% end %>
+              </td>
               <td>
                 <%= link_to edit_admin_editable_path(editable), target: "_top" do %>
                   Edit
                 <% end if current_user.has_role?(:superadmin) || current_user.has_role?(:admin) %>
+                <%= button_to admin_editable_path(editable), class: "ms-4", method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } } do %>
+                  Delete
+                <% end if current_user.has_role?(:superadmin) %>
               </td>
             <% end %>
           <% end %>

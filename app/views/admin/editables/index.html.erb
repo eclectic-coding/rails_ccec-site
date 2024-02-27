@@ -4,7 +4,7 @@
   <% end if current_user.has_role?(:superadmin) %>
 <% end %>
 
-<div class="card my-8">
+<div class="card my-8" data-controller="activation">
   <p class="mb-8 text-center font-bold">add notes</p>
   <%= render partial: "editables", locals: { editables: @editables} %>
 </div>
