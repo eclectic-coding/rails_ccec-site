@@ -1,27 +1,21 @@
-import {Controller} from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus"
+import { FetchRequest, patch } from "@rails/request.js"
 
 export default class extends Controller {
-    static targets = ["types", "roles", "venue"]
+    static values = { url: String }
 
     connect() {
-        console.log("Map Controller Connected")
+        console.log("Activation controller connected again n")
     }
 
-    update(event) {
-        const eventType = event.target.value
-        const roles = this.rolesTarget
-        const venue = this.venueTarget
-        const roleOptions = Array.from(roles.options)
-        const venueOptions = Array.from(venue.options)
-        const optionToFind = roleOptions.find(option => option.text === "Member")
-        const venueToFind = venueOptions.find(option => option.text === "Salt and Light Center")
+    async toggle(event) {
+        event.preventDefault()
+        console.log("Toggle button clicked", this.urlValue)
 
-        eventType === "weekend" ? venueToFind.selected = true : venue.selectedIndex = 0
-
-        if (eventType === "closing" || eventType === "candlelight" || eventType === "sendoff") {
-            optionToFind.selected = true
-        } else {
-            roles.selectedIndex = 0
+        const request = new FetchRequest("patch", this.urlValue, {responseKind: "turbo-stream"})
+        const response = await request.perform()
+        if (response.ok) {
+            console.log("Request succeeded")
         }
     }
 }
