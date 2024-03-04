@@ -1,14 +1,10 @@
 require "system_helper"
 
 RSpec.describe "Admin::Events::EventsIndices", type: :system do
-  before do
-    login_as create(:user, :admin)
-    create(:address, name: "Salt and Light Center")
-    create(:address, name: "Faith Harbor UMC")
-  end
+  let!(:event){    create(:event, event_type: :weekend, name: "Weekend", walk_number: 1, start_time: Time.zone.now, role: "") }
 
   before do
-    create(:event, event_type: :weekend, name: "Weekend", walk_number: 1, start_time: Time.zone.now, role: "")
+    login_as create(:user, :admin)
     visit admin_events_path
   end
 

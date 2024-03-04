@@ -1,18 +1,15 @@
 require "rails_helper"
 
 RSpec.describe "Admin::Events", type: :request do
+  let!(:admin_user) { create(:user, :super_admin) }
+  let!(:event) { create(:event, :weekend) }
+
   before do
-    @admin_user = create(:user, :super_admin)
-    create(:address, name: "Pine Valley Methodist Church")
-    create(:address, name: "First Christian Church")
-    create(:address, name: "Salt and Light Center")
-    create(:address, name: "Faith Harbor UMC")
-    sign_in @admin_user
+    sign_in admin_user
   end
 
   describe "GET /admin/events" do
     it "renders successful response" do
-      create(:event, :weekend)
       get admin_events_path
       expect(response).to have_http_status(200)
     end
@@ -20,7 +17,6 @@ RSpec.describe "Admin::Events", type: :request do
 
   describe "GET /admin/events/:id" do
     it "renders successful response" do
-      event = create(:event, :weekend)
       get admin_event_path(event)
       expect(response).to have_http_status(200)
     end
@@ -35,7 +31,6 @@ RSpec.describe "Admin::Events", type: :request do
 
   describe "GET /admin/events/:id/edit" do
     it "renders successful response" do
-      event = create(:event, :weekend)
       get edit_admin_event_path(event)
       expect(response).to have_http_status(200)
     end
@@ -43,8 +38,6 @@ RSpec.describe "Admin::Events", type: :request do
 
   describe "PATCH /admin/events" do
     context "with valid parameters" do
-      let(:event) { create(:event, :weekend) }
-
       it "updates the requested event" do
         patch admin_event_path(event), params: { event: { name: "name" } }
         event.reload
@@ -59,8 +52,6 @@ RSpec.describe "Admin::Events", type: :request do
     end
 
     context "with invalid parameters" do
-      let(:event) { create(:event, :weekend) }
-
       it "renders a successful response (i.e. to display the 'edit' template)" do
         patch admin_event_path(event), params: { event: { name: "" } }
         event.reload
@@ -86,14 +77,12 @@ RSpec.describe "Admin::Events", type: :request do
         end
 
         it "new weekend created candlelight event" do
-          create(:event, :weekend)
           candlelight = Event.find_by(event_type: :candlelight)
           expect(candlelight.role).to eq("member")
           expect(candlelight).to be_present
         end
 
         it "new weekend created closing event" do
-          create(:event, :weekend)
           closing = Event.find_by(event_type: :closing)
           expect(closing).to be_present
         end
@@ -126,14 +115,12 @@ RSpec.describe "Admin::Events", type: :request do
 
     describe "DELETE " do
       it "destroys an event" do
-        event = create(:event, :weekend)
         expect do
           delete admin_event_path(event)
         end.to change(Event, :count).by(-4)
       end
 
       it "redirects to the events list" do
-        event = create(:event, :weekend)
         delete admin_event_path(event)
         expect(response).to redirect_to(admin_events_path)
       end
