@@ -16,12 +16,14 @@ class Admin::AddressesController < ApplicationController
   def create
     @address = Address.create(address_params)
 
-    respond_to do |format|
-      if @address.save
+    if @address.save
+      @addresses = Address.all
+      respond_to do |format|
         format.html { redirect_to admin_addresses_path, notice: t(".create_address") }
-      else
-        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { flash.now[:notice] = t(".create_address") }
       end
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -13,6 +13,9 @@ class Editable < ApplicationRecord
 
   after_create :create_poly_active
 
+  validates :shortname, presence: true, uniqueness: true
+  validates :content, presence: true
+
   def create_poly_active
     PolyActive.create!(activatable: self)
   end

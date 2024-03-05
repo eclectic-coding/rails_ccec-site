@@ -6,5 +6,5 @@
 
 <div class="card mt-8">
   <%= turbo_frame_tag "new_address", target: "_top" %>
-  <%= render partial: "addresses", locals: { address: @addresses } %>
+  <%= render partial: "addresses", locals: { addresses: @addresses } %>
 </div>

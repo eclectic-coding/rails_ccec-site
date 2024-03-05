@@ -19,6 +19,7 @@ class WeekendEventCreator
   end
 
   def create_sendoff
+    center = Address.find_by(name: "Salt and Light Center")
     Event.create(
       name: "Sendoff",
       start_time: @event.start_time + 0.5.hours,
@@ -27,11 +28,12 @@ class WeekendEventCreator
       connected_event_id: @event.id,
       walk_number: @event.walk_number,
       description: "Sendoff will be held at the Salt and Light Center following registration",
-      address_id: Address.find_by(name: "Salt and Light Center").id
+      address_id: center&.id
     )
   end
 
   def create_candlelight
+    faith_harbor = Address.find_by(name: "Faith Harbor UMC")
     Event.create(
       name: "Candlelight",
       start_time: @event.start_time + 48.5.hours,
@@ -40,11 +42,12 @@ class WeekendEventCreator
       connected_event_id: @event.id,
       walk_number: @event.walk_number,
       description: "Candlelight worship starts at 7:00pm and the pilgrims will arrive at 9:00pm",
-      address_id: Address.find_by(name: "Faith Harbor UMC").id
+      address_id: faith_harbor&.id
     )
   end
 
   def create_closing
+    faith_harbor = Address.find_by(name: "Faith Harbor UMC")
     Event.create(
       name: "Closing",
       start_time: @event.start_time + 70.hours,
@@ -53,7 +56,7 @@ class WeekendEventCreator
       connected_event_id: @event.id,
       walk_number: @event.walk_number,
       description: "Closing will be held at location date time",
-      address_id: Address.find_by(name: "Faith Harbor UMC").id
+      address_id: faith_harbor&.id
     )
   end
 end

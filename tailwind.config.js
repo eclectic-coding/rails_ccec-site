@@ -3,7 +3,7 @@
 const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-/** @type {import('tailwindcss').Config */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     mode: 'jit',
     enabled: true,

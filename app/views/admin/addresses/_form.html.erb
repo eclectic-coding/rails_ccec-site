@@ -6,21 +6,23 @@
 
     <div class="italic ms-4 my-3"><%= t(".help_message") %></div>
 
-    <%= form_for([:admin, @address]) do |f| %>
+    <%= form_with(model: [:admin, @address]) do |f| %>
       <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-2">
         <div class="mb-3">
           <%= f.label :name %>
-          <%= f.text_field :name, required: true, class: "form-control" %>
+          <%= f.text_field :name, class: "form-control" %>
+          <%= render Shared::FormErrorsComponent.new(resource: f.object, key: :name) %>
         </div>
 
         <div class="mb-3">
           <%= f.label :street %>
-          <%= f.text_field :street, required: true, class: "form-control" %>
+          <%= f.text_field :street, class: "form-control" %>
+          <%= render Shared::FormErrorsComponent.new(resource: f.object, key: :street) %>
         </div>
 
         <div class="mb-3">
           <%= f.label :city %>
-          <%= f.select :city, CS.get(:US, :NC), {}, { required: true, class: "form-select" } %>
+          <%= f.select :city, CS.get(:US, :NC), {}, { class: "form-select" } %>
         </div>
       </div>
 

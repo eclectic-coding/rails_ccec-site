@@ -26,4 +26,13 @@ RSpec.describe "Admin::Editables", type: :request do
     end
   end
 
+  describe "DESTROY " do
+    it "deletes an editable" do
+      editable = create(:editable)
+      expect {
+        delete admin_editable_path(editable)
+      }.to change(Editable, :count).by(-1)
+    end
+  end
+
 end

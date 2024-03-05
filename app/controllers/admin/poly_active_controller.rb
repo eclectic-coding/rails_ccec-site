@@ -4,30 +4,14 @@ class Admin::PolyActiveController < ApplicationController
 
   def update
     @editable.poly_actives.first.toggle!(:active)
-    p "active: #{@editable.poly_actives.inspect}"
 
     respond_to do |format|
-      format.html {
-        headers["WWW-Authenticate"] = root_path
-        head :unauthorized
-      }
-
-      format.turbo_stream {
-        render turbo_stream: turbo_stream.update(
-          "activate_editable_#{params[:editable_id]}",
-          partial: "admin/editables/activation",
-          locals: { editable: @editable }
-        )
-      }
+      format.turbo_stream { flash.now[:notice] = "Editable status was successfully updated." }
     end
 
   end
 
   private
-
-  def poly_active_params
-    params.require(:poly_active).permit(:activatable_id, :activatable_type, :active)
-  end
 
   def set_editable
     @editable = Editable.find(params[:editable_id])

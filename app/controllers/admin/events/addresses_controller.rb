@@ -1,4 +1,6 @@
 class Admin::Events::AddressesController < ApplicationController
+  # TODO: Work on implementing this feature
+
   def new
     @address = Address.new
   end

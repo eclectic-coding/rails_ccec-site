@@ -3,12 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Event::TitleComponent, type: :component do
-  before do
-    create(:address, name: "Pine Valley Methodist Church")
-    create(:address, name: "First Christian Church")
-    create(:address, name: "Salt and Light Center")
-    create(:address, name: "Faith Harbor UMC")
-  end
 
   describe "rendering the event title" do
     it "renders the event title" do

@@ -1,8 +1,10 @@
 <%= render(Shared::PageTitleComponent.new(title: t('admin.editable.title'))) do %>
-  <%= link_to new_admin_event_path, class: 'btn btn-primary ms-3 ms-md-0' do %>
+  <%= link_to new_admin_editable_path, data: { turbo_frame: "new_editable"}, class: 'btn btn-primary ms-3 ms-md-0' do %>
     <%= t(".add_editable") %>
   <% end if current_user.has_role?(:superadmin) %>
 <% end %>
+
+<%= turbo_frame_tag "new_editable" %>
 
 <div class="card my-8" data-controller="activation">
   <p class="mb-8 text-center font-bold">add notes</p>

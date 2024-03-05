@@ -11,6 +11,7 @@ import "flowbite/dist/flowbite.turbo.js";
 
 import '../channels/**/*_channel.js'
 import "./controllers"
+import "./controllers/third_party_controllers"
 
 window.initMap = function(...args) {
     const event = document.createEvent("Events")

@@ -9,6 +9,19 @@ class Admin::EditablesController < ApplicationController
   end
 
   def new
+    @editable = Editable.new
+  end
+
+  def create
+    @editable = Editable.new(editable_params)
+    if @editable.save
+      respond_to do |format|
+        format.html { redirect_to admin_editables_path, notice: "Editable was successfully created." }
+        format.turbo_stream { flash.now[:notice] = "Editable was successfully created." }
+      end
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -26,5 +39,9 @@ class Admin::EditablesController < ApplicationController
 
   def set_editable
     @editable = Editable.find(params[:id])
+  end
+
+  def editable_params
+    params.require(:editable).permit(:shortname, :content)
   end
 end
