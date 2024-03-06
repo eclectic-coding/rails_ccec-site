@@ -46,7 +46,7 @@ RSpec.describe "MessageCreates", type: :system do
         click_on "Send Message"
       }.to change { ActionMailer::Base.deliveries.size }.by(0)
 
-      expect(page).to have_content("Can't be blank")
+      expect(page).to have_content("Name can't be blank")
     end
   end
 end

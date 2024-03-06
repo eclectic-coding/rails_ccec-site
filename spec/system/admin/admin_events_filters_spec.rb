@@ -1,7 +1,8 @@
 require "system_helper"
 
 RSpec.describe "AdminEventsFilters", type: :system do
-  let!(:event){ create(:event, name: "Walk 1", event_type: :weekend, start_time: Time.zone.now + 1.day) }
+  let!(:event) { create(:event, name: "Walk 1", event_type: :weekend, start_time: Time.zone.now + 1.day) }
+
   before do
     login_as create(:user, :super_admin)
     visit admin_events_path

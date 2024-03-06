@@ -19,7 +19,7 @@
             <%= content_tag :tr, id: dom_id(editable) do %>
               <td><%= editable.shortname %></td>
               <td><%= editable.content %></td>
-              <td data-controller="activation" data-activation-url-value="<%= admin_poly_active_path(editable.poly_actives.first, editable_id: editable) %>">
+              <td>
                 <%= turbo_frame_tag "activate_#{dom_id(editable)}" do %>
                   <%= render "admin/editables/activation", editable: editable %>
                 <% end %>

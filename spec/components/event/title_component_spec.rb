@@ -3,7 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Event::TitleComponent, type: :component do
-
   describe "rendering the event title" do
     it "renders the event title" do
       event = create(:event, event_type: "gathering")

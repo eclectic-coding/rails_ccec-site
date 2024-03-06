@@ -10,7 +10,6 @@ RSpec.describe "AdminUpdatesEditableStatus", type: :system do
 
   describe "admin updates editable status" do
     it "updates the editable status" do
-
       within "#activate_editable_#{editable.id}" do
         find(".capitalize").click
       end

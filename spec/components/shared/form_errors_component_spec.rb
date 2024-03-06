@@ -10,6 +10,6 @@ RSpec.describe Shared::FormErrorsComponent, type: :component do
 
     render_inline(described_class.new(resource: resource, key: key))
 
-    expect(rendered_content).to have_css("div.error", text: "Can't be blank")
+    expect(rendered_content).to have_css("div.error", text: "Name can't be blank")
   end
 end

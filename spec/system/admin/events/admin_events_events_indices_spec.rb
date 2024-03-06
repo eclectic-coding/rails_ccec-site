@@ -1,7 +1,7 @@
 require "system_helper"
 
 RSpec.describe "Admin::Events::EventsIndices", type: :system do
-  let!(:event){    create(:event, event_type: :weekend, name: "Weekend", walk_number: 1, start_time: Time.zone.now, role: "") }
+  let!(:event) { create(:event, event_type: :weekend, name: "Weekend", walk_number: 1, start_time: Time.zone.now, role: "") }
 
   before do
     login_as create(:user, :admin)

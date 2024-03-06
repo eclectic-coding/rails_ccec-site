@@ -1,0 +1,5 @@
+<%= turbo_stream.update "activate_#{dom_id(@editable)}" do %>
+  <%= render partial: "admin/editables/activation", locals: { editable: @editable } %>
+<% end %>
+
+<%= turbo_stream.replace "flash", partial: "shared/notices" %>

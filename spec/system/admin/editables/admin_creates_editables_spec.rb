@@ -28,8 +28,7 @@ RSpec.describe "AdminCreatesEditables", type: :system do
 
       click_on "Create"
 
-      expect(page).to have_content("Can't be blank")
+      expect(page).to have_content("Shortname can't be blank")
     end
-
   end
 end

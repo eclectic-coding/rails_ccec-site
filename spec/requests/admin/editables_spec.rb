@@ -34,5 +34,4 @@ RSpec.describe "Admin::Editables", type: :request do
       }.to change(Editable, :count).by(-1)
     end
   end
-
 end

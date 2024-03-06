@@ -1,7 +1,7 @@
 require "system_helper"
 
 RSpec.describe "Admin::EventDeletes", type: :system do
-  let!(:event){create(:event, :weekend)}
+  let!(:event) { create(:event, :weekend) }
 
   before do
     login_as create(:user, :super_admin)
