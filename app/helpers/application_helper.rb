@@ -20,4 +20,9 @@ module ApplicationHelper
   def sort_indicator
     tag.div(class: "sort sort-#{params[:direction]}")
   end
+
+  def component(name, *, **, &block)
+    component = (name.to_s.camelize + "Component").constantize
+    render(component.new(*, **), &block)
+  end
 end

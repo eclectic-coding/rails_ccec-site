@@ -30,6 +30,9 @@ gem "whenever", require: false
 gem "rolify"
 gem "simple_calendar"
 gem "view_component"
+gem "view_component-contrib", "~> 0.2.2"
+gem "dry-initializer"
+gem "dry-effects"
 gem "bundle-audit"
 gem "coveralls", require: false
 gem "pagy"
@@ -72,3 +75,4 @@ group :test do
   gem "cuprite"
   gem "test-prof"
 end
+

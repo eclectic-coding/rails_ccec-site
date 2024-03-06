@@ -1,0 +1,25 @@
+<h2 class="h3 mb-2"><%= t("shared.footer.upcoming_events") %></h2>
+<% if events.nil? || events.empty? %>
+  <p><%= t('events.no_events') %></p>
+<% else %>
+  <ul role="list">
+    <% events.each_with_index do |event, idx| %>
+      <li class="py-3 sm-py-4">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 min-w-0 ms-4">
+            <p class="uppercase font-light text-sm text-gray-900 dark:text-white">
+              <%= event.start_time.strftime('%a') %>
+            </p>
+            <p class="font-bold text-xl dark:text-gray-400">
+              <%= event.start_time.strftime('%d') %>
+            </p>
+          </div>
+          <div class="flex-1 mx-4">
+            <%= render(Event::TimeBannerComponent.new(event: event)) %>
+            <p class="mt-1 text-md font-medium"><%= link_to event.name, event_path(event) %></p>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -15,6 +15,8 @@ require_relative "../config/environment"
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "rspec/rails"
+require "capybara/rspec"
+require "view_component/test_helpers"
 require "capybara/rails"
 require "fuubar"
 require "pundit/rspec"
@@ -32,6 +34,13 @@ end
 VCRSetup.configure_vcr
 
 RSpec.configure do |config|
+  config.include ViewComponent::TestHelpers, type: :view_component
+  config.include Capybara::RSpecMatchers, type: :view_component
+
+  config.define_derived_metadata(file_path: %r{/spec/views/components}) do |metadata|
+    metadata[:type] = :view_component
+  end
+
   config.use_transactional_fixtures = true # use Database Cleaner instead
   # config.filter_run_excluding type: "system"
   config.include FactoryBot::Syntax::Methods

@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   impersonates :user
   include Pundit::Authorization
   include Pagy::Backend
+  include Dry::Effects::Handler.Reader(:current_user)
+
+  around_action :set_current_user
 
   protect_from_forgery with: :exception
 
@@ -33,5 +36,9 @@ class ApplicationController < ActionController::Base
       redirect_to root_url, alert: "Access Denied"
     end
     super
+  end
+
+  def set_current_user
+    with_current_user(current_user) { yield }
   end
 end

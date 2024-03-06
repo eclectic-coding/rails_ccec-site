@@ -181,6 +181,17 @@ GEM
     domain_name (0.6.20240107)
     drb (2.2.0)
       ruby2_keywords
+    dry-core (1.0.1)
+      concurrent-ruby (~> 1.0)
+      zeitwerk (~> 2.6)
+    dry-effects (0.4.0)
+      concurrent-ruby (~> 1.0)
+      dry-core (~> 1.0)
+      dry-inflector (~> 1.0)
+      dry-initializer (~> 3.0)
+      zeitwerk (~> 2.6)
+    dry-inflector (1.0.0)
+    dry-initializer (3.1.1)
     erubi (1.12.0)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
@@ -414,6 +425,7 @@ GEM
       rubocop (~> 1.40)
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
+    ruby-next-core (1.0.2)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -468,6 +480,9 @@ GEM
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
+    view_component-contrib (0.2.2)
+      ruby-next-core (>= 0.15.0)
+      view_component
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -513,6 +528,8 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   devise_invitable!
+  dry-effects
+  dry-initializer
   factory_bot_rails
   faker
   friendly_id (~> 5.4)
@@ -549,6 +566,7 @@ DEPENDENCIES
   tzinfo-data
   vcr
   view_component
+  view_component-contrib (~> 0.2.2)
   web-console
   webmock
   whenever
