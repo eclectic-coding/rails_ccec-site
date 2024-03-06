@@ -13,13 +13,13 @@
               <%= evt.start_time.strftime("%-d") %>
             </div>
             <div class="w-3/4">
-              <%= render(Event::TimeBannerComponent.new(event: evt)) %>
+              <%= component "event/address",  event: evt %>
 
               <%= link_to event_path(evt) do %>
-                <%= render(Event::TitleComponent.new(event: evt)) %>
+                <%= component "event/title",  event: evt %>
               <% end %>
 
-              <%= render(Event::AddressComponent.new(event: evt)) unless evt.address.nil? %>
+              <%= component "event/address",  event: evt unless evt.address.nil? %>
 
               <%= content_tag :p do %>
                 <%= evt.description %>

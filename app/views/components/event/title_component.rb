@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-class Event::TitleComponent < ViewComponent::Base
-  attr_reader :event
-
-  def initialize(event:)
-    @event = event
-  end
+class Event::TitleComponent < ApplicationViewComponent
+  option :event
 
   def title
     if event.event_type == "weekend"

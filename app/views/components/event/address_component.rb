@@ -1,11 +1,7 @@
 # frozen_string_literal: true
 
-class Event::AddressComponent < ViewComponent::Base
-  attr_reader :event
-
-  def initialize(event:)
-    @event = event
-  end
+class Event::AddressComponent < ApplicationViewComponent
+  option :event
 
   def venue_name
     "#{event.address&.name}, " if event.address.present?

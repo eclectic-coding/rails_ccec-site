@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Event::EventComponent < ViewComponent::Base
+class Event::EventComponent < ApplicationViewComponent
   attr_reader :event
 
   def initialize(event:)

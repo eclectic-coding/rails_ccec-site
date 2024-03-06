@@ -3,13 +3,13 @@
     <%= event.start_time.strftime("%-d") %>
   </div>
   <div class="w-3/4">
-    <%= render(Event::TimeBannerComponent.new(event: event)) %>
+    <%= component "event/address",  event: event %>
 
     <%= link_to event_path(event) do %>
-      <%= render(Event::TitleComponent.new(event: event)) %>
+      <%= component "event/title",  event: event %>
     <% end %>
 
-    <%= render(Event::AddressComponent.new(event: event)) unless event.address.nil? %>
+    <%= component "event/address",  event: event unless event.address.nil? %>
 
     <%= content_tag :p do %>
       <%= event.description %>
