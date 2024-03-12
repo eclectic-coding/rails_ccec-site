@@ -85,5 +85,9 @@ jobs:
       - name: Run tests
         run: bin/rspec --exclude-pattern "spec/system/**/*.spec.rb"
 
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v2
+
+
 
 
