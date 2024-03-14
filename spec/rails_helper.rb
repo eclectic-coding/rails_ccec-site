@@ -1,12 +1,11 @@
 require "simplecov"
-require 'coveralls'
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start "rails" do
   add_filter "/app/channels/"
   add_filter "/app/jobs/"
   add_filter "/lib/tasks/"
   add_filter "/app/controllers/admin/events/"
+  add_filter "/lib/generators/"
 end
 
 require "spec_helper"
@@ -34,6 +33,8 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 
 VCRSetup.configure_vcr
+
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   config.include ViewComponent::TestHelpers, type: :view_component
