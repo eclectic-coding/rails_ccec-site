@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FeaturedCardComponent < ApplicationViewComponent
+class FeaturedCard::Component < ApplicationViewComponent
   option :title
   option :description
   option :image
