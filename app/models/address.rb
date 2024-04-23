@@ -28,7 +28,7 @@ class Address < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def address
-    [street, city, state, country].compact.join(", ")
+    [street, city, state, country].compact.join(', ')
   end
 
   def address_changed?

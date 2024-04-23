@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_inviter!
     unless current_user.has_role?(:admin)
-      redirect_to root_url, alert: "Access Denied"
+      redirect_to root_url, alert: 'Access Denied'
     end
     super
   end

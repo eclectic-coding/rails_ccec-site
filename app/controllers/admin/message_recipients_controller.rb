@@ -1,7 +1,7 @@
 class Admin::MessageRecipientsController < ApplicationController
   before_action :authenticate_user!
 
-  layout "admin"
+  layout 'admin'
 
   def show
     # TODO: Add show action/view
@@ -15,9 +15,9 @@ class Admin::MessageRecipientsController < ApplicationController
     @message_recipient = MessageRecipient.new(message_recipient_params)
 
     if @message_recipient.save
-      redirect_to admin_messages_path, notice: t(".create_success")
+      redirect_to admin_messages_path, notice: t('.create_success')
     else
-      render :new, status: :unprocessable_entity, error: t(".create_error")
+      render :new, status: :unprocessable_entity, error: t('.create_error')
     end
   end
 

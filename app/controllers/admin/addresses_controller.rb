@@ -1,7 +1,7 @@
 class Admin::AddressesController < ApplicationController
   before_action :set_address, only: %i[edit update destroy]
 
-  layout "admin"
+  layout 'admin'
 
   def index
     @addresses = Address.all
@@ -19,8 +19,8 @@ class Admin::AddressesController < ApplicationController
     if @address.save
       @addresses = Address.all
       respond_to do |format|
-        format.html { redirect_to admin_addresses_path, notice: t(".create_address") }
-        format.turbo_stream { flash.now[:notice] = t(".create_address") }
+        format.html { redirect_to admin_addresses_path, notice: t('.create_address') }
+        format.turbo_stream { flash.now[:notice] = t('.create_address') }
       end
     else
       render :new, status: :unprocessable_entity
@@ -35,7 +35,7 @@ class Admin::AddressesController < ApplicationController
 
     respond_to do |format|
       if @address.save
-        format.html { redirect_to admin_addresses_path, notice: t(".update_address") }
+        format.html { redirect_to admin_addresses_path, notice: t('.update_address') }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -46,7 +46,7 @@ class Admin::AddressesController < ApplicationController
     @address.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_addresses_path, status: :see_other, notice: t(".destroy_address") }
+      format.html { redirect_to admin_addresses_path, status: :see_other, notice: t('.destroy_address') }
     end
   end
 

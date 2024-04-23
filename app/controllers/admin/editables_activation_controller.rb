@@ -8,7 +8,7 @@ class Admin::EditablesActivationController < ApplicationController
     # rubocop:enable Rails/SkipsModelValidations
 
     respond_to do |format|
-      format.turbo_stream { flash.now[:notice] = "Editable status was successfully updated." }
+      format.turbo_stream { flash.now[:notice] = 'Editable status was successfully updated.' }
     end
   end
 

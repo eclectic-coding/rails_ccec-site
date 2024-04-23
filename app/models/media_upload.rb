@@ -23,5 +23,5 @@ class MediaUpload < ApplicationRecord
 
   validates :name, presence: true
   validates :tag_list, presence: true
-  validates :media_file, attached: true, content_type: "application/pdf"
+  validates :media_file, attached: true, content_type: 'application/pdf'
 end
