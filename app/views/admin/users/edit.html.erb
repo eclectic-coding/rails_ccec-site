@@ -6,25 +6,25 @@
       <div class="mb-3">
         <%= f.label :name, class: "form-label" %>
         <%= f.text_field :name, class: "form-control" %>
-        <%= old_component "shared/form_errors", resource: f.object, key: :name %>
+        <%= component "shared/form_errors", resource: f.object, key: :name %>
       </div>
 
       <div class="mb-3">
         <%= f.label :username, class: "form-label" %>
         <%= f.text_field :username, class: "form-control" %>
-        <%= old_component "shared/form_errors", resource: f.object, key: :username %>
+        <%= component "shared/form_errors", resource: f.object, key: :username %>
       </div>
 
       <div class="mb-3">
         <%= f.label :email, class: "form-label" %>
         <%= f.text_field :email, class: "form-control" %>
-        <%= old_component "shared/form_errors", resource: f.object, key: :email %>
+        <%= component "shared/form_errors", resource: f.object, key: :email %>
       </div>
 
       <%= f.fields_for :account_users, @account_user do |form| %>
         <%= form.label :role_id, class: "form-label" %>
         <%= form.collection_select :role_id, @roles, :id, :human_name, { selected: @user.role_ids.first, prompt: "Select role" }, { class: "form-select" } %>
-        <%= old_component "shared/form_errors", resource: f.object, key: :role_id %>
+        <%= component "shared/form_errors", resource: f.object, key: :role_id %>
       <% end %>
 
       <div class="my-3">
