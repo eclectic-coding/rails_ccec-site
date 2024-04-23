@@ -4,13 +4,13 @@
       <div class="w-full md:w-1/4 flex-1 mb-4 md:mx-4">
         <%= f.label :shortname, class: "form-label" %>
         <%= f.text_field :shortname, class: "form-control" %>
-        <%= component "shared/form_errors", resource: f.object, key: :shortname %>
+        <%= old_component "shared/form_errors", resource: f.object, key: :shortname %>
       </div>
 
       <div class="w-full flex-1 mb-4 md:mx-4">
         <%= f.label :content, class: "form-label" %>
         <%= f.text_field :content, class: "form-control" %>
-        <%= component "shared/form_errors", resource: f.object, key: :content %>
+        <%= old_component "shared/form_errors", resource: f.object, key: :content %>
       </div>
 
       <div class="flex justify-items-end md:justify-items-start items-center md:mx-4">

@@ -5,7 +5,7 @@
     <div class="mb-3">
       <%= f.label :username, class: "form-label" %>
       <%= f.text_field :username, class: "form-control" %>
-      <%= component "shared/form_errors", resource: f.object, key: :username %>
+      <%= old_component "shared/form_errors", resource: f.object, key: :username %>
     </div>
 
     <div class="mb-3">

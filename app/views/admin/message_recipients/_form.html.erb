@@ -4,13 +4,13 @@
     <div class="mb-3">
       <%= f.label :name, class: "form-label" %>
       <%= f.text_field :name, class: "form-control" %>
-      <%= component "shared/form_errors", resource: f.object, key: :name %>
+      <%= old_component "shared/form_errors", resource: f.object, key: :name %>
     </div>
 
     <div class="mb-3">
       <%= f.label :email, class: "form-label" %>
       <%= f.email_field :email, class: "form-control" %>
-      <%= component "shared/form_errors", resource: f.object, key: :email %>
+      <%= old_component "shared/form_errors", resource: f.object, key: :email %>
     </div>
 
     <div class="mb-3">

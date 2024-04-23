@@ -13,13 +13,13 @@
               <%= evt.start_time.strftime("%-d") %>
             </div>
             <div class="w-3/4">
-              <%= component "event/address",  event: evt %>
+              <%= old_component "event/address",  event: evt %>
 
               <%= link_to event_path(evt) do %>
-                <%= component "event/title",  event: evt %>
+                <%= old_component "event/title",  event: evt %>
               <% end %>
 
-              <%= component "event/address",  event: evt unless evt.address.nil? %>
+              <%= old_component "event/address",  event: evt unless evt.address.nil? %>
 
               <%= content_tag :p do %>
                 <%= evt.description %>
