@@ -36,7 +36,7 @@
     <link rel="manifest" href="/site.manifest">
   </head>
   <body class="flex flex-col h-screen bg-gray-50">
-    <%= old_component "banner_message", shortname: "banner" %>
+    <%= component "banner_message", shortname: "banner" %>
     <main class="mb-auto" data-controller="flash">
       <%= render "shared/navbar" %>
       <%= render "shared/notices" %>

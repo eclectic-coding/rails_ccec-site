@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BannerMessageComponent < ApplicationViewComponent
+class BannerMessage::Component < ApplicationViewComponent
   option :shortname
 
   def message
