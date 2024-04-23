@@ -11,28 +11,28 @@ RSpec.describe "Admin::Events", type: :request do
   describe "GET /admin/events" do
     it "renders successful response" do
       get admin_events_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe "GET /admin/events/:id" do
     it "renders successful response" do
       get admin_event_path(event)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe "GET /admin/events/new" do
     it "renders successful response" do
       get new_admin_event_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 
   describe "GET /admin/events/:id/edit" do
     it "renders successful response" do
       get edit_admin_event_path(event)
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 

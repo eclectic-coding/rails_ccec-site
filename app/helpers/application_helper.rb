@@ -21,8 +21,8 @@ module ApplicationHelper
     tag.div(class: "sort sort-#{params[:direction]}")
   end
 
-  def component(name, *, **, &block)
+  def component(name, *, **, &)
     component = (name.to_s.camelize + "Component").constantize
-    render(component.new(*, **), &block)
+    render(component.new(*, **), &)
   end
 end

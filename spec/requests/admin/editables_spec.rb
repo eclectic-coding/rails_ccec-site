@@ -26,6 +26,14 @@ RSpec.describe "Admin::Editables", type: :request do
     end
   end
 
+  describe "PATCH /update" do
+    it "updates an editable" do
+      editable = create(:editable)
+      patch admin_editable_path(editable), params: { editable: { shortname: "new_name" } }
+      expect(editable.reload.shortname).to eq("new_name")
+    end
+  end
+
   describe "DESTROY " do
     it "deletes an editable" do
       editable = create(:editable)

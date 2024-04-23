@@ -1,2 +1,5 @@
-<h1>Admin::Editables#edit</h1>
-<p>Find me in app/views/admin/editables/edit.html.erb</p>
+<%= component "shared/page_title", title: "Edit #{@editable.shortname} Editable" %>
+
+<div class="card my-8">
+  <%= render partial: "admin/editables/form", locals: { editable: @editable } %>
+</div>

@@ -14,8 +14,8 @@
       </div>
 
       <div class="flex justify-items-end md:justify-items-start items-center md:mx-4">
-        <%= f.submit "Create", class: "btn btn-primary" %>
-        <%= link_to "Cancel", :back, class: "btn btn-outline-primary ms-4" %>
+        <%= f.submit @editable.persisted? ? t("update_btn") : t("create_btn"), class: "btn btn-primary" %>
+        <%= link_to t("cancel_btn"), :back, class: "btn btn-outline-primary ms-4" %>
       </div>
     </div>
   <% end %>

@@ -8,6 +8,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_editables_on_shortname  (shortname) UNIQUE
+#
 class Editable < ApplicationRecord
   has_many :poly_actives, as: :activatable, dependent: :destroy
 

@@ -3,7 +3,9 @@ class Admin::EditablesActivationController < ApplicationController
   before_action :set_editable, only: %i[update]
 
   def update
+    # rubocop:disable Rails/SkipsModelValidations
     @editable.poly_actives.first.toggle!(:active)
+    # rubocop:enable Rails/SkipsModelValidations
 
     respond_to do |format|
       format.turbo_stream { flash.now[:notice] = "Editable status was successfully updated." }

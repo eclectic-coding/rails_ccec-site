@@ -9,9 +9,11 @@ RSpec.describe EventDecorator, type: :decorator do
     let(:decorated_collection) { described_class.decorate_collection(events) }
 
     it "returns a collection of decorated events" do
+      # rubocop:disable RSpec/IteratedExpectation
       decorated_collection.each do |decorated_event|
         expect(decorated_event).to be_a(described_class)
       end
+      # rubocop:enable RSpec/IteratedExpectation
     end
   end
 
@@ -21,7 +23,7 @@ RSpec.describe EventDecorator, type: :decorator do
         allow(event).to receive(:event_type).and_return("weekend")
         allow(event).to receive(:name).and_return("Event Name")
         allow(event).to receive(:walk_number).and_return(1)
-        allow_any_instance_of(Address).to receive(:geocode).and_return([1,1])
+        allow_any_instance_of(Address).to receive(:geocode).and_return([1, 1])
       end
 
       it "does not make a request to the geocoding API" do

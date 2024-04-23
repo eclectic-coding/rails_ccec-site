@@ -28,6 +28,14 @@ class Admin::EditablesController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @editable.update(editable_params)
+        format.html { redirect_to admin_editables_path, notice: "Editable was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
