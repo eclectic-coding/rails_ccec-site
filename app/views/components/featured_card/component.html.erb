@@ -4,6 +4,6 @@
     <%= image_tag(image, alt: title, class: "rounded-lg mb-4") %>
     <p class="text-gray-500 dark:text-gray-400"><%= description %></p>
 
-    <%= old_component "shared/continue_reading", resource_url: resource_url %>
+    <%= component "shared/continue_reading", resource_url: resource_url %>
   <% end %>
 </div>
