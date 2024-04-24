@@ -1,6 +1,6 @@
 <div class="flex justify-center w-full mt-8">
   <div class="block p-6 w-full sm:w-1/2">
-    <%= old_component "shared/page_title", title: t('.title') %>
+    <%= component "shared/page_title", title: t('.title') %>
 
     <%= form_with model: @message, local: true do |form| %>
       <div class="mt-6 mb-3">

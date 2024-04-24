@@ -1,4 +1,4 @@
-<%= render(Shared::PageTitleComponent.new(title: t(".profile_title", user_name: @user.name.full))) do %>
+<%= component "shared/page_title", title: t(".profile_title", user_name: @user.name.full) do %>
   <%= link_to t(".login-as_btn"), "#", class: "btn btn-primary" %>
 <% end %>
 

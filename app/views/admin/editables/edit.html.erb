@@ -1,4 +1,4 @@
-<%= old_component "shared/page_title", title: "Edit #{@editable.shortname} Editable" %>
+<%= component "shared/page_title", title: "Edit #{@editable.shortname} Editable" %>
 
 <div class="card my-8">
   <%= render partial: "admin/editables/form", locals: { editable: @editable } %>

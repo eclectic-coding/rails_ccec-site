@@ -1,6 +1,6 @@
 <div class="flex justify-center">
   <div class="card w-1/2 mt-8">
-    <%= render(Shared::PageTitleComponent.new(title: @event.name)) do %>
+    <%= component "shared/page_title", title: @event.name do %>
       <%= link_to "Back to Events", admin_events_path, class: "btn btn-primary" %>
     <% end %>
 

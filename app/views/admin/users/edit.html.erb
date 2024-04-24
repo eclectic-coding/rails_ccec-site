@@ -1,5 +1,5 @@
 <div class="container w-full md:w-1/2 mx-auto">
-  <%= render(Shared::PageTitleComponent.new(title: "Edit user profile")) %>
+  <%= component "shared/page_title", title: "Edit user profile" %>
 
   <div class="card mt-8">
     <%= form_with(url: admin_user_path, model: @user) do |f| %>
