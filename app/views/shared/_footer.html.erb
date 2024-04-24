@@ -4,7 +4,7 @@
       <div class="p-2"><%= component "footer/contact_us" %></div>
       <div class="p-2">
         <% events = current_user ? Event.after_today_footer.limit(3) : Event.after_today_footer.where(role: "").limit(3) %>
-        <%= old_component "footer/events", events: events %>
+        <%= component "footer/events", events: events %>
       </div>
       <div class="p-2">
         <h2 class="h3"><%= t(".downloads_title") %></h2>
