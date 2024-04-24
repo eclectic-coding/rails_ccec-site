@@ -12,7 +12,7 @@
         <% MediaUpload.all.includes([:taggings]).includes(media_file_attachment: :blob).each do |media_upload| %>
           <% if media_upload.tag_list.include?("Documents") %>
             <% @media_uploads << media_upload %>
-            <%= render(Footer::DownloadsComponent.with_collection(@media_uploads)) %>
+            <%= component "footer/downloads", media_upload: @media_uploads %>
           <% end %>
         <% end %>
       </div>

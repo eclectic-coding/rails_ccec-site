@@ -6,25 +6,25 @@
       <div class="mt-6 mb-3">
         <%= form.label :message_recipient, t('.recipient'), class: "form-label" %>
         <%= form.select :message_recipient, MessageRecipient.all.collect { |u| [u.name, u.id] }, { include_blank: true }, class: "form-select" %>
-        <%= render(Shared::FormErrorsComponent.new(resource: @message, key: :message_recipient)) %>
+        <%= component "shared/form_errors", resource: @message, key: :message_recipient %>
       </div>
 
       <div class="mb-3">
         <%= form.label :name, class: "form-label" %>
         <%= form.text_field :name, class: "form-control" %>
-        <%= render(Shared::FormErrorsComponent.new(resource: @message, key: :name)) %>
+        <%= component "shared/form_errors", resource: @message, key: :name %>
       </div>
 
       <div class="my-3">
         <%= form.label :email, class: "form-label" %>
         <%= form.text_field :email, class: "form-control" %>
-        <%= render(Shared::FormErrorsComponent.new(resource: @message, key: :email)) %>
+        <%= component "shared/form_errors", resource: @message, key: :email %>
       </div>
 
       <div class="mb-3">
         <%= form.label :content, "Message:", class: "form-label" %>
         <%= form.text_area :content, class: "form-control" %>
-        <%= render(Shared::FormErrorsComponent.new(resource: @message, key: :content)) %>
+        <%= component "shared/form_errors", resource: @message, key: :content %>
       </div>
 
       <div class="mb-6">

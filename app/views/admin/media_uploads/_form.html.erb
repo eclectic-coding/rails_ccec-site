@@ -3,13 +3,13 @@
     <div class="mb-3">
       <%= form.label :name, class: "form-label required" %>
       <%= form.text_field :name, class: "form-control" %>
-      <%= render(Shared::FormErrorsComponent.new(resource: media_upload, key: :name)) %>
+      <%= component "shared/form_errors", resource: media_upload, key: :name %>
     </div>
 
     <div class="mb-3">
       <%= form.label :tag_list, "Category", class: "form-label required" %>
       <%= form.select(:tag_list, ActsAsTaggableOn::Tag.all.collect { |t| [t.name, t.name] }, { include_blank: true }, class: "form-select") %>
-      <%= render(Shared::FormErrorsComponent.new(resource: media_upload, key: :tag_list)) %>
+      <%= component "shared/form_errors", resource: media_upload, key: :tag_list %>
     </div>
 
     <div class="mb-3">
@@ -20,7 +20,7 @@
         No file attached
       <% end %>
       <%= form.file_field :media_file, class: "form-control" %>
-      <%= render(Shared::FormErrorsComponent.new(resource: media_upload, key: :media_file)) %>
+      <%= component "shared/form_errors", resource: media_upload, key: :media_file %>
     </div>
 
     <div class="mb-3">
