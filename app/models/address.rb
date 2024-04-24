@@ -18,7 +18,7 @@
 #
 #  index_addresses_on_latitude   (latitude)
 #  index_addresses_on_longitude  (longitude)
-#
+
 class Address < ApplicationRecord
   has_many :events, dependent: :destroy
 

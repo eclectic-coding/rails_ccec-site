@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class Event::AddressComponent < ApplicationViewComponent
+class Event::Address::Component < ApplicationViewComponent
   option :event
 
   def venue_name
-    "#{event.address&.name}, " if event.address.present?
+    "#{event&.address&.name}, " if event&.address&.name.present?
   end
 
   def venue_address
