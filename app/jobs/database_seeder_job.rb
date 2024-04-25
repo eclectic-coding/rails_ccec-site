@@ -21,7 +21,7 @@ class DatabaseSeederJob < ApplicationJob
       create_tags
       create_message_recipients
       # create_messages # This is commented out its for testing only.
-      create_editables
+      # create_editables
     end
   end
 
