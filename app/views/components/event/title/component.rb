@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Event::TitleComponent < ApplicationViewComponent
+class Event::Title::Component < ApplicationViewComponent
   option :event
 
   def title
