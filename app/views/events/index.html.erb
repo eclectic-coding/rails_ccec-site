@@ -13,7 +13,7 @@
               <%= evt.start_time.strftime("%-d") %>
             </div>
             <div class="w-3/4">
-              <%= component "event/address",  event: evt %>
+              <%= component "event/time_banner",  event: evt %>
 
               <%= link_to event_path(evt) do %>
                 <%= component "event/title",  event: evt %>

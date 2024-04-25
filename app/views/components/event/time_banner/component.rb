@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Event::TimeBannerComponent < ApplicationViewComponent
+class Event::TimeBanner::Component < ApplicationViewComponent
   option :event
 
   def multi_day_event

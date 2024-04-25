@@ -25,9 +25,4 @@ module ApplicationHelper
     component = name.to_s.camelize.constantize::Component
     render(component.new(*, **), &)
   end
-
-  def old_component(name, *, **, &)
-    component = (name.to_s.camelize + 'Component').constantize
-    render(component.new(*, **), &)
-  end
 end
