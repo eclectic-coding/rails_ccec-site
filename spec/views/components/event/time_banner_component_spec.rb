@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Event::TimeBannerComponent, type: :component do
+RSpec.describe Event::TimeBanner::Component, type: :component do
   it "renders an event date" do
     render_inline(described_class.new(event: Event.new(start_time: Time.zone.now)))
 

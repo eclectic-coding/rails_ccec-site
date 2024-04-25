@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Footer::DownloadsComponent, type: :component do
+RSpec.describe Footer::Downloads::Component, type: :component do
   include Rails.application.routes.url_helpers
 
   it "renders " do

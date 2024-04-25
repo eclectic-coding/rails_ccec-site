@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Shared::ContinueReadingComponent, type: :component do
+RSpec.describe Shared::ContinueReading::Component, type: :component do
   it "renders correct link" do
     render_inline(described_class.new(resource_url: "https://example.com"))
 

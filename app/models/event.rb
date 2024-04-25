@@ -24,7 +24,7 @@
 #  fk_rails_...  (address_id => addresses.id)
 
 class Event < ApplicationRecord
-  belongs_to :address, class_name: '::Address'
+  belongs_to :address, class_name: '::Address', optional: true
 
   after_create do
     update(end_time: start_time + 72.hours) if event_type == 'weekend'

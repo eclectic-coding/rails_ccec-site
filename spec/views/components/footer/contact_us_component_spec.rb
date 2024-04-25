@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Footer::ContactUsComponent, type: :component do
+RSpec.describe Footer::ContactUs::Component, type: :component do
   it "renders the contact us" do
     render_inline(described_class.new)
 

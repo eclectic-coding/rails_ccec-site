@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Shared::FormErrorsComponent, type: :component do
+RSpec.describe Shared::FormErrors::Component, type: :component do
   it "renders form error" do
     resource = MediaUpload.new
     resource.valid?

@@ -2,7 +2,7 @@
 
 require "rails_helper"
 
-RSpec.describe Event::AddressComponent, type: :component do
+RSpec.describe Event::Address::Component, type: :component do
   it "renders the address" do
     VCR.use_cassette("geocode") do
       event = create(:event, event_type: :gathering, address: create(:address))

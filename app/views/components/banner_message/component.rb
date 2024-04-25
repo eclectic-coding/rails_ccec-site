@@ -5,6 +5,6 @@ class BannerMessage::Component < ApplicationViewComponent
 
   def message
     editable = GetEditable.new.call(shortname)
-    editable.content if editable.active?
+    editable.content if editable.present? && editable.active?
   end
 end
