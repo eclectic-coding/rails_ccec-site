@@ -15,5 +15,4 @@ class BannerMessage::Component < ApplicationViewComponent
   def render?
     @editable.present? && @editable.active?
   end
-
 end
