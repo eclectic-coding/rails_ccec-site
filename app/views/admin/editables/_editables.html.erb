@@ -3,16 +3,16 @@
     <table class="admin-table">
       <thead>
         <tr>
-          <th style="width: 150px">Short Name</th>
-          <th>Content</th>
-          <th style="width: 150px">Status</th>
+          <th style="width: 150px"><%= t('.short_name') %></th>
+          <th><%= t('.content') %></th>
+          <th style="width: 150px"><%= t('.status') %></th>
           <th style="width: 150px"></th>
         </tr>
       </thead>
       <tbody>
         <% if editables.empty? %>
           <tr>
-            <td class="text-center" colspan="4">No editables found</td>
+            <td class="text-center" colspan="4"><%= t('.no_editables') %></td>
           </tr>
         <% else %>
           <% editables.each do |editable| %>

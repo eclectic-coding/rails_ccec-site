@@ -16,8 +16,8 @@ class Admin::EditablesController < ApplicationController
     @editable = Editable.new(editable_params)
     if @editable.save
       respond_to do |format|
-        format.html { redirect_to admin_editables_path, notice: 'Editable was successfully created.' }
-        format.turbo_stream { flash.now[:notice] = 'Editable was successfully created.' }
+        format.html { redirect_to admin_editables_path, notice: t(".create_editable") }
+        format.turbo_stream { flash.now[:notice] = t('.create_editable') }
       end
     else
       render :new, status: :unprocessable_entity
@@ -30,7 +30,7 @@ class Admin::EditablesController < ApplicationController
   def update
     respond_to do |format|
       if @editable.update(editable_params)
-        format.html { redirect_to admin_editables_path, notice: 'Editable was successfully updated.' }
+        format.html { redirect_to admin_editables_path, notice: t('.update_editable') }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class Admin::EditablesController < ApplicationController
 
   def destroy
     @editable.destroy
-    redirect_to admin_editables_path, notice: 'Editable was successfully destroyed.'
+    redirect_to admin_editables_path, notice: t('.destroy_editable')
   end
 
   private

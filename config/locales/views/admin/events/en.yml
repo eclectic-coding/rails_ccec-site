@@ -43,6 +43,9 @@ en:
         select_venue: Select venue
       events:
         no_events: No events found
+      addresses:
+        create:
+          create_address: 'Address was successfully created.'
   events:
     show:
       event_name: "Name:"
