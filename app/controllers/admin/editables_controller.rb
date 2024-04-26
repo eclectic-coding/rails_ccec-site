@@ -16,7 +16,7 @@ class Admin::EditablesController < ApplicationController
     @editable = Editable.new(editable_params)
     if @editable.save
       respond_to do |format|
-        format.html { redirect_to admin_editables_path, notice: t(".create_editable") }
+        format.html { redirect_to admin_editables_path, notice: t('.create_editable') }
         format.turbo_stream { flash.now[:notice] = t('.create_editable') }
       end
     else
