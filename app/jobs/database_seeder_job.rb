@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'faker' if Rails.env.development?
-
 class DatabaseSeederJob < ApplicationJob
   queue_as :default
 
@@ -82,22 +80,22 @@ class DatabaseSeederJob < ApplicationJob
   end
 
   def create_messages
-    10.times do
-      Message.create!(
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        content: Faker::Lorem.paragraph(sentence_count: 2),
-        message_recipient_id: MessageRecipient.first.id
-      )
-    end
+    # 10.times do
+    #   Message.create!(
+    #     name: Faker::Name.name,
+    #     email: Faker::Internet.email,
+    #     content: Faker::Lorem.paragraph(sentence_count: 2),
+    #     message_recipient_id: MessageRecipient.first.id
+    #   )
+    # end
 
-    10.times do
-      Message.create!(
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        content: Faker::Lorem.paragraph(sentence_count: 2),
-        message_recipient_id: MessageRecipient.second.id
-      )
-    end
+    # 10.times do
+    #   Message.create!(
+    #     name: Faker::Name.name,
+    #     email: Faker::Internet.email,
+    #     content: Faker::Lorem.paragraph(sentence_count: 2),
+    #     message_recipient_id: MessageRecipient.second.id
+    #   )
+    # end
   end
 end
