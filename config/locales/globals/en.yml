@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8d6ab2dea582d68c591156321dad83d8c9105f6a1009a03c0b772d692f8aa66f
-size 293
+en:
+  edit_btn: Edit
+  destroy_btn: Destroy
+  cancel_btn: Cancel
+  logout_btn: Logout
+  community_title: Coastal Carolina Emmaus
+  community_description: "My text"
+  login: Login
+  continue_reading: Continue Reading
+  update_btn: Update
+  create_btn: Create
+  emmaus: Coastal Carolina Emmaus
+

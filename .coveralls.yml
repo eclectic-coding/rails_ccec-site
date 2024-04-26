@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5ac34d9747e2fc2c52e8954df864475ee5e2c819d0eb2c7deb637e00e8f334a
-size 28
+service_name: github-actions

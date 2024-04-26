@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:eccc8f49d32f8cc19a5ba611b7d699a46cff033812020cbcc81d7b4ca167c631
-size 513
+en:
+  admin:
+    account_users:
+      form:
+        create_user_btn: Create User
+        create_user: New Users
+        select_role: 'Select role'
+      account_users_name:
+        row-name:
+          name: Name
+      account_users_email:
+        row-email:
+          name: Email
+      account_users_role:
+        row-email:
+          name: Role
+      create:
+        create_account_user: Account user was successfully created.
+      destroy:
+        destroy_account_user: Account user was successfully destroyed.

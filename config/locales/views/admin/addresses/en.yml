@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f93b7a9a9c0a0864fe42da96a471c66c66f9ea4bb66fd1b706808be3320f3ae6
-size 661
+en:
+  admin:
+    addresses:
+      title: Venues
+      index:
+        add_address: Add Venue
+        name: Location
+        street: Street
+        city: City
+        state: State
+        zip: ZipCode
+      addresses:
+        no_addresses: No addresses found
+      form:
+        create_venue: Create Venue
+        update_venue: Update Venue
+        new_venue_title: New Venue
+        help_message: All new locations default to North Carolina, USA
+      create:
+        create_address: Address was successfully created.
+      update:
+        update_address: Address was successfully updated.
+      destroy:
+        destroy_address: Venue was successfully removed.

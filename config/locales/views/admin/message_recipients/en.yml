@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:17994abe5956ca2381f560642ddeff118523f69553ccd9e6dbc4d745a797f255
-size 273
+en:
+  admin:
+    message_recipients:
+      form:
+        new_recipient: New Recipient
+        create_recipient: Create Recipient
+      create:
+        create_success: Message recipient was successfully created.
+        create_error: Message recipient could not be created.

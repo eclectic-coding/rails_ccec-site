@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:401e9e3911c05a4adffceb850e9b536d63ab7953d85a1a2d8d455ef9d0eb33e3
-size 1414
+en:
+  shared:
+    admin_navbar:
+      events_title: Events
+  admin:
+    events:
+      destroy:
+        destroy_notice: "Event was successfully destroyed."
+      update:
+        update_notice: "Event was successfully updated."
+      create:
+        create_notice: "Event was successfully created."
+      edit:
+        select_role: 'Select role'
+        confirm: "Are you sure?"
+        prohibited: "prohibited this event from being saved:"
+        edit_events: "Edit Event"
+      title: Events
+      index:
+        add_event: Add Event
+        name: Name
+        start_time: Start Time
+        role: Role
+        end_time: End Time
+        event_type: Type
+        walk_number: Walk
+        help_text: Displays events from 14 days in the past
+      new:
+        new_event: New Event
+      show:
+        event_name: Event Name
+        end_time: End Time
+        event_type: Event Type
+        start_time: Start Time
+        role: Role
+        description: Description
+        no_description: No Description
+        location: Location
+      form:
+        prohibited: "prohibited this event from being saved:"
+        roles: "Role"
+        select_role: Select role
+        select_venue: Select venue
+      events:
+        no_events: No events found
+  events:
+    show:
+      event_name: "Name:"
+      event_start_time: "Start time:"
+      event_end_time: "End time:"
+      event_role: "Role:"
+      event_type: "Type:"

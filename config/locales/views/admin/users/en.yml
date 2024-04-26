@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:39133b9655ad0b381fd26f741dedca61965c0f222116f4042afe0d6464f07a05
-size 1006
+en:
+  admin:
+    users:
+      show:
+        profile_title: "%{user_name}'s Profile"
+        name: Name
+        username: Username
+        email: Email
+        role: Role
+        login-as_btn: Login As
+        created_at: Created At
+        updated_at: Updated At
+        invitation_token: Invitation Token
+        invitation_created: Invitation Created
+        invitation_sent: Invitation Sent
+        invitation_accepted: Invitation Accepted
+        password_token: Password Token
+        password_reset: Password Reset Sent
+        reset_password: Reset Password
+      users_name:
+        update:
+          update_success: "User's name was successfully updated."
+      users_role:
+        update:
+          update_success: "User's role was successfully updated."
+      users_username:
+        update:
+          update_success: "User's username was successfully updated."
+      update:
+        updated: "User was successfully updated."
+      destroy:
+        destroyed: "User was successfully destroyed."

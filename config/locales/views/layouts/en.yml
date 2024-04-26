@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abe75ef783368b4af456e8746f3923d9228ea8f8194ca0dc0e82da37b20c6911
-size 1545
+en:
+  no_events: "No events found"
+  static:
+    prayer-vigil_card:
+      title: Prayer Vigil
+      description: "Prayer is an integral part of any Christians life and is indeed so on the Walk to Emmaus experience. Consider being part of a prayer ministry that prays for each person attending a weekend event by … "
+    interested_card:
+      title: Interested?
+      description: "Are you interested in attending an Emmaus weekend? Every person who attends the walk to Emmaus has a “sponsor” who supports and encourages him/her before …"
+    registration_card:
+      title: Registration
+      description: "Did you know that you can register an applicant online? Try our new online form and we will be in touch soon. Thank you in advance for your willingness to serve. On this page, you will find …"
+    questions:
+      questions:  Frequently Asked Questions
+      registered_area: How do I login to the Registered Area of the CCEC web site?
+      contact_database: What is Ministry Manager and how can I view my contact information?
+      emmaus: Where can I get more information about Emmaus?
+      prayer: Where can I request prayer?
+      sponsorship: How do I sponsor someone for the Emmaus walk?
+      rosters: Where can I see a list of the Pilgrims and Team for a walk?
+      contact_database_text_html: ""
+    sponsorship:
+      sponsorship: Sponsorship
+    info_card:
+      info: Interested for More?
+    attending:
+      attending: Attending
+    home:
+      welcome: Welcome
+    information:
+      information: Information

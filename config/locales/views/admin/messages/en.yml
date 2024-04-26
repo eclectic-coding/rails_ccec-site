@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:62bfd1c19ac989225118cf32ddc7071154a26a42e86ff60736a2fd0bf50ffab9
-size 555
+en:
+  admin:
+    messages:
+      index:
+        recipients: Recipients
+        new_recipient: New Recipient
+        message_dashboard: "Message Dashboard"
+      recipients_table:
+        name: Name
+        email: Email
+        confirm: Are you sure you want to delete this recipient?
+        no_recipients: No message recipients found.
+        messages_count: Messages count
+      messages_table:
+        name: Name
+        email: Email
+        recipient: Recipient
+        message: Message
+        no_messages: No messages
+        received: Received Date

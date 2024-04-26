@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b49e6879b50b12ef8429830eafdf73708b805d7af511fac03f5a14228e575624
-size 96
+en:
+  save: Save
+  admin:
+    dashboard:
+      title: Dashboard
+  are_you_sure: "Are you sure?"
