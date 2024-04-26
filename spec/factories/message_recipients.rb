@@ -2,7 +2,7 @@
 #
 # Table name: message_recipients
 #
-#  id             :uuid             not null, primary key
+#  id             :bigint           not null, primary key
 #  email          :string
 #  messages_count :integer          default(0), not null
 #  name           :string

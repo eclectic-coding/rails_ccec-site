@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :uuid             not null, primary key
+#  id                     :bigint           not null, primary key
 #  admin                  :boolean          default(FALSE)
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
@@ -21,7 +21,7 @@
 #  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  account_id             :uuid
+#  account_id             :bigint
 #  invited_by_id          :bigint
 #
 # Indexes

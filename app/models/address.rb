@@ -2,7 +2,7 @@
 #
 # Table name: addresses
 #
-#  id         :uuid             not null, primary key
+#  id         :bigint           not null, primary key
 #  city       :string
 #  country    :string           default("US")
 #  latitude   :float
@@ -18,6 +18,7 @@
 #
 #  index_addresses_on_latitude   (latitude)
 #  index_addresses_on_longitude  (longitude)
+#
 
 class Address < ApplicationRecord
   has_many :events, dependent: :destroy

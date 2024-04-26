@@ -2,7 +2,7 @@
 #
 # Table name: editables
 #
-#  id         :uuid             not null, primary key
+#  id         :bigint           not null, primary key
 #  content    :text
 #  shortname  :string
 #  created_at :datetime         not null

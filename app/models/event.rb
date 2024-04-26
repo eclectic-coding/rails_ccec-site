@@ -2,7 +2,7 @@
 #
 # Table name: events
 #
-#  id                 :uuid             not null, primary key
+#  id                 :bigint           not null, primary key
 #  description        :text
 #  end_time           :datetime
 #  event_type         :integer
@@ -12,7 +12,7 @@
 #  walk_number        :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
-#  address_id         :uuid
+#  address_id         :bigint
 #  connected_event_id :string
 #
 # Indexes
@@ -22,6 +22,7 @@
 # Foreign Keys
 #
 #  fk_rails_...  (address_id => addresses.id)
+#
 
 class Event < ApplicationRecord
   belongs_to :address, class_name: '::Address', optional: true

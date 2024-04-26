@@ -12,19 +12,18 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "account_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "account_id", null: false
-    t.uuid "user_id", null: false
+  create_table "account_users", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["account_id"], name: "index_account_users_on_account_id"
     t.index ["user_id"], name: "index_account_users_on_user_id"
   end
 
-  create_table "accounts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,7 +57,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "addresses", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "addresses", force: :cascade do |t|
     t.string "name"
     t.string "street"
     t.string "city"
@@ -73,7 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.index ["longitude"], name: "index_addresses_on_longitude"
   end
 
-  create_table "editables", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "editables", force: :cascade do |t|
     t.string "shortname"
     t.text "content"
     t.datetime "created_at", null: false
@@ -81,7 +80,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.index ["shortname"], name: "index_editables_on_shortname", unique: true
   end
 
-  create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "events", force: :cascade do |t|
+    t.bigint "address_id"
     t.string "name"
     t.datetime "start_time"
     t.string "role"
@@ -92,7 +92,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.string "connected_event_id"
     t.integer "walk_number"
     t.text "description"
-    t.uuid "address_id"
     t.index ["address_id"], name: "index_events_on_address_id"
   end
 
@@ -107,7 +106,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "media_uploads", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "media_uploads", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.integer "views_count", default: 0
@@ -117,7 +116,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.index ["slug"], name: "index_media_uploads_on_slug", unique: true
   end
 
-  create_table "message_recipients", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "message_recipients", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
@@ -125,31 +124,30 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.integer "messages_count", default: 0, null: false
   end
 
-  create_table "messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "message_recipient_id", null: false
+  create_table "messages", force: :cascade do |t|
+    t.bigint "message_recipient_id", null: false
     t.string "name"
     t.string "email"
     t.text "content"
     t.boolean "request_copy", default: false
-    t.integer "messages_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["message_recipient_id"], name: "index_messages_on_message_recipient_id"
   end
 
-  create_table "poly_actives", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "poly_actives", force: :cascade do |t|
     t.boolean "active", default: false
     t.string "activatable_type", null: false
-    t.uuid "activatable_id", null: false
+    t.bigint "activatable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activatable_type", "activatable_id"], name: "index_poly_actives_on_activatable"
   end
 
-  create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "resource_type"
-    t.uuid "resource_id"
+    t.bigint "resource_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
@@ -187,7 +185,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
-  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -198,7 +196,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "account_id"
+    t.bigint "account_id"
     t.string "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -218,8 +216,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_23_122442) do
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
-    t.uuid "user_id"
-    t.uuid "role_id"
+    t.bigint "user_id"
+    t.bigint "role_id"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
     t.index ["user_id"], name: "index_users_roles_on_user_id"

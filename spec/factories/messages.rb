@@ -2,15 +2,14 @@
 #
 # Table name: messages
 #
-#  id                   :uuid             not null, primary key
+#  id                   :bigint           not null, primary key
 #  content              :text
 #  email                :string
-#  messages_count       :integer          default(0)
 #  name                 :string
 #  request_copy         :boolean          default(FALSE)
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  message_recipient_id :uuid             not null
+#  message_recipient_id :bigint           not null
 #
 # Indexes
 #

@@ -2,12 +2,12 @@
 #
 # Table name: poly_actives
 #
-#  id               :uuid             not null, primary key
+#  id               :bigint           not null, primary key
 #  activatable_type :string           not null
 #  active           :boolean          default(FALSE)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  activatable_id   :uuid             not null
+#  activatable_id   :bigint           not null
 #
 # Indexes
 #

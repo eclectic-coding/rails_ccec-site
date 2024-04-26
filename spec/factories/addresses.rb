@@ -2,7 +2,7 @@
 #
 # Table name: addresses
 #
-#  id         :uuid             not null, primary key
+#  id         :bigint           not null, primary key
 #  city       :string
 #  country    :string           default("US")
 #  latitude   :float
