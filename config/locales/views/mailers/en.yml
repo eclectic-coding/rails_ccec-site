@@ -1,15 +1,3 @@
-en:
-  user_profile_mailer:
-    update_user_name:
-      name_updated: "Name Update"
-    update_user_role:
-      role_updated: "Role Update"
-    update_user_username:
-      username_updated: "Username Update"
-    update_user_email:
-      email_updated: "Email Update"
-  contact_us_mailer:
-    new_message:
-      new_message: "New Message"
-    copy_message:
-      copy_message: "Copy of your Message"
+version https://git-lfs.github.com/spec/v1
+oid sha256:e5afd31b1ac3a0b55dacaf00925f39d75ac3dbb410f17b93a9360d9d35de8ab9
+size 398

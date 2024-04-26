@@ -1,8 +1,3 @@
-en:
-  events:
-    index:
-      title: Community Events
-    show:
-      title: Community Event
-      add_to_calendar: Add to your Calendar
-      future_map: Future map widget
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa8eb4d95ab3b6fe2f0aed3bdfd8e929fff063c68db228f9392c487258ea0bf9
+size 174

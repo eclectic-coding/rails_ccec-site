@@ -1,8 +1,3 @@
-en:
-  admin:
-    editable:
-      title: Editables
-    editables:
-      index:
-        add_editable: Add Editable
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:ea74bec35ee4d8203840c356b469e69d19db9c4b38cb2eb8abc32ba0fcd84a04
+size 114

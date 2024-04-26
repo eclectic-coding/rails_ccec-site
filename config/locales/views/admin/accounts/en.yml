@@ -1,24 +1,3 @@
-en:
-  admin:
-    accounts:
-      index:
-        title: Accounts
-        users_title: Users
-        new_user_btn: New User
-      accounts:
-        title: Accounts
-        new_account_btn: New Account
-      accounts_table:
-        title: Accounts
-        users: Users
-        created: Created
-      users_table:
-        user_name: Name
-        user_email: Email
-        user_role: Role
-        invitation_token: Invitation Token
-        invitation_created: Invitation Created
-        invitation_sent: Invitation Sent
-        invitation_accepted: Invitation Accepted
-        confirm: Are you sure?
-        username: Username
+version https://git-lfs.github.com/spec/v1
+oid sha256:0991eac1be0c992587b1032fda84d57ac6189cf7cb935a492316dd9b5b45d39f
+size 622
