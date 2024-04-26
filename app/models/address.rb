@@ -18,7 +18,7 @@
 #
 #  index_addresses_on_latitude   (latitude)
 #  index_addresses_on_longitude  (longitude)
-#
+
 class Address < ApplicationRecord
   has_many :events, dependent: :destroy
 
@@ -28,7 +28,7 @@ class Address < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def address
-    [street, city, state, country].compact.join(", ")
+    [street, city, state, country].compact.join(', ')
   end
 
   def address_changed?

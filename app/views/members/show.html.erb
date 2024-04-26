@@ -4,8 +4,8 @@
   <section class="mb-8">
     <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
       <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
-        <%= render(FeaturedCardComponent.new(title: t('members.sponsorship-card.sponsorship'), description: t("members.sponsorship-card.sponsorship_text"), image: 'sponsorship.webp', resource_url: '/members/sponsorship')) %>
-        <%= render(FeaturedCardComponent.new(title: t('members.directions-card.directions'), description: t("members.directions-card.directions_intro"), image: 'directions.webp', resource_url: '/members/directions')) %>
+        <%= component "featured_card", title: t('members.sponsorship-card.sponsorship'), description: t("members.sponsorship-card.sponsorship_text"), image: 'sponsorship.webp', resource_url: '/members/sponsorship' %>
+        <%= component "featured_card", title: t('members.directions-card.directions'), description: t("members.directions-card.directions_intro"), image: 'directions.webp', resource_url: '/members/directions' %>
       </div>
     </div>
   </section>

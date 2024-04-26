@@ -5,7 +5,7 @@
       <div class="mb-3">
         <%= form.label :name, class: 'form-label fw-bold' %>
         <%= form.text_field :name, class: 'form-control' %>
-        <%= render(Shared::FormErrorsComponent.new(resource: @event, key: :name)) %>
+        <%= component "shared/form_errors", resource: @event, key: :name %>
       </div>
 
       <div class="mb-3">
@@ -15,13 +15,13 @@
             <%= form.select :event_type, options_for_select(Event.event_types.map { |k, v| [k.titleize, Event.event_types.key(v)] },
                                                             selected: form.object.event_type), {}, class: 'form-select',
                             data: { events_target: "types", action: "change->events#update" } %>
-            <%= render(Shared::FormErrorsComponent.new(resource: @event, key: :event_type)) %>
+            <%= component "shared/form_errors", resource: @event, key: :event_type %>
           </div>
 
           <div>
             <%= form.label :walk_number, class: 'form-label text-nowrap' %>
             <%= form.text_field :walk_number, class: 'form-control' %>
-            <%= render(Shared::FormErrorsComponent.new(resource: @event, key: :walk_number)) %>
+            <%= component "shared/form_errors", resource: @event, key: :walk_number %>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
         <div class="w-3/4 mr-1">
           <%= form.label :address_id, "Venue", class: 'form-label' %>
           <%= form.collection_select :address_id, Address.all, :id, :name, { prompt: t('admin.events.form.select_venue') }, class: 'form-select' %>
-          <%= render(Shared::FormErrorsComponent.new(resource: @event, key: :address_id)) %>
+          <%= component "shared/form_errors", resource: @event, key: :address_id %>
         </div>
         <div class="flex justify-end items-center w-1/4 mt-3">
           <button data-modal-target="default-modal" data-modal-toggle="default-modal"
@@ -45,13 +45,13 @@
           <div>
             <%= form.label :start_time, class: 'form-label fw-bold' %>
             <%= form.text_field :start_time, data: { controller: "flatpickr", flatpickr_min_date: DateTime.new(Time.now.year, Time.now.month, Time.now.day, 19, 0, 0), flatpickr_enable_time: true, flatpickr_default_date: "17:00", }, class: 'form-control flatpickr' %>
-            <%= render(Shared::FormErrorsComponent.new(resource: @event, key: :start_time)) %>
+            <%= component "shared/form_errors", resource: @event, key: :start_time %>
           </div>
 
           <div>
             <%= form.label :end_time, class: 'form-label fw-bold' %>
             <%= form.text_field :end_time, data: { controller: "flatpickr", flatpickr_min_date: DateTime.new(Time.now.year, Time.now.month, Time.now.day, 19, 0, 0), flatpickr_enable_time: true, flatpickr_default_date: "17:00", }, class: 'form-control flatpickr' %>
-            <%= render(Shared::FormErrorsComponent.new(resource: @event, key: :end_time)) %>
+            <%= component "shared/form_errors", resource: @event, key: :end_time %>
           </div>
         </div>
 

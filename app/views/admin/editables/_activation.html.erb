@@ -1,0 +1,6 @@
+<%= turbo_stream.update "activate_#{dom_id(editable)}" do %>
+  <% message = editable.active? ? t('.active') : t('.inactive') %>
+  <%= link_to admin_editables_activation_path(editable), data: { turbo_method: :put }, class: "capitalize" do %>
+    <%= message %>
+  <% end %>
+<% end %>

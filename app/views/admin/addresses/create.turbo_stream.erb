@@ -1,0 +1,7 @@
+<%= turbo_stream.update "addresses" do %>
+  <%= render partial: "admin/addresses/addresses", locals: { addresses: @addresses } %>
+<% end %>
+
+<%= turbo_stream.update "new_address", "" %>
+
+<%= turbo_stream.replace "flash", partial: "shared/notices" %>

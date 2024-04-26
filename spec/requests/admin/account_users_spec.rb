@@ -9,7 +9,7 @@ RSpec.describe "Admin::AccountUsers", type: :request do
   describe "GET /admin/account_users/new" do
     it "renders successful response" do
       get new_admin_account_user_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(:ok)
     end
   end
 end

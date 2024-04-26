@@ -3,10 +3,7 @@
 const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-/** @type {import('tailwindcss').Config */
 module.exports = {
-    mode: 'jit',
-    enabled: true,
     content: [
         './app/views/**/*.html.erb',
         './app/components/**/*.html.erb',

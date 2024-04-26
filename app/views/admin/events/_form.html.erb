@@ -3,7 +3,7 @@
   <div class="mb-3">
     <%= form.label :name, class: 'form-label' %>
     <%= form.text_field :name, class: 'form-control' %>
-    <%= render(Shared::FormErrorsComponent.new(resource: event, key: :name)) %>
+    <%= component "shared/form_errors", resource: event, key: :name %>
   </div>
 
   <div class="mb-3">
@@ -12,13 +12,13 @@
         <%= form.label :event_type, class: 'form-label text-nowrap' %>
         <%= form.select :event_type, options_for_select(Event.event_types.map { |k, v| [k.titleize, Event.event_types.key(v)] }),
                         { include_blank: true }, class: 'form-select', data: { events_target: "types", action: "change->events#update" } %>
-        <%= render(Shared::FormErrorsComponent.new(resource: event, key: :event_type)) %>
+        <%= component "shared/form_errors", resource: event, key: :event_type %>
       </div>
 
       <div>
         <%= form.label :walk_number, class: 'form-label text-nowrap' %>
         <%= form.text_field :walk_number, class: 'form-control' %>
-        <%= render(Shared::FormErrorsComponent.new(resource: event, key: :walk_number)) %>
+        <%= component "shared/form_errors", resource: event, key: :walk_number %>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
     <%= form.label :address_id, "Venue", class: 'form-label' %>
     <%= form.collection_select :address_id, Address.all, :id, :name, { prompt: t('.select_venue') },
                                data: { events_target: "venue", action: "change->events#update" }, class: 'form-select' %>
-    <%= render(Shared::FormErrorsComponent.new(resource: event, key: :name)) %>
+    <%= component "shared/form_errors", resource: event, key: :name %>
   </div>
 
   <div class="mb-3">
@@ -35,7 +35,7 @@
       <div>
         <%= form.label :role, t('.roles'), class: 'form-label' %>
         <%= form.collection_select :role, Role.all, :id, :human_name, { prompt: t(".select_role") }, data: { events_target: "roles" }, class: 'form-select' %>
-        <%= render(Shared::FormErrorsComponent.new(resource: event, key: :role)) %>
+        <%= component "shared/form_errors", resource: event, key: :role %>
       </div>
 
       <div>
@@ -45,7 +45,7 @@
                                     flatpickr_min_date: DateTime.new(Time.now.year, Time.now.month, Time.now.day, 18, 30, 0),
                                     flatpickr_enable_time: true,
                                     flatpickr_default_date: "17:00", }, class: 'form-control flatpickr' %>
-        <%= render(Shared::FormErrorsComponent.new(resource: event, key: :start_time)) %>
+        <%= component "shared/form_errors", resource: event, key: :start_time %>
       </div>
     </div>
   </div>
@@ -53,7 +53,7 @@
   <div class="mb-8">
     <%= form.label :description, class: 'form-label fw-bold mb-2' %>
     <%= form.text_area :description, class: 'form-control' %>
-    <%= render(Shared::FormErrorsComponent.new(resource: event, key: :name)) %>
+    <%= component "shared/form_errors", resource: event, key: :name %>
   </div>
 
   <div>

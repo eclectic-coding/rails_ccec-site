@@ -2,7 +2,7 @@ class Admin::AccountUsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account, only: [:show, :new, :create]
 
-  layout "admin"
+  layout 'admin'
 
   def show
     @account_user = AccountUser.find_by(user_id: params[:user_id])
@@ -19,7 +19,7 @@ class Admin::AccountUsersController < ApplicationController
     @roles = current_user.has_role?(:superadmin) ? Role.all : Role.all_except
 
     if account_user.save
-      redirect_to admin_accounts_path, notice: t(".create_account_user")
+      redirect_to admin_accounts_path, notice: t('.create_account_user')
     else
       render :new, status: :unprocessable_entity
     end

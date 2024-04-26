@@ -1,0 +1,3 @@
+<%= turbo_stream.update "new_editable" do %>
+  <%= render partial: "admin/editables/form", locals: { editable: @editable } %>
+<% end %>

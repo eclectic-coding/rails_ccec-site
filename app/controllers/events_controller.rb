@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     events = if current_user
       Event.after_today
     else
-      Event.after_today.where(role: "")
+      Event.after_today.where(role: '')
     end
     @events = events.group_by_month { |u| u.start_time }
     # authorize @events

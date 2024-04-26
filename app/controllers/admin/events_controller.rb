@@ -3,7 +3,7 @@ class Admin::EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
   include Filterable
 
-  layout "admin"
+  layout 'admin'
 
   # GET /events or /events.json
   def index
@@ -15,7 +15,7 @@ class Admin::EventsController < ApplicationController
   def list
     @pagy, @events = pagy(filter!(Event), items: 10)
 
-    render(partial: "admin/events/events", locals: { events: @events, pagy: @pagy })
+    render(partial: 'admin/events/events', locals: { events: @events, pagy: @pagy })
   end
 
   # GET /events/1 or /events/1.json
@@ -38,7 +38,7 @@ class Admin::EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to admin_events_path, notice: t(".create_notice") }
+        format.html { redirect_to admin_events_path, notice: t('.create_notice') }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,7 +51,7 @@ class Admin::EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to admin_events_path, notice: t(".update_notice") }
+        format.html { redirect_to admin_events_path, notice: t('.update_notice') }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,7 +66,7 @@ class Admin::EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_events_path, notice: t(".destroy_notice") }
+      format.html { redirect_to admin_events_path, notice: t('.destroy_notice') }
       format.json { head :no_content }
     end
   end

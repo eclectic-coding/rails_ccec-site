@@ -20,6 +20,8 @@ Bundler.require(*Rails.groups)
 
 module CoastalCarolinaEmmaus
   class Application < Rails::Application
+    config.autoload_paths << Rails.root.join("app", "views", "components")
+    config.view_component.preview_paths << Rails.root.join("app", "views", "components")
     config.active_job.queue_adapter = :sidekiq
 
     # Initialize configuration defaults for originally generated Rails version.

@@ -1,4 +1,4 @@
-<%= render(Shared::PageTitleComponent.new(title: t('admin.events.title'))) do %>
+<%= component "shared/page_title", title: t('admin.events.title') do %>
   <%= link_to new_admin_event_path, class: 'btn btn-primary ms-3 ms-md-0' do %>
     <%= t(".add_event") %>
   <% end %>

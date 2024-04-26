@@ -1,11 +1,10 @@
 require "system_helper"
 
 RSpec.describe "Admin::Events::EventsSearches", type: :system do
+  let!(:event) { create(:event, name: "Weekend Event", event_type: "weekend", walk_number: 111, start_time: Time.zone.now + 1.day) }
+
   before do
     login_as create(:user, :admin)
-    create(:address, name: "Salt and Light Center")
-    create(:address, name: "Faith Harbor UMC")
-    create(:event, name: "Weekend Event", event_type: "weekend", walk_number: 111, start_time: Time.zone.now + 1.day)
   end
 
   describe "searching", js: true do

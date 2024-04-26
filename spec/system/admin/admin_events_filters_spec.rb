@@ -1,10 +1,9 @@
 require "system_helper"
 
 RSpec.describe "AdminEventsFilters", type: :system do
+  let!(:event) { create(:event, name: "Walk 1", event_type: :weekend, start_time: Time.zone.now + 1.day) }
+
   before do
-    create(:address, name: "Salt and Light Center")
-    create(:address, name: "Faith Harbor UMC")
-    create(:event, name: "Walk 1", event_type: :weekend, start_time: Time.zone.now + 1.day)
     login_as create(:user, :super_admin)
     visit admin_events_path
   end

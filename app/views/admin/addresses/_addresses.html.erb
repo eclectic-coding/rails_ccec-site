@@ -11,14 +11,14 @@
         </tr>
       </thead>
       <tbody>
-        <% if @addresses.empty? %>
+        <% if addresses.nil? %>
           <tr>
             <td class="text-center" colspan="5">
               <%= t('.no_addresses') %>
             </td>
           </tr>
         <% else %>
-          <% @addresses.each do |address| %>
+          <% addresses.each do |address| %>
             <tr id=<%= address.id %>>
               <td><%= link_to address.name, edit_admin_address_path(address) %></td>
               <td><%= address.street %></td>

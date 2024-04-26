@@ -2,7 +2,7 @@ class Admin::MediaUploadsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_media_upload, only: [:edit, :update, :destroy]
 
-  layout "admin"
+  layout 'admin'
 
   def index
     @media_uploads = MediaUpload.all
@@ -18,10 +18,10 @@ class Admin::MediaUploadsController < ApplicationController
 
     respond_to do |format|
       if @media_upload.save
-        format.html { redirect_to admin_media_uploads_path, notice: t(".new_media_uploads") }
+        format.html { redirect_to admin_media_uploads_path, notice: t('.new_media_uploads') }
       else
         # Log the validation errors
-        Rails.logger.debug @media_upload.errors.full_messages.join(", ")
+        Rails.logger.debug @media_upload.errors.full_messages.join(', ')
         format.turbo_stream
       end
     end
@@ -33,7 +33,7 @@ class Admin::MediaUploadsController < ApplicationController
   def update
     respond_to do |format|
       if @media_upload.update(media_upload_params)
-        format.html { redirect_to admin_media_uploads_path, notice: t(".update_media_uploads") }
+        format.html { redirect_to admin_media_uploads_path, notice: t('.update_media_uploads') }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -44,7 +44,7 @@ class Admin::MediaUploadsController < ApplicationController
     @media_upload.media_file.purge
     @media_upload.destroy
     respond_to do |format|
-      format.html { redirect_to admin_media_uploads_path, notice: t(".destroyed_media_uploads") }
+      format.html { redirect_to admin_media_uploads_path, notice: t('.destroyed_media_uploads') }
     end
   end
 

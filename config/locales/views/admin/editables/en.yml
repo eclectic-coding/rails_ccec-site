@@ -1,0 +1,22 @@
+en:
+  admin:
+    editable:
+      title: Editables
+    editables:
+      index:
+        add_editable: Add Editable
+      create:
+        create_editable: 'Editable was successfully created.'
+      update:
+        update_editable: 'Editable was successfully updated.'
+      destroy:
+        destroy_editable: 'Editable was successfully destroyed.'
+      activation:
+        active: Active
+        inactive: Inactive
+      editables:
+        short_name: Short Name
+        status: Status
+        content: Content
+        no_editables: 'No editables found.'
+

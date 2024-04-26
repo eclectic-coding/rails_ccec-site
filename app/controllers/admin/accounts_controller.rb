@@ -2,7 +2,7 @@ class Admin::AccountsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account, only: %i[index]
 
-  layout "admin"
+  layout 'admin'
 
   def index
     @accounts = Account.all

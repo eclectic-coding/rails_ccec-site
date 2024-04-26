@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="turbo-refresh-method" content="morph">
+    <meta name="turbo-refresh-scroll" content="preserve">
 
     <%# TODO: Replace this hack with meta-tags gem %>
     <% if content_for?(:meta_description) %>
@@ -35,7 +36,8 @@
     <link rel="manifest" href="/site.manifest">
   </head>
   <body class="flex flex-col h-screen bg-gray-50">
-    <main class="mb-auto">
+    <%= component "banner_message", shortname: "banner" %>
+    <main class="mb-auto" data-controller="flash">
       <%= render "shared/navbar" %>
       <%= render "shared/notices" %>
 

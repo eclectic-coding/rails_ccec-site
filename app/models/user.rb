@@ -67,7 +67,7 @@ class User < ApplicationRecord
   end
 
   def add_account_id_from_parent
-    self.account_id = Account.find_by(name: "CCEC").id if account_id.nil?
+    self.account_id = Account.find_by(name: 'CCEC').id if account_id.nil?
   end
 
   def create_account_user
@@ -75,7 +75,7 @@ class User < ApplicationRecord
   end
 
   def profile_roles
-    roles.map(&:human_name).join(", ")
+    roles.map(&:human_name).join(', ')
   end
 
   def before_add_method(role)
@@ -87,7 +87,7 @@ class User < ApplicationRecord
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if (login = conditions.delete(:login))
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { value: login.downcase }]).first
+      where(conditions).where(['lower(username) = :value OR lower(email) = :value', { value: login.downcase }]).first
     elsif conditions[:username].nil?
       where(conditions).first
     else

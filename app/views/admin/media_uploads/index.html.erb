@@ -1,4 +1,4 @@
-<%= render(Shared::PageTitleComponent.new(title: t('.title'))) do %>
+<%= component "shared/page_title", title: t('.title') do %>
   <%= link_to t('.new_media_uploads'), new_admin_media_upload_path, class: "btn btn-primary", data: { turbo_frame: "new_media_upload" } %>
 <% end %>
 
