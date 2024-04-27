@@ -428,7 +428,7 @@ GEM
     ruby-next-core (1.0.3)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
-    sidekiq (7.2.3)
+    sidekiq (7.2.4)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
