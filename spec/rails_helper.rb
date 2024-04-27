@@ -32,8 +32,6 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 
-VCRSetup.configure_vcr
-
 WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
