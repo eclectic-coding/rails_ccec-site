@@ -1,1 +1,3 @@
-<%= link_to @media_upload, "#" %>
+<% @media_upload.each do |media| %>
+  <%= link_to media.name, rails_blob_path(media.media_file_attachment, disposition: 'preview') , class: "capitalize", target: "_blank", 'aria-label':"Preview document (new window)" %>
+<% end %>
