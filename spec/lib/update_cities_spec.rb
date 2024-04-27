@@ -1,6 +1,5 @@
 require "rails_helper"
 require "rake"
-# require "vcr"
 
 describe "update_cities:update" do
   before :all do
@@ -14,8 +13,8 @@ describe "update_cities:update" do
   end
 
   it "should update cities" do
-    VCR.use_cassette("update_cities") do
-      run_rake_task
-    end
+    allow(CS).to receive(:update) # Stub CS.update method
+    run_rake_task
+    expect(CS).to have_received(:update).twice # Assert that CS.update was called
   end
 end
