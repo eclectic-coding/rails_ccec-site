@@ -1,11 +1,14 @@
 class Admin::PrayerVigilsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_prayer_vigil, only: %i[edit update]
+  before_action :set_prayer_vigil, only: %i[show edit update]
 
   layout 'admin'
 
   def index
     @pagy, @prayer_vigils = pagy(PrayerVigil.all, items: 10)
+  end
+
+  def show
   end
 
   def new

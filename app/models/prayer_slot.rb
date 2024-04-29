@@ -19,4 +19,12 @@
 #
 class PrayerSlot < ApplicationRecord
   belongs_to :prayer_vigil
+  has_many :bookings, dependent: :destroy
+  has_many :poly_actives, as: :activatable, dependent: :destroy
+
+  after_create { PolyActive.create!(activatable: self) }
+
+  def active?
+    poly_actives.first&.active
+  end
 end

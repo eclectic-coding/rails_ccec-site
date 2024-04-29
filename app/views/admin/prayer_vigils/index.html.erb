@@ -1,2 +1,12 @@
-<h1>Admin::PrayerVigils#index</h1>
-<p>Find me in app/views/admin/prayer_vigils/index.html.erb</p>
+<%= component "shared/page_title", title: "Prayer Vigils" do %>
+  <%= link_to new_admin_editable_path, data: { turbo_frame: "new_prayer_vigil"}, class: 'btn btn-primary ms-3 ms-md-0' do %>
+    Create Prayer Vigil
+  <% end if current_user.has_role?(:superadmin) %>
+<% end %>
+
+<%= turbo_frame_tag "new_prayer_vigil" %>
+
+
+<div class="card my-8">
+  <%= render partial: "prayer_vigils", locals: { prayer_vigils: @prayer_vigils} %>
+</div>

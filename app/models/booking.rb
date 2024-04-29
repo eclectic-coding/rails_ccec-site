@@ -23,4 +23,6 @@
 class Booking < ApplicationRecord
   belongs_to :prayer_vigil
   belongs_to :prayer_slot
+
+  has_person_name
 end

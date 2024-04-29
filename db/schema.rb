@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_27_184702) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_111248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -147,7 +147,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_184702) do
   end
 
   create_table "poly_actives", force: :cascade do |t|
-    t.boolean "active", default: false
+    t.boolean "active", default: true
     t.string "activatable_type", null: false
     t.bigint "activatable_id", null: false
     t.datetime "created_at", null: false
@@ -170,6 +170,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_184702) do
     t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "walk_number"
   end
 
   create_table "roles", force: :cascade do |t|
