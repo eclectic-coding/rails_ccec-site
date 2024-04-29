@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :edit, :update, :destroy]
       resources :editables, only: [:index, :new, :create, :edit, :update, :destroy]
       resources :editables_activation, only: [:update]
-      resources :prayer_vigils
+      resources :prayer_vigils, only: [:index, :show]
       resources :prayer_vigils_activation, only: [:update]
 
       resources :events do

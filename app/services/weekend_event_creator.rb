@@ -10,6 +10,7 @@ class WeekendEventCreator
     create_sendoff
     create_candlelight
     create_closing
+    create_prayer_vigil
   end
 
   private
@@ -57,6 +58,15 @@ class WeekendEventCreator
       walk_number: @event.walk_number,
       description: 'Closing will be held at location date time',
       address_id: faith_harbor&.id
+    )
+  end
+
+  def create_prayer_vigil
+    PrayerVigil.create(
+      title: 'Prayer Vigil',
+      start_time: @event.start_time - 0.5.hours,
+      end_time: @event.start_time + 71.50.hours,
+      walk_number: @event.walk_number
     )
   end
 end

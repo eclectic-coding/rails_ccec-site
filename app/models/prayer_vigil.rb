@@ -21,16 +21,11 @@ class PrayerVigil < ApplicationRecord
   def generate_slots
     PrayerSlot.create(
       start_time: start_time,
-      end_time: start_time + 1.hour,
       prayer_vigil: self)
     starttime = start_time
     71.times do |n|
-      PrayerSlot.create!(start_time: starttime + n.hour, end_time: starttime + (n + 1).hour, prayer_vigil: self)
+      PrayerSlot.create!(start_time: starttime + n.hour, prayer_vigil: self)
     end
-  end
-
-  def title
-    "Walk #{walk_number}"
   end
 
   def active?

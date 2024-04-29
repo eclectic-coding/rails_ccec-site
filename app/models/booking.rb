@@ -3,6 +3,7 @@
 # Table name: bookings
 #
 #  id              :bigint           not null, primary key
+#  email           :string
 #  first_name      :string
 #  last_name       :string
 #  created_at      :datetime         not null

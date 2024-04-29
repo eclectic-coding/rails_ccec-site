@@ -3,7 +3,6 @@
 # Table name: prayer_slots
 #
 #  id              :bigint           not null, primary key
-#  end_time        :datetime
 #  start_time      :datetime
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null

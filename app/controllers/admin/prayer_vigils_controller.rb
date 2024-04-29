@@ -1,6 +1,6 @@
 class Admin::PrayerVigilsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_prayer_vigil, only: %i[show edit update]
+  before_action :set_prayer_vigil, only: %i[show]
 
   layout 'admin'
 
@@ -9,18 +9,7 @@ class Admin::PrayerVigilsController < ApplicationController
   end
 
   def show
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def update
+    @prayer_vigil = @prayer_vigil.bookings.includes(:prayer_slot).order('prayer_slots.start_time ASC')
   end
 
   private

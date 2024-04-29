@@ -2,7 +2,6 @@ en:
   admin:
     prayer_vigils:
       index:
-        create_prayer_vigil: Create Prayer Vigil
         title: Prayer Vigils
       prayer_vigils:
         event: Event
