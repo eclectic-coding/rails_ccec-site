@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       resources :editables, only: [:index, :new, :create, :edit, :update, :destroy]
       resources :editables_activation, only: [:update]
       resources :prayer_vigils
+      resources :prayer_vigils_activation, only: [:update]
 
       resources :events do
         collection do

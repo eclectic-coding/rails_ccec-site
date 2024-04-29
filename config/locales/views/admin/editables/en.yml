@@ -19,4 +19,7 @@ en:
         status: Status
         content: Content
         no_editables: 'No editables found.'
+    editables_activation:
+      update:
+        update_activation: 'Editable status was successfully updated.'
 

@@ -3,11 +3,11 @@
     <table class="admin-table">
       <thead>
         <tr>
-          <th>Event</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>Status</th>
-          <th>Slots</th>
+          <th><%= t(".event") %></th>
+          <th><%= t(".start_time") %></th>
+          <th><%= t(".end_time") %></th>
+          <th><%= t(".status") %></th>
+          <th><%= t(".slots") %></th>
           <th></th>
         </tr>
       </thead>
@@ -15,9 +15,13 @@
         <% prayer_vigils.each do |prayer_vigil| %>
           <tr>
             <td><%= link_to prayer_vigil.title, admin_prayer_vigil_path(prayer_vigil), target: "_top" %></td>
-            <td><%= prayer_vigil.start_time %></td>
-            <td><%= prayer_vigil.end_time %></td>
-            <td><%= prayer_vigil.active? ? "Open" : "Ended" %></td>
+            <td><%= date_timestamp prayer_vigil.start_time %></td>
+            <td><%= date_timestamp prayer_vigil.end_time %></td>
+            <td>
+              <%= turbo_frame_tag "activate_#{dom_id(prayer_vigil)}" do %>
+                <%= render "admin/prayer_vigils/activation", prayer_vigil: prayer_vigil %>
+              <% end %>
+            </td>
             <td><%= prayer_vigil.prayer_slots.size %></td>
             <td>
               <%= link_to edit_admin_editable_path(prayer_vigil), data: { turbo_frame: "edit_prayer_vigil_#{prayer_vigil.id}" } do %>

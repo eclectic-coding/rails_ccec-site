@@ -1,0 +1,6 @@
+<%= turbo_stream.update "activate_#{dom_id(prayer_vigil)}" do %>
+  <% message = prayer_vigil.active? ? t('admin.prayer_vigils.prayer_vigils.open') : t('admin.prayer_vigils.prayer_vigils.ended') %>
+  <%= link_to admin_prayer_vigils_activation_path(prayer_vigil), data: { turbo_method: :put }, class: "capitalize" do %>
+    <%= message %>
+  <% end %>
+<% end %>
