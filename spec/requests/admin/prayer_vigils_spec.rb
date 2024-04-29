@@ -12,16 +12,10 @@ RSpec.describe "Admin::PrayerVigils", type: :request do
     end
   end
 
-  describe "GET /new" do
+  describe "GET /show" do
     it "returns http success" do
-      get new_admin_prayer_vigil_path
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /edit" do
-    it "returns http success" do
-      get edit_admin_prayer_vigil_path(create(:prayer_vigil))
+      prayer_vigil = create(:prayer_vigil)
+      get admin_prayer_vigil_path(prayer_vigil)
       expect(response).to have_http_status(:success)
     end
   end
