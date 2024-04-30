@@ -1,0 +1,5 @@
+<%= component "shared/page_title", title: t(".title") %>
+
+<div class="card my-8">
+  <%= render partial: "prayer_vigils", locals: { prayer_vigils: @prayer_vigils} %>
+</div>

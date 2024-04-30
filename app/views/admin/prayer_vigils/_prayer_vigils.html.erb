@@ -1,0 +1,39 @@
+<%= turbo_frame_tag "prayer_vigils" do %>
+  <div>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th><%= t(".event") %></th>
+          <th><%= t(".start_time") %></th>
+          <th><%= t(".end_time") %></th>
+          <th><%= t(".status") %></th>
+          <th><%= t(".slots") %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% prayer_vigils.each do |prayer_vigil| %>
+          <tr>
+            <td><%= link_to prayer_vigil.title, admin_prayer_vigil_path(prayer_vigil), target: "_top" %></td>
+            <td><%= date_timestamp prayer_vigil.start_time %></td>
+            <td><%= date_timestamp prayer_vigil.end_time %></td>
+            <td>
+              <%= turbo_frame_tag "activate_#{dom_id(prayer_vigil)}" do %>
+                <%= render "admin/prayer_vigils/activation", prayer_vigil: prayer_vigil %>
+              <% end %>
+            </td>
+            <td><%= prayer_vigil.prayer_slots.size %></td>
+            <td>
+              <%= link_to edit_admin_editable_path(prayer_vigil), data: { turbo_frame: "edit_prayer_vigil_#{prayer_vigil.id}" } do %>
+                Edit
+              <% end %>
+              <%= link_to admin_editable_path(prayer_vigil), method: :delete, data: { confirm: "Are you sure?" } do %>
+                Delete
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

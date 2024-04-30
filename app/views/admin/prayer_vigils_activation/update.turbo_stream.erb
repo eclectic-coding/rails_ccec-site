@@ -1,0 +1,5 @@
+<%= turbo_stream.update "activate_#{dom_id(@prayer_vigil)}" do %>
+  <%= render partial: "admin/prayer_vigils/activation", locals: {prayer_vigil: @prayer_vigil } %>
+<% end %>
+
+<%= turbo_stream.replace "flash", partial: "shared/notices" %>

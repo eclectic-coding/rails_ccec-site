@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_27_124223) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_164420) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +70,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_124223) do
     t.string "country", default: "US"
     t.index ["latitude"], name: "index_addresses_on_latitude"
     t.index ["longitude"], name: "index_addresses_on_longitude"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "prayer_vigil_id", null: false
+    t.bigint "prayer_slot_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
+    t.index ["prayer_slot_id"], name: "index_bookings_on_prayer_slot_id"
+    t.index ["prayer_vigil_id"], name: "index_bookings_on_prayer_vigil_id"
   end
 
   create_table "editables", force: :cascade do |t|
@@ -136,12 +148,29 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_124223) do
   end
 
   create_table "poly_actives", force: :cascade do |t|
-    t.boolean "active", default: false
+    t.boolean "active", default: true
     t.string "activatable_type", null: false
     t.bigint "activatable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["activatable_type", "activatable_id"], name: "index_poly_actives_on_activatable"
+  end
+
+  create_table "prayer_slots", force: :cascade do |t|
+    t.datetime "start_time"
+    t.bigint "prayer_vigil_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prayer_vigil_id"], name: "index_prayer_slots_on_prayer_vigil_id"
+  end
+
+  create_table "prayer_vigils", force: :cascade do |t|
+    t.string "title"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "walk_number"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -227,8 +256,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_27_124223) do
   add_foreign_key "account_users", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookings", "prayer_slots"
+  add_foreign_key "bookings", "prayer_vigils"
   add_foreign_key "events", "addresses"
   add_foreign_key "messages", "message_recipients"
+  add_foreign_key "prayer_slots", "prayer_vigils"
   add_foreign_key "taggings", "tags"
   add_foreign_key "users", "accounts"
 end

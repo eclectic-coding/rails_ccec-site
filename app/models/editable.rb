@@ -15,14 +15,10 @@
 class Editable < ApplicationRecord
   has_many :poly_actives, as: :activatable, dependent: :destroy
 
-  after_create :create_poly_active
+  after_create { PolyActive.create!(activatable: self) }
 
   validates :shortname, presence: true, uniqueness: true
   validates :content, presence: true
-
-  def create_poly_active
-    PolyActive.create!(activatable: self)
-  end
 
   def active?
     poly_actives.first&.active

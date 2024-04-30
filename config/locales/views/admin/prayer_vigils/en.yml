@@ -1,0 +1,17 @@
+en:
+  admin:
+    prayer_vigils:
+      index:
+        title: Prayer Vigils
+      prayer_vigils:
+        event: Event
+        start_time: Start Date
+        end_time: End Date
+        status: Status
+        slots: Slots
+        open: Open
+        ended: Ended
+        slots_available: Slots Available
+    prayer_vigils_activation:
+      update:
+        activation: 'Prayer Vigil status was successfully updated.'
