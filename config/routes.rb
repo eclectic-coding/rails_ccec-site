@@ -55,5 +55,9 @@ Rails.application.routes.draw do
     get "directions", to: "directions#index"
   end
 
+  resources :prayer_vigils, only: [:index] do
+    resources :bookings, only: [:new, :create], path: 'signups'
+  end
+
   root to: "static#home"
 end

@@ -18,6 +18,8 @@ class PrayerVigil < ApplicationRecord
   after_create { PolyActive.create!(activatable: self) }
   after_create :generate_slots
 
+  scope :active, -> { joins(:poly_actives).where(poly_actives: { active: true }) }
+
   def generate_slots
     PrayerSlot.create(
       start_time: start_time,

@@ -15,3 +15,6 @@ en:
     prayer_vigils_activation:
       update:
         activation: 'Prayer Vigil status was successfully updated.'
+  prayer_vigils:
+    index:
+      title: ""
