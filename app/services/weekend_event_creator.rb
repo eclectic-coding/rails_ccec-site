@@ -63,7 +63,7 @@ class WeekendEventCreator
 
   def create_prayer_vigil
     PrayerVigil.create(
-      title: 'Prayer Vigil',
+      title: "#{@event.name} #{@event.walk_number}",
       start_time: @event.start_time - 0.5.hours,
       end_time: @event.start_time + 71.50.hours,
       walk_number: @event.walk_number
