@@ -1,4 +1,12 @@
-<h1>PrayerVigils#index</h1>
-<p>Find me in app/views/prayer_vigils/index.html.erb</p>
+<div class="container">
+  <h1 class="text-center mb-3"><%= t('.title') %></h1>
+  <div class="text-2xl my-8 w-2/3 mx-auto">
+    Prayer is an integral part of any Christians life and is indeed so on the Walk to Emmaus experience. Consider being part of a prayer ministry that prays for each person attending a weekend event by participating in our Prayer Vigil. We need people that can pray during the 72-hour prayer vigil. If you are willing to serve and cover this weekend in prayer, then click the links below to sign-up.
+    <div class="text-center my-3">
+      <% @prayer_vigils.each do |vigil| %>
+        <%= link_to "#{vigil.title} - #{vigil.start_time.strftime("%m/%d/%y")} - #{vigil.end_time.strftime("%m/%d/%y")}", new_prayer_vigil_booking_path(vigil) %>
+      <% end %>
+    </div>
 
-<%= @prayer_vigils.inspect %>
+  </div>
+</div>
