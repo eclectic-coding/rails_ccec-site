@@ -62,6 +62,7 @@ class Admin::EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    PrayerVigil.where(walk_number: @event.walk_number).destroy_all
     Event.where(connected_event_id: @event.id).destroy_all
     @event.destroy
 

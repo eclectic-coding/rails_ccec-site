@@ -21,11 +21,8 @@ class PrayerVigil < ApplicationRecord
   scope :active, -> { joins(:poly_actives).where(poly_actives: { active: true }) }
 
   def generate_slots
-    PrayerSlot.create(
-      start_time: start_time,
-      prayer_vigil: self)
     starttime = start_time
-    71.times do |n|
+    72.times do |n|
       PrayerSlot.create!(start_time: starttime + n.hour, prayer_vigil: self)
     end
   end

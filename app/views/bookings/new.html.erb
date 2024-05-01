@@ -1,2 +1,20 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<div class="container mt-8">
+  <h1 class="text-center text-2xl mb-8">Bookings</h1>
+  <div class="w-full sm:w-1/2 mx-auto mb-8" data-controller="slots">
+    <%= form_with model: @booking, url: prayer_vigil_bookings_path, local: true do |form| %>
+      <div class="mb-8">
+        <%= form.label :day, class: "form-label" %>
+        <%= form.select :day, @grouped_slots.keys.map { |date| [date.strftime('%a, %b %d, %Y'), date, { disabled: (@grouped_slots[date].empty? ? true : false) }] },
+                        { prompt: 'Select day' }, { 'data-slots-target': 'days', class: "form-select" } %>
+      </div>
+      <div class="mb-8">
+        <%= form.label :time_slot, class: "form-label" %>
+        <%= form.select :time_slot, [], { prompt: 'Select time slot' }, { 'data-slots-target': 'times', class: "form-select" } %>
+      </div>
+      <%= form.hidden_field :prayer_vigil_id, value: params[:prayer_vigil_id] %>
+
+      <%= form.submit "Reserve Slot", class: "btn btn-primary" %>
+      <%= link_to t("cancel_btn"), prayer_vigils_path, class: "btn btn-outline-primary" %>
+    <% end %>
+  </div>
+</div>
