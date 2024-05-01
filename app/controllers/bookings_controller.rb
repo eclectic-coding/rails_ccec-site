@@ -9,7 +9,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to @booking
+      # TODO: Update time_slot to be inactive
+      # TODO: send email to user
+      redirect_to prayer_vigils_path, notice: 'Slot booked successfully'
     else
       render :new
     end
