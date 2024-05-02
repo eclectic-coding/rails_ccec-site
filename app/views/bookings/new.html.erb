@@ -1,19 +1,35 @@
 <div class="container mt-8">
-  <h1 class="text-center text-2xl mb-8">Bookings</h1>
-  <div class="w-full sm:w-1/2 mx-auto mb-8" data-controller="slots">
+  <h1 class="text-center text-2xl mb-8"><%= t('.title', name: @prayer_vigil.walk_number) %></h1>
+  <div class="w-full sm:w-1/2 mx-auto mb-8" data-controller="slots" data-slots-url-value="<%= signups_get_slots_prayer_vigil_path(@prayer_vigil) %>">
     <%= form_with model: @booking, url: prayer_vigil_bookings_path, local: true do |form| %>
+      <div class="mb-8">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-select" %>
+        <%= component "shared/form_errors", resource: form.object, key: :name %>
+      </div>
+
+      <div class="mb-8">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-select" %>
+        <%= component "shared/form_errors", resource: form.object, key: :email %>
+      </div>
+
       <div class="mb-8">
         <%= form.label :day, class: "form-label" %>
         <%= form.select :day, @grouped_slots.keys.map { |date| [date.strftime('%a, %b %d, %Y'), date, { disabled: (@grouped_slots[date].empty? ? true : false) }] },
-                        { prompt: 'Select day' }, { 'data-slots-target': 'days', class: "form-select" } %>
+                        { prompt: t('.select_day') }, { data: { 'slots-target': 'days', action: 'change->slots#updateSelect' }, class: "form-select" } %>
+        <%= component "shared/form_errors", resource: form.object, key: :day %>
       </div>
+
       <div class="mb-8">
-        <%= form.label :time_slot, class: "form-label" %>
-        <%= form.select :time_slot, [], { prompt: 'Select time slot' }, { 'data-slots-target': 'times', class: "form-select" } %>
+        <%= form.label :prayer_slot_id, class: "form-label" %>
+        <%= form.select :prayer_slot_id, [], { prompt: t('.select_slot') }, { 'data-slots-target': 'times', id: 'times-select', class: "form-select" } %>
+        <%= component "shared/form_errors", resource: form.object, key: :time_slot %>
       </div>
+
       <%= form.hidden_field :prayer_vigil_id, value: params[:prayer_vigil_id] %>
 
-      <%= form.submit "Reserve Slot", class: "btn btn-primary" %>
+      <%= form.submit t('.reserve_btn'), class: "btn btn-primary" %>
       <%= link_to t("cancel_btn"), prayer_vigils_path, class: "btn btn-outline-primary" %>
     <% end %>
   </div>

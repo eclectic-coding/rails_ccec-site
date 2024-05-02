@@ -12,3 +12,6 @@ application.register("maps", MapsController)
 
 import SearchFormController from "./search_form_controller"
 application.register("search-form", SearchFormController)
+
+import SlotsController from "./slots_controller"
+application.register("slots", SlotsController)

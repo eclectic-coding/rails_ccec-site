@@ -23,7 +23,9 @@ class PrayerSlot < ApplicationRecord
 
   after_create { PolyActive.create!(activatable: self) }
 
-  scope :active_slots, -> { joins(:poly_actives).where(poly_actives: { active: true }).order(start_time: :asc)}
+  scope :active_slots, -> { joins(:poly_actives).where(poly_actives: { active: true }).order(start_time: :asc) }
+  scope :on_date, ->(date) { where(start_time: date.beginning_of_day..date.end_of_day) }
+
 
   def active?
     poly_actives.first&.active

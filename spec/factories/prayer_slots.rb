@@ -19,7 +19,6 @@
 FactoryBot.define do
   factory :prayer_slot do
     start_time { "2024-04-27 14:43:17" }
-    end_time { "2024-04-27 14:43:17" }
     prayer_vigil { nil }
   end
 end

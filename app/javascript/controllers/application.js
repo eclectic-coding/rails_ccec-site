@@ -1,5 +1,4 @@
 import { Application } from "@hotwired/stimulus"
-import "./third_party_controllers"
 
 const application = Application.start()
 

@@ -2,3 +2,11 @@ en:
   prayer_vigils:
     index:
       title: "Prayer Vigils"
+  bookings:
+    new:
+      select_day: 'Select day'
+      select_slot: 'Select a time slot'
+      reserve_btn: "Reserve Slot"
+      title: "Prayer Vigil Registration - Walk %{name}"
+    create:
+      success: "Successfully reserved a slot for the prayer vigil."
