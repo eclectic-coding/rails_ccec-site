@@ -57,6 +57,7 @@ Rails.application.routes.draw do
 
   resources :prayer_vigils, only: [:index] do
     resources :bookings, only: [:new, :create], path: 'signups'
+    get 'signups/get_slots', to: 'bookings#get_slots', on: :member
   end
 
   root to: "static#home"

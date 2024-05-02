@@ -26,4 +26,14 @@ class Booking < ApplicationRecord
   belongs_to :prayer_slot
 
   has_person_name
+
+  validates :first_name, :last_name, :email, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  after_save :deactivate_prayer_slot
+
+  def deactivate_prayer_slot
+    prayer_slot = PrayerSlot.find(self.prayer_slot_id)
+    prayer_slot.poly_actives.first.toggle!(:active)
+  end
 end
