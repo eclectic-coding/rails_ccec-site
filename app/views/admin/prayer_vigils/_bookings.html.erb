@@ -1,6 +1,6 @@
 <div>
   <div class="flex justify-end items-center">
-    <%= link_to t(".export_btn"), "#", class: "btn-sm btn-outline-primary" %>
+    <%= link_to t(".export_btn"), admin_export_prayer_vigil_path(@prayer_vigil, format: :csv), class: "btn-sm btn-outline-primary" %>
   </div>
   <table class="admin-table my-4">
     <thead>

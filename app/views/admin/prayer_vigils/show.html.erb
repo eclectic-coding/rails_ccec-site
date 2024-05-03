@@ -2,7 +2,6 @@
   <%= link_to t('.mail_reminder'), "#", class: "btn btn-primary cursor-not-allowed" %>
 <% end %>
 
-<%= @bookings.inspect %>
 <div class="card my-8">
   <%= render partial: "bookings", locals: { bookings: @bookings }%>
 </div>
