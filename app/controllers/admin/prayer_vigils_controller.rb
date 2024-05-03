@@ -9,6 +9,7 @@ class Admin::PrayerVigilsController < ApplicationController
   end
 
   def show
+    @walk_number = @prayer_vigil.walk_number
     @prayer_vigil = @prayer_vigil.bookings.includes(:prayer_slot).order('prayer_slots.start_time ASC')
   end
 

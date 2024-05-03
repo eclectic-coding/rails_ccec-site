@@ -12,9 +12,16 @@ en:
         open: Open
         ended: Ended
         slots_available: Slots Available
+      show:
+        title: "Walk %{number} Prayer Vigil"
+        mail_reminder: "Mail Reminder"
+      bookings:
+        export_btn: Export
+        event: Event
+        name: Name
+        email: Email
+        date: Date
+        time_slot: Time Slot
     prayer_vigils_activation:
       update:
         activation: 'Prayer Vigil status was successfully updated.'
-  prayer_vigils:
-    index:
-      title: ""
