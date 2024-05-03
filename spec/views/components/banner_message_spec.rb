@@ -11,7 +11,7 @@ describe BannerMessage::Component do
   subject { render_inline(component) }
 
   context "when the editable is active" do
-    before { editable.poly_actives.first&.update(active: true)}
+    before { editable.poly_actives.first&.update(active: true) }
 
     it "renders the message" do
       is_expected.to have_text(editable.content)
@@ -19,7 +19,7 @@ describe BannerMessage::Component do
   end
 
   context "when the editable is inactive" do
-    before { editable.poly_actives.first&.update(active: false)}
+    before { editable.poly_actives.first&.update(active: false) }
 
     it "does not render the message" do
       is_expected.not_to have_text(editable.content)
