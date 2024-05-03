@@ -1,7 +1,8 @@
-<%= component "shared/page_title", title: t('.title', number: @walk_number) do %>
+<%= component "shared/page_title", title: t('.title', number: @prayer_vigil.walk_number) do %>
   <%= link_to t('.mail_reminder'), "#", class: "btn btn-primary cursor-not-allowed" %>
 <% end %>
 
+<%= @bookings.inspect %>
 <div class="card my-8">
-  <%= render partial: "bookings", locals: { prayer_vigil: @prayer_vigil }%>
+  <%= render partial: "bookings", locals: { bookings: @bookings }%>
 </div>
