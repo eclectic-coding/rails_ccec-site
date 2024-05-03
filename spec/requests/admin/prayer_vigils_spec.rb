@@ -15,6 +15,7 @@ RSpec.describe "Admin::PrayerVigils", type: :request do
   describe "GET /show" do
     it "returns http success" do
       prayer_vigil = create(:prayer_vigil)
+      prayer_vigil.bookings.includes(:prayer_slot).order('prayer_slots.start_time')
       get admin_prayer_vigil_path(prayer_vigil)
       expect(response).to have_http_status(:success)
     end
