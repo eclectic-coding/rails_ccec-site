@@ -45,6 +45,7 @@ gem 'counter_culture', '~> 3.2'
 gem 'invisible_captcha'
 gem 'geocoder', '~> 1.8'
 gem 'groupdate', '~> 6.4'
+gem 'csv'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]

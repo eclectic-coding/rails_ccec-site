@@ -32,6 +32,11 @@ class Booking < ApplicationRecord
 
   after_save :deactivate_prayer_slot
 
+  scope :by_prayer_vigil, ->(prayer_vigil_id) {
+    includes(:prayer_vigil).includes(:prayer_slot)
+      .where(prayer_vigil_id: prayer_vigil_id).order('prayer_slots.start_time')
+  }
+
   def deactivate_prayer_slot
     prayer_slot = PrayerSlot.find(self.prayer_slot_id)
     prayer_slot.poly_actives.first.toggle!(:active)

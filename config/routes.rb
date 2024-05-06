@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resources :editables_activation, only: [:update]
       resources :prayer_vigils, only: [:index, :show]
       resources :prayer_vigils_activation, only: [:update]
+      resources :export_bookings, only: [:index]
 
       resources :events do
         collection do

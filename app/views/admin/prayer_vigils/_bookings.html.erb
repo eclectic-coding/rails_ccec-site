@@ -1,6 +1,6 @@
 <div>
   <div class="flex justify-end items-center">
-    <%= link_to t(".export_btn"), "#", class: "btn-sm btn-outline-primary" %>
+    <%= link_to t(".export_btn"), admin_export_bookings_path(id: @prayer_vigil, format: :csv ), class: "btn-sm btn-outline-primary" %>
   </div>
   <table class="admin-table my-4">
     <thead>
@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <% prayer_vigil.each do |booking| %>
+      <% bookings.each do |booking| %>
         <tr>
           <td><%= booking.name %></td>
           <td><%= booking.email %></td>
