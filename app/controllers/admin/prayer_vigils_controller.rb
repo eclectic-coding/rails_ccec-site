@@ -19,7 +19,7 @@ class Admin::PrayerVigilsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do
-        send_data Booking.to_csv(@bookings), filename: "prayer_vigil_#{params[:id]}_bookings.csv"
+        send_data BookingReportCreator.new(@bookings), filename: "prayer_vigil_#{params[:id]}_bookings.csv"
       end
     end
   end

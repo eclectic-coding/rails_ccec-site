@@ -41,15 +41,4 @@ class Booking < ApplicationRecord
     prayer_slot = PrayerSlot.find(self.prayer_slot_id)
     prayer_slot.poly_actives.first.toggle!(:active)
   end
-
-  def self.to_csv(collection)
-    headers = %w[Name Email Walk Date Slot]
-    CSV.generate(headers: true) do |csv|
-      csv << headers
-      collection.each do |booking|
-        csv << [booking.name, booking.email, booking.prayer_vigil.walk_number,
-                booking.prayer_slot.start_time.strftime('%b %d'), booking.prayer_slot.start_time.strftime('%I:%M %p')]
-      end
-    end
-  end
 end
