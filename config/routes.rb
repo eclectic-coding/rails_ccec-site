@@ -28,7 +28,6 @@ Rails.application.routes.draw do
       resources :editables, only: [:index, :new, :create, :edit, :update, :destroy]
       resources :editables_activation, only: [:update]
       resources :prayer_vigils, only: [:index, :show]
-      get "prayer_vigils/:id/export", to: "prayer_vigils#export_prayer_vigil", as: :export_prayer_vigil
       resources :prayer_vigils_activation, only: [:update]
       resources :export_bookings, only: [:index]
 

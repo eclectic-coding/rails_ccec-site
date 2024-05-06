@@ -1,5 +1,5 @@
 <%= component "shared/page_title", title: t('.title', number: @prayer_vigil.walk_number) do %>
-  <%= link_to t('.mail_reminder'), "#", class: "btn btn-primary cursor-not-allowed" %>
+  <button class="btn btn-primary cursor-not-allowed" disabled><%= t('.mail_reminder') %></button>
 <% end %>
 
 <div class="card my-8">

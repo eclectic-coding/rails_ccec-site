@@ -7,7 +7,7 @@ RSpec.describe "Admin::ExportBookings", type: :request do
 
   describe "GET /index" do
     it "returns http success" do
-      get admin_export_bookings_path
+      get admin_export_bookings_path(id: create(:prayer_vigil).id, format: :csv)
       expect(response).to have_http_status(:success)
     end
   end
