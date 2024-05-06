@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     if @booking.save
       # TODO: consider moving to a form object
       # TODO: send email to user
+      BookingMailer.with(booking: @booking).booking_confirmation.deliver_now
       redirect_to prayer_vigils_path, notice: t('.success')
     else
       render :new
