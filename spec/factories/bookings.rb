@@ -23,9 +23,8 @@
 #
 FactoryBot.define do
   factory :booking do
-    first_name { "MyString" }
-    last_name { "MyString" }
-    prayer_vigil { nil }
-    prayer_slot { nil }
+    first_name { "John" }
+    last_name { "Doe" }
+    email { "john@example.com" }
   end
 end

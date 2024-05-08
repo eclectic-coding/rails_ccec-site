@@ -1,0 +1,12 @@
+<p><%= t('.body', walk: @booking.prayer_vigil.title) %></p>
+
+<dl>
+  <dt><%= t('.event') %></dt>
+  <dd><%= @booking.prayer_vigil.title %></dd>
+  <dt><%= t('.name') %></dt>
+  <dd><%= @booking.name.titleize %></dd>
+  <dt><%= t('.time') %></dt>
+  <dd><%= @booking.prayer_slot.start_time.strftime("%b %d, %y - %I:%M %p") %></dd>
+</dl>
+
+<%= t('.board') %>

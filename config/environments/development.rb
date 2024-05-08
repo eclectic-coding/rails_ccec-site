@@ -33,7 +33,7 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
-  config.cache_store = :redis_store, {
+  config.cache_store = :redis_cache_store, {
     expires_in: 1.hour,
     namespace: "cache",
     redis: { host: "localhost", port: 6379, db: 0 }
@@ -45,7 +45,7 @@ Rails.application.configure do
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
-    config.cache_store = :redis_store
+    config.cache_store = :redis_cache_store
     config.public_file_server.headers = {
       "Cache-Control" => "public, max-age=#{2.days.to_i}"
     }
@@ -74,6 +74,8 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
+
+  config.log_level = :debug
 
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true

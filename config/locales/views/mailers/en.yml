@@ -13,3 +13,14 @@ en:
       new_message: "New Message"
     copy_message:
       copy_message: "Copy of your Message"
+  booking_mailer:
+    booking_confirmation:
+      booking_confirmation: "Prayer Vigil Confirmation - Walk %{walk_number}"
+  mailers:
+    booking_mailer:
+      booking_confirmation:
+        body: "Thank you for registering for the %{walk} Prayer Vigil"
+        event: "Event: "
+        name: "Name: "
+        time: "Time: "
+        board: "Coastal Carolina Community Prayer Coordinator"
