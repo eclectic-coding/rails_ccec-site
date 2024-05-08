@@ -1,12 +1,12 @@
-<p>Thank you for registering for the <%= @booking.prayer_vigil.title %> Prayer Vigil</p>
+<p><%= t('.body', walk: @booking.prayer_vigil.title) %></p>
 
 <dl>
-  <dt>Event: </dt>
+  <dt><%= t('.event') %></dt>
   <dd><%= @booking.prayer_vigil.title %></dd>
-  <dt>Name: </dt>
+  <dt><%= t('.name') %></dt>
   <dd><%= @booking.name.titleize %></dd>
-  <dt>Time: </dt>
+  <dt><%= t('.time') %></dt>
   <dd><%= @booking.prayer_slot.start_time.strftime("%b %d, %y - %I:%M %p") %></dd>
 </dl>
 
-Coastal Carolina Community Prayer Coordinator
+<%= t('.board') %>
