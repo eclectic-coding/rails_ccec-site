@@ -4,4 +4,10 @@ class BookingMailer < ApplicationMailer
     mail(to: booking.email,
          subject: t('.booking_confirmation', walk_number: @booking.prayer_vigil.walk_number))
   end
+
+  def booking_canceled(booking)
+    @booking = booking
+
+    mail to: @booking.email
+  end
 end

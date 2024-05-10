@@ -26,4 +26,18 @@ RSpec.describe BookingMailer, type: :mailer do
       end
     end
   end
+
+  describe "booking_canceled" do
+    let(:event) { create(:event, :weekend, start_time: Time.zone.now) }
+    let(:prayer_vigil) { PrayerVigil.find_by(walk_number: event.walk_number) }
+    let(:booking) { create(:booking, prayer_vigil: prayer_vigil, prayer_slot: prayer_vigil.prayer_slots.first) }
+
+    let(:mail) { described_class.booking_canceled(booking) }
+
+    it "renders the headers" do
+      expect(mail.subject).to eq("Booking canceled")
+      expect(mail.to).to eq([booking.email])
+      expect(mail.from).to eq(["info@#{Rails.application.credentials.domain_name}"])
+    end
+  end
 end
