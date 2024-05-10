@@ -30,4 +30,8 @@ class PrayerVigil < ApplicationRecord
   def active?
     poly_actives.first&.active
   end
+
+  def toggle_active!
+    poly_actives.first.toggle!(:active)
+  end
 end
