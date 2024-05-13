@@ -22,9 +22,10 @@ en:
         email: Email
         date: Date
         time_slot: Time Slot
+        slots_available_html: "<strong>%{slots} prayer slots are available</strong>"
     prayer_vigils_activation:
       update:
         activation: 'Prayer Vigil status was successfully updated.'
     bookings:
       destroy:
-        destroy_notice: 'Booking was successfully destroyed.'
+        destroy_notice: 'Reservation was successfully removed and the user has been notified.'
