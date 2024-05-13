@@ -26,8 +26,11 @@ class PrayerSlot < ApplicationRecord
   scope :active_slots, -> { joins(:poly_actives).where(poly_actives: { active: true }).order(start_time: :asc) }
   scope :on_date, ->(date) { where(start_time: date.beginning_of_day..date.end_of_day) }
 
-
   def active?
     poly_actives.first&.active
+  end
+
+  def toggle_active!
+    poly_actives.first.toggle!(:active)
   end
 end

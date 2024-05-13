@@ -8,6 +8,9 @@ en:
       username_updated: "Username Update"
     update_user_email:
       email_updated: "Email Update"
+  canceled_booking_mailer:
+    booking_canceled:
+      subject: "Prayer Vigil Slot Canceled"
   contact_us_mailer:
     new_message:
       new_message: "New Message"

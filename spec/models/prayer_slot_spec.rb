@@ -13,7 +13,7 @@ RSpec.describe PrayerSlot, type: :model do
 
     context 'when the prayer slot is not active' do
       it 'returns false' do
-        prayer_slot.poly_actives.first.toggle!(:active)
+        prayer_slot.toggle_active!
         expect(prayer_slot.active?).to be false
       end
     end
