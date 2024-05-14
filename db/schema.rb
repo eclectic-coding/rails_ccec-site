@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_164420) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_14_103552) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -171,6 +171,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_164420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "walk_number"
+    t.string "slug"
+    t.index ["slug"], name: "index_prayer_vigils_on_slug", unique: true
   end
 
   create_table "roles", force: :cascade do |t|

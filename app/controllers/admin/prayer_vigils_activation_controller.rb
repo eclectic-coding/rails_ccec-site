@@ -13,6 +13,6 @@ class Admin::PrayerVigilsActivationController < ApplicationController
   private
 
   def set_prayer_vigil
-    @prayer_vigil = PrayerVigil.find(params[:id])
+    @prayer_vigil = PrayerVigil.friendly.find(params[:id])
   end
 end
