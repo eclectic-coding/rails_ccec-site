@@ -1,12 +1,12 @@
-<p><%= t('.body', walk: @booking.prayer_vigil.title) %></p>
+<p><%= t('mailers.booking_mailer.booking_confirmation.body', walk: @booking.prayer_vigil.title) %></p>
 
 <dl>
-  <dt><%= t('.event') %></dt>
+  <dt><%= t('mailers.booking_mailer.booking_confirmation.event') %></dt>
   <dd><%= @booking.prayer_vigil.title %></dd>
-  <dt><%= t('.name') %></dt>
+  <dt><%= t('mailers.booking_mailer.booking_confirmation.name') %></dt>
   <dd><%= @booking.name.titleize %></dd>
-  <dt><%= t('.time') %></dt>
+  <dt><%= t('mailers.booking_mailer.booking_confirmation.time') %></dt>
   <dd><%= @booking.prayer_slot.start_time.strftime("%b %d, %y - %I:%M %p") %></dd>
 </dl>
 
-<%= t('.board') %>
+<%= t('mailers.booking_mailer.booking_confirmation.board') %>

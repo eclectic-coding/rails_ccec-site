@@ -6,10 +6,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params.except(:day))
+    @prayer_vigil = PrayerVigil.friendly.find(params[:booking][:prayer_vigil_id])
+    @booking = @prayer_vigil.bookings.new(booking_params.except(:day, :prayer_vigil_id))
 
-    if @booking.save
-      # TODO: consider moving to a form object
+    if @booking.save!
       BookingMailer.booking_confirmation(@booking).deliver_now
       redirect_to prayer_vigils_path, notice: t('.success')
     else
@@ -34,8 +34,7 @@ class BookingsController < ApplicationController
   private
 
   def set_prayer_vigil
-    vigil_id = params[:prayer_vigil_id] || params[:id]
-    @prayer_vigil = PrayerVigil.friendly.find(vigil_id)
+    @prayer_vigil = PrayerVigil.friendly.find(params[:prayer_vigil_id] || params[:id])
     @available_slots = @prayer_vigil.prayer_slots.active_slots
     @grouped_slots = @available_slots.group_by { |slot| slot.start_time.to_date }
   end

@@ -20,5 +20,6 @@ FactoryBot.define do
     title { "MyString" }
     start_time { "2024-04-27 14:37:49" }
     end_time { "2024-04-27 14:37:49" }
+    walk_number { 1 }
   end
 end
