@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
 
   def set_prayer_vigil
     vigil_id = params[:prayer_vigil_id] || params[:id]
-    @prayer_vigil = PrayerVigil.find(vigil_id)
+    @prayer_vigil = PrayerVigil.friendly.find(vigil_id)
     @available_slots = @prayer_vigil.prayer_slots.active_slots
     @grouped_slots = @available_slots.group_by { |slot| slot.start_time.to_date }
   end
