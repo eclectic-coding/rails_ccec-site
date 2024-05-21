@@ -1,0 +1,11 @@
+en:
+  prayer_admin:
+    prayer_vigils:
+      prayer_vigils:
+        event: Event
+        start_time: Start Time
+        end_time: End Time
+        status: Status
+        slots: Slots
+        open: Open
+        ended: Ended

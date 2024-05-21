@@ -58,5 +58,9 @@ FactoryBot.define do
     trait :member do
       after(:create) { |user| user.add_role(:member) }
     end
+
+    trait :prayer do
+      after(:create) { |user| user.add_role(:prayer) }
+    end
   end
 end
