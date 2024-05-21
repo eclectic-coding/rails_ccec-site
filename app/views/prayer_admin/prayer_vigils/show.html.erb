@@ -1,2 +1,5 @@
-<h1>PrayerAdmin::PrayerVigils#show</h1>
-<p>Find me in app/views/prayer_admin/prayer_vigils/show.html.erb</p>
+<%= component "shared/page_title", title: t('.title', number: @prayer_vigil.walk_number) %>
+
+<div class="card my-8">
+  <%= render partial: "bookings", locals: { bookings: @bookings }%>
+</div>

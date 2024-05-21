@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
   namespace :prayer_admin do
     resources :prayer_vigils, only: [:index, :show]
+    resources :bookings, only: [:destroy]
+    resources :export_bookings, only: [:index]
   end
 
   resources :prayer_vigils, only: [:index] do
