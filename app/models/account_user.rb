@@ -36,7 +36,6 @@ class AccountUser < ApplicationRecord
 
   def set_user_id
     self.user = User.invite!(email: email, name: name, username: username)
-    p "User ID: #{user.inspect}"
   end
 
   def set_role
