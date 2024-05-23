@@ -1,0 +1,26 @@
+en:
+  prayer_admin:
+    prayer_vigils:
+      prayer_vigils:
+        event: Event
+        start_time: Start Time
+        end_time: End Time
+        status: Status
+        slots: Slots
+        open: Open
+        ended: Ended
+      show:
+        title: "Walk %{number} Prayer Vigil"
+      bookings:
+        slots_available_html: "<strong>%{slots} prayer slots are available</strong>"
+        export_btn: Export
+        name: Name
+        email: Email
+        event: Event
+        date: Date
+        time_slot: Time Slot
+        destroy_confirm: "Are you sure wish to delete this reservation?"
+    bookings:
+      destroy:
+        destroy_notice: 'Reservation was successfully removed and the user has been notified.'
+

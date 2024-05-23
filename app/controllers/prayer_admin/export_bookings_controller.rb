@@ -1,4 +1,4 @@
-class Admin::ExportBookingsController < ApplicationController
+class PrayerAdmin::ExportBookingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_prayer_vigil, only: %i[index]
 

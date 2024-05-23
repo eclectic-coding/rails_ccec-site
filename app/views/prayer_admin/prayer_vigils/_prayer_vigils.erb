@@ -1,0 +1,28 @@
+<%= turbo_frame_tag "prayer_vigils" do %>
+  <div>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th><%= t(".event") %></th>
+          <th><%= t(".start_time") %></th>
+          <th><%= t(".end_time") %></th>
+          <th><%= t(".status") %></th>
+          <th><%= t(".slots") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% prayer_vigils.each do |prayer_vigil| %>
+          <tr>
+            <td><%= link_to prayer_vigil.title, prayer_admin_prayer_vigil_path(prayer_vigil), target: "_top" %></td>
+            <td><%= date_timestamp prayer_vigil.start_time %></td>
+            <td><%= date_timestamp prayer_vigil.end_time %></td>
+            <td>
+              <%= prayer_vigil.active? ? t('.open') : t('.ended') %>
+            </td>
+            <td><%= prayer_vigil.prayer_slots.size %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

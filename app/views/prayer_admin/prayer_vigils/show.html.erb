@@ -1,0 +1,5 @@
+<%= component "shared/page_title", title: t('.title', number: @prayer_vigil.walk_number) %>
+
+<div class="card my-8">
+  <%= render partial: "bookings", locals: { bookings: @bookings }%>
+</div>

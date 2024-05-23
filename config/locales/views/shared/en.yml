@@ -34,5 +34,8 @@ en:
       address_html: "Coastal Carolina Emmaus Community<br>P.O. Box 4826<br>Wilmington, NC 28406"
       upcoming_events: Upcoming Events
     continue_reading: Continue Reading
+    prayer_profile:
+      prayer_admin: Admin
+      prayer_area: Prayer Vigil Admin
   events:
     no_events: No events found

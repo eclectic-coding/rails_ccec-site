@@ -57,6 +57,12 @@ Rails.application.routes.draw do
     get "directions", to: "directions#index"
   end
 
+  namespace :prayer_admin do
+    resources :prayer_vigils, only: [:index, :show]
+    resources :bookings, only: [:destroy]
+    resources :export_bookings, only: [:index]
+  end
+
   resources :prayer_vigils, only: [:index] do
     resources :bookings, only: [:new, :create], path: 'signups'
     get 'signups/get_slots', to: 'bookings#get_slots', on: :member

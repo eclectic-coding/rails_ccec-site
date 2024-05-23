@@ -33,6 +33,8 @@
         <li><%= link_to t(".contact_us"), messages_path, class: controller_name == "messages" ? "nav-link active" : "nav-link" %></li>
         <% if user_signed_in? && (current_user.has_role?(:admin) || current_user.has_role?(:superadmin)) %>
           <%= render partial: "shared/admin_profile", locals: { user: current_user } %>
+        <% elsif user_signed_in? && (current_user.has_role?(:prayer)) %>
+          <%= render partial: "shared/prayer_profile", locals: { user: current_user } %>
         <% elsif current_user %>
           <%= render partial: "shared/user_profile", locals: { user: current_user } %>
         <% else %>
