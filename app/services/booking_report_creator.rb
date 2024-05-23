@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
+require 'csv'
+
 class BookingReportCreator
+  attr_reader :csv_data
+
   def initialize(collection)
-    @collection = collection
-    to_csv(@collection)
+    @csv_data = to_csv(collection)
   end
 
   def to_csv(collection)

@@ -3,12 +3,13 @@ class PrayerAdmin::ExportBookingsController < ApplicationController
   before_action :set_prayer_vigil, only: %i[index]
 
   def index
-    @bookings = Booking.by_prayer_vigil(@prayer_vigil.id)
+    @bookings = Booking.by_prayer_vigil(@prayer_vigil)
 
     respond_to do |format|
       format.html
       format.csv do
-        send_data BookingReportCreator.new(@bookings), filename: "prayer_vigil_#{params[:id]}_bookings.csv"
+        report = BookingReportCreator.new(@bookings.to_a)
+        send_data report.csv_data, filename: "prayer_vigil_#{params[:id]}_bookings.csv"
       end
     end
   end
