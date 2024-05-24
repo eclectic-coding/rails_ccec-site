@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_14_103552) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_24_144636) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_103552) do
     t.index ["prayer_vigil_id"], name: "index_bookings_on_prayer_vigil_id"
   end
 
+  create_table "churches", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.string "pastor"
+    t.string "church_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "editables", force: :cascade do |t|
     t.string "shortname"
     t.text "content"
@@ -147,6 +160,49 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_103552) do
     t.index ["message_recipient_id"], name: "index_messages_on_message_recipient_id"
   end
 
+  create_table "pilgrim_applications", force: :cascade do |t|
+    t.string "payment_method"
+    t.decimal "payment_amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pilgrims", force: :cascade do |t|
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "street_address"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.string "primary_phone"
+    t.string "alternative_phone"
+    t.string "work_phone"
+    t.string "email"
+    t.datetime "date_birth"
+    t.string "gender"
+    t.string "occupation"
+    t.string "nametag_name"
+    t.boolean "clergy", default: false
+    t.boolean "musician", default: false
+    t.string "emergency_name"
+    t.string "emergency_relationship"
+    t.string "emergency_city"
+    t.string "emergency_primary_phone"
+    t.string "emergency_alternative_phone"
+    t.string "health_condition"
+    t.string "physical_limitations"
+    t.boolean "medication_time", default: false
+    t.text "allergies"
+    t.text "walk_explained"
+    t.boolean "followup_activities", default: false
+    t.text "short_notice"
+    t.bigint "pilgrim_application_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pilgrim_application_id"], name: "index_pilgrims_on_pilgrim_application_id"
+  end
+
   create_table "poly_actives", force: :cascade do |t|
     t.boolean "active", default: true
     t.string "activatable_type", null: false
@@ -183,6 +239,30 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_103552) do
     t.datetime "updated_at", null: false
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "primary_phone"
+    t.string "alternative_phone"
+    t.text "church_reunion"
+    t.boolean "manage_stairs", default: false
+    t.boolean "walking_ramp", default: true
+    t.boolean "wheelchairs", default: false
+    t.boolean "handicap_shower", default: false
+    t.boolean "manage_top_bunk", default: false
+    t.text "top_bunk_health"
+    t.boolean "reviewed_good_sponsor", default: false
+    t.boolean "understand_transportation", default: false
+    t.boolean "letter_min", default: false
+    t.boolean "must_attend_events", default: false
+    t.boolean "followup", default: false
+    t.bigint "pilgrim_application_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pilgrim_application_id"], name: "index_sponsors_on_pilgrim_application_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -262,7 +342,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_14_103552) do
   add_foreign_key "bookings", "prayer_vigils"
   add_foreign_key "events", "addresses"
   add_foreign_key "messages", "message_recipients"
+  add_foreign_key "pilgrims", "pilgrim_applications"
   add_foreign_key "prayer_slots", "prayer_vigils"
+  add_foreign_key "sponsors", "pilgrim_applications"
   add_foreign_key "taggings", "tags"
   add_foreign_key "users", "accounts"
 end
