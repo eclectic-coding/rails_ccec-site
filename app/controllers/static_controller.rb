@@ -16,4 +16,7 @@ class StaticController < ApplicationController
 
   def thank_you
   end
+
+  def online_application
+  end
 end

@@ -15,7 +15,7 @@ class Admin::Events::AddressesController < ApplicationController
         format.html { redirect_to edit_admin_event_path(@event), notice: t('.create_address') }
         format.json { render :show, status: :created, location: @address }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :online_application, status: :unprocessable_entity }
         format.json { render json: @address.errors, status: :unprocessable_entity }
       end
     end
