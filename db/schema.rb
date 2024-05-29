@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_24_144636) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_29_101403) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_144636) do
     t.string "church_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "pilgrim_id", null: false
+    t.index ["pilgrim_id"], name: "index_churches_on_pilgrim_id"
   end
 
   create_table "editables", force: :cascade do |t|
@@ -340,6 +342,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_24_144636) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "prayer_slots"
   add_foreign_key "bookings", "prayer_vigils"
+  add_foreign_key "churches", "pilgrims"
   add_foreign_key "events", "addresses"
   add_foreign_key "messages", "message_recipients"
   add_foreign_key "pilgrims", "pilgrim_applications"

@@ -13,6 +13,18 @@
 #  zipcode        :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  pilgrim_id     :bigint           not null
+#
+# Indexes
+#
+#  index_churches_on_pilgrim_id  (pilgrim_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (pilgrim_id => pilgrims.id)
 #
 class Church < ApplicationRecord
+  belongs_to :pilgrim
+
+  validates :church_email, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
