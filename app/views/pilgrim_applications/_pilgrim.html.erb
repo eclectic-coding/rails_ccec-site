@@ -17,11 +17,11 @@
 
 <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-4">
   <div>
-    <%= pilgrim_form.label :nametag_name, "Name for Nametag", class: "form-label" %>
+    <%= pilgrim_form.label :nametag_name, t('.nametag'), class: "form-label" %>
     <%= pilgrim_form.text_field :nametag_name, class: "form-control w-full" %>
   </div>
   <div>
-    <%= pilgrim_form.label :date_birth, "Date of Birth", class: "form-label required" %>
+    <%= pilgrim_form.label :date_birth, t('.date_of_birth'), class: "form-label required" %>
     <%= pilgrim_form.text_field :date_birth, class: "form-control w-full flatpickr",
                                 data: { controller: "flatpickr" } %>
     <%= component "shared/form_errors", resource: pilgrim_form.object, key: :date_birth %>

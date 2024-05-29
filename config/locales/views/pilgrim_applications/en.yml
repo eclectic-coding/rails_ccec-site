@@ -1,0 +1,25 @@
+en:
+  pilgrim_applications:
+    new:
+      pilgrim_title: Pilgrim
+      contact_info_title: Contact Information
+      church: Church
+      emergency_contact_title: Emergency Contact other than sponsor
+      medical_title: Medical Information
+      sponsor_title: Sponsor
+    pilgrim:
+      nametag: Name for Nametag
+      date_of_birth: Date of Birth
+    pilgrim_emergency_contact:
+      name: Name
+      relationship: Relationship
+      city: City
+      primary_phone: Primary Phone
+      alternate_phone: Alternate Phone
+    pilgrim_medical_info:
+      health_condition: "Please note any significant Health Conditions we should be aware of in an emergency, even if they are currently well managed"
+      physical_limitations: "Do you have Physical Limitations that we should be aware of? If yes, please describe so we can try to accommodate your needs. Ex: do you use a walker, wheel chair, need a handicap shower, are unable to climb stairs, hearing or vision problems..."
+      medication_time: "As you will not be wearing a watch, do you need to take a medication at a time other than with meals, waking, or going to bed?"
+      allergies: "Do you have any food allergies or required dietary restrictions? (Peanut allergy, Dairy, Eggs, etc.)"
+
+

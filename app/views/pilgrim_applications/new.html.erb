@@ -20,21 +20,21 @@
   <div>
     <%= form_with(model: @pilgrim_application, url: pilgrim_application_path) do |form| %>
       <%= form.fields_for :pilgrims do |pilgrim_form| %>
-        <h2 class="border-b-2 mt-6 mb-4">Pilgrim</h2>
+        <h2 class="border-b-2 mt-6 mb-4"><%= t('.pilgrim_title') %></h2>
         <%= render partial: "pilgrim", locals: { pilgrim_form: pilgrim_form } %>
 
-        <h3 class="my-4">Contact Information</h3>
+        <h3 class="my-4"><%= t('.contact_info_title') %></h3>
         <%= render partial: "pilgrim_contact_info", locals: { pilgrim_form: pilgrim_form } %>
 
-        <h3 class="my-4">Church</h3>
+        <h3 class="my-4"><%= t('.church') %></h3>
         <%= pilgrim_form.fields_for :churches do |church| %>
           <%= render partial: "pilgrim_churches", locals: { church: church } %>
         <% end %>
 
-        <h3 class="my-4">Emergency Contact other than sponsor</h3>
+        <h3 class="my-4"><%= t('.emergency_contact_title') %></h3>
         <%= render partial: "pilgrim_emergency_contact", locals: { pilgrim_form: pilgrim_form } %>
 
-        <h3 class="my-4">Medical Information</h3>
+        <h3 class="my-4"><%= t('.medical_title') %></h3>
         <%= render partial: "pilgrim_medical_info", locals: { pilgrim_form: pilgrim_form } %>
 
         <div class="flex items-center mb-2">
@@ -52,7 +52,7 @@
           <%= pilgrim_form.check_box :short_notice, class: "" %>
         </div>
       <% end %>
-      <h2 class="border-b-2 mt-6 mb-4">Sponsor</h2>
+      <h2 class="border-b-2 mt-6 mb-4"><%= t('.sponsor_title') %></h2>
 
       <div class="my-8">
         <%= form.submit "Submit Application", class: "btn btn-primary" %>
