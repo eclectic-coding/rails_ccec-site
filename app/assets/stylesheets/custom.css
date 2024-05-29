@@ -1,3 +1,8 @@
 .debug-dump {
-  color: red;
+    color: red;
+}
+
+.required:after {
+    content: " *";
+    color: red;
 }

@@ -35,8 +35,24 @@
         <%= render partial: "pilgrim_emergency_contact", locals: { pilgrim_form: pilgrim_form } %>
 
         <h3 class="my-4">Medical Information</h3>
-        <h2 class="border-b-2 mt-6 mb-4">Sponsor</h2>
+        <%= render partial: "pilgrim_medical_info", locals: { pilgrim_form: pilgrim_form } %>
+
+        <div class="flex items-center mb-2">
+          <%= pilgrim_form.label :walk_explained, "Has the purpose of the Walk been explained to you?", class: "form-label mr-1" %>
+          <%= pilgrim_form.check_box :walk_explained, class: "" %>
+        </div>
+
+        <div class="flex items-center mb-2">
+          <%= pilgrim_form.label :followup_activities, "Has your sponsor discussed follow-up activities?", class: "form-label mr-1" %>
+          <%= pilgrim_form.check_box :followup_activities, class: "" %>
+        </div>
+
+        <div class="flex items-center mb-2">
+          <%= pilgrim_form.label :short_notice, "Can you attend the Walk on short notice if you are placed on a waitlist?", class: "form-label mr-1" %>
+          <%= pilgrim_form.check_box :short_notice, class: "" %>
+        </div>
       <% end %>
+      <h2 class="border-b-2 mt-6 mb-4">Sponsor</h2>
 
       <div class="my-8">
         <%= form.submit "Submit Application", class: "btn btn-primary" %>

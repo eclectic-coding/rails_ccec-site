@@ -1,0 +1,24 @@
+<div>
+  <div class="mb-4">
+    <%= pilgrim_form.label :health_condition,
+                           "Please note any significant Health Conditions we should be aware of in an emergency, even if they are currently well managed",
+                           class: "form-label" %>
+    <%= pilgrim_form.text_area :health_condition, class: "form-control w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= pilgrim_form.label :physical_limitations,
+                           "Do you have Physical Limitations that we should be aware of? If yes, please describe so we can try to accommodate your needs. Ex: do you use a walker, wheel chair, need a handicap shower, are unable to climb stairs, hearing or vision problems...",
+                           class: "form-label" %>
+    <%= pilgrim_form.text_area :physical_limitations, class: "form-control w-full" %>
+  </div>
+  <div class="flex items-center mb-4">
+    <%= pilgrim_form.label :medication_time, "As you will not be wearing a watch, do you need to take a medication at a time other than with meals, waking, or going to bed?", class: "form-label mr-2" %>
+    <%= pilgrim_form.check_box :medication_time, class: "" %>
+  </div>
+  <div class="mb-4">
+    <%= pilgrim_form.label :allergies,
+                           "Do you have any food allergies or required dietary restrictions? (Peanut allergy, Dairy, Eggs, etc.)",
+                           class: "form-label" %>
+    <%= pilgrim_form.text_area :allergies, class: "form-control w-full" %>
+  </div>
+</div>
