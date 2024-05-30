@@ -6,7 +6,7 @@
   </div>
   <div>
     <%= sponsor.label :primary_phone, class: "form-label required" %>
-    <%= sponsor.text_field :primary_phone, class: "form-control w-full", placeholder: "910-555-1212" %>
+    <%= sponsor.text_field :primary_phone, class: "form-control w-full", placeholder: t('pilgrim_applications.pilgrim_contact_info.phone_placeholder') %>
     <%= component "shared/form_errors", resource: sponsor.object, key: :primary_phone %>
   </div>
   <div>
@@ -16,7 +16,7 @@
   </div>
   <div>
     <%= sponsor.label :alternative_phone, class: "form-label" %>
-    <%= sponsor.text_field :alternative_phone, class: "form-control w-full", placeholder: "910-555-1212" %>
+    <%= sponsor.text_field :alternative_phone, class: "form-control w-full", placeholder: t('pilgrim_applications.pilgrim_contact_info.phone_placeholder') %>
   </div>
   <div>
     <%= sponsor.label :church_reunion, class: "form-label required" %>

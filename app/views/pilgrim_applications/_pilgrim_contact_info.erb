@@ -25,16 +25,16 @@
   </div>
   <div>
     <%= pilgrim_form.label :primary_phone, class: "form-label required" %>
-    <%= pilgrim_form.text_field :primary_phone, class: "form-control", placeholder: "910-555-1212" %>
+    <%= pilgrim_form.text_field :primary_phone, class: "form-control", placeholder: t('.phone_placeholder') %>
     <%= component "shared/form_errors", resource: pilgrim_form.object, key: :primary_phone %>
   </div>
   <div>
     <%= pilgrim_form.label :work_phone, class: "form-label" %>
-    <%= pilgrim_form.text_field :work_phone, class: "form-control", placeholder: "910-555-1212" %>
+    <%= pilgrim_form.text_field :work_phone, class: "form-control", placeholder: t('.phone_placeholder') %>
   </div>
   <div>
     <%= pilgrim_form.label :alternative_phone, class: "form-label" %>
-    <%= pilgrim_form.text_field :alternative_phone, class: "form-control", placeholder: "910-555-1212" %>
+    <%= pilgrim_form.text_field :alternative_phone, class: "form-control", placeholder: t('.phone_placeholder') %>
   </div>
   <div>
     <%= pilgrim_form.label :occupation, class: "form-label" %>

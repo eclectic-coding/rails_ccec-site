@@ -42,3 +42,6 @@ en:
       letter_min: Must collect a minimum of 12 letters?
       must_attend: Must attend Registration, Sendoff and Sponsor’s Hour, Candlelight, and Closing for your Pilgrim?
       followup: Will help your Pilgrim attend the Follow-up meeting?
+      pilgrims_feel: "Do you feel your Pilgrim is:"
+    pilgrim_contact_info:
+      phone_placeholder: "910-555-1212"
