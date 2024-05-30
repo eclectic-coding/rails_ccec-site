@@ -43,22 +43,22 @@
   <h3 class="mb-4"><%= t('.sponsor_responsibilities_title') %></h3>
   <div class="w-full sm:w-1/2 mb-4">
     <%= sponsor.label :reviewed_good_sponsor, t('.good_sponsor'), class: "form-label required" %>
-    <%= sponsor.select :reviewed_good_sponsor, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    <%= sponsor.select :reviewed_good_sponsor, options_for_select([['Yes', true], ['No', false]]), { include_blank: "Select" }, { class: "form-select" } %>
   </div>
   <div class="w-full sm:w-1/2 mb-4">
     <%= sponsor.label :understand_transportation, t('.transportation'), class: "form-label required" %>
-    <%= sponsor.select :understand_transportation, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    <%= sponsor.select :understand_transportation, options_for_select([['Yes', true], ['No', false]]), { include_blank: "Select" }, { class: "form-select" } %>
   </div>
   <div class="w-full sm:w-1/2 mb-4">
     <%= sponsor.label :letter_min, t('.letter_min'), class: "form-label required" %>
-    <%= sponsor.select :letter_min, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    <%= sponsor.select :letter_min, options_for_select([['Yes', true], ['No', false]]), { include_blank: "Select" }, { class: "form-select" } %>
   </div>
   <div class="w-full sm:w-1/2 mb-4">
     <%= sponsor.label :must_attend_events, t('.must_attend'), class: "form-label required" %>
-    <%= sponsor.select :must_attend_events, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    <%= sponsor.select :must_attend_events, options_for_select([['Yes', true], ['No']], false), { include_blank: "Select" }, { class: "form-select" } %>
   </div>
   <div class="w-full sm:w-1/2 mb-4">
     <%= sponsor.label :followup, t('.followup'), class: "form-label required" %>
-    <%= sponsor.select :followup, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    <%= sponsor.select :followup, options_for_select([['Yes', true], ['No', false]]), { include_blank: "Select" }, { class: "form-select" } %>
   </div>
 </div>

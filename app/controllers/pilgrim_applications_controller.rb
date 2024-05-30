@@ -7,8 +7,9 @@ class PilgrimApplicationsController < ApplicationController
 
   def create
     @pilgrim_application = PilgrimApplication.new(pilgrim_application_params)
-    if @pilgrim_application.save
-      redirect_to root_path, notice: "Pilgrim application submitted successfully."
+    console
+    if @pilgrim_application.save!
+      redirect_to root_path, notice: 'Pilgrim application submitted successfully.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,6 +26,11 @@ class PilgrimApplicationsController < ApplicationController
         :physical_limitations, :short_notice, :emergency_name, :emergency_relationship, :emergency_primary_phone,
         :emergency_alternative_phone, :emergency_city, :allergies,
         churches_attributes: [:name, :city, :street_address, :state, :zipcode, :phone, :pastor, :church_email]
+      ],
+      sponsors_attributes: [
+        :name, :email, :primary_phone, :alternative_phone, :church_reunion,
+        :reviewed_good_sponsor, :understand_transportation, :letter_min, :must_attend_events, :followup,
+        :manage_stairs, :manage_top_bunk, :handicap_shower, :walking_ramp, :wheelchairs, :top_bunk_health
       ]
     )
   end

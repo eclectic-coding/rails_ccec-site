@@ -26,5 +26,5 @@
 class Church < ApplicationRecord
   belongs_to :pilgrim
 
-  validates :church_email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :church_email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
 end

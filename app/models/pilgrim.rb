@@ -50,7 +50,7 @@ class Pilgrim < ApplicationRecord
 
   validates :first_name, :last_name, :date_birth, :gender, :street_address, :city, :state,
             :zipcode, :primary_phone, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
   validates :primary_phone, format: { with: /\A\d{3}-\d{3}-\d{4}\z/ }
 
   accepts_nested_attributes_for :churches, allow_destroy: true

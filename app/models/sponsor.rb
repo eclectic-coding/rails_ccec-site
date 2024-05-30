@@ -37,7 +37,7 @@ class Sponsor < ApplicationRecord
 
   has_person_name
 
-  validates :first_name, :last_name, :primary_phone, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :name, :primary_phone, :reviewed_good_sponsor, :understand_transportation, :letter_min, :must_attend_events, :followup, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
   validates :primary_phone, format: { with: /\A\d{3}-\d{3}-\d{4}\z/ }
 end
