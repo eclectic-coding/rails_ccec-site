@@ -1,0 +1,68 @@
+<div class="container w-full sm:w-3/4 mx-auto my-8 p-4 lg-p-0">
+  <h1 class="text-center mb-8">Online Application</h1>
+  <div class="mr-auto place-self-center lg:col-span-7">
+    <p class="mb-4">
+      Applicants for the Emmaus Walk must first have a sponsor. This can be any youth or adult who has attended an
+      Emmaus-type retreat through the Presbyterian, Episcopal or Catholic Church, including youth from a Chrysalis,
+      Journey, and Kayak, and any adults who have attended Emmaus, Kairos, Kairos Outside, and Cursillo (Presented by
+      the Catholic church and the original model for Emmaus). Once a person has attended any one of these weekend
+      retreats, that person may sponsor an appropriate candidate for any of these weekends.
+    </p>
+    <p class="mb-4">
+      This Online Application includes two parts, one for the attendee, called a pilgrim, and one for the sponsor. Both
+      sections much be filled out completely. At the end of the Online Application, there will be a choice to either
+      mail your payment (Deposit or full amount), or to pay via PayPal. Either method can be used but the application
+      will not logged in until the application has been reviewed by both the Community Registrar and the Community
+      Treasurer.
+    </p>
+  </div>
+
+  <div>
+    <%= form_with(model: @pilgrim_application, url: pilgrim_application_path) do |form| %>
+      <%= form.fields_for :pilgrims do |pilgrim_form| %>
+        <h2 class="border-b-2 mt-6 mb-4"><%= t('.pilgrim_title') %></h2>
+        <%= render partial: "pilgrim", locals: { pilgrim_form: pilgrim_form } %>
+
+        <h3 class="my-4"><%= t('.contact_info_title') %></h3>
+        <%= render partial: "pilgrim_contact_info", locals: { pilgrim_form: pilgrim_form } %>
+
+        <h3 class="my-4"><%= t('.church') %></h3>
+        <%= pilgrim_form.fields_for :churches do |church| %>
+          <%= render partial: "pilgrim_churches", locals: { church: church } %>
+        <% end %>
+
+        <h3 class="my-4"><%= t('.emergency_contact_title') %></h3>
+        <%= render partial: "pilgrim_emergency_contact", locals: { pilgrim_form: pilgrim_form } %>
+
+        <h3 class="my-4"><%= t('.medical_title') %></h3>
+        <%= render partial: "pilgrim_medical_info", locals: { pilgrim_form: pilgrim_form } %>
+
+        <div class="w-full sm:w-1/3 mb-3">
+          <%= pilgrim_form.label :walk_explained, "Has the purpose of the Walk been explained to you?", class: "form-label" %>
+          <%= pilgrim_form.select :walk_explained, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+        </div>
+
+        <div class="w-full sm:w-1/3 mb-3">
+          <%= pilgrim_form.label :followup_activities, "Has your sponsor discussed follow-up activities?", class: "form-label mr-1" %>
+          <%= pilgrim_form.select :followup_activities, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+        </div>
+
+        <div class="w-full sm:w-1/3 mb-3">
+          <%= pilgrim_form.label :short_notice, "Can you attend the Walk on short notice if you are placed on a waitlist?", class: "form-label mr-1" %>
+          <%= pilgrim_form.select :short_notice, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+        </div>
+      <% end %>
+      <h2 class="border-b-2 mt-6 mb-4"><%= t('.sponsor_title') %></h2>
+      <%= form.fields_for :sponsors do |sponsor| %>
+        <%= render partial: "sponsor_info", locals: { sponsor: sponsor} %>
+
+        <h3 class="my-4"><%= t('.assessments') %></h3>
+        <%= render partial: "sponsor_assessments", locals: { sponsor: sponsor } %>
+      <% end %>
+
+      <div class="my-8">
+        <%= form.submit "Submit Application", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

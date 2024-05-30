@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   get "contact_us", to: "messages#new", as: :messages_new
   post "contact_us", to: "messages#create", as: :messages
 
+  get 'online_application', to: 'static#online_application'
+  get 'registration', to: 'pilgrim_applications#new', as: :new_pilgrim_application
+  post 'pilgrim_applications/create', to: 'pilgrim_applications#create',as: :pilgrim_application
+
   resources :events, only: [:index, :show]
 
   devise_for :users

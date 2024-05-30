@@ -1,0 +1,47 @@
+en:
+  pilgrim_applications:
+    new:
+      pilgrim_title: Pilgrim
+      contact_info_title: Contact Information
+      church: Church
+      emergency_contact_title: Emergency Contact other than sponsor
+      medical_title: Medical Information
+      sponsor_title: Sponsor
+      assessments: Pilgrim Assessments
+    pilgrim:
+      nametag: Name for Nametag
+      date_of_birth: Date of Birth
+    pilgrim_emergency_contact:
+      name: Name
+      relationship: Relationship
+      city: City
+      primary_phone: Primary Phone
+      alternate_phone: Alternate Phone
+    pilgrim_medical_info:
+      health_condition: "Please note any significant Health Conditions we should be aware of in an emergency, even if they are currently well managed"
+      physical_limitations: "Do you have Physical Limitations that we should be aware of? If yes, please describe so we can try to accommodate your needs. Ex: do you use a walker, wheel chair, need a handicap shower, are unable to climb stairs, hearing or vision problems..."
+      medication_time: "As you will not be wearing a watch, do you need to take a medication at a time other than with meals, waking, or going to bed?"
+      allergies: "Do you have any food allergies or required dietary restrictions? (Peanut allergy, Dairy, Eggs, etc.)"
+    sponsor_assessments:
+      assessment_note_html: "<strong>Pilgrim Assessment:</strong> The Retreat Center has low impact steps to the main level and the Conference Room level, as well
+  as a ramp from ground floor to the Conference Room. Once upstairs the decks connect each building. Most activities
+  only require climbing up or down one flight at a time."
+      physical_abilities: After speaking to your Pilgrim in general about their physical abilities...
+      manage_stairs: "Able to manage climbing a flight of stairs?"
+      ramp: "Would be more comfortable walking the ramp?"
+      wheelchair: "Requires a wheel chair?"
+      handicap_shower: "Will need a handicap shower?"
+      beds_html: "<strong>Beds: (IMPORTANT)</strong> Salt and Light has bunk beds. NOT EVERYBODY can be guaranteed a bottom bunk, especially if the Walk is full to capacity."
+      top_bunk: "Could your Pilgrim manage a top bunk in a pinch?"
+      top_bunk_reason: "Does your Pilgrim REQUIRE a bottom bunk for age/health reasons? Why?"
+      sponsor_info_title: Sponsor Information
+      sponsor_info_html: "Please sign into your profile at <a href='https://ministrymanager.upperroom.org/' target='_blank' aria-label='Ministry Manager (new window)'>Ministry Manager</a> and update your contact information. If you are new to our Community, please contact the Registrar to be added to Ministry Manger. If you have Sponsorship questions, or are unable to sign into Ministry Manager, please contact the <a href='mailto:registrar@ccemmaus.org'>Registrar</a>."
+      sponsor_responsibilities_title: Sponsor Responsibilities
+      good_sponsor: Have you reviewed the Steps to good sponsorship?
+      transportation: Understand that you are responsible for getting the Pilgrim to the Walk and back home?
+      letter_min: Must collect a minimum of 12 letters?
+      must_attend: Must attend Registration, Sendoff and Sponsor’s Hour, Candlelight, and Closing for your Pilgrim?
+      followup: Will help your Pilgrim attend the Follow-up meeting?
+      pilgrims_feel: "Do you feel your Pilgrim is:"
+    pilgrim_contact_info:
+      phone_placeholder: "910-555-1212"

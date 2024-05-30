@@ -47,4 +47,11 @@
 class Pilgrim < ApplicationRecord
   belongs_to :pilgrim_application
   has_many :churches
+
+  validates :first_name, :last_name, :date_birth, :gender, :street_address, :city, :state,
+            :zipcode, :primary_phone, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
+  validates :primary_phone, format: { with: /\A\d{3}-\d{3}-\d{4}\z/ }
+
+  accepts_nested_attributes_for :churches, allow_destroy: true
 end

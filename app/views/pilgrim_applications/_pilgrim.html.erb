@@ -1,0 +1,34 @@
+<div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-4 mb-4">
+  <div>
+    <%= pilgrim_form.label :first_name, class: "form-label required" %>
+    <%= pilgrim_form.text_field :first_name, class: "form-control w-full" %>
+    <%= component "shared/form_errors", resource: pilgrim_form.object, key: :first_name %>
+  </div>
+  <div>
+    <%= pilgrim_form.label :middle_name, class: "form-label" %>
+    <%= pilgrim_form.text_field :middle_name, class: "form-control w-full" %>
+  </div>
+  <div>
+    <%= pilgrim_form.label :last_name, class: "form-label required" %>
+    <%= pilgrim_form.text_field :last_name, class: "form-control w-full" %>
+    <%= component "shared/form_errors", resource: pilgrim_form.object, key: :last_name %>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-4">
+  <div>
+    <%= pilgrim_form.label :nametag_name, t('.nametag'), class: "form-label" %>
+    <%= pilgrim_form.text_field :nametag_name, class: "form-control w-full" %>
+  </div>
+  <div>
+    <%= pilgrim_form.label :date_birth, t('.date_of_birth'), class: "form-label required" %>
+    <%= pilgrim_form.text_field :date_birth, class: "form-control w-full flatpickr",
+                                data: { controller: "flatpickr" } %>
+    <%= component "shared/form_errors", resource: pilgrim_form.object, key: :date_birth %>
+  </div>
+  <div>
+    <%= pilgrim_form.label :gender, class: "form-label required" %>
+    <%= pilgrim_form.select :gender, %w[Male Female], { prompt: 'Please select' }, class: "form-control w-full" %>
+    <%= component "shared/form_errors", resource: pilgrim_form.object, key: :gender %>
+  </div>
+</div>

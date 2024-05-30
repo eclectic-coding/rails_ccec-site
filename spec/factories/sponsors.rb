@@ -18,7 +18,7 @@
 #  reviewed_good_sponsor     :boolean          default(FALSE)
 #  top_bunk_health           :text
 #  understand_transportation :boolean          default(FALSE)
-#  walking_ramp              :boolean          default(TRUE)
+#  walking_ramp              :boolean          default(FALSE)
 #  wheelchairs               :boolean          default(FALSE)
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null

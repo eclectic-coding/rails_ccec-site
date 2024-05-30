@@ -1,0 +1,30 @@
+<div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-4 mb-4">
+  <div>
+    <%= church.label :name, class: "form-label" %>
+    <%= church.text_field :name, class: "form-control w-full" %>
+  </div>
+  <div>
+    <%= church.label :phone, class: "form-label" %>
+    <%= church.text_field :phone, class: "form-control w-full", placeholder: t('pilgrim_applications.pilgrim_contact_info.phone_placeholder') %>
+  </div>
+  <div>
+    <%= church.label :pastor, class: "form-label" %>
+    <%= church.text_field :pastor, class: "form-control w-full" %>
+  </div>
+  <div>
+    <%= church.label :street_address, class: "form-label" %>
+    <%= church.text_field :street_address, class: "form-control w-full" %>
+  </div>
+  <div>
+    <%= church.label :state, class: "form-label" %>
+    <%= church.text_field :state, class: "form-control w-full" %>
+  </div>
+  <div>
+    <%= church.label :zipcode, class: "form-label" %>
+    <%= church.text_field :zipcode, class: "form-control w-full" %>
+  </div>
+  <div>
+    <%= church.label :church_email, class: "form-label" %>
+    <%= church.text_field :church_email, class: "form-control w-full" %>
+  </div>
+</div>
