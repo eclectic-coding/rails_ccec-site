@@ -39,20 +39,26 @@
 
         <div class="flex items-center mb-2">
           <%= pilgrim_form.label :walk_explained, "Has the purpose of the Walk been explained to you?", class: "form-label mr-1" %>
-          <%= pilgrim_form.check_box :walk_explained, class: "" %>
+          <%= pilgrim_form.check_box :walk_explained, class: "form-check-input" %>
         </div>
 
         <div class="flex items-center mb-2">
           <%= pilgrim_form.label :followup_activities, "Has your sponsor discussed follow-up activities?", class: "form-label mr-1" %>
-          <%= pilgrim_form.check_box :followup_activities, class: "" %>
+          <%= pilgrim_form.check_box :followup_activities, class: "form-check-input" %>
         </div>
 
         <div class="flex items-center mb-2">
           <%= pilgrim_form.label :short_notice, "Can you attend the Walk on short notice if you are placed on a waitlist?", class: "form-label mr-1" %>
-          <%= pilgrim_form.check_box :short_notice, class: "" %>
+          <%= pilgrim_form.check_box :short_notice, class: "form-check-input" %>
         </div>
       <% end %>
       <h2 class="border-b-2 mt-6 mb-4"><%= t('.sponsor_title') %></h2>
+      <%= form.fields_for :sponsors do |sponsor| %>
+        <%= render partial: "sponsor_info", locals: { sponsor: sponsor} %>
+
+        <h3 class="my-4"><%= t('.assessments') %></h3>
+        <%= render partial: "sponsor_assessments", locals: { sponsor: sponsor } %>
+      <% end %>
 
       <div class="my-8">
         <%= form.submit "Submit Application", class: "btn btn-primary" %>

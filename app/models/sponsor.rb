@@ -18,7 +18,7 @@
 #  reviewed_good_sponsor     :boolean          default(FALSE)
 #  top_bunk_health           :text
 #  understand_transportation :boolean          default(FALSE)
-#  walking_ramp              :boolean          default(TRUE)
+#  walking_ramp              :boolean          default(FALSE)
 #  wheelchairs               :boolean          default(FALSE)
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
@@ -34,4 +34,10 @@
 #
 class Sponsor < ApplicationRecord
   belongs_to :pilgrim_application
+
+  has_person_name
+
+  validates :first_name, :last_name, :primary_phone, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :primary_phone, format: { with: /\A\d{3}-\d{3}-\d{4}\z/ }
 end

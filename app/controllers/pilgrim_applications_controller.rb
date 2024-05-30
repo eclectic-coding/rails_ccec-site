@@ -2,6 +2,7 @@ class PilgrimApplicationsController < ApplicationController
   def new
     @pilgrim_application = PilgrimApplication.new
     @pilgrim_application.pilgrims.build.churches.build
+    @pilgrim_application.sponsors.build
   end
 
   def create

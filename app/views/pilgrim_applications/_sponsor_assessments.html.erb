@@ -1,0 +1,64 @@
+<div>
+  <p><%= t('.assessment_note_html') %></p>
+  <p class="mt-4 mb-2 font-bold"><%= t('.physical_abilities') %></p>
+
+  <p class="mb-3 font-bold">Do you feel your Pilgrim is:</p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 sm:gap-4 mb-4">
+    <div class="mb-2">
+      <%= sponsor.label :manage_stairs, t('.manage_stairs'), class: "form-label" %>
+      <%= sponsor.select :manage_stairs, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    </div>
+
+    <div class="mb-2">
+      <%= sponsor.label :walking_ramp, t('.ramp'), class: "form-label" %>
+      <%= sponsor.select :walking_ramp, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    </div>
+
+    <div class="mb-2">
+      <%= sponsor.label :wheelchairs, t('.wheelchair'), class: "form-label" %>
+      <%= sponsor.select :wheelchairs, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    </div>
+
+    <div class="mb-2">
+      <%= sponsor.label :handicap_shower, t('.handicap_shower'), class: "form-label" %>
+      <%= sponsor.select :handicap_shower, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+    </div>
+  </div>
+
+  <p class="my-4"><%= t('.beds_html') %></p>
+  <div class="w-full sm:w-1/3 mb-2">
+    <%= sponsor.label :manage_top_bunk, t('.top_bunk'), class: "form-label" %>
+    <%= sponsor.select :manage_top_bunk, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+  </div>
+
+  <div class="mb-2">
+    <%= sponsor.label :top_bunk_health, t('.top_bunk_reason'), class: "form-label" %>
+    <%= sponsor.text_area :top_bunk_health, class: "form-control" %>
+  </div>
+
+  <h3 class="mt-4"><%= t('.sponsor_info_title') %></h3>
+  <div class="mb-4"><%= t('.sponsor_info_html') %></div>
+
+  <h3 class="mb-4"><%= t('.sponsor_responsibilities_title') %></h3>
+  <div class="w-full sm:w-1/2 mb-4">
+    <%= sponsor.label :reviewed_good_sponsor, t('.good_sponsor'), class: "form-label required" %>
+    <%= sponsor.select :reviewed_good_sponsor, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+  </div>
+  <div class="w-full sm:w-1/2 mb-4">
+    <%= sponsor.label :understand_transportation, t('.transportation'), class: "form-label required" %>
+    <%= sponsor.select :understand_transportation, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+  </div>
+  <div class="w-full sm:w-1/2 mb-4">
+    <%= sponsor.label :letter_min, t('.letter_min'), class: "form-label required" %>
+    <%= sponsor.select :letter_min, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+  </div>
+  <div class="w-full sm:w-1/2 mb-4">
+    <%= sponsor.label :must_attend_events, t('.must_attend'), class: "form-label required" %>
+    <%= sponsor.select :must_attend_events, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+  </div>
+  <div class="w-full sm:w-1/2 mb-4">
+    <%= sponsor.label :followup, t('.followup'), class: "form-label required" %>
+    <%= sponsor.select :followup, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select" } %>
+  </div>
+</div>
