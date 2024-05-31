@@ -1,0 +1,37 @@
+<%= component "shared/page_title", title: t(".title") %>
+
+<div class="card my-8">
+  <%= turbo_frame_tag "pilgrim_applications" do %>
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Pilgrim</th>
+          <th>Sponsor</th>
+          <th>Sponsor Email</th>
+          <th>Sponsor Phone</th>
+          <th>Submitted Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @pilgrim_applications.nil? %>
+          <tr>
+            <td colspan="6" class="text-center">No applications found</td>
+          </tr>
+        <% else %>
+          <% @pilgrim_applications.each do |pilgrim_application| %>
+            <tr>
+              <td><%= link_to pilgrim_application.pilgrims[0].full_name, admin_pilgrim_application_path(pilgrim_application), target: "_top" %></td>
+              <td><%= pilgrim_application.sponsors[0].name.full unless pilgrim_application.sponsors.empty? %></td>
+              <td><%= pilgrim_application.sponsors[0].email unless pilgrim_application.sponsors.empty? %></td>
+              <td><%= pilgrim_application.sponsors[0].primary_phone unless pilgrim_application.sponsors.empty? %></td>
+              <td><%= date_timestamp pilgrim_application.created_at %></td>
+            </tr>
+          <% end %>
+          <tr>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

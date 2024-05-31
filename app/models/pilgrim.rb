@@ -54,4 +54,8 @@ class Pilgrim < ApplicationRecord
   validates :primary_phone, format: { with: /\A\d{3}-\d{3}-\d{4}\z/ }
 
   accepts_nested_attributes_for :churches, allow_destroy: true
+
+  def full_name
+    "#{first_name} #{middle_name} #{last_name}"
+  end
 end
