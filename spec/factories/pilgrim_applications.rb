@@ -12,5 +12,8 @@ FactoryBot.define do
   factory :pilgrim_application do
     payment_method { "MyString" }
     payment_amount { "9.99" }
+
+    association :pilgrim
+    association :sponsor
   end
 end

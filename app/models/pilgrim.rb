@@ -49,7 +49,7 @@ class Pilgrim < ApplicationRecord
   has_many :churches
 
   validates :first_name, :last_name, :date_birth, :gender, :street_address, :city, :state,
-            :zipcode, :primary_phone, presence: true
+            :zipcode, :primary_phone, :medication_time, :walk_explained, :short_notice, :followup_activities, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
   validates :primary_phone, format: { with: /\A\d{3}-\d{3}-\d{4}\z/ }
 

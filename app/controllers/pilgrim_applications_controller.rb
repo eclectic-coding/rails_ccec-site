@@ -7,11 +7,10 @@ class PilgrimApplicationsController < ApplicationController
 
   def create
     @pilgrim_application = PilgrimApplication.new(pilgrim_application_params)
-    console
-    if @pilgrim_application.save!
+    if @pilgrim_application.save
       redirect_to root_path, notice: 'Pilgrim application submitted successfully.'
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: 'Error'
     end
   end
 

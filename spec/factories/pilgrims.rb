@@ -46,13 +46,13 @@
 #
 FactoryBot.define do
   factory :pilgrim do
-    first_name { "MyString" }
-    middle_name { "MyString" }
-    last_name { "MyString" }
-    street_address { "MyString" }
+    first_name { "First" }
+    middle_name { "Middle" }
+    last_name { "Last" }
+    street_address { "123 MyString St" }
     city { "MyString" }
-    state { "MyString" }
-    zipcode { "MyString" }
+    state { "NC" }
+    zipcode { "28451" }
     primary_phone { "MyString" }
     alternative_phone { "MyString" }
     work_phone { "MyString" }
