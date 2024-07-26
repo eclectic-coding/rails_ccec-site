@@ -25,7 +25,7 @@ FactoryBot.define do
     street { "123 Example St" }
     city { "City" }
     state { "NC" }
-    zip_code { nil }
+    zip_code { "12345" }
     latitude { 35.12345 }
     longitude { -80.12345 }
   end

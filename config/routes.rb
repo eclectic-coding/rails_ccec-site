@@ -32,9 +32,15 @@ Rails.application.routes.draw do
       resources :editables, only: [:index, :new, :create, :edit, :update, :destroy]
       resources :editables_activation, only: [:update]
       resources :prayer_vigils, only: [:index, :show]
-      resources :bookings, only: [:destroy]
       resources :prayer_vigils_activation, only: [:update]
+      resources :bookings, only: [:destroy]
       resources :export_bookings, only: [:index]
+      resources :media_uploads, except: :show
+      resources :addresses, except: :show
+      resources :messages, only: [:index, :show]
+      resources :message_recipients, only: [:index, :show, :new, :create]
+      resources :pilgrim_applications, only: [:index, :show, :edit, :update]
+
 
       resources :events do
         collection do
@@ -46,10 +52,6 @@ Rails.application.routes.draw do
         resources :addresses, only: [:new, :create]
       end
 
-      resources :media_uploads, except: :show
-      resources :addresses, except: :show
-      resources :messages, only: [:index, :show]
-      resources :message_recipients, only: [:index, :show, :new, :create]
 
       root to: "dashboard#show"
     end

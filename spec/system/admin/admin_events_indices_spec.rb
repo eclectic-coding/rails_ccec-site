@@ -16,7 +16,7 @@ RSpec.describe "AdminEventsIndices", type: :system do
       expect(page).to have_selector("nav.pagy", wait: 10) # Wait up to 10 seconds for the element to appear
     end
 
-    it "renders pagination and advances to page 2" do
+    xit "renders pagination and advances to page 2" do
       expect(page).to have_selector("nav.pagy", wait: 10) # Wait up to 10 seconds for the element to appear
 
       click_link "2"

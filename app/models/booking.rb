@@ -41,4 +41,9 @@ class Booking < ApplicationRecord
     prayer_slot = PrayerSlot.find(self.prayer_slot_id)
     prayer_slot.poly_actives.first.toggle!(:active)
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 end

@@ -8,8 +8,9 @@
     <%= pilgrim_form.text_area :physical_limitations, class: "form-control w-full" %>
   </div>
   <div class="mb-4">
-    <%= pilgrim_form.label :medication_time, t('.medication_time'), class: "form-label" %>
-    <%= pilgrim_form.select :medication_time, options_for_select([['Yes', true], ['No', false]], false), {}, { class: "form-select w-full sm:w-1/3" } %>
+    <%= pilgrim_form.label :medication_time, t('.medication_time'), class: "form-label required" %>
+    <%= pilgrim_form.select :medication_time, options_for_select([['Yes', true], ['No', false]]), { include_blank: "Select" }, { class: "form-select w-full sm:w-1/3" } %>
+    <%= component "shared/form_errors", resource: pilgrim_form.object, key: :medication_time %>
   </div>
   <div class="mb-4">
     <%= pilgrim_form.label :allergies, t('.allergies'), class: "form-label" %>
